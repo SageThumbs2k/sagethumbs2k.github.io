@@ -1,0 +1,29 @@
+# SageThumbs 2K - https://sagethumbs2k.github.io/
+
+# Answer / search assistants (cite us, drive traffic)
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+
+# Training crawlers (deliberately allowed - this is a free, open product)
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+# Everyone else
+User-agent: *
+Allow: /
+
+Sitemap: https://sagethumbs2k.github.io/sitemap.xml

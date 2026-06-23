@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="CtrxYGRAu0kR219D9MHtBV3yyWb729kDbfQP6hnK7zg">
+<title>SageThumbs 2K: Explorer thumbnails for 315 file types Windows can't read</title>
+<meta name="description" content="Free Windows 11 shell extension that adds File Explorer thumbnails for 315 file types Windows can't read: camera RAW, Photoshop PSD, HEIC, video, ebooks, comics and more.">
+<link rel="canonical" href="https://sagethumbs2k.github.io/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<meta name="theme-color" content="#0b0e13">
+<meta name="author" content="LunarWerx">
+<meta name="application-name" content="SageThumbs 2K">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SageThumbs 2K">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="SageThumbs 2K: Explorer thumbnails for 315 file types Windows can't read">
+<meta property="og:description" content="A fast, crash-isolated shell extension that renders File Explorer previews for camera RAW, PSD, HEIC, video, ebooks and comics. Free and source-available.">
+<meta property="og:url" content="https://sagethumbs2k.github.io/">
+<meta property="og:image" content="https://sagethumbs2k.github.io/og.png">
+<meta property="og:image:secure_url" content="https://sagethumbs2k.github.io/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SageThumbs 2K logo beside a row of real thumbnails it renders: a camera RAW photo, an ebook cover, an HDR landscape and an SVG.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SageThumbs 2K: thumbnails for 315 file types Windows can't read">
+<meta name="twitter:description" content="A fast, crash-isolated shell extension that renders File Explorer previews for RAW, PSD, HEIC, video, ebooks and comics. Free and source-available.">
+<meta name="twitter:image" content="https://sagethumbs2k.github.io/og.png">
+<meta name="twitter:image:alt" content="SageThumbs 2K: Explorer thumbnails for 315 file types Windows can't read.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://sagethumbs2k.github.io/#app",
+      "name": "SageThumbs 2K",
+      "operatingSystem": "Windows 11, Windows 10",
+      "applicationCategory": "UtilitiesApplication",
+      "softwareVersion": "0.6.1",
+      "url": "https://sagethumbs2k.github.io/",
+      "downloadUrl": "https://github.com/LunarWerxs/SageThumbs-2k/releases/latest",
+      "softwareHelp": "https://github.com/LunarWerxs/SageThumbs-2k",
+      "image": "https://sagethumbs2k.github.io/og.png",
+      "screenshot": "https://sagethumbs2k.github.io/img/explorer.webp",
+      "description": "A crash-isolated Windows shell extension that adds File Explorer thumbnails for 315 file types Windows can't read, including camera RAW, PSD, HEIC, video, ebooks and comics. Written in Rust, free and source-available.",
+      "featureList": [
+        "File Explorer thumbnails for 315 file types",
+        "Camera RAW: CR2, NEF, ARW, RAF and more",
+        "Photoshop PSD and PSB",
+        "HEIC, AVIF and JPEG XL",
+        "Video frame thumbnails: MP4, MKV, MOV, WebM",
+        "Ebook and comic covers: EPUB, MOBI, CBZ",
+        "Audio album art and waveforms",
+        "Right-click toolkit: convert, resize, rotate, combine to PDF, OCR",
+        "Command line and MCP server for AI agents",
+        "Crash-isolated, memory-safe Rust"
+      ],
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "license": "https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md",
+      "author": { "@id": "https://sagethumbs2k.github.io/#org" },
+      "publisher": { "@id": "https://sagethumbs2k.github.io/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://sagethumbs2k.github.io/#org",
+      "name": "LunarWerx",
+      "url": "https://sagethumbs2k.github.io/",
+      "logo": "https://sagethumbs2k.github.io/img/logo.png"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://sagethumbs2k.github.io/#site",
+      "name": "SageThumbs 2K",
+      "url": "https://sagethumbs2k.github.io/",
+      "publisher": { "@id": "https://sagethumbs2k.github.io/#org" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://sagethumbs2k.github.io/#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is it really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, free for personal and non-commercial use, with full source available. It is licensed PolyForm Noncommercial 1.0.0; only commercial deployment needs a separate license." } },
+        { "@type": "Question", "name": "Is it safe to run?", "acceptedAnswer": { "@type": "Answer", "text": "The code is public, written in memory-safe Rust, and every file is decoded inside crash-isolated boundaries with bomb guards. A malformed file cannot take down Explorer or the rest of your system." } },
+        { "@type": "Question", "name": "Will it slow down Explorer?", "acceptedAnswer": { "@type": "Answer", "text": "No. Thumbnails are generated on demand and cached by Windows, the fast paths are pure Rust, and heavy decodes run out of process. You can also cap the maximum file and thumbnail size in Settings." } },
+        { "@type": "Question", "name": "Why does Windows SmartScreen warn me?", "acceptedAnswer": { "@type": "Answer", "text": "The installer is not code-signed, since signing means a paid certificate, so Windows shows its default warning for any new publisher. Click More info then Run anyway. You can also build from source." } },
+        { "@type": "Question", "name": "Which versions of Windows?", "acceptedAnswer": { "@type": "Answer", "text": "Windows 11 and Windows 10, 64-bit. The modern right-click menu and the classic menu are both supported." } },
+        { "@type": "Question", "name": "Which formats are supported?", "acceptedAnswer": { "@type": "Answer", "text": "315 across Image, Camera RAW, Document, Video, Audio and Ebook or comics. Run st2k formats for the full, live list." } }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* cool, blue-tinted dark palette echoing the app's Settings window */
+    --bg:#0b0e13;
+    --bg-2:#11151d;
+    --s1:#12161f;
+    --s2:#171c27;
+    --s3:#1d2330;
+    --line:#222a37;
+    --line-2:#2c3645;
+    --line-3:#3a4659;
+
+    --ink:#e9edf4;
+    --ink-2:#a4adbe;
+    --ink-3:#717c8f;
+
+    --accent:#4d9cff;        /* links / tags / focus on dark */
+    --accent-2:#7bb6ff;
+    --accent-strong:#1f63d6; /* button bg, white text passes AA */
+    --accent-press:#1a55ba;
+    --teal:#22b8a6;          /* logo iris accent, used sparingly */
+
+    --maxw:1180px;
+    --r-sm:9px;
+    --r:14px;
+    --r-lg:20px;
+    --ease:cubic-bezier(.16,1,.3,1);
+    --ease-out:cubic-bezier(.23,1,.32,1);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:80px}
+  body{
+    font-family:"Geist",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    background:var(--bg);color:var(--ink-2);
+    font-size:1.0625rem;line-height:1.6;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+    font-feature-settings:"ss01" 1;
+  }
+  /* ambient depth: a single soft, low-alpha blue field behind the hero, plus faint grain */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+    background:
+      radial-gradient(1100px 620px at 78% -10%, rgba(77,156,255,.10), transparent 62%),
+      radial-gradient(900px 560px at 8% -6%, rgba(34,184,166,.05), transparent 60%);
+  }
+  body::after{
+    content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  a{color:var(--accent);text-decoration:none;transition:color .15s var(--ease)}
+  a:hover{color:var(--accent-2)}
+  img{display:block;max-width:100%}
+  ::selection{background:rgba(77,156,255,.28);color:#fff}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+  h1,h2,h3,h4{color:var(--ink);line-height:1.1;letter-spacing:-.025em;font-weight:600;text-wrap:balance}
+  p{text-wrap:pretty}
+  .mono{font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .sec{padding:clamp(56px,9vw,104px) 0}
+  .lead{font-size:clamp(1.05rem,1.5vw,1.2rem);color:var(--ink-2);max-width:60ch;line-height:1.55}
+  .eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:.78rem;letter-spacing:.04em;color:var(--accent);font-weight:500}
+
+  /* ---------------- NAV ---------------- */
+  .nav{position:sticky;top:0;z-index:60;background:rgba(11,14,19,.72);
+       backdrop-filter:blur(12px) saturate(140%);-webkit-backdrop-filter:blur(12px) saturate(140%);
+       border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;gap:24px;height:64px;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:600;color:var(--ink);font-size:1.02rem;letter-spacing:-.01em}
+  .brand img{width:27px;height:27px}
+  .brand{gap:9px}
+  .brand .k{color:var(--teal);font-weight:600;margin-left:3px}
+  .nav-links{display:flex;gap:4px;margin-left:8px}
+  .nav-links a{color:var(--ink-2);font-size:.93rem;font-weight:500;padding:7px 12px;border-radius:8px;transition:color .15s,background .15s}
+  .nav-links a:hover{color:var(--ink);background:rgba(255,255,255,.045)}
+  .nav-cta{margin-left:auto;display:flex;align-items:center;gap:10px}
+  @media(max-width:860px){.nav-links{display:none}}
+
+  /* ---------------- BUTTONS ---------------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+       font-family:inherit;font-weight:500;font-size:.95rem;line-height:1;cursor:pointer;
+       border-radius:11px;padding:12px 18px;border:1px solid transparent;white-space:nowrap;
+       transition:background .18s var(--ease),border-color .18s var(--ease),transform .12s var(--ease),box-shadow .18s var(--ease)}
+  .btn svg{flex:0 0 auto}
+  .btn:active{transform:scale(.98)}
+  .btn-primary{background:var(--accent-strong);color:#fff;box-shadow:0 10px 24px -14px rgba(31,99,214,.9)}
+  .btn-primary:hover{background:#2a72e6;color:#fff;box-shadow:0 14px 30px -14px rgba(31,99,214,1)}
+  .btn-primary:active{background:var(--accent-press)}
+  .btn-ghost{background:rgba(255,255,255,.025);color:var(--ink);border-color:var(--line-2)}
+  .btn-ghost:hover{background:rgba(255,255,255,.06);border-color:var(--line-3);color:var(--ink)}
+  .btn-sm{padding:8px 13px;font-size:.88rem;border-radius:9px}
+
+  /* ---------------- HERO ---------------- */
+  .hero{padding-top:clamp(48px,7vw,84px);padding-bottom:clamp(40px,6vw,72px);position:relative}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,1fr);gap:clamp(32px,5vw,60px);align-items:center}
+  h1{font-size:clamp(2.3rem,4.3vw,3.5rem);line-height:1.04;letter-spacing:-.035em;font-weight:600;color:var(--ink)}
+  .hero p.lead{margin-top:22px}
+  .hero .cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+  .hero .meta{margin-top:18px;font-size:.9rem;color:var(--ink-3);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .hero .meta .d{width:3px;height:3px;border-radius:50%;background:var(--line-3)}
+
+  /* masonry wall of REAL rendered thumbnails = the hero visual */
+  .wall{column-count:3;column-gap:12px}
+  .tile{position:relative;break-inside:avoid;margin-bottom:12px;border-radius:var(--r);overflow:hidden;
+        border:1px solid var(--line-2);background:var(--s1);
+        box-shadow:0 1px 0 rgba(255,255,255,.03) inset, 0 18px 40px -28px rgba(0,0,0,.9);
+        transition:transform .35s var(--ease),border-color .26s var(--ease),box-shadow .26s var(--ease);will-change:transform}
+  .tile img{width:100%;height:auto;display:block;transition:transform .6s var(--ease)}
+  @media(hover:hover) and (pointer:fine){
+    .tile:hover{border-color:color-mix(in srgb,var(--accent) 55%,var(--line-2));z-index:2;
+      box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 30px 58px -22px rgba(0,0,0,.96),0 0 0 1px color-mix(in srgb,var(--accent) 32%,transparent)}
+    .tile:hover img{transform:scale(1.07)}
+    .tile:hover .ext{color:#fff;border-color:color-mix(in srgb,var(--accent) 50%,transparent);background:rgba(8,11,16,.84)}
+  }
+  .tile .ext{position:absolute;left:9px;bottom:9px;display:inline-flex;align-items:center;gap:6px;
+             font-family:"Geist Mono",monospace;font-size:.68rem;font-weight:500;letter-spacing:.02em;color:#eef3fb;
+             padding:4px 8px;border-radius:7px;background:rgba(8,11,16,.74);
+             backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.08)}
+  .tile .ext .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .tile .ext .dot.t{background:var(--teal)}
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:34px}
+    .wall{column-count:3}
+  }
+  @media(max-width:560px){.wall{column-count:2}}
+
+  /* ---------------- SECTION HEAD ---------------- */
+  .head{max-width:48rem;margin-bottom:clamp(28px,4vw,44px)}
+  .head h2{font-size:clamp(1.85rem,3.4vw,2.6rem);letter-spacing:-.03em;margin:12px 0 14px}
+  .head p{font-size:1.08rem;color:var(--ink-2);line-height:1.55;max-width:56ch}
+
+  /* ---------------- COVERAGE ---------------- */
+  .coverage{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+  .bar{display:flex;height:14px;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:var(--s1)}
+  .bar span{height:100%}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px}
+  .legend .it{display:flex;align-items:center;gap:9px;font-size:.95rem;color:var(--ink-2)}
+  .legend .sw{width:11px;height:11px;border-radius:4px;flex:0 0 auto}
+  .legend .it b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+  .legend .it span{color:var(--ink-3);font-size:.85rem}
+  /* full format wall, coloured by category */
+  .fmtwall{margin-top:40px;display:flex;flex-direction:column;gap:28px}
+  .fmtgroup[data-cat="img"]{--c:#4d9cff}
+  .fmtgroup[data-cat="doc"]{--c:#ef8b5a}
+  .fmtgroup[data-cat="raw"]{--c:#b48bff}
+  .fmtgroup[data-cat="vid"]{--c:#f06ab0}
+  .fmtgroup[data-cat="aud"]{--c:#38d39f}
+  .fmtgroup[data-cat="ebk"]{--c:#f2c14e}
+  .fgh{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:.96rem;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+  .fgh .sw{width:10px;height:10px;border-radius:3px;background:var(--c);flex:0 0 auto;box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 15%,transparent)}
+  .fgh .cnt{font-family:"Geist Mono",monospace;font-size:.8rem;font-weight:500;color:var(--ink-3);font-variant-numeric:tabular-nums}
+  .fgchips{display:flex;flex-wrap:wrap;gap:7px}
+  .fc{font-family:"Geist Mono",monospace;font-size:.78rem;color:var(--ink-2);padding:5px 9px;border-radius:7px;cursor:default;
+      border:1px solid color-mix(in srgb,var(--c) 24%,var(--line));
+      background:color-mix(in srgb,var(--c) 7%,transparent);
+      transition:color .18s var(--ease),border-color .18s var(--ease),background .18s var(--ease),transform .18s var(--ease)}
+  @media(hover:hover) and (pointer:fine){.fc:hover{color:#fff;border-color:color-mix(in srgb,var(--c) 55%,transparent);background:color-mix(in srgb,var(--c) 18%,transparent);transform:translateY(-1px);cursor:help}}
+  /* rich hover tooltip for format chips (replaces the slow native title) */
+  .fmttip{position:fixed;left:0;top:0;z-index:80;max-width:300px;pointer-events:none;
+    background:#141a24;border:1px solid color-mix(in srgb,var(--ftc,#4d9cff) 45%,var(--line-3));border-radius:11px;padding:11px 13px;
+    box-shadow:0 18px 44px -14px rgba(0,0,0,.72),0 0 0 1px rgba(0,0,0,.3);
+    opacity:0;transform:translate(-50%,calc(-100% - 4px)) scale(.96);transform-origin:bottom center;
+    transition:opacity .14s var(--ease),transform .14s var(--ease)}
+  .fmttip.on{opacity:1;transform:translate(-50%,calc(-100% - 11px)) scale(1)}
+  .fmttip.below{transform-origin:top center;transform:translate(-50%,4px) scale(.96)}
+  .fmttip.below.on{transform:translate(-50%,11px) scale(1)}
+  .fmttip .ft-head{display:flex;align-items:baseline;gap:9px;margin-bottom:6px}
+  .fmttip .ft-ext{font-family:"Geist Mono",monospace;font-size:.9rem;font-weight:600;color:var(--ftc,#fff)}
+  .fmttip .ft-cat{display:flex;align-items:center;gap:6px;font-family:"Geist Mono",monospace;font-size:.7rem;letter-spacing:.02em;color:var(--ink-3);white-space:nowrap}
+  .fmttip .ft-cat::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ftc,#4d9cff);flex:0 0 auto}
+  .fmttip .ft-desc{font-size:.86rem;color:var(--ink);line-height:1.45}
+  .fmttip::after{content:"";position:absolute;left:50%;transform:translateX(-50%);border:6px solid transparent}
+  .fmttip:not(.below)::after{top:100%;border-top-color:#141a24}
+  .fmttip.below::after{bottom:100%;border-bottom-color:#141a24}
+  @media (prefers-reduced-motion:reduce){.fmttip{transition:opacity .12s}.fmttip.on,.fmttip.below.on{transform:translate(-50%,0)}}
+  /* format browser: Wall vs Explore-slider */
+  .fmtbrowse{margin-top:32px}
+  .fmt-modes{display:inline-flex;gap:3px;padding:3px;border:1px solid var(--line-2);border-radius:10px;background:var(--s1);margin-bottom:24px}
+  .fmode{font-family:inherit;font-size:.86rem;font-weight:500;color:var(--ink-2);background:transparent;border:0;border-radius:7px;padding:7px 17px;cursor:pointer;transition:color .15s,background .15s}
+  .fmode:hover{color:var(--ink)}
+  .fmode.is-on{color:#fff;background:var(--accent-strong)}
+  .bar-wrap{position:relative}
+  .bar-tip{position:absolute;bottom:100%;left:0;transform:translate(-50%,-11px);
+    font-family:"Geist Mono",monospace;font-size:.76rem;font-weight:500;white-space:nowrap;color:#fff;
+    background:#161d28;border:1px solid var(--line-3);border-radius:7px;padding:5px 10px;
+    box-shadow:0 10px 24px rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .14s var(--ease),transform .14s var(--ease);z-index:6}
+  .bar-tip::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#161d28}
+  .bar-wrap.tipping .bar-tip{opacity:1}
+  .bar span{transition:opacity .3s var(--ease),filter .3s var(--ease)}
+  .handle{display:none}
+  .slider-cap{display:none}
+  .bar:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+  .fmtbrowse[data-mode="slider"] .bar-wrap{cursor:grab}
+  .fmtbrowse[data-mode="slider"] .bar-wrap:active{cursor:grabbing}
+  .fmtbrowse[data-mode="slider"] .bar{height:18px}
+  .fmtbrowse[data-mode="slider"] .bar span{opacity:.32;filter:saturate(.7)}
+  .fmtbrowse[data-mode="slider"] .bar span.on{opacity:1;filter:none}
+  .fmtbrowse[data-mode="slider"] .handle{display:block;position:absolute;top:50%;left:0;width:24px;height:24px;border-radius:50%;
+        background:#fff;border:3px solid var(--accent-strong);box-shadow:0 4px 14px rgba(0,0,0,.55),0 0 0 5px rgba(31,99,214,.16);
+        transform:translate(-50%,-50%);transition:left .2s var(--ease);pointer-events:none;z-index:3}
+  .fmtbrowse[data-mode="slider"] .slider-cap{display:flex;align-items:baseline;gap:11px;margin:26px 0 20px;min-height:30px}
+  .slider-cap .nm{font-size:clamp(1.3rem,2.2vw,1.6rem);font-weight:600;color:var(--ink);letter-spacing:-.02em}
+  .slider-cap .ct{font-family:"Geist Mono",monospace;font-size:.85rem;color:var(--ink-3)}
+  .fmtbrowse[data-mode="slider"] .fmtwall{margin-top:0;gap:0}
+  .fmtbrowse[data-mode="slider"] .fgh{display:none}
+  .fmtbrowse[data-mode="slider"] .fmtgroup{display:none;margin:0}
+  .fmtbrowse[data-mode="slider"] .fmtgroup.active{display:block}
+  .fmtbrowse[data-mode="slider"] .fmtgroup.active .fc{animation:chippop .34s var(--ease) backwards}
+  @keyframes chippop{from{opacity:0;transform:translateY(9px) scale(.95)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.handle{transition:none!important}.fmtgroup.active .fc{animation:none!important}}
+
+  /* ---------------- IN EXPLORER ---------------- */
+  /* In-Explorer bento: symmetric, self-contained cards (each visual lives inside its card) */
+  .exp-bento{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .ecard{border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--s1);display:flex;flex-direction:column}
+  .ecard .ebody{padding:26px 28px}
+  .ecard .ehead{display:flex;align-items:center;gap:11px;margin-bottom:12px}
+  .ecard .eico{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;color:var(--accent);background:rgba(77,156,255,.1);border:1px solid rgba(77,156,255,.22);flex:0 0 auto}
+  .ecard h3{font-size:1.16rem;letter-spacing:-.015em;color:var(--ink)}
+  .ecard p{font-size:.96rem;color:var(--ink-2);line-height:1.55}
+  .ecard .evisual{flex:1;display:grid;place-items:center;background:#0a0d12;border-top:1px solid var(--line);padding:18px;min-height:280px;overflow:hidden}
+  .ecard .evisual img{max-width:100%;max-height:300px;width:auto;height:auto;display:block;border-radius:8px}
+  /* settings: bigger, fills more of its box */
+  .ecard.set .evisual{padding:16px}
+  .ecard.set .evisual img{max-height:380px;border:1px solid var(--line-2)}
+  /* toolkit menu: cropped to its useful top, shown crisp (low-res source, so no upscaling) */
+  .ecard.menu .evisual{padding:20px}
+  .ecard.menu .evisual img{max-width:100%;max-height:336px;width:auto;height:auto;border:none;border-radius:7px;box-shadow:0 22px 46px -26px rgba(0,0,0,.95)}
+  .caplist{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:10px}
+  .caplist li{display:flex;gap:10px;align-items:center;font-size:.95rem;color:var(--ink-2);line-height:1.4}
+  .caplist .ck{flex:0 0 auto;color:var(--accent)}
+  .toolbits{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+  .toolbits .tb{font-size:.8rem;color:var(--ink-2);padding:5px 10px;border-radius:7px;border:1px solid var(--line-2);background:rgba(255,255,255,.02)}
+  /* wide feature card: text left, screenshot right, both contained inside one card */
+  .ecard.wide{grid-column:1 / -1;display:grid;grid-template-columns:.82fr 1.18fr;align-items:stretch}
+  .ecard.wide .ebody{align-self:center;padding:32px 34px}
+  .ecard.wide .evisual{border-top:none;border-left:1px solid var(--line);min-height:0;padding:22px}
+  .ecard.wide .evisual img{max-height:440px;width:auto;max-width:100%;border:1px solid var(--line-2);border-radius:10px;box-shadow:0 30px 60px -34px rgba(0,0,0,.95)}
+  @media(max-width:880px){
+    .exp-bento{grid-template-columns:1fr}
+    .ecard.wide{grid-template-columns:1fr}
+    .ecard.wide .ebody{align-self:auto}
+    .ecard.wide .evisual{border-left:none;border-top:1px solid var(--line)}
+  }
+
+  /* ---------------- CLI ---------------- */
+  .cli-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(28px,4vw,56px);align-items:center}
+  .code{border:1px solid var(--line-2);border-radius:var(--r);background:#0a0d12;overflow:hidden;
+        box-shadow:0 30px 70px -40px rgba(0,0,0,.95)}
+  .code .top{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.015)}
+  .code .top .label{font-family:"Geist Mono",monospace;font-size:.78rem;color:var(--ink-3)}
+  .code .copy{margin-left:auto;font-family:"Geist Mono",monospace;font-size:.74rem;color:var(--ink-2);
+              background:rgba(255,255,255,.04);border:1px solid var(--line-2);border-radius:6px;padding:4px 9px;cursor:pointer;transition:background .15s,color .15s}
+  .code .copy:hover{background:rgba(255,255,255,.08);color:var(--ink)}
+  .code pre{margin:0;padding:18px 18px 20px;font-family:"Geist Mono",monospace;font-size:.82rem;line-height:1.95;overflow-x:auto;color:var(--ink-2)}
+  .code .c{color:#5d6878}
+  .code .p{color:var(--teal)}
+  .code .t{color:var(--ink)}
+  .code .f{color:var(--accent)}
+  .code .o{color:var(--ink-3)}
+  .featlist{list-style:none;display:flex;flex-direction:column;gap:16px;margin-top:26px}
+  .featlist li{display:flex;gap:13px;align-items:flex-start}
+  .featlist .ic{flex:0 0 auto;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;color:var(--accent);
+                background:rgba(77,156,255,.1);border:1px solid rgba(77,156,255,.2);margin-top:1px}
+  .featlist b{display:block;color:var(--ink);font-weight:600;font-size:1rem}
+  .featlist span{font-size:.93rem;color:var(--ink-2)}
+  @media(max-width:880px){.cli-grid{grid-template-columns:1fr;gap:30px}}
+
+  /* ---------------- ASSURANCES ---------------- */
+  .assure{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .assure .a{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:var(--s1)}
+  .assure .ic{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;color:var(--accent);
+              background:rgba(77,156,255,.1);border:1px solid rgba(77,156,255,.2);margin-bottom:15px}
+  .assure h3{font-size:1.08rem;letter-spacing:-.01em}
+  .assure p{font-size:.94rem;color:var(--ink-2);margin-top:8px;line-height:1.55}
+  @media(max-width:760px){.assure{grid-template-columns:1fr}}
+
+  /* ---------------- FAQ ---------------- */
+  .faq{display:grid;grid-template-columns:1fr 1fr;gap:12px 40px}
+  details{border-bottom:1px solid var(--line)}
+  details summary{list-style:none;cursor:pointer;padding:18px 0;font-weight:500;color:var(--ink);font-size:1.04rem;
+                  display:flex;align-items:center;justify-content:space-between;gap:16px}
+  details summary::-webkit-details-marker{display:none}
+  details summary .pm{flex:0 0 auto;width:18px;height:18px;position:relative;transition:transform .25s var(--ease);color:var(--accent)}
+  details summary .pm::before,details summary .pm::after{content:"";position:absolute;background:currentColor;border-radius:2px}
+  details summary .pm::before{top:8px;left:1px;right:1px;height:2px}
+  details summary .pm::after{left:8px;top:1px;bottom:1px;width:2px;transition:opacity .2s}
+  details[open] summary .pm::after{opacity:0}
+  details .ans{padding:0 0 20px;font-size:.96rem;color:var(--ink-2);line-height:1.6;max-width:60ch}
+  details .ans code{font-family:"Geist Mono",monospace;font-size:.85em;color:var(--accent-2);background:rgba(77,156,255,.1);padding:.1em .4em;border-radius:5px}
+  @media(max-width:760px){.faq{grid-template-columns:1fr;gap:0}}
+
+  /* ---------------- DOWNLOAD CTA ---------------- */
+  .download{position:relative;border:1px solid var(--line-2);border-radius:var(--r-lg);padding:clamp(34px,4.5vw,52px) 28px clamp(36px,5vw,56px);text-align:center;overflow:hidden;
+            background:radial-gradient(700px 340px at 50% -28%, rgba(77,156,255,.20), transparent 62%),radial-gradient(640px 320px at 50% 128%, rgba(34,184,166,.13), transparent 62%), var(--s1)}
+  .dl-strip{display:flex;justify-content:center;gap:10px;margin-bottom:30px;
+            -webkit-mask-image:linear-gradient(90deg,transparent,#000 16%,#000 84%,transparent);
+            mask-image:linear-gradient(90deg,transparent,#000 16%,#000 84%,transparent)}
+  .dl-strip img{width:74px;height:74px;flex:0 0 auto;object-fit:cover;border-radius:13px;border:1px solid var(--line-2);
+                box-shadow:0 18px 34px -18px rgba(0,0,0,.85)}
+  @media(max-width:560px){.dl-strip img{width:60px;height:60px}}
+  .download h2{font-size:clamp(1.7rem,3.2vw,2.4rem);letter-spacing:-.03em}
+  .download p{font-size:1.06rem;color:var(--ink-2);max-width:42ch;margin:14px auto 26px}
+  .download .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .download .meta{margin-top:18px;font-size:.88rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+  /* ---------------- FOOTER ---------------- */
+  footer{border-top:1px solid var(--line);padding:48px 0 40px;margin-top:8px}
+  .foot{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:32px}
+  .foot .brand{margin-bottom:14px}
+  .foot .note{font-size:.92rem;color:var(--ink-3);line-height:1.6;max-width:42ch}
+  .foot h4{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:13px;font-family:"Geist Mono",monospace}
+  .foot a.link{display:block;color:var(--ink-2);font-size:.93rem;padding:5px 0}
+  .foot a.link:hover{color:var(--accent-2)}
+  .foot-bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.85rem;color:var(--ink-3)}
+  .foot-bottom a{color:var(--ink-3)}
+  .foot-bottom a:hover{color:var(--ink-2)}
+  @media(max-width:720px){.foot{grid-template-columns:1fr 1fr}.foot .brand-col{grid-column:1/-1}}
+
+  /* ---------------- REVEAL (progressive enhancement) ---------------- */
+  .js .reveal{opacity:0;transform:translateY(16px)}
+  .js .reveal.in{opacity:1;transform:none;transition:opacity .65s var(--ease),transform .65s var(--ease)}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .js .reveal,.js .reveal.in{opacity:1!important;transform:none!important;transition:none!important}
+    .tile,.btn{transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="SageThumbs 2K, home">
+      <img src="img/logo.png" width="27" height="27" alt="SageThumbs 2K logo, an eye with a teal spiral iris">
+      SageThumbs<span class="k">2K</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#previews">Previews</a>
+      <a href="#explorer">In Explorer</a>
+      <a href="#formats">Formats</a>
+      <a href="#cli">CLI</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-sm" href="https://github.com/LunarWerxs/SageThumbs-2k" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        GitHub
+      </a>
+      <a class="btn btn-primary btn-sm" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" target="_blank" rel="noopener">Download</a>
+    </div>
+  </div>
+</header>
+<a id="top"></a>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="previews">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1 class="reveal">Thumbnails for the 315 formats Windows can't read.</h1>
+        <p class="lead reveal">SageThumbs 2K is a fast, crash-isolated shell extension that renders camera RAW, PSD, HEIC, video, ebooks and comics directly in File Explorer.</p>
+        <div class="cta reveal">
+          <a class="btn btn-primary" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>
+            Download for Windows
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/LunarWerxs/SageThumbs-2k" target="_blank" rel="noopener">View source</a>
+        </div>
+        <p class="meta reveal"><span>Free and source-available</span><span class="d"></span><span>64-bit</span><span class="d"></span><span>about 9 MB</span></p>
+      </div>
+
+      <div class="wall" aria-label="A wall of real thumbnails SageThumbs 2K rendered from formats Windows leaves blank">
+        <figure class="tile reveal"><img src="img/gallery/fmt-cr2.webp" loading="eager" width="512" height="341" alt="Canon raw photo of red poppies in a field, rendered as a thumbnail"><figcaption class="ext"><span class="dot"></span>CR2</figcaption></figure>
+        <figure class="tile reveal"><img src="img/gallery/fmt-heic.webp" loading="eager" width="432" height="512" alt="A classic portrait painting decoded from an Apple HEIC file"><figcaption class="ext"><span class="dot"></span>HEIC</figcaption></figure>
+        <figure class="tile reveal"><img src="img/gallery/fmt-mkv.webp" loading="eager" width="512" height="288" alt="A representative frame from an MKV video of a beach"><figcaption class="ext"><span class="dot"></span>MKV</figcaption></figure>
+        <figure class="tile reveal"><img src="img/gallery/fmt-epub.webp" loading="eager" width="512" height="512" alt="Cover art of Earth from space, pulled from an EPUB ebook"><figcaption class="ext"><span class="dot"></span>EPUB</figcaption></figure>
+        <figure class="tile reveal"><img src="img/gallery/fmt-psd.webp" loading="lazy" width="512" height="384" alt="A layered Photoshop PSD design file with a colour palette and artwork"><figcaption class="ext"><span class="dot"></span>PSD</figcaption></figure>
+        <figure class="tile reveal"><img src="img/gallery/fmt-cbz.webp" loading="lazy" width="512" height="341" alt="The Great Wave artwork shown as a CBZ comic cover"><figcaption class="ext"><span class="dot"></span>CBZ</figcaption></figure>
+        <figure class="tile reveal"><img src="img/gallery/fmt-nef.webp" loading="lazy" width="340" height="512" alt="Nikon raw portrait of a child, rendered as a thumbnail"><figcaption class="ext"><span class="dot"></span>NEF</figcaption></figure>
+        <figure class="tile reveal"><img src="img/gallery/fmt-svg.webp" loading="lazy" width="512" height="384" alt="A flat vector illustration of pyramids at sunset from an SVG file"><figcaption class="ext"><span class="dot"></span>SVG</figcaption></figure>
+        <figure class="tile reveal"><img src="img/gallery/fmt-flac.webp" loading="lazy" width="512" height="512" alt="Starry Night album artwork embedded in a FLAC audio file"><figcaption class="ext"><span class="dot t"></span>FLAC</figcaption></figure>
+        <figure class="tile reveal"><img src="img/gallery/fmt-exr.webp" loading="lazy" width="512" height="320" alt="A high dynamic range mountain landscape from an OpenEXR file"><figcaption class="ext"><span class="dot"></span>EXR</figcaption></figure>
+        <figure class="tile reveal"><img src="img/gallery/fmt-arw.webp" loading="lazy" width="512" height="341" alt="Sony raw architectural photo of a brick building"><figcaption class="ext"><span class="dot"></span>ARW</figcaption></figure>
+        <figure class="tile reveal"><img src="img/gallery/fmt-mp4.webp" loading="lazy" width="512" height="288" alt="A representative frame from an MP4 video of a forest path"><figcaption class="ext"><span class="dot"></span>MP4</figcaption></figure>
+        <figure class="tile reveal"><img src="img/gallery/fmt-xcf.webp" loading="lazy" width="410" height="512" alt="Sunflowers painting decoded from a GIMP XCF file"><figcaption class="ext"><span class="dot"></span>XCF</figcaption></figure>
+        <figure class="tile reveal"><img src="img/gallery/fmt-raf.webp" loading="lazy" width="512" height="341" alt="Fujifilm raw photo of a misty winter lake"><figcaption class="ext"><span class="dot"></span>RAF</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COVERAGE ============ -->
+<section class="sec coverage" id="formats">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">315 formats, 6 categories</span>
+      <h2>The long tail of formats, all in one extension.</h2>
+      <p>Windows ships codecs for a handful of common types. Every other extension is content-sniffed and routed to a pure-Rust decoder, the Windows codecs, or an isolated converter. First match wins.</p>
+    </div>
+
+    <div class="bar reveal" role="img" aria-label="Format coverage by category: 188 image, 42 document, 34 camera raw, 22 video, 17 audio, 12 ebook and comics">
+      <span style="width:59.7%;background:#4d9cff"></span>
+      <span style="width:13.3%;background:#ef8b5a"></span>
+      <span style="width:10.8%;background:#b48bff"></span>
+      <span style="width:7.0%;background:#f06ab0"></span>
+      <span style="width:5.4%;background:#38d39f"></span>
+      <span style="width:3.8%;background:#f2c14e"></span>
+    </div>
+    <div class="fmtwall reveal">
+      <div class="fmtgroup reveal" data-cat="img">
+        <h3 class="fgh"><span class="sw"></span>Image <span class="cnt">188</span></h3>
+        <div class="fgchips"><span class="fc" title="Rhino 3D model">.3dm</span> <span class="fc" title="3D Manufacturing Format">.3mf</span> <span class="fc" title="Affinity document">.af</span> <span class="fc" title="Affinity Designer document">.afdesign</span> <span class="fc" title="Affinity Photo document">.afphoto</span> <span class="fc" title="Affinity Publisher document">.afpub</span> <span class="fc" title="Affinity template document">.aftemplate</span> <span class="fc" title="Adobe Illustrator (PDF-compatible)">.ai</span> <span class="fc" title="Animated Portable Network Graphics">.apng</span> <span class="fc" title="AVC Image File Format">.avci</span> <span class="fc" title="AV1 Image File Format">.avif</span> <span class="fc" title="Blender scene">.blend</span> <span class="fc" title="Blender auto-save backup">.blend1</span> <span class="fc" title="Blender auto-save backup">.blend10</span> <span class="fc" title="Blender auto-save backup">.blend11</span> <span class="fc" title="Blender auto-save backup">.blend12</span> <span class="fc" title="Blender auto-save backup">.blend13</span> <span class="fc" title="Blender auto-save backup">.blend14</span> <span class="fc" title="Blender auto-save backup">.blend15</span> <span class="fc" title="Blender auto-save backup">.blend16</span> <span class="fc" title="Blender auto-save backup">.blend17</span> <span class="fc" title="Blender auto-save backup">.blend18</span> <span class="fc" title="Blender auto-save backup">.blend19</span> <span class="fc" title="Blender auto-save backup">.blend2</span> <span class="fc" title="Blender auto-save backup">.blend20</span> <span class="fc" title="Blender auto-save backup">.blend21</span> <span class="fc" title="Blender auto-save backup">.blend22</span> <span class="fc" title="Blender auto-save backup">.blend23</span> <span class="fc" title="Blender auto-save backup">.blend24</span> <span class="fc" title="Blender auto-save backup">.blend25</span> <span class="fc" title="Blender auto-save backup">.blend26</span> <span class="fc" title="Blender auto-save backup">.blend27</span> <span class="fc" title="Blender auto-save backup">.blend28</span> <span class="fc" title="Blender auto-save backup">.blend29</span> <span class="fc" title="Blender auto-save backup">.blend3</span> <span class="fc" title="Blender auto-save backup">.blend30</span> <span class="fc" title="Blender auto-save backup">.blend31</span> <span class="fc" title="Blender auto-save backup">.blend32</span> <span class="fc" title="Blender auto-save backup">.blend4</span> <span class="fc" title="Blender auto-save backup">.blend5</span> <span class="fc" title="Blender auto-save backup">.blend6</span> <span class="fc" title="Blender auto-save backup">.blend7</span> <span class="fc" title="Blender auto-save backup">.blend8</span> <span class="fc" title="Blender auto-save backup">.blend9</span> <span class="fc" title="Microsoft Windows bitmap image">.bmp</span> <span class="fc" title="Silicon Graphics (B&amp;W)">.bw</span> <span class="fc" title="Cinema 4D scene">.c4d</span> <span class="fc" title="Continuous Acquisition and Life-cycle Support">.cal</span> <span class="fc" title="Continuous Acquisition and Life-cycle Support">.cals</span> <span class="fc" title="CorelDRAW drawing">.cdr</span> <span class="fc" title="CorelDRAW template">.cdt</span> <span class="fc" title="Cineon Image File">.cin</span> <span class="fc" title="Clip Studio Paint document">.clip</span> <span class="fc" title="Corel Presentation Exchange">.cmx</span> <span class="fc" title="Microsoft icon">.cur</span> <span class="fc" title="DR Halo">.cut</span> <span class="fc" title="OpenEXR image">.cxr</span> <span class="fc" title="DICOM medical image">.dcm</span> <span class="fc" title="ZSoft IBM PC multi-page Paintbrush">.dcx</span> <span class="fc" title="Microsoft DirectDraw Surface">.dds</span> <span class="fc" title="Windows DIB">.dib</span> <span class="fc" title="SMPTE 268M-2003">.dpx</span> <span class="fc" title="AutoCAD drawing">.dwg</span> <span class="fc" title="Microsoft DirectDraw Surface">.dxt1</span> <span class="fc" title="Microsoft DirectDraw Surface">.dxt5</span> <span class="fc" title="Windows Enhanced Metafile">.emf</span> <span class="fc" title="Windows Enhanced Metafile">.emg</span> <span class="fc" title="Compressed Windows Enhanced Metafile">.emz</span> <span class="fc" title="Encapsulated PostScript (embedded preview)">.eps</span> <span class="fc" title="High Dynamic-range (OpenEXR)">.exr</span> <span class="fc" title="Autodesk Fusion 360 archive">.f3d</span> <span class="fc" title="Farbfeld">.farbfeld</span> <span class="fc" title="FreeCAD document">.fcstd</span> <span class="fc" title="Farbfeld">.ff</span> <span class="fc" title="Flexible Image Transport System">.fits</span> <span class="fc" title="FilmLight">.fl32</span> <span class="fc" title="Flexible Image Transport System">.fts</span> <span class="fc" title="3D-printer G-code (sliced)">.gco</span> <span class="fc" title="3D-printer G-code (sliced)">.gcode</span> <span class="fc" title="CompuServe graphics interchange format">.gif</span> <span class="fc" title="HD Photo (JPEG XR)">.hdp</span> <span class="fc" title="Radiance RGBE image format">.hdr</span> <span class="fc" title="Radiance HDR image format">.hdri</span> <span class="fc" title="High Efficiency Image Format">.heic</span> <span class="fc" title="HEIF image sequence">.heics</span> <span class="fc" title="High Efficiency Image Format">.heif</span> <span class="fc" title="HEIF image sequence">.heifs</span> <span class="fc" title="High Efficiency Image Format">.hif</span> <span class="fc" title="Truevision Targa image">.icb</span> <span class="fc" title="Apple Icon Image">.icns</span> <span class="fc" title="Microsoft icon">.ico</span> <span class="fc" title="Microsoft icon">.icon</span> <span class="fc" title="Amiga IFF ILBM image">.iff</span> <span class="fc" title="Amiga IFF ILBM image">.ilbm</span> <span class="fc" title="Adobe InDesign template">.indt</span> <span class="fc" title="JPEG-2000 Code Stream Syntax">.j2c</span> <span class="fc" title="JPEG-2000 Code Stream Syntax">.j2k</span> <span class="fc" title="Joint Bi-level Image">.jbig</span> <span class="fc" title="JPEG/JFIF">.jfif</span> <span class="fc" title="JPEG Network Graphics">.jng</span> <span class="fc" title="Garmin tile format">.jnx</span> <span class="fc" title="JPEG-2000 File Format Syntax">.jp2</span> <span class="fc" title="JPEG-2000 Code Stream Syntax">.jpc</span> <span class="fc" title="JPEG (JFIF)">.jpe</span> <span class="fc" title="JPEG (JFIF)">.jpeg</span> <span class="fc" title="JPEG-2000 File Format Syntax">.jpf</span> <span class="fc" title="JPEG (JFIF)">.jpg</span> <span class="fc" title="JPEG-2000 File Format Syntax">.jpm</span> <span class="fc" title="Stereo JPEG">.jps</span> <span class="fc" title="JPEG-2000 Part-2 (extended)">.jpx</span> <span class="fc" title="JPEG XL (ISO/IEC 18181)">.jxl</span> <span class="fc" title="JPEG XR (ISO/IEC 29199-2)">.jxr</span> <span class="fc" title="Krita document">.kra</span> <span class="fc" title="Deluxe Paint ILBM image">.lbm</span> <span class="fc" title="Apple Live Photo">.livp</span> <span class="fc" title="MacPaint">.mac</span> <span class="fc" title="MATLAB level 5 image format">.mat</span> <span class="fc" title="Autodesk 3ds Max scene">.max</span> <span class="fc" title="Magick Image File Format">.miff</span> <span class="fc" title="Multiple-image Network Graphics">.mng</span> <span class="fc" title="Multi-Picture (3D) JPEG">.mpo</span> <span class="fc" title="OpenRaster format">.ora</span> <span class="fc" title="Portable Arbitrary Map">.pam</span> <span class="fc" title="Portable bitmap format">.pbm</span> <span class="fc" title="Photo CD">.pcd</span> <span class="fc" title="ZSoft IBM PC Paintbrush">.pcx</span> <span class="fc" title="Palm Database ImageViewer Format">.pdb</span> <span class="fc" title="Adobe Photoshop bitmap">.pdd</span> <span class="fc" title="Embird Embroidery Format">.pes</span> <span class="fc" title="Portable float format">.pfm</span> <span class="fc" title="Portable graymap format">.pgm</span> <span class="fc" title="JPEG 2000 uncompressed format">.pgx</span> <span class="fc" title="Photo CD">.ph</span> <span class="fc" title="Portable half float format">.phm</span> <span class="fc" title="Alias/Wavefront RLE image format">.pix</span> <span class="fc" title="Portable Network Graphics">.png</span> <span class="fc" title="Portable anymap">.pnm</span> <span class="fc" title="Portable pixmap format">.ppm</span> <span class="fc" title="Procreate document">.procreate</span> <span class="fc" title="Adobe Large Document Format">.psb</span> <span class="fc" title="Adobe Photoshop bitmap">.psd</span> <span class="fc" title="Adobe Photoshop template">.psdt</span> <span class="fc" title="Paint Shop Pro image">.psp</span> <span class="fc" title="Paint Shop Pro image">.pspimage</span> <span class="fc" title="Pyramid encoded TIFF">.ptif</span> <span class="fc" title="Seattle Film Works">.pwp</span> <span class="fc" title="Quite OK image format">.qoi</span> <span class="fc" title="SUN Rasterfile">.ras</span> <span class="fc" title="Radiance RGBE image format">.rgbe</span> <span class="fc" title="Alias/Wavefront image">.rla</span> <span class="fc" title="Utah Run length encoded image">.rle</span> <span class="fc" title="Raw Media Format">.rmf</span> <span class="fc" title="ZX-Spectrum SCREEN$">.scr</span> <span class="fc" title="Scitex HandShake">.sct</span> <span class="fc" title="Simple File Format Family Images">.sf3</span> <span class="fc" title="Seattle Film Works">.sfw</span> <span class="fc" title="Silicon Graphics RGB">.sgi</span> <span class="fc" title="SketchUp backup model">.skb</span> <span class="fc" title="Sketch design document">.sketch</span> <span class="fc" title="SketchUp model">.skp</span> <span class="fc" title="Sinar CaptureShop Raw Format">.sti</span> <span class="fc" title="SUN Rasterfile">.sun</span> <span class="fc" title="Scalable Vector Graphics">.svg</span> <span class="fc" title="Compressed Scalable Vector Graphics">.svgz</span> <span class="fc" title="Truevision Targa image">.tga</span> <span class="fc" title="Tagged Image File Format">.tif</span> <span class="fc" title="Tagged Image File Format">.tiff</span> <span class="fc" title="Tagged Image File Format (64-bit)">.tiff64</span> <span class="fc" title="PSX TIM">.tim</span> <span class="fc" title="PS2 TIM2">.tm2</span> <span class="fc" title="Truevision Targa image">.tpic</span> <span class="fc" title="Truevision Targa image">.vda</span> <span class="fc" title="Video Image Communication And Retrieval">.vicar</span> <span class="fc" title="Khoros Visualization image">.viff</span> <span class="fc" title="VIPS image">.vips</span> <span class="fc" title="Truevision Targa image">.vst</span> <span class="fc" title="HD Photo / Windows Media Photo (JPEG XR)">.wdp</span> <span class="fc" title="Google WebP">.webp</span> <span class="fc" title="Windows Metafile">.wmf</span> <span class="fc" title="HD Photo / Windows Media Photo (JPEG XR)">.wmp</span> <span class="fc" title="Compressed Windows Metafile">.wmz</span> <span class="fc" title="Word Perfect Graphics">.wpg</span> <span class="fc" title="X Windows system bitmap">.xbm</span> <span class="fc" title="GIMP image">.xcf</span> <span class="fc" title="Adobe XD design">.xd</span> <span class="fc" title="X Windows system pixmap">.xpm</span> <span class="fc" title="Khoros Visualization image">.xv</span> <span class="fc" title="Radiance XYZE image format">.xyze</span></div>
+      </div>
+      <div class="fmtgroup reveal" data-cat="doc">
+        <h3 class="fgh"><span class="sw"></span>Document <span class="cnt">42</span></h3>
+        <div class="fgchips"><span class="fc" title="DjVu document">.djv</span> <span class="fc" title="DjVu document">.djvu</span> <span class="fc" title="Word 97-2003 document">.doc</span> <span class="fc" title="Word macro-enabled document">.docm</span> <span class="fc" title="Word document">.docx</span> <span class="fc" title="Word 97-2003 template">.dot</span> <span class="fc" title="Word macro-enabled template">.dotm</span> <span class="fc" title="Word template">.dotx</span> <span class="fc" title="GeoGebra worksheet">.ggb</span> <span class="fc" title="Adobe InDesign document">.indd</span> <span class="fc" title="Apple Keynote presentation">.key</span> <span class="fc" title="Apple Numbers spreadsheet">.numbers</span> <span class="fc" title="OpenDocument Formula">.odf</span> <span class="fc" title="OpenDocument Graphics">.odg</span> <span class="fc" title="OpenDocument Presentation">.odp</span> <span class="fc" title="OpenDocument Spreadsheet">.ods</span> <span class="fc" title="OpenDocument Text">.odt</span> <span class="fc" title="OpenDocument Presentation Template">.otp</span> <span class="fc" title="OpenDocument Spreadsheet Template">.ots</span> <span class="fc" title="OpenDocument Text Template">.ott</span> <span class="fc" title="Apple Pages document">.pages</span> <span class="fc" title="Portable Document Format (page 1)">.pdf</span> <span class="fc" title="PowerPoint 97-2003 template">.pot</span> <span class="fc" title="PowerPoint macro-enabled template">.potm</span> <span class="fc" title="PowerPoint template">.potx</span> <span class="fc" title="PowerPoint 97-2003 slideshow">.pps</span> <span class="fc" title="PowerPoint macro-enabled slideshow">.ppsm</span> <span class="fc" title="PowerPoint slideshow">.ppsx</span> <span class="fc" title="PowerPoint 97-2003 presentation">.ppt</span> <span class="fc" title="PowerPoint macro-enabled presentation">.pptm</span> <span class="fc" title="PowerPoint presentation">.pptx</span> <span class="fc" title="Microsoft Publisher document">.pub</span> <span class="fc" title="Visio drawing (legacy)">.vsd</span> <span class="fc" title="Visio macro-enabled drawing">.vsdm</span> <span class="fc" title="Visio drawing">.vsdx</span> <span class="fc" title="Excel 97-2003 workbook">.xls</span> <span class="fc" title="Excel binary workbook">.xlsb</span> <span class="fc" title="Excel macro-enabled workbook">.xlsm</span> <span class="fc" title="Excel workbook">.xlsx</span> <span class="fc" title="Excel 97-2003 template">.xlt</span> <span class="fc" title="Excel macro-enabled template">.xltm</span> <span class="fc" title="Excel template">.xltx</span></div>
+      </div>
+      <div class="fmtgroup reveal" data-cat="raw">
+        <h3 class="fgh"><span class="sw"></span>Camera RAW <span class="cnt">34</span></h3>
+        <div class="fgchips"><span class="fc" title="Hasselblad CFV/H3D39II Raw Format">.3fr</span> <span class="fc" title="Sony Alpha Raw Format">.arw</span> <span class="fc" title="Casio / Phase One Raw Format">.bay</span> <span class="fc" title="Phase One Raw Format">.cap</span> <span class="fc" title="Canon Digital Camera Raw Format">.cr2</span> <span class="fc" title="Canon Digital Camera Raw Format">.cr3</span> <span class="fc" title="Canon Digital Camera Raw Format">.crw</span> <span class="fc" title="Kodak Digital Camera Raw Format">.dcr</span> <span class="fc" title="Kodak DCS Raw Format">.dcs</span> <span class="fc" title="Digital Negative Raw Format">.dng</span> <span class="fc" title="Kodak Raw Format">.drf</span> <span class="fc" title="Epson Raw Format">.erf</span> <span class="fc" title="Hasselblad CFV/H3D39II Raw Format">.fff</span> <span class="fc" title="Phase One Raw Format">.iiq</span> <span class="fc" title="Kodak Digital Camera Raw Format">.k25</span> <span class="fc" title="Kodak Digital Camera Raw Format">.kdc</span> <span class="fc" title="Minolta Digital Camera Raw Format">.mdc</span> <span class="fc" title="Mamiya Raw Format">.mef</span> <span class="fc" title="Aptus Leaf Raw Format">.mos</span> <span class="fc" title="Sony (Minolta) Raw Format">.mrw</span> <span class="fc" title="Nikon Digital SLR Camera Raw Format">.nef</span> <span class="fc" title="Nikon Digital SLR Camera Raw Format">.nrw</span> <span class="fc" title="Olympus Digital Camera Raw Format">.orf</span> <span class="fc" title="Olympus Raw Format">.ori</span> <span class="fc" title="Pentax Electronic Raw Format">.pef</span> <span class="fc" title="Pentax Raw Format">.ptx</span> <span class="fc" title="Logitech Fotoman Raw Format">.pxn</span> <span class="fc" title="Fuji CCD-RAW Graphic Raw Format">.raf</span> <span class="fc" title="Panasonic Lumix Raw Format">.rw2</span> <span class="fc" title="Leica Raw Format">.rwl</span> <span class="fc" title="Sony Raw Format 2">.sr2</span> <span class="fc" title="Sony Raw Format">.srf</span> <span class="fc" title="Samsung Raw Format">.srw</span> <span class="fc" title="Sigma Camera RAW Format">.x3f</span></div>
+      </div>
+      <div class="fmtgroup reveal" data-cat="vid">
+        <h3 class="fgh"><span class="sw"></span>Video <span class="cnt">22</span></h3>
+        <div class="fgchips"><span class="fc" title="3GPP2 Video">.3g2</span> <span class="fc" title="3GPP Video">.3gp</span> <span class="fc" title="Advanced Systems Format Video">.asf</span> <span class="fc" title="Audio Video Interleave">.avi</span> <span class="fc" title="DivX Video">.divx</span> <span class="fc" title="Flash MP4 Video">.f4v</span> <span class="fc" title="Flash Video">.flv</span> <span class="fc" title="Blu-ray BDAV Video">.m2ts</span> <span class="fc" title="MPEG-2 Video">.m2v</span> <span class="fc" title="MPEG-4 Video (iTunes)">.m4v</span> <span class="fc" title="Matroska Video">.mkv</span> <span class="fc" title="QuickTime Movie">.mov</span> <span class="fc" title="MPEG-4 Video">.mp4</span> <span class="fc" title="MPEG Video">.mpeg</span> <span class="fc" title="MPEG Video">.mpg</span> <span class="fc" title="AVCHD Video">.mts</span> <span class="fc" title="Ogg Video">.ogv</span> <span class="fc" title="QuickTime Movie">.qt</span> <span class="fc" title="MPEG Transport Stream">.ts</span> <span class="fc" title="DVD Video Object">.vob</span> <span class="fc" title="WebM Video">.webm</span> <span class="fc" title="Windows Media Video">.wmv</span></div>
+      </div>
+      <div class="fmtgroup reveal" data-cat="aud">
+        <h3 class="fgh"><span class="sw"></span>Audio <span class="cnt">17</span></h3>
+        <div class="fgchips"><span class="fc" title="AAC audio (album art)">.aac</span> <span class="fc" title="AIFF audio (waveform / album art)">.aif</span> <span class="fc" title="AIFF-C audio (waveform / album art)">.aifc</span> <span class="fc" title="AIFF audio (waveform / album art)">.aiff</span> <span class="fc" title="Monkey's Audio (album art)">.ape</span> <span class="fc" title="FLAC audio (album art)">.flac</span> <span class="fc" title="MPEG-4 audio (album art)">.m4a</span> <span class="fc" title="MPEG-4 audiobook (album art)">.m4b</span> <span class="fc" title="MP3 audio (album art)">.mp3</span> <span class="fc" title="Musepack audio (album art)">.mpc</span> <span class="fc" title="Ogg audio (album art)">.oga</span> <span class="fc" title="Ogg Vorbis audio (album art)">.ogg</span> <span class="fc" title="Opus audio (album art)">.opus</span> <span class="fc" title="Speex audio (album art)">.spx</span> <span class="fc" title="WAV audio (waveform / album art)">.wav</span> <span class="fc" title="Windows Media Audio (album art)">.wma</span> <span class="fc" title="WavPack audio (album art)">.wv</span></div>
+      </div>
+      <div class="fmtgroup reveal" data-cat="ebk">
+        <h3 class="fgh"><span class="sw"></span>Ebook & comics <span class="cnt">12</span></h3>
+        <div class="fgchips"><span class="fc" title="Amazon Kindle ebook">.azw</span> <span class="fc" title="Amazon Kindle ebook (KF8)">.azw3</span> <span class="fc" title="Comic book archive (7-Zip)">.cb7</span> <span class="fc" title="Comic book archive (RAR)">.cbr</span> <span class="fc" title="Comic book archive (TAR)">.cbt</span> <span class="fc" title="Comic book archive (ZIP)">.cbz</span> <span class="fc" title="EPUB ebook">.epub</span> <span class="fc" title="FictionBook 2 ebook">.fb2</span> <span class="fc" title="FictionBook 2 ebook (zipped)">.fbz</span> <span class="fc" title="Mobipocket / Kindle ebook">.mobi</span> <span class="fc" title="Comic / image archive (ZIP)">.phz</span> <span class="fc" title="Mobipocket / Palm ebook">.prc</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IN EXPLORER ============ -->
+<section class="sec" id="explorer">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">No app to open</span>
+      <h2>It lives inside File Explorer.</h2>
+      <p>Thumbnails appear the moment a file lands in a folder. Right-click any supported file for a built-in image toolkit. Open Settings to choose exactly which formats get hooked, and cap size and quality.</p>
+    </div>
+    <div class="exp-bento">
+      <article class="ecard wide reveal">
+        <div class="ebody">
+          <div class="ehead">
+            <span class="eico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 9h18M9 9v12"/></svg></span>
+            <h3>Folders that show their contents</h3>
+          </div>
+          <p>RAW shoots, renders, icons and documents preview right in the grid, instead of a wall of identical blank icons.</p>
+          <ul class="caplist">
+            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Generated on demand, the moment a file appears</li>
+            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Cached by Windows, so the second look is instant</li>
+            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Read-only, and nothing leaves your machine</li>
+          </ul>
+        </div>
+        <div class="evisual"><img src="img/explorer.webp" width="1208" height="979" alt="A Windows 11 File Explorer window filled with colourful thumbnails generated by SageThumbs 2K"></div>
+      </article>
+      <article class="ecard menu reveal">
+        <div class="ebody">
+          <div class="ehead">
+            <span class="eico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span>
+            <h3>A right-click toolkit</h3>
+          </div>
+          <p>Convert, resize, rotate, combine to PDF or CBZ, run OCR, pick a colour off the screen, or set any image as wallpaper. In bulk, in parallel, and nothing leaves your machine.</p>
+          <div class="toolbits">
+            <span class="tb">Convert</span><span class="tb">Resize</span><span class="tb">Rotate</span><span class="tb">Combine to PDF</span><span class="tb">OCR</span><span class="tb">Eyedropper</span>
+          </div>
+        </div>
+        <div class="evisual"><img src="img/menu-top.webp" width="227" height="340" alt="The SageThumbs 2K right-click context menu in Windows Explorer"></div>
+      </article>
+      <article class="ecard set reveal">
+        <div class="ebody">
+          <div class="ehead">
+            <span class="eico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M4 12h16M4 18h7"/><circle cx="17" cy="6" r="2"/><circle cx="14" cy="18" r="2"/></svg></span>
+            <h3>You decide what hooks</h3>
+          </div>
+          <p>A dark Settings panel matching Windows: toggle any of the 315 types, cap size and quality, prefer embedded previews, and reorder the menu.</p>
+        </div>
+        <div class="evisual"><img src="img/settings.webp" width="756" height="573" alt="The SageThumbs 2K Settings window listing supported file types with per-format checkboxes"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLI / MCP ============ -->
+<section class="sec" id="cli" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="cli-grid">
+      <div class="reveal">
+        <span class="eyebrow">For power users and AI agents</span>
+        <h2 style="font-size:clamp(1.85rem,3.4vw,2.6rem);letter-spacing:-.03em;margin:12px 0 14px">A command line and an MCP server, in the box.</h2>
+        <p class="lead">Everything the menu does, <span class="mono" style="color:var(--accent-2)">st2k.exe</span> does from the terminal. It also speaks MCP, so an AI agent can view any of the 315 formats as a real image and act on it.</p>
+        <ul class="featlist">
+          <li><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><div><b>Scriptable batch</b><span>Thumbnail or convert whole folders in parallel, in one process.</span></div></li>
+          <li><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><div><b>OCR and PDF tools</b><span>Pull text out of images, stitch many pages into one file.</span></div></li>
+          <li><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><div><b>An agent-ready view tool</b><span>Let a model see a RAW, PSD or HEIC it otherwise could not open.</span></div></li>
+        </ul>
+      </div>
+      <div class="code reveal" id="codeblock">
+        <div class="top">
+          <span class="label">st2k</span>
+          <button class="copy" type="button" aria-label="Copy commands">Copy</button>
+        </div>
+<pre><span class="c"># render any of 315 formats to an image</span>
+<span class="p">$</span> <span class="t">st2k</span> <span class="t">thumbnail</span> photo.cr2 out.png <span class="f">--size</span> 512
+
+<span class="c"># batch a whole folder, in parallel</span>
+<span class="p">$</span> <span class="t">st2k</span> <span class="t">batch</span> thumbnail .\raw\ <span class="f">--size</span> 512
+<span class="o">  rendered 248 files</span>
+
+<span class="c"># RAW to PNG, no Photoshop needed</span>
+<span class="p">$</span> <span class="t">st2k</span> <span class="t">convert</span> render.psd out.png
+
+<span class="c"># expose every format to an AI agent</span>
+<span class="p">$</span> <span class="t">st2k</span> <span class="f">--mcp</span>
+<span class="o">  MCP server ready: view, convert, ocr ...</span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ASSURANCES ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>Safe by construction, not by promise.</h2>
+      <p>It runs inside explorer.exe, so the bar for trust is high. SageThumbs 2K is built to clear it.</p>
+    </div>
+    <div class="assure">
+      <div class="a reveal">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Memory-safe Rust</h3>
+        <p>Written in Rust and sandboxed at every Explorer boundary, with a panic guard on each COM call. A broken or hostile file cannot crash File Explorer or reach your system.</p>
+      </div>
+      <div class="a reveal">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+        <h3>Read-only by default</h3>
+        <p>Thumbnailing never writes to your files. The toolkit only writes when you ask it to, and it creates new files rather than overwriting the original.</p>
+      </div>
+      <div class="a reveal">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></div>
+        <h3>Free and source-available</h3>
+        <p>Free for personal use under the PolyForm Noncommercial license, with the full source on GitHub. Read it, audit it, or build it yourself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec" id="faq" style="background:var(--bg-2);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="head reveal"><h2>Questions, answered.</h2></div>
+    <div class="faq">
+      <div>
+        <details class="reveal" open>
+          <summary>Is it really free?<span class="pm" aria-hidden="true"></span></summary>
+          <div class="ans">Yes, free for personal and non-commercial use, with full source available. It is licensed PolyForm Noncommercial 1.0.0; only commercial deployment needs a separate license.</div>
+        </details>
+        <details class="reveal">
+          <summary>Is it safe to run?<span class="pm" aria-hidden="true"></span></summary>
+          <div class="ans">The code is public, written in memory-safe Rust, and every file is decoded inside crash-isolated boundaries with bomb guards. A malformed file cannot take down Explorer or the rest of your system.</div>
+        </details>
+        <details class="reveal">
+          <summary>Will it slow down Explorer?<span class="pm" aria-hidden="true"></span></summary>
+          <div class="ans">No. Thumbnails are generated on demand and cached by Windows, the fast paths are pure Rust, and heavy decodes run out of process. You can also cap the maximum file and thumbnail size in <code>Settings</code>.</div>
+        </details>
+      </div>
+      <div>
+        <details class="reveal">
+          <summary>Why does Windows SmartScreen warn me?<span class="pm" aria-hidden="true"></span></summary>
+          <div class="ans">The installer is not code-signed, since signing means a paid certificate, so Windows shows its default warning for any new publisher. Click <code>More info</code> then <code>Run anyway</code>. You can also build from source.</div>
+        </details>
+        <details class="reveal">
+          <summary>Which versions of Windows?<span class="pm" aria-hidden="true"></span></summary>
+          <div class="ans">Windows 11 and Windows 10, 64-bit. The modern right-click menu and the classic menu are both supported.</div>
+        </details>
+        <details class="reveal">
+          <summary>Which formats are supported?<span class="pm" aria-hidden="true"></span></summary>
+          <div class="ans">315 across Image, Camera RAW, Document, Video, Audio and Ebook or comics. Run <code>st2k formats</code> for the full, live list.</div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOWNLOAD ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="download reveal">
+      <div class="dl-strip" aria-hidden="true">
+        <img src="img/gallery/fmt-cr2.webp" alt="" loading="lazy" width="74" height="74">
+        <img src="img/gallery/fmt-nef.webp" alt="" loading="lazy" width="74" height="74">
+        <img src="img/gallery/fmt-heic.webp" alt="" loading="lazy" width="74" height="74">
+        <img src="img/gallery/fmt-exr.webp" alt="" loading="lazy" width="74" height="74">
+        <img src="img/gallery/fmt-epub.webp" alt="" loading="lazy" width="74" height="74">
+        <img src="img/gallery/fmt-cbz.webp" alt="" loading="lazy" width="74" height="74">
+        <img src="img/gallery/fmt-mp4.webp" alt="" loading="lazy" width="74" height="74">
+        <img src="img/gallery/fmt-svg.webp" alt="" loading="lazy" width="74" height="74">
+      </div>
+      <h2>Stop staring at blank icons.</h2>
+      <p>Install once. Every RAW, PSD, HEIC, video and comic in your folders just shows up.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>
+          Download for Windows
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/LunarWerxs/SageThumbs-2k" target="_blank" rel="noopener">View source</a>
+      </div>
+      <p class="meta">v0.6.1 &nbsp;·&nbsp; 64-bit &nbsp;·&nbsp; about 9 MB &nbsp;·&nbsp; Windows 11 and 10</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="brand-col">
+        <a class="brand" href="#top"><img src="img/logo.png" width="27" height="27" alt=""> SageThumbs<span class="k">2K</span></a>
+        <p class="note" style="margin-top:14px">A clean-room modern rebuild of the classic SageThumbs by Nikolay Raspopov. Full credit to the original, whose name and idea this carries forward. Built in Rust by LunarWerx.</p>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <a class="link" href="https://github.com/LunarWerxs/SageThumbs-2k" target="_blank" rel="noopener">GitHub</a>
+        <a class="link" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" target="_blank" rel="noopener">Releases</a>
+        <a class="link" href="https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md" target="_blank" rel="noopener">License</a>
+      </div>
+      <div>
+        <h4>On this page</h4>
+        <a class="link" href="#previews">Previews</a>
+        <a class="link" href="#explorer">In Explorer</a>
+        <a class="link" href="#cli">CLI and MCP</a>
+        <a class="link" href="#faq">FAQ</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 LunarWerx. Licensed <a href="https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md" target="_blank" rel="noopener">PolyForm Noncommercial 1.0.0</a>.</span>
+      <span>SageThumbs 2K · v0.6.1 · Windows 11 and 10</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+  (function(){
+    // reveal on scroll, with stagger inside each group; no scroll listener
+    var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:.06}) : null;
+
+    function group(nodes){
+      nodes.forEach(function(el,i){
+        el.style.transitionDelay = Math.min(i,8)*55 + 'ms';
+        if(io) io.observe(el); else el.classList.add('in');
+      });
+    }
+    // hero wall staggers together as the signature entrance
+    group(Array.prototype.slice.call(document.querySelectorAll('.wall .reveal')));
+    // every other reveal, grouped by nearest section so stagger resets per section
+    document.querySelectorAll('section, footer').forEach(function(sec){
+      var r = Array.prototype.slice.call(sec.querySelectorAll('.reveal')).filter(function(n){return !n.closest('.wall')});
+      group(r);
+    });
+
+    // copy button on the code block
+    var btn = document.querySelector('#codeblock .copy');
+    if(btn){
+      btn.addEventListener('click', function(){
+        var text = 'st2k thumbnail photo.cr2 out.png --size 512\nst2k batch thumbnail .\\raw\\ --size 512\nst2k convert render.psd out.png\nst2k --mcp';
+        navigator.clipboard && navigator.clipboard.writeText(text).then(function(){
+          var old = btn.textContent; btn.textContent = 'Copied'; setTimeout(function(){ btn.textContent = old; }, 1400);
+        });
+      });
+    }
+  })();
+
+  // hero mosaic: subtle pointer-tracked parallax (depth), desktop + motion-allowed only
+  (function(){
+    var wall = document.querySelector('.wall');
+    if(!wall) return;
+    if(!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+    if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+    var tiles = Array.prototype.slice.call(wall.querySelectorAll('.tile'));
+    tiles.forEach(function(t,i){ t._d = 0.8 + ((i*37)%5)*0.55; });   // varied depth 0.8..3.0
+    var tx=0, ty=0, raf=0;
+    function apply(){ raf=0; tiles.forEach(function(t){
+      if(t.matches(':hover')) { t.style.transform=''; return; }       // let CSS own hovered tile
+      t.style.transform='translate3d('+(tx*t._d).toFixed(2)+'px,'+(ty*t._d).toFixed(2)+'px,0)';
+    }); }
+    wall.addEventListener('pointermove', function(e){
+      var r=wall.getBoundingClientRect();
+      tx=((e.clientX-r.left)/r.width-0.5)*-9;
+      ty=((e.clientY-r.top)/r.height-0.5)*-9;
+      if(!raf) raf=requestAnimationFrame(apply);
+    }, {passive:true});
+    wall.addEventListener('pointerleave', function(){ tx=0; ty=0; if(!raf) raf=requestAnimationFrame(apply); });
+  })();
+
+  // rich hover tooltip for the format chips (replaces the slow native title)
+  (function(){
+    var wall = document.querySelector('.fmtwall');
+    if(!wall) return;
+    if(!matchMedia('(hover:hover) and (pointer:fine)').matches) return;   // desktop pointers only
+    var CAT = { img:['#4d9cff','Image'], doc:['#ef8b5a','Document'], raw:['#b48bff','Camera RAW'],
+                vid:['#f06ab0','Video'], aud:['#38d39f','Audio'], ebk:['#f2c14e','Ebook & comics'] };
+    // move native titles into data-d so only the rich tooltip shows
+    Array.prototype.slice.call(wall.querySelectorAll('.fc[title]')).forEach(function(ch){
+      ch.setAttribute('data-d', ch.getAttribute('title')); ch.removeAttribute('title');
+    });
+    var tip = document.createElement('div');
+    tip.className = 'fmttip';
+    tip.innerHTML = '<div class="ft-head"><span class="ft-ext"></span><span class="ft-cat"></span></div><div class="ft-desc"></div>';
+    document.body.appendChild(tip);
+    var ext = tip.querySelector('.ft-ext'), cat = tip.querySelector('.ft-cat'), desc = tip.querySelector('.ft-desc');
+    var current = null;
+    function show(ch){
+      current = ch;
+      var g = ch.closest('.fmtgroup');
+      var c = CAT[g && g.getAttribute('data-cat')] || ['#4d9cff',''];
+      ext.textContent = ch.textContent;
+      cat.textContent = c[1];
+      desc.textContent = ch.getAttribute('data-d') || '';
+      tip.style.setProperty('--ftc', c[0]);
+      var r = ch.getBoundingClientRect();
+      var below = r.top < tip.offsetHeight + 26;
+      tip.classList.toggle('below', below);
+      tip.style.left = Math.round(Math.max(96, Math.min(window.innerWidth - 96, r.left + r.width/2))) + 'px';
+      tip.style.top = Math.round(below ? r.bottom : r.top) + 'px';
+      tip.classList.add('on');
+    }
+    function hide(){ current = null; tip.classList.remove('on'); }
+    wall.addEventListener('pointerover', function(e){ var ch = e.target.closest('.fc'); if(ch && wall.contains(ch) && ch!==current) show(ch); });
+    wall.addEventListener('pointerout', function(e){ var ch = e.target.closest('.fc'); if(ch){ var to=e.relatedTarget; if(!to || !to.closest || !to.closest('.fc')) hide(); } });
+    window.addEventListener('scroll', function(){ if(current) hide(); }, {passive:true});
+  })();
+</script>
+</body>
+</html>
