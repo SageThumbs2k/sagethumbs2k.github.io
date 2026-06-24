@@ -194,6 +194,15 @@
   .btn-ghost{background:rgba(255,255,255,.025);color:var(--ink);border-color:var(--line-2)}
   .btn-ghost:hover{background:rgba(255,255,255,.06);border-color:var(--line-3);color:var(--ink)}
   .btn-sm{padding:8px 13px;font-size:.88rem;border-radius:9px}
+  /* square icon-only button (e.g. GitHub in the nav) */
+  .btn-icon{padding:9px;gap:0;color:var(--ink-2)}
+  .btn-icon:hover{color:var(--ink)}
+  /* Windows download button: logo + stacked label with a platform subline */
+  .btn-win{padding:9px 20px 9px 15px}
+  .btn-win .wlogo{flex:0 0 auto}
+  .btn-win .wl{display:flex;flex-direction:column;align-items:flex-start;text-align:left;line-height:1.12;gap:2px}
+  .btn-win .wl .t{font-size:1rem;font-weight:600;letter-spacing:-.01em}
+  .btn-win .wl .s{font-size:.71rem;font-weight:400;opacity:.85;letter-spacing:.01em;font-variant-numeric:tabular-nums}
 
   /* ---------------- HERO ---------------- */
   .hero{padding-top:clamp(48px,7vw,84px);padding-bottom:clamp(40px,6vw,72px);position:relative}
@@ -417,6 +426,16 @@
   .foot h4{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:13px;font-family:"Geist Mono",monospace}
   .foot a.link{display:block;color:var(--ink-2);font-size:.93rem;padding:5px 0}
   .foot a.link:hover{color:var(--accent-2)}
+  /* subtle "sponsored by LunarWerx" badge in the footer */
+  .sponsor{display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding:9px 14px 9px 11px;
+           border:1px solid var(--line-2);border-radius:12px;background:rgba(255,255,255,.02);
+           transition:border-color .18s var(--ease),background .18s var(--ease)}
+  .sponsor:hover{border-color:var(--line-3);background:rgba(255,255,255,.05)}
+  .sponsor .moon{width:21px;height:21px;color:var(--teal);flex:0 0 auto}
+  .sponsor .st{display:flex;flex-direction:column;line-height:1.18}
+  .sponsor .st .l{font-family:"Geist Mono",monospace;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+  .sponsor .st .n{font-size:.98rem;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+  .sponsor:hover .st .n{color:var(--accent-2)}
   .foot-bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.85rem;color:var(--ink-3)}
   .foot-bottom a{color:var(--ink-3)}
   .foot-bottom a:hover{color:var(--ink-2)}
@@ -442,18 +461,18 @@
       SageThumbs<span class="k">2K</span>
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#previews">Previews</a>
-      <a href="#explorer">In Explorer</a>
       <a href="#formats">Formats</a>
       <a href="#cli">CLI</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-ghost btn-sm" href="https://github.com/LunarWerxs/SageThumbs-2k" target="_blank" rel="noopener">
+      <a class="btn btn-ghost btn-sm btn-icon" href="https://github.com/LunarWerxs/SageThumbs-2k" target="_blank" rel="noopener" aria-label="GitHub repository, opens in a new tab" title="GitHub">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-        GitHub
       </a>
-      <a class="btn btn-primary btn-sm" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" target="_blank" rel="noopener">Download</a>
+      <a class="btn btn-primary btn-sm" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>
+        Download
+      </a>
     </div>
   </div>
 </header>
@@ -467,9 +486,9 @@
         <h1 class="reveal">Thumbnails for the 315 formats Windows can't read.</h1>
         <p class="lead reveal">SageThumbs 2K is a fast, crash-isolated shell extension that renders camera RAW, PSD, HEIC, video, ebooks and comics directly in File Explorer.</p>
         <div class="cta reveal">
-          <a class="btn btn-primary" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" target="_blank" rel="noopener">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>
-            Download for Windows
+          <a class="btn btn-primary btn-win" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" target="_blank" rel="noopener" aria-label="Download for Windows 11 and 10, 64-bit">
+            <svg class="wlogo" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.07 10.34 4.06v7.18H3zM10.34 12.41v7.2L3 18.6v-6.19zM11.49 3.9 21 2.5v8.74h-9.51zM21 12.41v8.74l-9.51-1.36v-7.38z"/></svg>
+            <span class="wl"><span class="t">Download</span><span class="s">Windows 11 &amp; 10 · 64-bit</span></span>
           </a>
           <a class="btn btn-ghost" href="https://github.com/LunarWerxs/SageThumbs-2k" target="_blank" rel="noopener">View source</a>
         </div>
@@ -711,9 +730,9 @@
       <h2>Stop staring at blank icons.</h2>
       <p>Install once. Every RAW, PSD, HEIC, video and comic in your folders just shows up.</p>
       <div class="cta">
-        <a class="btn btn-primary" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" target="_blank" rel="noopener">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>
-          Download for Windows
+        <a class="btn btn-primary btn-win" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" target="_blank" rel="noopener" aria-label="Download for Windows 11 and 10, 64-bit">
+          <svg class="wlogo" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.07 10.34 4.06v7.18H3zM10.34 12.41v7.2L3 18.6v-6.19zM11.49 3.9 21 2.5v8.74h-9.51zM21 12.41v8.74l-9.51-1.36v-7.38z"/></svg>
+          <span class="wl"><span class="t">Download</span><span class="s">Windows 11 &amp; 10 · 64-bit</span></span>
         </a>
         <a class="btn btn-ghost" href="https://github.com/LunarWerxs/SageThumbs-2k" target="_blank" rel="noopener">View source</a>
       </div>
@@ -729,6 +748,10 @@
       <div class="brand-col">
         <a class="brand" href="#top"><img src="img/logo.png" width="27" height="27" alt=""> SageThumbs<span class="k">2K</span></a>
         <p class="note" style="margin-top:14px">A clean-room modern rebuild of the classic SageThumbs by Nikolay Raspopov. Full credit to the original, whose name and idea this carries forward. Built in Rust by LunarWerx.</p>
+        <a class="sponsor" href="https://lunarwerx.com/" target="_blank" rel="noopener" aria-label="Sponsored by LunarWerx, opens in a new tab">
+          <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span class="st"><span class="l">Sponsored by</span><span class="n">LunarWerx</span></span>
+        </a>
       </div>
       <div>
         <h4>Project</h4>
