@@ -1,15 +1,15 @@
 # SageThumbs 2K
 
-> A free, crash-isolated Windows 11 shell extension that adds File Explorer thumbnails for 315 file types Windows can't preview on its own, including camera RAW, Photoshop PSD, HEIC, video, ebooks and comics. Written in Rust, source-available, with a right-click image toolkit and a command-line / MCP tool.
+> A free, crash-isolated Windows 11 shell extension that adds File Explorer thumbnails for 316 file types Windows can't preview on its own, including camera RAW, Photoshop PSD, HEIC, video, ebooks and comics. Written in Rust, source-available, with a right-click image toolkit and a command-line / MCP tool.
 
 SageThumbs 2K is a modern, clean-room rebuild of the classic SageThumbs by Nikolay Raspopov. It renders thumbnails directly in Windows File Explorer for formats Windows leaves as blank icons, and adds a right-click toolkit plus a console / AI tool. It runs inside explorer.exe but is sandboxed at every boundary with a panic guard on each COM call, so a malformed or hostile file cannot crash Explorer.
 
 ## Key facts
-- 315 supported formats across 6 categories: Image (188), Document (42), Camera RAW (34), Video (22), Audio (17), Ebook and comics (12).
+- 316 supported formats across 6 categories: Image (188), Document (42), Camera RAW (34), Video (22), Audio (18), Ebook and comics (12).
 - Marquee formats: camera RAW (CR2, NEF, ARW, RAF and more), Photoshop PSD and PSB, HEIC, AVIF, JPEG XL, OpenEXR / HDR, DICOM, SVG, video frames (MP4, MKV, MOV, WebM), ebook and comic covers (EPUB, MOBI, CBZ), and audio album art and waveforms.
 - Free for personal use, source-available under the PolyForm Noncommercial 1.0.0 license. Written in memory-safe Rust.
 - Thumbnailing is read-only. A right-click toolkit can convert, resize, rotate, combine to PDF or CBZ, run OCR, pick a colour off the screen, and set wallpaper.
-- Ships an `st2k` command-line tool that also speaks MCP, so an AI agent can view any of the 315 formats as a real image.
+- Ships an `st2k` command-line tool that also speaks MCP, so an AI agent can view any of the 316 formats as a real image.
 - Runs on Windows 11 and Windows 10, 64-bit. Installer is about 9 MB.
 
 ## Links

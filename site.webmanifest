@@ -1,7 +1,7 @@
 {
   "name": "SageThumbs 2K",
   "short_name": "SageThumbs 2K",
-  "description": "Free Windows 11 shell extension that adds File Explorer thumbnails for 315 file types Windows can't read.",
+  "description": "Free Windows 11 shell extension that adds File Explorer thumbnails for 316 file types Windows can't read.",
   "start_url": "/",
   "scope": "/",
   "display": "browser",
