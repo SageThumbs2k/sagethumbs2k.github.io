@@ -10,7 +10,7 @@ SageThumbs 2K is a modern, clean-room rebuild of the classic SageThumbs by Nikol
 - Free for personal use, source-available under the PolyForm Noncommercial 1.0.0 license. Written in memory-safe Rust.
 - Thumbnailing is read-only. A right-click toolkit can convert, resize, rotate, combine to PDF or CBZ, run OCR, pick a colour off the screen, and set wallpaper.
 - Ships an `st2k` command-line tool that also speaks MCP, so an AI agent can view any of the 316 formats as a real image.
-- Runs on Windows 11 and Windows 10, 64-bit. Installer is about 9 MB.
+- Runs on Windows 11 and Windows 10, 64-bit. Lightweight single-file installer.
 
 ## Links
 - Home: https://sagethumbs2k.github.io/
