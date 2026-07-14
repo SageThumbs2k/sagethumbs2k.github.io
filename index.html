@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="CtrxYGRAu0kR219D9MHtBV3yyWb729kDbfQP6hnK7zg">
-<title>SageThumbs 2K: Explorer thumbnails for 316 file types Windows can't read</title>
-<meta name="description" content="Free Windows 11 shell extension that adds File Explorer thumbnails for 316 file types Windows can't read: camera RAW, Photoshop PSD, HEIC, video, ebooks, comics and more.">
+<title>SageThumbs 2K: Explorer thumbnails for hundreds of file types Windows can't read</title>
+<meta name="description" content="File Explorer thumbnails for hundreds of file types Windows can't read (camera RAW, PSD, HEIC, video, ebooks, comics), plus press Space for a full-size Quick Look preview, and right-click convert, resize, OCR, colour-pick and screenshot. One small install that replaces a dozen separate tools. Free and source-available.">
 <link rel="canonical" href="https://sagethumbs2k.github.io/">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="icon" type="image/png" href="favicon.png">
@@ -18,20 +18,20 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SageThumbs 2K">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="SageThumbs 2K: Explorer thumbnails for 316 file types Windows can't read">
-<meta property="og:description" content="A fast, crash-isolated shell extension that renders File Explorer previews for camera RAW, PSD, HEIC, video, ebooks and comics. Free and source-available.">
+<meta property="og:title" content="SageThumbs 2K: Explorer thumbnails for hundreds of file types Windows can't read">
+<meta property="og:description" content="One small install: File Explorer thumbnails for hundreds of formats Windows can't read (camera RAW, PSD, HEIC, video, ebooks, comics), plus convert, resize, preview, OCR, colour-pick and screenshot. It replaces a dozen separate tools. Free and source-available.">
 <meta property="og:url" content="https://sagethumbs2k.github.io/">
 <meta property="og:image" content="https://sagethumbs2k.github.io/og.png">
 <meta property="og:image:secure_url" content="https://sagethumbs2k.github.io/og.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="SageThumbs 2K logo beside a row of real thumbnails it renders: a camera RAW photo, an ebook cover, an HDR landscape and an SVG.">
+<meta property="og:image:alt" content="SageThumbs 2K: one install replaces a dozen tools. Explorer thumbnails for hundreds of formats Windows can't read, plus convert, resize, preview, OCR, colour-pick and screenshot, beside a row of RAW, HEIC, PSD, EPUB, MKV and SVG thumbnails.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SageThumbs 2K: thumbnails for 316 file types Windows can't read">
-<meta name="twitter:description" content="A fast, crash-isolated shell extension that renders File Explorer previews for RAW, PSD, HEIC, video, ebooks and comics. Free and source-available.">
+<meta name="twitter:title" content="SageThumbs 2K: thumbnails for hundreds of file types Windows can't read">
+<meta name="twitter:description" content="Thumbnails for hundreds of formats Windows can't read, plus convert, resize, preview, OCR, colour-pick and screenshot. One small install that replaces a dozen separate tools. Free and source-available.">
 <meta name="twitter:image" content="https://sagethumbs2k.github.io/og.png">
-<meta name="twitter:image:alt" content="SageThumbs 2K: Explorer thumbnails for 316 file types Windows can't read.">
+<meta name="twitter:image:alt" content="SageThumbs 2K: one install replaces a dozen tools. Thumbnails for hundreds of formats Windows can't read, plus convert, resize, preview, OCR, colour-pick and screenshot.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -42,15 +42,15 @@
       "name": "SageThumbs 2K",
       "operatingSystem": "Windows 11, Windows 10",
       "applicationCategory": "UtilitiesApplication",
-      "softwareVersion": "0.7.0",
+      "softwareVersion": "1.0.0",
       "url": "https://sagethumbs2k.github.io/",
       "downloadUrl": "https://github.com/LunarWerxs/SageThumbs-2k/releases/latest",
       "softwareHelp": "https://github.com/LunarWerxs/SageThumbs-2k",
       "image": "https://sagethumbs2k.github.io/og.png",
       "screenshot": "https://sagethumbs2k.github.io/img/explorer.webp",
-      "description": "A crash-isolated Windows shell extension that adds File Explorer thumbnails for 316 file types Windows can't read, including camera RAW, PSD, HEIC, video, ebooks and comics. Written in Rust, free and source-available.",
+      "description": "A crash-isolated Windows shell extension that adds File Explorer thumbnails for hundreds of file types Windows can't read (camera RAW, PSD, HEIC, video, ebooks, comics), plus a right-click toolkit to convert, resize, preview, OCR, pick colours and take screenshots, so one small install replaces a dozen separate tools. Written in Rust, free and source-available.",
       "featureList": [
-        "File Explorer thumbnails for 316 file types",
+        "File Explorer thumbnails for hundreds of file types",
         "Camera RAW: CR2, NEF, ARW, RAF and more",
         "Photoshop PSD and PSB",
         "HEIC, AVIF and JPEG XL",
@@ -59,6 +59,8 @@
         "Audio album art and waveforms",
         "Right-click toolkit: convert, resize, rotate, combine to PDF, OCR",
         "Command line and MCP server for AI agents",
+        "Space-bar Quick Look: instant full-size file preview (new)",
+        "Replaces a dozen tools: converter, resizer, colour picker, screenshot, OCR and uploader",
         "Crash-isolated, memory-safe Rust"
       ],
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -89,7 +91,8 @@
         { "@type": "Question", "name": "Will it slow down Explorer?", "acceptedAnswer": { "@type": "Answer", "text": "No. Thumbnails are generated on demand and cached by Windows, the fast paths are pure Rust, and heavy decodes run out of process. You can also cap the maximum file and thumbnail size in Settings." } },
         { "@type": "Question", "name": "Why does Windows SmartScreen warn me?", "acceptedAnswer": { "@type": "Answer", "text": "The installer is not code-signed, since signing means a paid certificate, so Windows shows its default warning for any new publisher. Click More info then Run anyway. You can also build from source." } },
         { "@type": "Question", "name": "Which versions of Windows?", "acceptedAnswer": { "@type": "Answer", "text": "Windows 11 and Windows 10, 64-bit. The modern right-click menu and the classic menu are both supported." } },
-        { "@type": "Question", "name": "Which formats are supported?", "acceptedAnswer": { "@type": "Answer", "text": "316 across Image, Camera RAW, Document, Video, Audio and Ebook or comics. Run st2k formats for the full, live list." } }
+        { "@type": "Question", "name": "Which formats are supported?", "acceptedAnswer": { "@type": "Answer", "text": "Hundreds across Image, Camera RAW, Document, Video, Audio and Ebook or comics. Run st2k formats for the exact, live list." } },
+        { "@type": "Question", "name": "What other tools does it replace?", "acceptedAnswer": { "@type": "Answer", "text": "One small install covers what you would otherwise get from a separate thumbnailer, image converter, resizer, colour picker, screenshot and annotation tool, OCR utility, EXIF viewer, metadata stripper and image uploader, plus a command line and MCP server for scripts and AI agents, so you do not need ImageMagick." } }
       ]
     }
   ]
@@ -449,6 +452,33 @@
     .js .reveal,.js .reveal.in{opacity:1!important;transform:none!important;transition:none!important}
     .tile,.btn{transition:none!important}
   }
+
+  /* ---------------- REPLACES (one install, whole stack) ---------------- */
+  .replaces .rstats{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px}
+  .replaces .rstat{flex:1 1 150px;border:1px solid var(--line);border-radius:var(--r);background:var(--s1);padding:16px 18px}
+  .replaces .rstat b{display:block;font-size:clamp(1.5rem,3vw,2.05rem);color:var(--ink);letter-spacing:-.025em;font-variant-numeric:tabular-nums;line-height:1}
+  .replaces .rstat span{display:block;margin-top:7px;font-size:.84rem;color:var(--ink-3);line-height:1.35}
+  .replaces .swaps{display:grid;gap:9px}
+  .replaces .swap{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:20px;align-items:center;
+        border:1px solid var(--line);border-radius:var(--r);background:var(--s1);padding:15px 20px;
+        transition:border-color .2s var(--ease),background .2s var(--ease)}
+  @media(hover:hover) and (pointer:fine){.replaces .swap:hover{border-color:var(--line-3);background:var(--s2)}}
+  .replaces .swap .ol,.replaces .swap .nl{display:block;font-family:"Geist Mono",monospace;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;margin-bottom:8px}
+  .replaces .swap .ol{color:var(--ink-3)}
+  .replaces .swap .nl{color:var(--accent)}
+  .replaces .swap .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .replaces .swap .chips span{font-size:.79rem;color:var(--ink-3);padding:3px 9px;border-radius:7px;border:1px solid var(--line-2);
+        background:rgba(255,255,255,.015);text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--ink-3) 70%,transparent)}
+  .replaces .swap .new{border-left:1px solid var(--line);padding-left:20px}
+  .replaces .swap .new p{font-size:.95rem;color:var(--ink);line-height:1.5}
+  .replaces .swap .new b{color:var(--ink);font-weight:600}
+  .replaces .swap .new .mono{font-family:"Geist Mono",monospace;color:var(--accent-2);font-size:.9em}
+  .replaces .rnote{margin-top:22px;font-size:.85rem;color:var(--ink-3);max-width:76ch;line-height:1.65}
+  .replaces .rnote b{color:var(--ink-2);font-weight:600}
+  @media(max-width:720px){
+    .replaces .swap{grid-template-columns:1fr;gap:13px;padding:15px 17px}
+    .replaces .swap .new{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:13px}
+  }
 </style>
 </head>
 <body>
@@ -462,6 +492,8 @@
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#formats">Formats</a>
+      <a href="#quick-preview">Preview</a>
+      <a href="#replaces">Replaces</a>
       <a href="#cli">CLI</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -483,7 +515,7 @@
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <h1 class="reveal">Thumbnails for the 316 formats Windows can't read.</h1>
+        <h1 class="reveal">Thumbnails for hundreds of formats Windows can't read.</h1>
         <p class="lead reveal">SageThumbs 2K is a fast, crash-isolated shell extension that renders camera RAW, PSD, HEIC, video, ebooks and comics directly in File Explorer.</p>
         <div class="cta reveal">
           <a class="btn btn-primary btn-win" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" target="_blank" rel="noopener" aria-label="Download for Windows 11 and 10, 64-bit">
@@ -492,7 +524,7 @@
           </a>
           <a class="btn btn-ghost" href="https://github.com/LunarWerxs/SageThumbs-2k" target="_blank" rel="noopener">View source</a>
         </div>
-        <p class="meta reveal"><span>Free and source-available</span><span class="d"></span><span>64-bit</span><span class="d"></span><span>about 9 MB</span></p>
+        <p class="meta reveal"><span>Free and source-available</span><span class="d"></span><span>64-bit</span></p>
       </div>
 
       <div class="wall" aria-label="A wall of real thumbnails SageThumbs 2K rendered from formats Windows leaves blank">
@@ -519,27 +551,27 @@
 <section class="sec coverage" id="formats">
   <div class="wrap">
     <div class="head reveal">
-      <span class="eyebrow">316 formats, 6 categories</span>
+      <span class="eyebrow">hundreds of formats, 6 categories</span>
       <h2>The long tail of formats, all in one extension.</h2>
       <p>Windows ships codecs for a handful of common types. Every other extension is content-sniffed and routed to a pure-Rust decoder, the Windows codecs, or an isolated converter. First match wins.</p>
     </div>
 
-    <div class="bar reveal" role="img" aria-label="Format coverage by category: 188 image, 42 document, 34 camera raw, 22 video, 18 audio, 12 ebook and comics">
-      <span style="width:59.7%;background:#4d9cff"></span>
-      <span style="width:13.3%;background:#ef8b5a"></span>
+    <div class="bar reveal" role="img" aria-label="Format coverage by category: 187 image, 43 document, 34 camera raw, 22 video, 18 audio, 12 ebook and comics">
+      <span style="width:59.2%;background:#4d9cff"></span>
+      <span style="width:13.6%;background:#ef8b5a"></span>
       <span style="width:10.8%;background:#b48bff"></span>
       <span style="width:7.0%;background:#f06ab0"></span>
-      <span style="width:5.4%;background:#38d39f"></span>
+      <span style="width:5.7%;background:#38d39f"></span>
       <span style="width:3.8%;background:#f2c14e"></span>
     </div>
     <div class="fmtwall reveal">
       <div class="fmtgroup reveal" data-cat="img">
-        <h3 class="fgh"><span class="sw"></span>Image <span class="cnt">188</span></h3>
-        <div class="fgchips"><span class="fc" title="Rhino 3D model">.3dm</span> <span class="fc" title="3D Manufacturing Format">.3mf</span> <span class="fc" title="Affinity document">.af</span> <span class="fc" title="Affinity Designer document">.afdesign</span> <span class="fc" title="Affinity Photo document">.afphoto</span> <span class="fc" title="Affinity Publisher document">.afpub</span> <span class="fc" title="Affinity template document">.aftemplate</span> <span class="fc" title="Adobe Illustrator (PDF-compatible)">.ai</span> <span class="fc" title="Animated Portable Network Graphics">.apng</span> <span class="fc" title="AVC Image File Format">.avci</span> <span class="fc" title="AV1 Image File Format">.avif</span> <span class="fc" title="Blender scene">.blend</span> <span class="fc" title="Blender auto-save backup">.blend1</span> <span class="fc" title="Blender auto-save backup">.blend10</span> <span class="fc" title="Blender auto-save backup">.blend11</span> <span class="fc" title="Blender auto-save backup">.blend12</span> <span class="fc" title="Blender auto-save backup">.blend13</span> <span class="fc" title="Blender auto-save backup">.blend14</span> <span class="fc" title="Blender auto-save backup">.blend15</span> <span class="fc" title="Blender auto-save backup">.blend16</span> <span class="fc" title="Blender auto-save backup">.blend17</span> <span class="fc" title="Blender auto-save backup">.blend18</span> <span class="fc" title="Blender auto-save backup">.blend19</span> <span class="fc" title="Blender auto-save backup">.blend2</span> <span class="fc" title="Blender auto-save backup">.blend20</span> <span class="fc" title="Blender auto-save backup">.blend21</span> <span class="fc" title="Blender auto-save backup">.blend22</span> <span class="fc" title="Blender auto-save backup">.blend23</span> <span class="fc" title="Blender auto-save backup">.blend24</span> <span class="fc" title="Blender auto-save backup">.blend25</span> <span class="fc" title="Blender auto-save backup">.blend26</span> <span class="fc" title="Blender auto-save backup">.blend27</span> <span class="fc" title="Blender auto-save backup">.blend28</span> <span class="fc" title="Blender auto-save backup">.blend29</span> <span class="fc" title="Blender auto-save backup">.blend3</span> <span class="fc" title="Blender auto-save backup">.blend30</span> <span class="fc" title="Blender auto-save backup">.blend31</span> <span class="fc" title="Blender auto-save backup">.blend32</span> <span class="fc" title="Blender auto-save backup">.blend4</span> <span class="fc" title="Blender auto-save backup">.blend5</span> <span class="fc" title="Blender auto-save backup">.blend6</span> <span class="fc" title="Blender auto-save backup">.blend7</span> <span class="fc" title="Blender auto-save backup">.blend8</span> <span class="fc" title="Blender auto-save backup">.blend9</span> <span class="fc" title="Microsoft Windows bitmap image">.bmp</span> <span class="fc" title="Silicon Graphics (B&amp;W)">.bw</span> <span class="fc" title="Cinema 4D scene">.c4d</span> <span class="fc" title="Continuous Acquisition and Life-cycle Support">.cal</span> <span class="fc" title="Continuous Acquisition and Life-cycle Support">.cals</span> <span class="fc" title="CorelDRAW drawing">.cdr</span> <span class="fc" title="CorelDRAW template">.cdt</span> <span class="fc" title="Cineon Image File">.cin</span> <span class="fc" title="Clip Studio Paint document">.clip</span> <span class="fc" title="Corel Presentation Exchange">.cmx</span> <span class="fc" title="Microsoft icon">.cur</span> <span class="fc" title="DR Halo">.cut</span> <span class="fc" title="OpenEXR image">.cxr</span> <span class="fc" title="DICOM medical image">.dcm</span> <span class="fc" title="ZSoft IBM PC multi-page Paintbrush">.dcx</span> <span class="fc" title="Microsoft DirectDraw Surface">.dds</span> <span class="fc" title="Windows DIB">.dib</span> <span class="fc" title="SMPTE 268M-2003">.dpx</span> <span class="fc" title="AutoCAD drawing">.dwg</span> <span class="fc" title="Microsoft DirectDraw Surface">.dxt1</span> <span class="fc" title="Microsoft DirectDraw Surface">.dxt5</span> <span class="fc" title="Windows Enhanced Metafile">.emf</span> <span class="fc" title="Windows Enhanced Metafile">.emg</span> <span class="fc" title="Compressed Windows Enhanced Metafile">.emz</span> <span class="fc" title="Encapsulated PostScript (embedded preview)">.eps</span> <span class="fc" title="High Dynamic-range (OpenEXR)">.exr</span> <span class="fc" title="Autodesk Fusion 360 archive">.f3d</span> <span class="fc" title="Farbfeld">.farbfeld</span> <span class="fc" title="FreeCAD document">.fcstd</span> <span class="fc" title="Farbfeld">.ff</span> <span class="fc" title="Flexible Image Transport System">.fits</span> <span class="fc" title="FilmLight">.fl32</span> <span class="fc" title="Flexible Image Transport System">.fts</span> <span class="fc" title="3D-printer G-code (sliced)">.gco</span> <span class="fc" title="3D-printer G-code (sliced)">.gcode</span> <span class="fc" title="CompuServe graphics interchange format">.gif</span> <span class="fc" title="HD Photo (JPEG XR)">.hdp</span> <span class="fc" title="Radiance RGBE image format">.hdr</span> <span class="fc" title="Radiance HDR image format">.hdri</span> <span class="fc" title="High Efficiency Image Format">.heic</span> <span class="fc" title="HEIF image sequence">.heics</span> <span class="fc" title="High Efficiency Image Format">.heif</span> <span class="fc" title="HEIF image sequence">.heifs</span> <span class="fc" title="High Efficiency Image Format">.hif</span> <span class="fc" title="Truevision Targa image">.icb</span> <span class="fc" title="Apple Icon Image">.icns</span> <span class="fc" title="Microsoft icon">.ico</span> <span class="fc" title="Microsoft icon">.icon</span> <span class="fc" title="Amiga IFF ILBM image">.iff</span> <span class="fc" title="Amiga IFF ILBM image">.ilbm</span> <span class="fc" title="Adobe InDesign template">.indt</span> <span class="fc" title="JPEG-2000 Code Stream Syntax">.j2c</span> <span class="fc" title="JPEG-2000 Code Stream Syntax">.j2k</span> <span class="fc" title="Joint Bi-level Image">.jbig</span> <span class="fc" title="JPEG/JFIF">.jfif</span> <span class="fc" title="JPEG Network Graphics">.jng</span> <span class="fc" title="Garmin tile format">.jnx</span> <span class="fc" title="JPEG-2000 File Format Syntax">.jp2</span> <span class="fc" title="JPEG-2000 Code Stream Syntax">.jpc</span> <span class="fc" title="JPEG (JFIF)">.jpe</span> <span class="fc" title="JPEG (JFIF)">.jpeg</span> <span class="fc" title="JPEG-2000 File Format Syntax">.jpf</span> <span class="fc" title="JPEG (JFIF)">.jpg</span> <span class="fc" title="JPEG-2000 File Format Syntax">.jpm</span> <span class="fc" title="Stereo JPEG">.jps</span> <span class="fc" title="JPEG-2000 Part-2 (extended)">.jpx</span> <span class="fc" title="JPEG XL (ISO/IEC 18181)">.jxl</span> <span class="fc" title="JPEG XR (ISO/IEC 29199-2)">.jxr</span> <span class="fc" title="Krita document">.kra</span> <span class="fc" title="Deluxe Paint ILBM image">.lbm</span> <span class="fc" title="Apple Live Photo">.livp</span> <span class="fc" title="MacPaint">.mac</span> <span class="fc" title="MATLAB level 5 image format">.mat</span> <span class="fc" title="Autodesk 3ds Max scene">.max</span> <span class="fc" title="Magick Image File Format">.miff</span> <span class="fc" title="Multiple-image Network Graphics">.mng</span> <span class="fc" title="Multi-Picture (3D) JPEG">.mpo</span> <span class="fc" title="OpenRaster format">.ora</span> <span class="fc" title="Portable Arbitrary Map">.pam</span> <span class="fc" title="Portable bitmap format">.pbm</span> <span class="fc" title="Photo CD">.pcd</span> <span class="fc" title="ZSoft IBM PC Paintbrush">.pcx</span> <span class="fc" title="Palm Database ImageViewer Format">.pdb</span> <span class="fc" title="Adobe Photoshop bitmap">.pdd</span> <span class="fc" title="Embird Embroidery Format">.pes</span> <span class="fc" title="Portable float format">.pfm</span> <span class="fc" title="Portable graymap format">.pgm</span> <span class="fc" title="JPEG 2000 uncompressed format">.pgx</span> <span class="fc" title="Photo CD">.ph</span> <span class="fc" title="Portable half float format">.phm</span> <span class="fc" title="Alias/Wavefront RLE image format">.pix</span> <span class="fc" title="Portable Network Graphics">.png</span> <span class="fc" title="Portable anymap">.pnm</span> <span class="fc" title="Portable pixmap format">.ppm</span> <span class="fc" title="Procreate document">.procreate</span> <span class="fc" title="Adobe Large Document Format">.psb</span> <span class="fc" title="Adobe Photoshop bitmap">.psd</span> <span class="fc" title="Adobe Photoshop template">.psdt</span> <span class="fc" title="Paint Shop Pro image">.psp</span> <span class="fc" title="Paint Shop Pro image">.pspimage</span> <span class="fc" title="Pyramid encoded TIFF">.ptif</span> <span class="fc" title="Seattle Film Works">.pwp</span> <span class="fc" title="Quite OK image format">.qoi</span> <span class="fc" title="SUN Rasterfile">.ras</span> <span class="fc" title="Radiance RGBE image format">.rgbe</span> <span class="fc" title="Alias/Wavefront image">.rla</span> <span class="fc" title="Utah Run length encoded image">.rle</span> <span class="fc" title="Raw Media Format">.rmf</span> <span class="fc" title="ZX-Spectrum SCREEN$">.scr</span> <span class="fc" title="Scitex HandShake">.sct</span> <span class="fc" title="Simple File Format Family Images">.sf3</span> <span class="fc" title="Seattle Film Works">.sfw</span> <span class="fc" title="Silicon Graphics RGB">.sgi</span> <span class="fc" title="SketchUp backup model">.skb</span> <span class="fc" title="Sketch design document">.sketch</span> <span class="fc" title="SketchUp model">.skp</span> <span class="fc" title="Sinar CaptureShop Raw Format">.sti</span> <span class="fc" title="SUN Rasterfile">.sun</span> <span class="fc" title="Scalable Vector Graphics">.svg</span> <span class="fc" title="Compressed Scalable Vector Graphics">.svgz</span> <span class="fc" title="Truevision Targa image">.tga</span> <span class="fc" title="Tagged Image File Format">.tif</span> <span class="fc" title="Tagged Image File Format">.tiff</span> <span class="fc" title="Tagged Image File Format (64-bit)">.tiff64</span> <span class="fc" title="PSX TIM">.tim</span> <span class="fc" title="PS2 TIM2">.tm2</span> <span class="fc" title="Truevision Targa image">.tpic</span> <span class="fc" title="Truevision Targa image">.vda</span> <span class="fc" title="Video Image Communication And Retrieval">.vicar</span> <span class="fc" title="Khoros Visualization image">.viff</span> <span class="fc" title="VIPS image">.vips</span> <span class="fc" title="Truevision Targa image">.vst</span> <span class="fc" title="HD Photo / Windows Media Photo (JPEG XR)">.wdp</span> <span class="fc" title="Google WebP">.webp</span> <span class="fc" title="Windows Metafile">.wmf</span> <span class="fc" title="HD Photo / Windows Media Photo (JPEG XR)">.wmp</span> <span class="fc" title="Compressed Windows Metafile">.wmz</span> <span class="fc" title="Word Perfect Graphics">.wpg</span> <span class="fc" title="X Windows system bitmap">.xbm</span> <span class="fc" title="GIMP image">.xcf</span> <span class="fc" title="Adobe XD design">.xd</span> <span class="fc" title="X Windows system pixmap">.xpm</span> <span class="fc" title="Khoros Visualization image">.xv</span> <span class="fc" title="Radiance XYZE image format">.xyze</span></div>
+        <h3 class="fgh"><span class="sw"></span>Image <span class="cnt">187</span></h3>
+        <div class="fgchips"><span class="fc" title="Rhino 3D model">.3dm</span> <span class="fc" title="3D Manufacturing Format">.3mf</span> <span class="fc" title="Affinity document">.af</span> <span class="fc" title="Affinity Designer document">.afdesign</span> <span class="fc" title="Affinity Photo document">.afphoto</span> <span class="fc" title="Affinity Publisher document">.afpub</span> <span class="fc" title="Affinity template document">.aftemplate</span> <span class="fc" title="Adobe Illustrator (PDF-compatible)">.ai</span> <span class="fc" title="Animated Portable Network Graphics">.apng</span> <span class="fc" title="AVC Image File Format">.avci</span> <span class="fc" title="AV1 Image File Format">.avif</span> <span class="fc" title="Blender scene">.blend</span> <span class="fc" title="Blender auto-save backup">.blend1</span> <span class="fc" title="Blender auto-save backup">.blend10</span> <span class="fc" title="Blender auto-save backup">.blend11</span> <span class="fc" title="Blender auto-save backup">.blend12</span> <span class="fc" title="Blender auto-save backup">.blend13</span> <span class="fc" title="Blender auto-save backup">.blend14</span> <span class="fc" title="Blender auto-save backup">.blend15</span> <span class="fc" title="Blender auto-save backup">.blend16</span> <span class="fc" title="Blender auto-save backup">.blend17</span> <span class="fc" title="Blender auto-save backup">.blend18</span> <span class="fc" title="Blender auto-save backup">.blend19</span> <span class="fc" title="Blender auto-save backup">.blend2</span> <span class="fc" title="Blender auto-save backup">.blend20</span> <span class="fc" title="Blender auto-save backup">.blend21</span> <span class="fc" title="Blender auto-save backup">.blend22</span> <span class="fc" title="Blender auto-save backup">.blend23</span> <span class="fc" title="Blender auto-save backup">.blend24</span> <span class="fc" title="Blender auto-save backup">.blend25</span> <span class="fc" title="Blender auto-save backup">.blend26</span> <span class="fc" title="Blender auto-save backup">.blend27</span> <span class="fc" title="Blender auto-save backup">.blend28</span> <span class="fc" title="Blender auto-save backup">.blend29</span> <span class="fc" title="Blender auto-save backup">.blend3</span> <span class="fc" title="Blender auto-save backup">.blend30</span> <span class="fc" title="Blender auto-save backup">.blend31</span> <span class="fc" title="Blender auto-save backup">.blend32</span> <span class="fc" title="Blender auto-save backup">.blend4</span> <span class="fc" title="Blender auto-save backup">.blend5</span> <span class="fc" title="Blender auto-save backup">.blend6</span> <span class="fc" title="Blender auto-save backup">.blend7</span> <span class="fc" title="Blender auto-save backup">.blend8</span> <span class="fc" title="Blender auto-save backup">.blend9</span> <span class="fc" title="Microsoft Windows bitmap image">.bmp</span> <span class="fc" title="Silicon Graphics (B&amp;W)">.bw</span> <span class="fc" title="Cinema 4D scene">.c4d</span> <span class="fc" title="Continuous Acquisition and Life-cycle Support">.cal</span> <span class="fc" title="Continuous Acquisition and Life-cycle Support">.cals</span> <span class="fc" title="CorelDRAW drawing">.cdr</span> <span class="fc" title="CorelDRAW template">.cdt</span> <span class="fc" title="Cineon Image File">.cin</span> <span class="fc" title="Clip Studio Paint document">.clip</span> <span class="fc" title="Corel Presentation Exchange">.cmx</span> <span class="fc" title="Microsoft icon">.cur</span> <span class="fc" title="DR Halo">.cut</span> <span class="fc" title="OpenEXR image">.cxr</span> <span class="fc" title="DICOM medical image">.dcm</span> <span class="fc" title="ZSoft IBM PC multi-page Paintbrush">.dcx</span> <span class="fc" title="Microsoft DirectDraw Surface">.dds</span> <span class="fc" title="Windows DIB">.dib</span> <span class="fc" title="DICOM medical image">.dicom</span> <span class="fc" title="SMPTE 268M-2003">.dpx</span> <span class="fc" title="AutoCAD drawing">.dwg</span> <span class="fc" title="Microsoft DirectDraw Surface">.dxt1</span> <span class="fc" title="Microsoft DirectDraw Surface">.dxt5</span> <span class="fc" title="Windows Enhanced Metafile">.emf</span> <span class="fc" title="Windows Enhanced Metafile">.emg</span> <span class="fc" title="Compressed Windows Enhanced Metafile">.emz</span> <span class="fc" title="Encapsulated PostScript (embedded preview)">.eps</span> <span class="fc" title="High Dynamic-range (OpenEXR)">.exr</span> <span class="fc" title="Autodesk Fusion 360 archive">.f3d</span> <span class="fc" title="Farbfeld">.farbfeld</span> <span class="fc" title="FreeCAD document">.fcstd</span> <span class="fc" title="Farbfeld">.ff</span> <span class="fc" title="Flexible Image Transport System">.fits</span> <span class="fc" title="FilmLight">.fl32</span> <span class="fc" title="Flexible Image Transport System">.fts</span> <span class="fc" title="3D-printer G-code (sliced)">.gco</span> <span class="fc" title="3D-printer G-code (sliced)">.gcode</span> <span class="fc" title="CompuServe graphics interchange format">.gif</span> <span class="fc" title="HD Photo (JPEG XR)">.hdp</span> <span class="fc" title="Radiance RGBE image format">.hdr</span> <span class="fc" title="Radiance HDR image format">.hdri</span> <span class="fc" title="High Efficiency Image Format">.heic</span> <span class="fc" title="HEIF image sequence">.heics</span> <span class="fc" title="High Efficiency Image Format">.heif</span> <span class="fc" title="HEIF image sequence">.heifs</span> <span class="fc" title="High Efficiency Image Format">.hif</span> <span class="fc" title="Truevision Targa image">.icb</span> <span class="fc" title="Apple Icon Image">.icns</span> <span class="fc" title="Microsoft icon">.ico</span> <span class="fc" title="Microsoft icon">.icon</span> <span class="fc" title="Amiga IFF ILBM image">.iff</span> <span class="fc" title="Amiga IFF ILBM image">.ilbm</span> <span class="fc" title="JPEG-2000 Code Stream Syntax">.j2c</span> <span class="fc" title="JPEG-2000 Code Stream Syntax">.j2k</span> <span class="fc" title="JPEG/JFIF">.jfif</span> <span class="fc" title="JPEG Network Graphics">.jng</span> <span class="fc" title="Garmin tile format">.jnx</span> <span class="fc" title="JPEG-2000 File Format Syntax">.jp2</span> <span class="fc" title="JPEG-2000 Code Stream Syntax">.jpc</span> <span class="fc" title="JPEG (JFIF)">.jpe</span> <span class="fc" title="JPEG (JFIF)">.jpeg</span> <span class="fc" title="JPEG-2000 File Format Syntax">.jpf</span> <span class="fc" title="JPEG (JFIF)">.jpg</span> <span class="fc" title="JPEG-2000 File Format Syntax">.jpm</span> <span class="fc" title="Stereo JPEG">.jps</span> <span class="fc" title="JPEG-2000 Part-2 (extended)">.jpx</span> <span class="fc" title="JPEG XL (ISO/IEC 18181)">.jxl</span> <span class="fc" title="JPEG XR (ISO/IEC 29199-2)">.jxr</span> <span class="fc" title="Krita document">.kra</span> <span class="fc" title="Deluxe Paint ILBM image">.lbm</span> <span class="fc" title="Apple Live Photo">.livp</span> <span class="fc" title="MacPaint">.mac</span> <span class="fc" title="MATLAB level 5 image format">.mat</span> <span class="fc" title="Autodesk 3ds Max scene">.max</span> <span class="fc" title="Magick Image File Format">.miff</span> <span class="fc" title="Multiple-image Network Graphics">.mng</span> <span class="fc" title="Multi-Picture (3D) JPEG">.mpo</span> <span class="fc" title="OpenRaster format">.ora</span> <span class="fc" title="Portable Arbitrary Map">.pam</span> <span class="fc" title="Portable bitmap format">.pbm</span> <span class="fc" title="Photo CD">.pcd</span> <span class="fc" title="ZSoft IBM PC Paintbrush">.pcx</span> <span class="fc" title="Palm Database ImageViewer Format">.pdb</span> <span class="fc" title="Adobe Photoshop bitmap">.pdd</span> <span class="fc" title="Embird Embroidery Format">.pes</span> <span class="fc" title="Portable float format">.pfm</span> <span class="fc" title="Portable graymap format">.pgm</span> <span class="fc" title="JPEG 2000 uncompressed format">.pgx</span> <span class="fc" title="Photo CD">.ph</span> <span class="fc" title="Portable half float format">.phm</span> <span class="fc" title="Alias/Wavefront RLE image format">.pix</span> <span class="fc" title="Portable Network Graphics">.png</span> <span class="fc" title="Portable anymap">.pnm</span> <span class="fc" title="Portable pixmap format">.ppm</span> <span class="fc" title="Procreate document">.procreate</span> <span class="fc" title="Adobe Large Document Format">.psb</span> <span class="fc" title="Adobe Photoshop bitmap">.psd</span> <span class="fc" title="Adobe Photoshop template">.psdt</span> <span class="fc" title="Paint Shop Pro image">.psp</span> <span class="fc" title="Paint Shop Pro image">.pspimage</span> <span class="fc" title="Pyramid encoded TIFF">.ptif</span> <span class="fc" title="Seattle Film Works">.pwp</span> <span class="fc" title="Quite OK image format">.qoi</span> <span class="fc" title="SUN Rasterfile">.ras</span> <span class="fc" title="Radiance RGBE image format">.rgbe</span> <span class="fc" title="Alias/Wavefront image">.rla</span> <span class="fc" title="Utah Run length encoded image">.rle</span> <span class="fc" title="Raw Media Format">.rmf</span> <span class="fc" title="ZX-Spectrum SCREEN$">.scr</span> <span class="fc" title="Scitex HandShake">.sct</span> <span class="fc" title="Simple File Format Family Images">.sf3</span> <span class="fc" title="Seattle Film Works">.sfw</span> <span class="fc" title="Silicon Graphics RGB">.sgi</span> <span class="fc" title="SketchUp backup model">.skb</span> <span class="fc" title="Sketch design document">.sketch</span> <span class="fc" title="SketchUp model">.skp</span> <span class="fc" title="Sinar CaptureShop Raw Format">.sti</span> <span class="fc" title="SUN Rasterfile">.sun</span> <span class="fc" title="Scalable Vector Graphics">.svg</span> <span class="fc" title="Compressed Scalable Vector Graphics">.svgz</span> <span class="fc" title="Truevision Targa image">.tga</span> <span class="fc" title="Tagged Image File Format">.tif</span> <span class="fc" title="Tagged Image File Format">.tiff</span> <span class="fc" title="Tagged Image File Format (64-bit)">.tiff64</span> <span class="fc" title="PSX TIM">.tim</span> <span class="fc" title="PS2 TIM2">.tm2</span> <span class="fc" title="Truevision Targa image">.tpic</span> <span class="fc" title="Truevision Targa image">.vda</span> <span class="fc" title="Video Image Communication And Retrieval">.vicar</span> <span class="fc" title="Khoros Visualization image">.viff</span> <span class="fc" title="VIPS image">.vips</span> <span class="fc" title="Truevision Targa image">.vst</span> <span class="fc" title="HD Photo / Windows Media Photo (JPEG XR)">.wdp</span> <span class="fc" title="Google WebP">.webp</span> <span class="fc" title="Windows Metafile">.wmf</span> <span class="fc" title="HD Photo / Windows Media Photo (JPEG XR)">.wmp</span> <span class="fc" title="Compressed Windows Metafile">.wmz</span> <span class="fc" title="Word Perfect Graphics">.wpg</span> <span class="fc" title="X Windows system bitmap">.xbm</span> <span class="fc" title="GIMP image">.xcf</span> <span class="fc" title="Adobe XD design">.xd</span> <span class="fc" title="X Windows system pixmap">.xpm</span> <span class="fc" title="Khoros Visualization image">.xv</span> <span class="fc" title="Radiance XYZE image format">.xyze</span></div>
       </div>
       <div class="fmtgroup reveal" data-cat="doc">
-        <h3 class="fgh"><span class="sw"></span>Document <span class="cnt">42</span></h3>
-        <div class="fgchips"><span class="fc" title="DjVu document">.djv</span> <span class="fc" title="DjVu document">.djvu</span> <span class="fc" title="Word 97-2003 document">.doc</span> <span class="fc" title="Word macro-enabled document">.docm</span> <span class="fc" title="Word document">.docx</span> <span class="fc" title="Word 97-2003 template">.dot</span> <span class="fc" title="Word macro-enabled template">.dotm</span> <span class="fc" title="Word template">.dotx</span> <span class="fc" title="GeoGebra worksheet">.ggb</span> <span class="fc" title="Adobe InDesign document">.indd</span> <span class="fc" title="Apple Keynote presentation">.key</span> <span class="fc" title="Apple Numbers spreadsheet">.numbers</span> <span class="fc" title="OpenDocument Formula">.odf</span> <span class="fc" title="OpenDocument Graphics">.odg</span> <span class="fc" title="OpenDocument Presentation">.odp</span> <span class="fc" title="OpenDocument Spreadsheet">.ods</span> <span class="fc" title="OpenDocument Text">.odt</span> <span class="fc" title="OpenDocument Presentation Template">.otp</span> <span class="fc" title="OpenDocument Spreadsheet Template">.ots</span> <span class="fc" title="OpenDocument Text Template">.ott</span> <span class="fc" title="Apple Pages document">.pages</span> <span class="fc" title="Portable Document Format (page 1)">.pdf</span> <span class="fc" title="PowerPoint 97-2003 template">.pot</span> <span class="fc" title="PowerPoint macro-enabled template">.potm</span> <span class="fc" title="PowerPoint template">.potx</span> <span class="fc" title="PowerPoint 97-2003 slideshow">.pps</span> <span class="fc" title="PowerPoint macro-enabled slideshow">.ppsm</span> <span class="fc" title="PowerPoint slideshow">.ppsx</span> <span class="fc" title="PowerPoint 97-2003 presentation">.ppt</span> <span class="fc" title="PowerPoint macro-enabled presentation">.pptm</span> <span class="fc" title="PowerPoint presentation">.pptx</span> <span class="fc" title="Microsoft Publisher document">.pub</span> <span class="fc" title="Visio drawing (legacy)">.vsd</span> <span class="fc" title="Visio macro-enabled drawing">.vsdm</span> <span class="fc" title="Visio drawing">.vsdx</span> <span class="fc" title="Excel 97-2003 workbook">.xls</span> <span class="fc" title="Excel binary workbook">.xlsb</span> <span class="fc" title="Excel macro-enabled workbook">.xlsm</span> <span class="fc" title="Excel workbook">.xlsx</span> <span class="fc" title="Excel 97-2003 template">.xlt</span> <span class="fc" title="Excel macro-enabled template">.xltm</span> <span class="fc" title="Excel template">.xltx</span></div>
+        <h3 class="fgh"><span class="sw"></span>Document <span class="cnt">43</span></h3>
+        <div class="fgchips"><span class="fc" title="DjVu document">.djv</span> <span class="fc" title="DjVu document">.djvu</span> <span class="fc" title="Word 97-2003 document">.doc</span> <span class="fc" title="Word macro-enabled document">.docm</span> <span class="fc" title="Word document">.docx</span> <span class="fc" title="Word 97-2003 template">.dot</span> <span class="fc" title="Word macro-enabled template">.dotm</span> <span class="fc" title="Word template">.dotx</span> <span class="fc" title="GeoGebra worksheet">.ggb</span> <span class="fc" title="Adobe InDesign document">.indd</span> <span class="fc" title="Adobe InDesign template">.indt</span> <span class="fc" title="Apple Keynote presentation">.key</span> <span class="fc" title="Apple Numbers spreadsheet">.numbers</span> <span class="fc" title="OpenDocument Formula">.odf</span> <span class="fc" title="OpenDocument Graphics">.odg</span> <span class="fc" title="OpenDocument Presentation">.odp</span> <span class="fc" title="OpenDocument Spreadsheet">.ods</span> <span class="fc" title="OpenDocument Text">.odt</span> <span class="fc" title="OpenDocument Presentation Template">.otp</span> <span class="fc" title="OpenDocument Spreadsheet Template">.ots</span> <span class="fc" title="OpenDocument Text Template">.ott</span> <span class="fc" title="Apple Pages document">.pages</span> <span class="fc" title="Portable Document Format (page 1)">.pdf</span> <span class="fc" title="PowerPoint 97-2003 template">.pot</span> <span class="fc" title="PowerPoint macro-enabled template">.potm</span> <span class="fc" title="PowerPoint template">.potx</span> <span class="fc" title="PowerPoint 97-2003 slideshow">.pps</span> <span class="fc" title="PowerPoint macro-enabled slideshow">.ppsm</span> <span class="fc" title="PowerPoint slideshow">.ppsx</span> <span class="fc" title="PowerPoint 97-2003 presentation">.ppt</span> <span class="fc" title="PowerPoint macro-enabled presentation">.pptm</span> <span class="fc" title="PowerPoint presentation">.pptx</span> <span class="fc" title="Microsoft Publisher document">.pub</span> <span class="fc" title="Visio drawing (legacy)">.vsd</span> <span class="fc" title="Visio macro-enabled drawing">.vsdm</span> <span class="fc" title="Visio drawing">.vsdx</span> <span class="fc" title="Excel 97-2003 workbook">.xls</span> <span class="fc" title="Excel binary workbook">.xlsb</span> <span class="fc" title="Excel macro-enabled workbook">.xlsm</span> <span class="fc" title="Excel workbook">.xlsx</span> <span class="fc" title="Excel 97-2003 template">.xlt</span> <span class="fc" title="Excel macro-enabled template">.xltm</span> <span class="fc" title="Excel template">.xltx</span></div>
       </div>
       <div class="fmtgroup reveal" data-cat="raw">
         <h3 class="fgh"><span class="sw"></span>Camera RAW <span class="cnt">34</span></h3>
@@ -551,10 +583,10 @@
       </div>
       <div class="fmtgroup reveal" data-cat="aud">
         <h3 class="fgh"><span class="sw"></span>Audio <span class="cnt">18</span></h3>
-        <div class="fgchips"><span class="fc" title="AAC audio (album art)">.aac</span> <span class="fc" title="AIFF audio (waveform / album art)">.aif</span> <span class="fc" title="AIFF-C audio (waveform / album art)">.aifc</span> <span class="fc" title="AIFF audio (waveform / album art)">.aiff</span> <span class="fc" title="Monkey's Audio (album art)">.ape</span> <span class="fc" title="FLAC audio (album art)">.flac</span> <span class="fc" title="MPEG-4 audio (album art)">.m4a</span> <span class="fc" title="MPEG-4 audiobook (album art)">.m4b</span> <span class="fc" title="MP3 audio (album art)">.mp3</span> <span class="fc" title="Musepack audio (album art)">.mpc</span> <span class="fc" title="Ogg audio (album art)">.oga</span> <span class="fc" title="Ogg Vorbis audio (album art)">.ogg</span> <span class="fc" title="Opus audio (album art)">.opus</span> <span class="fc" title="Speex audio (album art)">.spx</span> <span class="fc" title="WAV audio (waveform / album art)">.wav</span> <span class="fc" title="Windows Media Audio (album art)">.wma</span> <span class="fc" title="WavPack audio (album art)">.wv</span></div>
+        <div class="fgchips"><span class="fc" title="AAC audio (album art)">.aac</span> <span class="fc" title="AIFF audio (waveform / album art)">.aif</span> <span class="fc" title="AIFF-C audio (waveform / album art)">.aifc</span> <span class="fc" title="AIFF audio (waveform / album art)">.aiff</span> <span class="fc" title="Monkey's Audio (album art)">.ape</span> <span class="fc" title="DSD audio (album art)">.dsf</span> <span class="fc" title="FLAC audio (album art)">.flac</span> <span class="fc" title="MPEG-4 audio (album art)">.m4a</span> <span class="fc" title="MPEG-4 audiobook (album art)">.m4b</span> <span class="fc" title="MP3 audio (album art)">.mp3</span> <span class="fc" title="Musepack audio (album art)">.mpc</span> <span class="fc" title="Ogg audio (album art)">.oga</span> <span class="fc" title="Ogg Vorbis audio (album art)">.ogg</span> <span class="fc" title="Opus audio (album art)">.opus</span> <span class="fc" title="Speex audio (album art)">.spx</span> <span class="fc" title="WAV audio (waveform / album art)">.wav</span> <span class="fc" title="Windows Media Audio (album art)">.wma</span> <span class="fc" title="WavPack audio (album art)">.wv</span></div>
       </div>
       <div class="fmtgroup reveal" data-cat="ebk">
-        <h3 class="fgh"><span class="sw"></span>Ebook & comics <span class="cnt">12</span></h3>
+        <h3 class="fgh"><span class="sw"></span>Ebook &amp; comics <span class="cnt">12</span></h3>
         <div class="fgchips"><span class="fc" title="Amazon Kindle ebook">.azw</span> <span class="fc" title="Amazon Kindle ebook (KF8)">.azw3</span> <span class="fc" title="Comic book archive (7-Zip)">.cb7</span> <span class="fc" title="Comic book archive (RAR)">.cbr</span> <span class="fc" title="Comic book archive (TAR)">.cbt</span> <span class="fc" title="Comic book archive (ZIP)">.cbz</span> <span class="fc" title="EPUB ebook">.epub</span> <span class="fc" title="FictionBook 2 ebook">.fb2</span> <span class="fc" title="FictionBook 2 ebook (zipped)">.fbz</span> <span class="fc" title="Mobipocket / Kindle ebook">.mobi</span> <span class="fc" title="Comic / image archive (ZIP)">.phz</span> <span class="fc" title="Mobipocket / Palm ebook">.prc</span></div>
       </div>
     </div>
@@ -604,9 +636,9 @@
             <span class="eico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M4 12h16M4 18h7"/><circle cx="17" cy="6" r="2"/><circle cx="14" cy="18" r="2"/></svg></span>
             <h3>You decide what hooks</h3>
           </div>
-          <p>A dark Settings panel matching Windows: toggle any of the 316 types, cap size and quality, prefer embedded previews, and reorder the menu.</p>
+          <p>A dark Settings panel matching Windows: toggle any type, cap size and quality, prefer embedded previews, and reorder the menu.</p>
         </div>
-        <div class="evisual"><img src="img/settings.gif" width="758" height="581" alt="The SageThumbs 2K Settings window cycling its category tabs — a Win11-style nav rail, toggle switches, and system-following dark mode"></div>
+        <div class="evisual"><img src="img/settings.gif" width="758" height="581" alt="The SageThumbs 2K Settings window cycling its category tabs: a Win11-style nav rail, toggle switches, and system-following dark mode"></div>
       </article>
       <article class="ecard wide reveal">
         <div class="ebody">
@@ -614,16 +646,85 @@
             <span class="eico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg></span>
             <h3>Convert anything, in bulk</h3>
           </div>
-          <p>Right-click a selection and <b>Convert…</b> to JPG, PNG, WebP, TIFF and more — set the size, quality and output folder. Whole batches run in parallel, and your originals are never touched.</p>
+          <p>Right-click a selection and <b>Convert…</b> to JPG, PNG, WebP, TIFF and more; set the size, quality and output folder. Whole batches run in parallel, and your originals are never touched.</p>
           <ul class="caplist">
             <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Resize by fit, percentage or exact pixels</li>
-            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Per-format quality — JPEG, WebP lossless, PNG level</li>
+            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Per-format quality: JPEG, WebP lossless, PNG level</li>
             <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Parallel batches, output beside each file or in a chosen folder</li>
           </ul>
         </div>
-        <div class="evisual"><img src="img/convert.png" width="486" height="267" alt="The SageThumbs 2K Convert dialog — output format, resize, per-format quality and output-folder options"></div>
+        <div class="evisual"><img src="img/convert.png" width="486" height="267" alt="The SageThumbs 2K Convert dialog: output format, resize, per-format quality and output-folder options"></div>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- ============ QUICK PREVIEW ============ -->
+<section class="sec" id="quick-preview" style="border-top:1px solid var(--line);background:var(--bg-2)">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Press Space</span>
+      <h2>Tap Space. See anything.</h2>
+      <p>Select a file in Explorer and press <b>Space</b> for an instant, full-size preview. The macOS-style Quick Look Windows never had, for all the formats it can't open on its own.</p>
+    </div>
+    <div class="exp-bento">
+      <article class="ecard wide reveal">
+        <div class="ebody">
+          <div class="ehead">
+            <span class="eico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span>
+            <h3>A real preview, not just a thumbnail</h3>
+          </div>
+          <p>It shows any format SageThumbs can decode, and does the things a still image can't:</p>
+          <ul class="caplist">
+            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Videos and audio play, with a seek bar, play/pause and volume</li>
+            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Code is syntax-highlighted with line numbers; Markdown renders GitHub-style, with an outline</li>
+            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Multi-page PDFs page with the arrows; fonts show a specimen sheet</li>
+            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Archives (zip, 7z, rar) list their contents without extracting</li>
+          </ul>
+          <div class="toolbits">
+            <span class="tb">Space to open or close</span><span class="tb">&larr; &rarr; flip through the folder</span><span class="tb">F11 full-screen</span><span class="tb">Never steals focus</span>
+          </div>
+        </div>
+        <div class="evisual"><img src="img/preview-collage.webp" width="2056" height="1490" alt="The SageThumbs 2K Quick preview, opened by pressing Space in Explorer, showing a playing video, a syntax-highlighted source file, a rendered Markdown document and images side by side"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REPLACES ============ -->
+<section class="sec replaces" id="replaces" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">One install, not a dozen</span>
+      <h2>The whole stack it lets you delete.</h2>
+      <p>There's a checklist of little utilities people reinstall on every Windows box: a thumbnail pack, a converter, a color picker, a screenshot tool, an EXIF viewer. SageThumbs 2K is one tiny shell extension (plus a single <span class="mono" style="color:var(--accent-2)">st2k.exe</span>) that quietly does all of their jobs.</p>
+    </div>
+
+    <div class="rstats reveal">
+      <div class="rstat"><b>a dozen+</b><span>separate tools' jobs, folded in</span></div>
+      <div class="rstat"><b>one</b><span>tiny install, zero dependencies</span></div>
+      <div class="rstat"><b>0</b><span>tray icons or background services</span></div>
+      <div class="rstat"><b>100%</b><span>local image processing, your files stay put</span></div>
+    </div>
+
+    <div class="swaps reveal">
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>MysticThumbs</span><span>FastPictureViewer</span><span>Icaros</span></div></div><div class="new"><span class="nl">You get</span><p><b>Thumbnails</b> for the formats Windows ignores (RAW, PSD, HEIC, video, ebooks), crash-isolated so a corrupt file can't hang Explorer.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>a preview-pane add-on</span></div></div><div class="new"><span class="nl">You get</span><p>A built-in large <b>preview handler</b> for 300+ formats, in the reading pane and Open dialogs.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>QuickLook</span><span>Seer</span><span>WinQuickLook</span></div></div><div class="new"><span class="nl">You get</span><p><b>Tap Space on any file</b> for an instant full-size preview, macOS-style Quick Look.<span style="display:inline-block;margin-left:8px;font-family:'Geist Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 45%,transparent);border-radius:6px;padding:2px 6px;vertical-align:middle">New</span></p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ExifToolGUI</span><span>Opanda IExif</span></div></div><div class="new"><span class="nl">You get</span><p>EXIF, GPS, dimensions and audio tags as <b>sortable Explorer columns</b> and details.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>XnConvert</span><span>IrfanView</span><span>ImageMagick</span></div></div><div class="new"><span class="nl">You get</span><p>Right-click <b>Convert</b> to ~29 formats (AVIF, JPEG XL, PSD, DDS, EXR), batched across every core.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>PowerToys Image Resizer</span></div></div><div class="new"><span class="nl">You get</span><p>Right-click <b>Resize</b> presets and <b>Shrink for email</b>, never upscales, keeps your original.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>jpegtran</span><span>IrfanView lossless plugin</span></div></div><div class="new"><span class="nl">You get</span><p><b>Lossless JPEG rotate and flip</b>, DCT rearrangement with zero re-encode.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>PowerToys Color Picker</span><span>Just Color Picker</span><span>Instant Eyedropper</span></div></div><div class="new"><span class="nl">You get</span><p>A <b>system-wide eyedropper</b> with a 10x loupe; Space copies <span class="mono">#RRGGBB</span> from anywhere on screen.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ExifCleaner</span><span>BatchPurifier</span></div></div><div class="new"><span class="nl">You get</span><p>Right-click <b>Strip metadata</b> (EXIF/IPTC/XMP/GPS), losslessly, keeping your ICC profile.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ShareX</span><span>Greenshot</span><span>Snagit</span></div></div><div class="new"><span class="nl">You get</span><p>Built-in <b>region capture</b> with an annotation editor, quick-save, and a live pixel readout.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>Capture2Text</span></div></div><div class="new"><span class="nl">You get</span><p>Right-click <b>Copy text (OCR)</b>, straight to the clipboard, on Windows' own OCR engine.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ShareX uploader</span><span>Imgur apps</span></div></div><div class="new"><span class="nl">You get</span><p><b>Upload and copy a share link</b> to a keyless host, batch multi-select, no account.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>PDF24</span><span>manual 7-Zip into CBZ</span></div></div><div class="new"><span class="nl">You get</span><p><b>Combine into PDF</b> or <b>CBZ</b>, natural-sorted, from a folder of scans or pages.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ImageMagick for scripts / agents</span></div></div><div class="new"><span class="nl">You get</span><p><span class="mono">st2k.exe</span>: a full <b>CLI plus an MCP server</b>, so scripts and AI agents get an image toolbox with zero extra installs.</p></div></div>
+    </div>
+
+    <p class="rnote reveal">A few honest notes: some exotic formats lean on codecs already in Windows (WIC) or the bundled ImageMagick engine rather than pure Rust, and SageThumbs 2K is what wires all of it into Explorer. Several tools above (<b>PowerToys, Snipping Tool, ShareX</b>) are free too: the point isn't cost, it's not having to assemble and run a dozen of them side by side.</p>
   </div>
 </section>
 
@@ -634,7 +735,7 @@
       <div class="reveal">
         <span class="eyebrow">For power users and AI agents</span>
         <h2 style="font-size:clamp(1.85rem,3.4vw,2.6rem);letter-spacing:-.03em;margin:12px 0 14px">A command line and an MCP server, in the box.</h2>
-        <p class="lead">Everything the menu does, <span class="mono" style="color:var(--accent-2)">st2k.exe</span> does from the terminal. It also speaks MCP, so an AI agent can view any of the 316 formats as a real image and act on it.</p>
+        <p class="lead">Everything the menu does, <span class="mono" style="color:var(--accent-2)">st2k.exe</span> does from the terminal. It also speaks MCP, so an AI agent can view any supported format as a real image and act on it.</p>
         <ul class="featlist">
           <li><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><div><b>Scriptable batch</b><span>Thumbnail or convert whole folders in parallel, in one process.</span></div></li>
           <li><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><div><b>OCR and PDF tools</b><span>Pull text out of images, stitch many pages into one file.</span></div></li>
@@ -646,7 +747,7 @@
           <span class="label">st2k</span>
           <button class="copy" type="button" aria-label="Copy commands">Copy</button>
         </div>
-<pre><span class="c"># render any of 316 formats to an image</span>
+<pre><span class="c"># render any supported format to an image</span>
 <span class="p">$</span> <span class="t">st2k</span> <span class="t">thumbnail</span> photo.cr2 out.png <span class="f">--size</span> 512
 
 <span class="c"># batch a whole folder, in parallel</span>
@@ -721,7 +822,11 @@
         </details>
         <details class="reveal">
           <summary>Which formats are supported?<span class="pm" aria-hidden="true"></span></summary>
-          <div class="ans">316 across Image, Camera RAW, Document, Video, Audio and Ebook or comics. Run <code>st2k formats</code> for the full, live list.</div>
+          <div class="ans">Hundreds across Image, Camera RAW, Document, Video, Audio and Ebook or comics. Run <code>st2k formats</code> for the exact, live list.</div>
+        </details>
+        <details class="reveal">
+          <summary>What other tools does it replace?<span class="pm" aria-hidden="true"></span></summary>
+          <div class="ans">One small install covers a separate thumbnailer, image converter, resizer, colour picker, screenshot and annotation tool, OCR utility, EXIF viewer, metadata stripper and image uploader, plus a command line and MCP server for scripts and AI agents. See <a href="#replaces">what it replaces</a> for the full list.</div>
         </details>
       </div>
     </div>
@@ -751,7 +856,7 @@
         </a>
         <a class="btn btn-ghost" href="https://github.com/LunarWerxs/SageThumbs-2k" target="_blank" rel="noopener">View source</a>
       </div>
-      <p class="meta">v0.7.0 &nbsp;·&nbsp; 64-bit &nbsp;·&nbsp; about 9 MB &nbsp;·&nbsp; Windows 11 and 10</p>
+      <p class="meta">v1.0.0 &nbsp;·&nbsp; 64-bit &nbsp;·&nbsp; Windows 11 and 10</p>
     </div>
   </div>
 </section>
@@ -778,13 +883,14 @@
         <h4>On this page</h4>
         <a class="link" href="#previews">Previews</a>
         <a class="link" href="#explorer">In Explorer</a>
+        <a class="link" href="#replaces">What it replaces</a>
         <a class="link" href="#cli">CLI and MCP</a>
         <a class="link" href="#faq">FAQ</a>
       </div>
     </div>
     <div class="foot-bottom">
       <span>© 2026 LunarWerx. Licensed <a href="https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md" target="_blank" rel="noopener">PolyForm Noncommercial 1.0.0</a>.</span>
-      <span>SageThumbs 2K · v0.7.0 · Windows 11 and 10</span>
+      <span>SageThumbs 2K · v1.0.0 · Windows 11 and 10</span>
     </div>
   </div>
 </footer>
