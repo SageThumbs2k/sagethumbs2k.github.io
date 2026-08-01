@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="CtrxYGRAu0kR219D9MHtBV3yyWb729kDbfQP6hnK7zg">
 <title>SageThumbs 2K: Explorer thumbnails for hundreds of file types Windows can't read</title>
-<meta name="description" content="File Explorer thumbnails for hundreds of file types Windows can't read (camera RAW, PSD, HEIC, video, ebooks, comics), plus press Space for a full-size Quick Look preview, and right-click convert, resize, OCR, colour-pick and screenshot. One small install that replaces a dozen separate tools. Free and source-available.">
+<meta name="description" content="File Explorer thumbnails for hundreds of file types Windows can't read (camera RAW, PSD, HEIC, video, ebooks, comics), plus press Space for a full-size Quick Look preview, and right-click convert, resize, OCR, colour-pick and screenshot. One installer that replaces a dozen separate tools. Free and source-available.">
 <link rel="canonical" href="https://sagethumbs2k.github.io/">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="icon" type="image/png" href="favicon.png">
@@ -13,13 +13,19 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <meta name="theme-color" content="#0b0e13">
+<script>
+  /* Applied before first paint, so a stored theme choice never flashes the other
+     theme first. With no stored choice the page just follows the OS. */
+  try { var t = localStorage.getItem('st2k-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
 <meta name="author" content="LunarWerx">
 <meta name="application-name" content="SageThumbs 2K">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SageThumbs 2K">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="SageThumbs 2K: Explorer thumbnails for hundreds of file types Windows can't read">
-<meta property="og:description" content="One small install: File Explorer thumbnails for hundreds of formats Windows can't read (camera RAW, PSD, HEIC, video, ebooks, comics), plus convert, resize, preview, OCR, colour-pick and screenshot. It replaces a dozen separate tools. Free and source-available.">
+<meta property="og:description" content="One installer: File Explorer thumbnails for hundreds of formats Windows can't read (camera RAW, PSD, HEIC, video, ebooks, comics), plus convert, resize, preview, OCR, colour-pick and screenshot. It replaces a dozen separate tools. Free and source-available.">
 <meta property="og:url" content="https://sagethumbs2k.github.io/">
 <meta property="og:image" content="https://sagethumbs2k.github.io/og.png">
 <meta property="og:image:secure_url" content="https://sagethumbs2k.github.io/og.png">
@@ -29,7 +35,7 @@
 <meta property="og:image:alt" content="SageThumbs 2K: one install replaces a dozen tools. Explorer thumbnails for hundreds of formats Windows can't read, plus convert, resize, preview, OCR, colour-pick and screenshot, beside a row of RAW, HEIC, PSD, EPUB, MKV and SVG thumbnails.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="SageThumbs 2K: thumbnails for hundreds of file types Windows can't read">
-<meta name="twitter:description" content="Thumbnails for hundreds of formats Windows can't read, plus convert, resize, preview, OCR, colour-pick and screenshot. One small install that replaces a dozen separate tools. Free and source-available.">
+<meta name="twitter:description" content="Thumbnails for hundreds of formats Windows can't read, plus convert, resize, preview, OCR, colour-pick and screenshot. One installer that replaces a dozen separate tools. Free and source-available.">
 <meta name="twitter:image" content="https://sagethumbs2k.github.io/og.png">
 <meta name="twitter:image:alt" content="SageThumbs 2K: one install replaces a dozen tools. Thumbnails for hundreds of formats Windows can't read, plus convert, resize, preview, OCR, colour-pick and screenshot.">
 <script type="application/ld+json">
@@ -42,13 +48,13 @@
       "name": "SageThumbs 2K",
       "operatingSystem": "Windows 11, Windows 10",
       "applicationCategory": "UtilitiesApplication",
-      "softwareVersion": "1.3.1",
+      "softwareVersion": "1.6.0",
       "url": "https://sagethumbs2k.github.io/",
       "downloadUrl": "https://github.com/LunarWerxs/SageThumbs-2k/releases/latest",
       "softwareHelp": "https://github.com/LunarWerxs/SageThumbs-2k",
       "image": "https://sagethumbs2k.github.io/og.png",
       "screenshot": "https://sagethumbs2k.github.io/img/explorer.webp",
-      "description": "A crash-isolated Windows shell extension that adds File Explorer thumbnails for hundreds of file types Windows can't read (camera RAW, PSD, HEIC, video, ebooks, comics), plus a right-click toolkit to convert, resize, preview, OCR, pick colours and take screenshots, so one small install replaces a dozen separate tools. Written in Rust, free and source-available.",
+      "description": "A crash-isolated Windows shell extension that adds File Explorer thumbnails for hundreds of file types Windows can't read (camera RAW, PSD, HEIC, video, ebooks, comics), plus a right-click toolkit to convert, resize, preview, OCR, pick colours and take screenshots, so one installer replaces a dozen separate tools. Written in Rust, free and source-available.",
       "featureList": [
         "File Explorer thumbnails for hundreds of file types",
         "Camera RAW: CR2, NEF, ARW, RAF and more",
@@ -59,7 +65,11 @@
         "Audio album art and waveforms",
         "Right-click toolkit: convert, resize, rotate, combine to PDF, OCR",
         "Command line and MCP server for AI agents",
-        "Space-bar Quick Look: instant full-size file preview (new)",
+        "Space-bar Quick Look: instant full-size file preview",
+        "Screen OCR: drag a region and copy the text on it",
+        "HDR screen capture, tone-mapped instead of washed out (new)",
+        "Strip metadata including Content Credentials (C2PA), across JPEG, PNG, WebP, SVG, HEIC and AVIF (new)",
+        "EPS thumbnails from the embedded raster preview, without running PostScript (new)",
         "Replaces a dozen tools: converter, resizer, colour picker, screenshot, OCR and uploader",
         "Crash-isolated, memory-safe Rust"
       ],
@@ -92,7 +102,7 @@
         { "@type": "Question", "name": "Why does Windows SmartScreen warn me?", "acceptedAnswer": { "@type": "Answer", "text": "The installer is not code-signed, since signing means a paid certificate, so Windows shows its default warning for any new publisher. Click More info then Run anyway. You can also build from source." } },
         { "@type": "Question", "name": "Which versions of Windows?", "acceptedAnswer": { "@type": "Answer", "text": "Windows 11 and Windows 10, 64-bit. The modern right-click menu and the classic menu are both supported." } },
         { "@type": "Question", "name": "Which formats are supported?", "acceptedAnswer": { "@type": "Answer", "text": "Hundreds across Image, Camera RAW, Document, Video, Audio and Ebook or comics. Run st2k formats for the exact, live list." } },
-        { "@type": "Question", "name": "What other tools does it replace?", "acceptedAnswer": { "@type": "Answer", "text": "One small install covers what you would otherwise get from a separate thumbnailer, image converter, resizer, colour picker, screenshot and annotation tool, OCR utility, EXIF viewer, metadata stripper and image uploader, plus a command line and MCP server for scripts and AI agents, so you do not need ImageMagick." } }
+        { "@type": "Question", "name": "What other tools does it replace?", "acceptedAnswer": { "@type": "Answer", "text": "One installer covers what you would otherwise get from a separate thumbnailer, image converter, resizer, colour picker, screenshot and annotation tool, OCR utility, EXIF viewer, metadata stripper and image uploader, plus a command line and MCP server for scripts and AI agents. The Full installer includes the approved ImageMagick runtime, so it does not need to be installed separately." } }
       ]
     }
   ]
@@ -104,34 +114,70 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
+  /* Dual-theme token system. Every surface colour resolves through light-dark(),
+     so the whole page follows the OS by default and the nav toggle can override it
+     by flipping `color-scheme` on :root. No duplicated palette, no .dark class war. */
   :root{
-    /* cool, blue-tinted dark palette echoing the app's Settings window */
-    --bg:#0b0e13;
-    --bg-2:#11151d;
-    --s1:#12161f;
-    --s2:#171c27;
-    --s3:#1d2330;
-    --line:#222a37;
-    --line-2:#2c3645;
-    --line-3:#3a4659;
+    color-scheme:light dark;
 
-    --ink:#e9edf4;
-    --ink-2:#a4adbe;
-    --ink-3:#717c8f;
+    --bg:        light-dark(#fcfcfd, #0b0e13);
+    --bg-2:      light-dark(#f4f6fa, #11151d);
+    --s1:        light-dark(#ffffff, #12161f);
+    --s2:        light-dark(#f7f9fc, #171c27);
+    --s3:        light-dark(#eef1f7, #1d2330);
+    --line:      light-dark(#e4e8ef, #222a37);
+    --line-2:    light-dark(#d4dae4, #2c3645);
+    --line-3:    light-dark(#b7c1d1, #3a4659);
 
-    --accent:#4d9cff;        /* links / tags / focus on dark */
-    --accent-2:#7bb6ff;
-    --accent-strong:#1f63d6; /* button bg, white text passes AA */
-    --accent-press:#1a55ba;
-    --teal:#22b8a6;          /* logo iris accent, used sparingly */
+    --ink:       light-dark(#0c1118, #e9edf4);
+    --ink-2:     light-dark(#4b5768, #a4adbe);
+    /* Muted text. Both values are pinned to clear 4.5:1 against the LIGHTEST body
+       surface in their own theme, because this token carries real copy (footer note,
+       stat captions, format counts), not just decoration. The old dark #717c8f sat
+       at ~4.3 and quietly failed AA. */
+    --ink-3:     light-dark(#616d80, #828d9e);
+
+    --accent:        light-dark(#1f63d6, #4d9cff);  /* links / tags / focus */
+    --accent-2:      light-dark(#164ba8, #7bb6ff);
+    --accent-strong: #1f63d6;                       /* button bg, white text passes AA both ways */
+    --accent-press:  #1a55ba;
+    --teal:          light-dark(#0a7466, #22b8a6);  /* logo iris accent, used sparingly */
+
+    /* Tinted elevation, so a "raised" surface reads correctly in BOTH themes.
+       These replace the old hard-coded rgba(255,255,255,.0x) highlights, which
+       were invisible on white. */
+    --elev-1: light-dark(rgba(12,17,24,.028), rgba(255,255,255,.028));
+    --elev-2: light-dark(rgba(12,17,24,.055), rgba(255,255,255,.055));
+    --elev-3: light-dark(rgba(12,17,24,.085), rgba(255,255,255,.085));
+    --nav-bg: light-dark(rgba(252,252,253,.78), var(--nav-bg));
+
+    /* Terminal + tooltip chrome stays dark in both themes on purpose: it is a
+       console and a floating overlay, not page surface. Give them their own ink. */
+    --code-bg:  light-dark(#101620, #0a0d12);
+    --code-ink: #e9edf4;
+    --tip-bg:   light-dark(#161d28, #141a24);
+    --tip-ink:  #eef2f9;
+
+    /* The well a product screenshot sits in: a soft tinted panel in light mode,
+       the deep well the shots were composed against in dark. */
+    --well:     light-dark(#eef2f7, #0a0d12);
+
+    /* One shadow recipe. Light mode needs a far weaker, cooler shadow than dark. */
+    --sh-1: light-dark(0 1px 2px rgba(16,26,44,.06), 0 1px 0 rgba(255,255,255,.03) inset);
+    --sh-2: light-dark(0 12px 28px -18px rgba(16,26,44,.28), 0 18px 40px -28px rgba(0,0,0,.9));
+    --sh-3: light-dark(0 22px 48px -26px rgba(16,26,44,.34), var(--sh-3));
 
     --maxw:1180px;
-    --r-sm:9px;
-    --r:14px;
-    --r-lg:20px;
+    --r-sm:8px;
+    --r:12px;
+    --r-lg:18px;
     --ease:cubic-bezier(.16,1,.3,1);
     --ease-out:cubic-bezier(.23,1,.32,1);
   }
+  /* Manual override from the nav toggle. Setting color-scheme is all that is
+     needed: every token above is a light-dark() and re-resolves automatically. */
+  :root[data-theme="light"]{color-scheme:light}
+  :root[data-theme="dark"] {color-scheme:dark}
 
   *{box-sizing:border-box;margin:0;padding:0}
   html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:80px}
@@ -143,22 +189,24 @@
     overflow-x:hidden;
     font-feature-settings:"ss01" 1;
   }
-  /* ambient depth: a single soft, low-alpha blue field behind the hero, plus faint grain */
+  /* Structural depth instead of ambient glow: one hairline grid that fades out,
+     which reads as precision rather than 2023 SaaS gradient soup. It is a fixed
+     layer, so it also stays put (and stays subtle) in a screenshot. */
   body::before{
-    content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
-    background:
-      radial-gradient(1100px 620px at 78% -10%, rgba(77,156,255,.10), transparent 62%),
-      radial-gradient(900px 560px at 8% -6%, rgba(34,184,166,.05), transparent 60%);
-  }
-  body::after{
-    content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.035;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background-image:
+      linear-gradient(to right,  color-mix(in srgb,var(--line) 62%,transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb,var(--line) 62%,transparent) 1px, transparent 1px);
+    background-size:72px 72px;
+    -webkit-mask-image:radial-gradient(120% 65% at 50% 0%, #000 0%, transparent 72%);
+    mask-image:radial-gradient(120% 65% at 50% 0%, #000 0%, transparent 72%);
+    opacity:light-dark(.55,.4);
   }
 
   a{color:var(--accent);text-decoration:none;transition:color .15s var(--ease)}
   a:hover{color:var(--accent-2)}
   img{display:block;max-width:100%}
-  ::selection{background:rgba(77,156,255,.28);color:#fff}
+  ::selection{background:color-mix(in srgb,var(--accent) 30%,transparent);color:#fff}
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
   h1,h2,h3,h4{color:var(--ink);line-height:1.1;letter-spacing:-.025em;font-weight:600;text-wrap:balance}
   p{text-wrap:pretty}
@@ -170,7 +218,7 @@
   .eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:.78rem;letter-spacing:.04em;color:var(--accent);font-weight:500}
 
   /* ---------------- NAV ---------------- */
-  .nav{position:sticky;top:0;z-index:60;background:rgba(11,14,19,.72);
+  .nav{position:sticky;top:0;z-index:60;background:var(--nav-bg);
        backdrop-filter:blur(12px) saturate(140%);-webkit-backdrop-filter:blur(12px) saturate(140%);
        border-bottom:1px solid var(--line)}
   .nav-in{display:flex;align-items:center;gap:24px;height:64px;max-width:var(--maxw);margin:0 auto;padding:0 24px}
@@ -180,8 +228,17 @@
   .brand .k{color:var(--teal);font-weight:600;margin-left:3px}
   .nav-links{display:flex;gap:4px;margin-left:8px}
   .nav-links a{color:var(--ink-2);font-size:.93rem;font-weight:500;padding:7px 12px;border-radius:8px;transition:color .15s,background .15s}
-  .nav-links a:hover{color:var(--ink);background:rgba(255,255,255,.045)}
+  .nav-links a:hover{color:var(--ink);background:var(--elev-2)}
   .nav-cta{margin-left:auto;display:flex;align-items:center;gap:10px}
+  /* One glyph for both directions (a half-filled disc), so the button never has to
+     know which theme resolved — which light-dark() cannot tell it, being colour-only. */
+  .theme-toggle{display:inline-grid;place-items:center;width:34px;height:34px;padding:0;
+       border-radius:9px;color:var(--ink-2);background:var(--elev-1);border:1px solid var(--line-2);
+       cursor:pointer;transition:color .15s var(--ease),background .15s var(--ease),border-color .15s var(--ease)}
+  .theme-toggle:hover{color:var(--ink);background:var(--elev-2);border-color:var(--line-3)}
+  .theme-toggle svg{transition:transform .4s var(--ease)}
+  .theme-toggle:hover svg{transform:rotate(180deg)}
+  @media (prefers-reduced-motion:reduce){.theme-toggle svg,.theme-toggle:hover svg{transition:none;transform:none}}
   @media(max-width:860px){.nav-links{display:none}}
 
   /* ---------------- BUTTONS ---------------- */
@@ -194,8 +251,8 @@
   .btn-primary{background:var(--accent-strong);color:#fff;box-shadow:0 10px 24px -14px rgba(31,99,214,.9)}
   .btn-primary:hover{background:#2a72e6;color:#fff;box-shadow:0 14px 30px -14px rgba(31,99,214,1)}
   .btn-primary:active{background:var(--accent-press)}
-  .btn-ghost{background:rgba(255,255,255,.025);color:var(--ink);border-color:var(--line-2)}
-  .btn-ghost:hover{background:rgba(255,255,255,.06);border-color:var(--line-3);color:var(--ink)}
+  .btn-ghost{background:var(--elev-1);color:var(--ink);border-color:var(--line-2)}
+  .btn-ghost:hover{background:var(--elev-2);border-color:var(--line-3);color:var(--ink)}
   .btn-sm{padding:8px 13px;font-size:.88rem;border-radius:9px}
   /* square icon-only button (e.g. GitHub in the nav) */
   .btn-icon{padding:9px;gap:0;color:var(--ink-2)}
@@ -220,12 +277,12 @@
   .wall{column-count:3;column-gap:12px}
   .tile{position:relative;break-inside:avoid;margin-bottom:12px;border-radius:var(--r);overflow:hidden;
         border:1px solid var(--line-2);background:var(--s1);
-        box-shadow:0 1px 0 rgba(255,255,255,.03) inset, 0 18px 40px -28px rgba(0,0,0,.9);
+        box-shadow:var(--sh-2);
         transition:transform .35s var(--ease),border-color .26s var(--ease),box-shadow .26s var(--ease);will-change:transform}
   .tile img{width:100%;height:auto;display:block;transition:transform .6s var(--ease)}
   @media(hover:hover) and (pointer:fine){
     .tile:hover{border-color:color-mix(in srgb,var(--accent) 55%,var(--line-2));z-index:2;
-      box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 30px 58px -22px rgba(0,0,0,.96),0 0 0 1px color-mix(in srgb,var(--accent) 32%,transparent)}
+      box-shadow:0 1px 0 var(--elev-2) inset,0 30px 58px -22px rgba(0,0,0,.96),0 0 0 1px color-mix(in srgb,var(--accent) 32%,transparent)}
     .tile:hover img{transform:scale(1.07)}
     .tile:hover .ext{color:#fff;border-color:color-mix(in srgb,var(--accent) 50%,transparent);background:rgba(8,11,16,.84)}
   }
@@ -263,6 +320,7 @@
   .fmtgroup[data-cat="vid"]{--c:#f06ab0}
   .fmtgroup[data-cat="aud"]{--c:#38d39f}
   .fmtgroup[data-cat="ebk"]{--c:#f2c14e}
+  .fmtgroup[data-cat="arc"]{--c:#7d8ca3}
   .fgh{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:.96rem;font-weight:600;color:var(--ink);letter-spacing:-.01em}
   .fgh .sw{width:10px;height:10px;border-radius:3px;background:var(--c);flex:0 0 auto;box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 15%,transparent)}
   .fgh .cnt{font-family:"Geist Mono",monospace;font-size:.8rem;font-weight:500;color:var(--ink-3);font-variant-numeric:tabular-nums}
@@ -274,7 +332,7 @@
   @media(hover:hover) and (pointer:fine){.fc:hover{color:#fff;border-color:color-mix(in srgb,var(--c) 55%,transparent);background:color-mix(in srgb,var(--c) 18%,transparent);transform:translateY(-1px);cursor:help}}
   /* rich hover tooltip for format chips (replaces the slow native title) */
   .fmttip{position:fixed;left:0;top:0;z-index:80;max-width:300px;pointer-events:none;
-    background:#141a24;border:1px solid color-mix(in srgb,var(--ftc,#4d9cff) 45%,var(--line-3));border-radius:11px;padding:11px 13px;
+    background:var(--tip-bg);border:1px solid color-mix(in srgb,var(--ftc,#4d9cff) 45%,var(--line-3));border-radius:11px;padding:11px 13px;
     box-shadow:0 18px 44px -14px rgba(0,0,0,.72),0 0 0 1px rgba(0,0,0,.3);
     opacity:0;transform:translate(-50%,calc(-100% - 4px)) scale(.96);transform-origin:bottom center;
     transition:opacity .14s var(--ease),transform .14s var(--ease)}
@@ -283,12 +341,12 @@
   .fmttip.below.on{transform:translate(-50%,11px) scale(1)}
   .fmttip .ft-head{display:flex;align-items:baseline;gap:9px;margin-bottom:6px}
   .fmttip .ft-ext{font-family:"Geist Mono",monospace;font-size:.9rem;font-weight:600;color:var(--ftc,#fff)}
-  .fmttip .ft-cat{display:flex;align-items:center;gap:6px;font-family:"Geist Mono",monospace;font-size:.7rem;letter-spacing:.02em;color:var(--ink-3);white-space:nowrap}
+  .fmttip .ft-cat{display:flex;align-items:center;gap:6px;font-family:"Geist Mono",monospace;font-size:.7rem;letter-spacing:.02em;color:#8b95a6;white-space:nowrap}
   .fmttip .ft-cat::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ftc,#4d9cff);flex:0 0 auto}
-  .fmttip .ft-desc{font-size:.86rem;color:var(--ink);line-height:1.45}
+  .fmttip .ft-desc{font-size:.86rem;color:var(--tip-ink);line-height:1.45}
   .fmttip::after{content:"";position:absolute;left:50%;transform:translateX(-50%);border:6px solid transparent}
-  .fmttip:not(.below)::after{top:100%;border-top-color:#141a24}
-  .fmttip.below::after{bottom:100%;border-bottom-color:#141a24}
+  .fmttip:not(.below)::after{top:100%;border-top-color:var(--tip-bg)}
+  .fmttip.below::after{bottom:100%;border-bottom-color:var(--tip-bg)}
   @media (prefers-reduced-motion:reduce){.fmttip{transition:opacity .12s}.fmttip.on,.fmttip.below.on{transform:translate(-50%,0)}}
   /* format browser: Wall vs Explore-slider */
   .fmtbrowse{margin-top:32px}
@@ -299,9 +357,9 @@
   .bar-wrap{position:relative}
   .bar-tip{position:absolute;bottom:100%;left:0;transform:translate(-50%,-11px);
     font-family:"Geist Mono",monospace;font-size:.76rem;font-weight:500;white-space:nowrap;color:#fff;
-    background:#161d28;border:1px solid var(--line-3);border-radius:7px;padding:5px 10px;
+    background:var(--tip-bg);border:1px solid rgba(255,255,255,.16);border-radius:7px;padding:5px 10px;
     box-shadow:0 10px 24px rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .14s var(--ease),transform .14s var(--ease);z-index:6}
-  .bar-tip::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#161d28}
+  .bar-tip::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--tip-bg)}
   .bar-wrap.tipping .bar-tip{opacity:1}
   .bar span{transition:opacity .3s var(--ease),filter .3s var(--ease)}
   .handle{display:none}
@@ -332,27 +390,27 @@
   .ecard{border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--s1);display:flex;flex-direction:column}
   .ecard .ebody{padding:26px 28px}
   .ecard .ehead{display:flex;align-items:center;gap:11px;margin-bottom:12px}
-  .ecard .eico{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;color:var(--accent);background:rgba(77,156,255,.1);border:1px solid rgba(77,156,255,.22);flex:0 0 auto}
+  .ecard .eico{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent);border:1px solid color-mix(in srgb,var(--accent) 26%,transparent);flex:0 0 auto}
   .ecard h3{font-size:1.16rem;letter-spacing:-.015em;color:var(--ink)}
   .ecard p{font-size:.96rem;color:var(--ink-2);line-height:1.55}
-  .ecard .evisual{flex:1;display:grid;place-items:center;background:#0a0d12;border-top:1px solid var(--line);padding:18px;min-height:280px;overflow:hidden}
+  .ecard .evisual{flex:1;display:grid;place-items:center;background:var(--well);border-top:1px solid var(--line);padding:18px;min-height:280px;overflow:hidden}
   .ecard .evisual img{max-width:100%;max-height:300px;width:auto;height:auto;display:block;border-radius:8px}
   /* settings: bigger, fills more of its box */
   .ecard.set .evisual{padding:16px}
   .ecard.set .evisual img{max-height:380px;border:1px solid var(--line-2)}
   /* toolkit menu: cropped to its useful top, shown crisp (low-res source, so no upscaling) */
   .ecard.menu .evisual{padding:20px}
-  .ecard.menu .evisual img{max-width:100%;max-height:336px;width:auto;height:auto;border:none;border-radius:7px;box-shadow:0 22px 46px -26px rgba(0,0,0,.95)}
+  .ecard.menu .evisual img{max-width:100%;max-height:336px;width:auto;height:auto;border:none;border-radius:7px;box-shadow:var(--sh-3)}
   .caplist{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:10px}
   .caplist li{display:flex;gap:10px;align-items:center;font-size:.95rem;color:var(--ink-2);line-height:1.4}
   .caplist .ck{flex:0 0 auto;color:var(--accent)}
   .toolbits{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
-  .toolbits .tb{font-size:.8rem;color:var(--ink-2);padding:5px 10px;border-radius:7px;border:1px solid var(--line-2);background:rgba(255,255,255,.02)}
+  .toolbits .tb{font-size:.8rem;color:var(--ink-2);padding:5px 10px;border-radius:7px;border:1px solid var(--line-2);background:var(--elev-1)}
   /* wide feature card: text left, screenshot right, both contained inside one card */
   .ecard.wide{grid-column:1 / -1;display:grid;grid-template-columns:.82fr 1.18fr;align-items:stretch}
   .ecard.wide .ebody{align-self:center;padding:32px 34px}
   .ecard.wide .evisual{border-top:none;border-left:1px solid var(--line);min-height:0;padding:22px}
-  .ecard.wide .evisual img{max-height:440px;width:auto;max-width:100%;border:1px solid var(--line-2);border-radius:10px;box-shadow:0 30px 60px -34px rgba(0,0,0,.95)}
+  .ecard.wide .evisual img{max-height:440px;width:auto;max-width:100%;border:1px solid var(--line-2);border-radius:10px;box-shadow:var(--sh-3)}
   @media(max-width:880px){
     .exp-bento{grid-template-columns:1fr}
     .ecard.wide{grid-template-columns:1fr}
@@ -362,23 +420,23 @@
 
   /* ---------------- CLI ---------------- */
   .cli-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(28px,4vw,56px);align-items:center}
-  .code{border:1px solid var(--line-2);border-radius:var(--r);background:#0a0d12;overflow:hidden;
-        box-shadow:0 30px 70px -40px rgba(0,0,0,.95)}
-  .code .top{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.015)}
-  .code .top .label{font-family:"Geist Mono",monospace;font-size:.78rem;color:var(--ink-3)}
-  .code .copy{margin-left:auto;font-family:"Geist Mono",monospace;font-size:.74rem;color:var(--ink-2);
-              background:rgba(255,255,255,.04);border:1px solid var(--line-2);border-radius:6px;padding:4px 9px;cursor:pointer;transition:background .15s,color .15s}
-  .code .copy:hover{background:rgba(255,255,255,.08);color:var(--ink)}
-  .code pre{margin:0;padding:18px 18px 20px;font-family:"Geist Mono",monospace;font-size:.82rem;line-height:1.95;overflow-x:auto;color:var(--ink-2)}
-  .code .c{color:#5d6878}
-  .code .p{color:var(--teal)}
-  .code .t{color:var(--ink)}
-  .code .f{color:var(--accent)}
-  .code .o{color:var(--ink-3)}
+  .code{border:1px solid var(--line-2);border-radius:var(--r);background:var(--code-bg);overflow:hidden;
+        box-shadow:var(--sh-3)}
+  .code .top{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}
+  .code .top .label{font-family:"Geist Mono",monospace;font-size:.78rem;color:color-mix(in srgb,var(--code-ink) 55%,transparent)}
+  .code .copy{margin-left:auto;font-family:"Geist Mono",monospace;font-size:.74rem;color:color-mix(in srgb,var(--code-ink) 74%,transparent);
+              background:var(--elev-2);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:4px 9px;cursor:pointer;transition:background .15s,color .15s}
+  .code .copy:hover{background:rgba(255,255,255,.10);color:var(--code-ink)}
+  .code pre{margin:0;padding:18px 18px 20px;font-family:"Geist Mono",monospace;font-size:.82rem;line-height:1.95;overflow-x:auto;color:color-mix(in srgb,var(--code-ink) 74%,transparent)}
+  .code .c{color:#868fa0}
+  .code .p{color:#22b8a6}
+  .code .t{color:var(--code-ink)}
+  .code .f{color:#4d9cff}
+  .code .o{color:#8b95a6}
   .featlist{list-style:none;display:flex;flex-direction:column;gap:16px;margin-top:26px}
   .featlist li{display:flex;gap:13px;align-items:flex-start}
   .featlist .ic{flex:0 0 auto;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;color:var(--accent);
-                background:rgba(77,156,255,.1);border:1px solid rgba(77,156,255,.2);margin-top:1px}
+                background:color-mix(in srgb,var(--accent) 12%,transparent);border:1px solid color-mix(in srgb,var(--accent) 24%,transparent);margin-top:1px}
   .featlist b{display:block;color:var(--ink);font-weight:600;font-size:1rem}
   .featlist span{font-size:.93rem;color:var(--ink-2)}
   @media(max-width:880px){.cli-grid{grid-template-columns:1fr;gap:30px}}
@@ -387,7 +445,7 @@
   .assure{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .assure .a{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:var(--s1)}
   .assure .ic{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;color:var(--accent);
-              background:rgba(77,156,255,.1);border:1px solid rgba(77,156,255,.2);margin-bottom:15px}
+              background:color-mix(in srgb,var(--accent) 12%,transparent);border:1px solid color-mix(in srgb,var(--accent) 24%,transparent);margin-bottom:15px}
   .assure h3{font-size:1.08rem;letter-spacing:-.01em}
   .assure p{font-size:.94rem;color:var(--ink-2);margin-top:8px;line-height:1.55}
   @media(max-width:760px){.assure{grid-template-columns:1fr}}
@@ -404,17 +462,21 @@
   details summary .pm::after{left:8px;top:1px;bottom:1px;width:2px;transition:opacity .2s}
   details[open] summary .pm::after{opacity:0}
   details .ans{padding:0 0 20px;font-size:.96rem;color:var(--ink-2);line-height:1.6;max-width:60ch}
-  details .ans code{font-family:"Geist Mono",monospace;font-size:.85em;color:var(--accent-2);background:rgba(77,156,255,.1);padding:.1em .4em;border-radius:5px}
+  details .ans code{font-family:"Geist Mono",monospace;font-size:.85em;color:var(--accent-2);background:color-mix(in srgb,var(--accent) 12%,transparent);padding:.1em .4em;border-radius:5px}
   @media(max-width:760px){.faq{grid-template-columns:1fr;gap:0}}
 
   /* ---------------- DOWNLOAD CTA ---------------- */
+  /* A panel, not a glow. One accent hairline along the top edge does the job the
+     two radial gradients used to, and it survives both themes and a screenshot. */
   .download{position:relative;border:1px solid var(--line-2);border-radius:var(--r-lg);padding:clamp(34px,4.5vw,52px) 28px clamp(36px,5vw,56px);text-align:center;overflow:hidden;
-            background:radial-gradient(700px 340px at 50% -28%, rgba(77,156,255,.20), transparent 62%),radial-gradient(640px 320px at 50% 128%, rgba(34,184,166,.13), transparent 62%), var(--s1)}
+            background:var(--s1);box-shadow:var(--sh-2)}
+  .download::before{content:"";position:absolute;inset:0 0 auto;height:2px;
+            background:linear-gradient(90deg,transparent,var(--accent) 22%,var(--teal) 78%,transparent)}
   .dl-strip{display:flex;justify-content:center;gap:10px;margin-bottom:30px;
             -webkit-mask-image:linear-gradient(90deg,transparent,#000 16%,#000 84%,transparent);
             mask-image:linear-gradient(90deg,transparent,#000 16%,#000 84%,transparent)}
   .dl-strip img{width:74px;height:74px;flex:0 0 auto;object-fit:cover;border-radius:13px;border:1px solid var(--line-2);
-                box-shadow:0 18px 34px -18px rgba(0,0,0,.85)}
+                box-shadow:var(--sh-2)}
   @media(max-width:560px){.dl-strip img{width:60px;height:60px}}
   .download h2{font-size:clamp(1.7rem,3.2vw,2.4rem);letter-spacing:-.03em}
   .download p{font-size:1.06rem;color:var(--ink-2);max-width:42ch;margin:14px auto 26px}
@@ -431,9 +493,9 @@
   .foot a.link:hover{color:var(--accent-2)}
   /* subtle "sponsored by LunarWerx" badge in the footer */
   .sponsor{display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding:9px 14px 9px 11px;
-           border:1px solid var(--line-2);border-radius:12px;background:rgba(255,255,255,.02);
+           border:1px solid var(--line-2);border-radius:12px;background:var(--elev-1);
            transition:border-color .18s var(--ease),background .18s var(--ease)}
-  .sponsor:hover{border-color:var(--line-3);background:rgba(255,255,255,.05)}
+  .sponsor:hover{border-color:var(--line-3);background:var(--elev-2)}
   .sponsor .moon{width:21px;height:21px;color:var(--teal);flex:0 0 auto}
   .sponsor .st{display:flex;flex-direction:column;line-height:1.18}
   .sponsor .st .l{font-family:"Geist Mono",monospace;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
@@ -444,12 +506,21 @@
   .foot-bottom a:hover{color:var(--ink-2)}
   @media(max-width:720px){.foot{grid-template-columns:1fr 1fr}.foot .brand-col{grid-column:1/-1}}
 
-  /* ---------------- REVEAL (progressive enhancement) ---------------- */
-  .js .reveal{opacity:0;transform:translateY(16px)}
-  .js .reveal.in{opacity:1;transform:none;transition:opacity .65s var(--ease),transform .65s var(--ease)}
+  /* ---------------- REVEAL ----------------
+     Content is VISIBLE BY DEFAULT. The entrance is layered on top with a
+     scroll-driven timeline, which means no IntersectionObserver, no `.in` class,
+     and nothing that can strand a section at opacity:0 if script never runs, the
+     tab is backgrounded, or the page is being captured. Browsers without
+     animation-timeline simply get the finished state, which is the correct one. */
+  @media (prefers-reduced-motion:no-preference){
+    @supports (animation-timeline:view()){
+      .reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 46%}
+      @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+    }
+  }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
-    .js .reveal,.js .reveal.in{opacity:1!important;transform:none!important;transition:none!important}
+    .reveal{animation:none!important;opacity:1!important;transform:none!important}
     .tile,.btn{transition:none!important}
   }
 
@@ -468,7 +539,7 @@
   .replaces .swap .nl{color:var(--accent)}
   .replaces .swap .chips{display:flex;flex-wrap:wrap;gap:6px}
   .replaces .swap .chips span{font-size:.79rem;color:var(--ink-3);padding:3px 9px;border-radius:7px;border:1px solid var(--line-2);
-        background:rgba(255,255,255,.015);text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--ink-3) 70%,transparent)}
+        background:var(--elev-1);text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--ink-3) 70%,transparent)}
   .replaces .swap .new{border-left:1px solid var(--line);padding-left:20px}
   .replaces .swap .new p{font-size:.95rem;color:var(--ink);line-height:1.5}
   .replaces .swap .new b{color:var(--ink);font-weight:600}
@@ -498,6 +569,9 @@
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-cta">
+      <button class="theme-toggle" type="button" aria-label="Switch theme" title="Switch light / dark">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18Z" fill="currentColor" stroke="none"/></svg>
+      </button>
       <a class="btn btn-ghost btn-sm btn-icon" href="https://github.com/LunarWerxs/SageThumbs-2k" target="_blank" rel="noopener" aria-label="GitHub repository, opens in a new tab" title="GitHub">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
       </a>
@@ -556,13 +630,14 @@
       <p>Windows ships codecs for a handful of common types. Every other extension is content-sniffed and routed to a pure-Rust decoder, the Windows codecs, or an isolated converter. First match wins.</p>
     </div>
 
-    <div class="bar reveal" role="img" aria-label="Format coverage by category: 194 image, 43 document, 34 camera raw, 22 video, 18 audio, 12 ebook and comics">
+    <div class="bar reveal" role="img" aria-label="Format coverage by category: 194 image, 43 document, 34 camera raw, 22 video, 18 audio, 12 ebook and comics, 3 archive">
       <span style="width:59.5%;background:#4d9cff"></span>
       <span style="width:13.2%;background:#ef8b5a"></span>
       <span style="width:10.4%;background:#b48bff"></span>
       <span style="width:6.7%;background:#f06ab0"></span>
       <span style="width:5.5%;background:#38d39f"></span>
       <span style="width:3.7%;background:#f2c14e"></span>
+      <span style="width:0.9%;background:#7d8ca3"></span>
     </div>
     <div class="fmtwall reveal">
       <div class="fmtgroup reveal" data-cat="img">
@@ -588,6 +663,10 @@
       <div class="fmtgroup reveal" data-cat="ebk">
         <h3 class="fgh"><span class="sw"></span>Ebook &amp; comics <span class="cnt">12</span></h3>
         <div class="fgchips"><span class="fc" title="Amazon Kindle ebook">.azw</span> <span class="fc" title="Amazon Kindle ebook (KF8)">.azw3</span> <span class="fc" title="Comic book archive (7-Zip)">.cb7</span> <span class="fc" title="Comic book archive (RAR)">.cbr</span> <span class="fc" title="Comic book archive (TAR)">.cbt</span> <span class="fc" title="Comic book archive (ZIP)">.cbz</span> <span class="fc" title="EPUB ebook">.epub</span> <span class="fc" title="FictionBook 2 ebook">.fb2</span> <span class="fc" title="FictionBook 2 ebook (zipped)">.fbz</span> <span class="fc" title="Mobipocket / Kindle ebook">.mobi</span> <span class="fc" title="Comic / image archive (ZIP)">.phz</span> <span class="fc" title="Mobipocket / Palm ebook">.prc</span></div>
+      </div>
+      <div class="fmtgroup reveal" data-cat="arc">
+        <h3 class="fgh"><span class="sw"></span>Archive <span class="cnt">3</span></h3>
+        <div class="fgchips"><span class="fc" title="7-Zip archive">.7z</span> <span class="fc" title="RAR archive">.rar</span> <span class="fc" title="ZIP archive">.zip</span></div>
       </div>
     </div>
   </div>
@@ -638,7 +717,7 @@
           </div>
           <p>A dark Settings panel matching Windows: toggle any type, cap size and quality, prefer embedded previews, and reorder the menu.</p>
         </div>
-        <div class="evisual"><img src="img/settings.gif" width="758" height="581" alt="The SageThumbs 2K Settings window cycling its category tabs: a Win11-style nav rail, toggle switches, and system-following dark mode"></div>
+        <div class="evisual"><img src="img/settings.gif" width="756" height="580" alt="The SageThumbs 2K Settings window cycling its category tabs: a Win11-style nav rail, toggle switches, and system-following dark mode"></div>
       </article>
       <article class="ecard wide reveal">
         <div class="ebody">
@@ -680,12 +759,23 @@
             <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Code is syntax-highlighted with line numbers; Markdown renders GitHub-style, with an outline</li>
             <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Multi-page PDFs page with the arrows; fonts show a specimen sheet</li>
             <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Archives (zip, 7z, rar) list their contents without extracting</li>
+            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>One click copies the text out of the picture you're looking at (OCR)</li>
           </ul>
           <div class="toolbits">
             <span class="tb">Space to open or close</span><span class="tb">&larr; &rarr; flip through the folder</span><span class="tb">F11 full-screen</span><span class="tb">Never steals focus</span>
           </div>
         </div>
         <div class="evisual"><img src="img/preview-collage.webp" width="2056" height="1490" alt="The SageThumbs 2K Quick preview, opened by pressing Space in Explorer, showing a playing video, a syntax-highlighted source file, a rendered Markdown document and images side by side"></div>
+      </article>
+      <article class="ecard wide reveal">
+        <div class="ebody">
+          <div class="ehead">
+            <span class="eico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h9M3 6h.01M3 12h.01M3 18h.01"/></svg></span>
+            <h3>Code and text, actually readable</h3>
+          </div>
+          <p>Source files open syntax-highlighted with line numbers, in the language they're written in. Text in Chinese, Japanese, Korean and Thai reads correctly too: the encoding is detected rather than assumed, and lines wrap without spaces to break on.</p>
+        </div>
+        <div class="evisual"><img src="img/preview-quicklook.png" width="1000" height="647" alt="The SageThumbs 2K Quick preview showing a Rust source file with syntax highlighting, line numbers and the caption toolbar"></div>
       </article>
     </div>
   </div>
@@ -697,12 +787,12 @@
     <div class="head reveal">
       <span class="eyebrow">One install, not a dozen</span>
       <h2>The whole stack it lets you delete.</h2>
-      <p>There's a checklist of little utilities people reinstall on every Windows box: a thumbnail pack, a converter, a color picker, a screenshot tool, an EXIF viewer. SageThumbs 2K is one tiny shell extension (plus a single <span class="mono" style="color:var(--accent-2)">st2k.exe</span>) that quietly does all of their jobs.</p>
+      <p>There's a checklist of little utilities people reinstall on every Windows box: a thumbnail pack, a converter, a color picker, a screenshot tool, an EXIF viewer. SageThumbs 2K is one shell extension (plus a single <span class="mono" style="color:var(--accent-2)">st2k.exe</span>) that quietly does all of their jobs.</p>
     </div>
 
     <div class="rstats reveal">
       <div class="rstat"><b>a dozen+</b><span>separate tools' jobs, folded in</span></div>
-      <div class="rstat"><b>one</b><span>tiny install, zero dependencies</span></div>
+      <div class="rstat"><b>one</b><span>installer, no separate dependencies</span></div>
       <div class="rstat"><b>0</b><span>tray icons or background services</span></div>
       <div class="rstat"><b>100%</b><span>local image processing, your files stay put</span></div>
     </div>
@@ -716,7 +806,9 @@
       <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>PowerToys Image Resizer</span></div></div><div class="new"><span class="nl">You get</span><p>Right-click <b>Resize</b> presets and <b>Shrink for email</b>, never upscales, keeps your original.</p></div></div>
       <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>jpegtran</span><span>IrfanView lossless plugin</span></div></div><div class="new"><span class="nl">You get</span><p><b>Lossless JPEG rotate and flip</b>, DCT rearrangement with zero re-encode.</p></div></div>
       <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>PowerToys Color Picker</span><span>Just Color Picker</span><span>Instant Eyedropper</span></div></div><div class="new"><span class="nl">You get</span><p>A <b>system-wide eyedropper</b> with a 10x loupe; Space copies <span class="mono">#RRGGBB</span> from anywhere on screen.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ExifCleaner</span><span>BatchPurifier</span></div></div><div class="new"><span class="nl">You get</span><p>Right-click <b>Strip metadata</b> (EXIF/IPTC/XMP/GPS), losslessly, keeping your ICC profile.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>Capture2Text</span><span>PowerToys Text Extractor</span></div></div><div class="new"><span class="nl">You get</span><p><b>Copy text off your screen</b>: drag a region and the words land on your clipboard, in an editable window so a misread character is fixable before you paste.<span style="display:inline-block;margin-left:8px;font-family:'Geist Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 45%,transparent);border-radius:6px;padding:2px 6px;vertical-align:middle">New</span></p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ExifCleaner</span><span>BatchPurifier</span></div></div><div class="new"><span class="nl">You get</span><p>Right-click <b>Strip metadata</b> (EXIF/IPTC/XMP/GPS), losslessly, keeping your ICC profile. Also clears <b>Content Credentials (C2PA)</b>, the provenance record ordinary cleaners leave behind, across JPEG, PNG, WebP, SVG, HEIC and AVIF.<span style="display:inline-block;margin-left:8px;font-family:'Geist Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 45%,transparent);border-radius:6px;padding:2px 6px;vertical-align:middle">New</span></p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>a washed-out HDR screenshot</span></div></div><div class="new"><span class="nl">You get</span><p><b>Screen capture that matches an HDR display</b>, tone-mapped from the real high-range image instead of the pale, blown-out copy Windows hands out. Per-monitor, so a mixed setup comes out right.<span style="display:inline-block;margin-left:8px;font-family:'Geist Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 45%,transparent);border-radius:6px;padding:2px 6px;vertical-align:middle">New</span></p></div></div>
       <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ShareX</span><span>Greenshot</span><span>Snagit</span></div></div><div class="new"><span class="nl">You get</span><p>Built-in <b>region capture</b> with an annotation editor, quick-save, and a live pixel readout.</p></div></div>
       <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>Capture2Text</span></div></div><div class="new"><span class="nl">You get</span><p>Right-click <b>Copy text (OCR)</b>, straight to the clipboard, on Windows' own OCR engine.</p></div></div>
       <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ShareX uploader</span><span>Imgur apps</span></div></div><div class="new"><span class="nl">You get</span><p><b>Upload and copy a share link</b> to a keyless host, batch multi-select, no account.</p></div></div>
@@ -826,7 +918,7 @@
         </details>
         <details class="reveal">
           <summary>What other tools does it replace?<span class="pm" aria-hidden="true"></span></summary>
-          <div class="ans">One small install covers a separate thumbnailer, image converter, resizer, colour picker, screenshot and annotation tool, OCR utility, EXIF viewer, metadata stripper and image uploader, plus a command line and MCP server for scripts and AI agents. See <a href="#replaces">what it replaces</a> for the full list.</div>
+          <div class="ans">One installer covers a separate thumbnailer, image converter, resizer, colour picker, screenshot and annotation tool, OCR utility, EXIF viewer, metadata stripper and image uploader, plus a command line and MCP server for scripts and AI agents. See <a href="#replaces">what it replaces</a> for the full list.</div>
         </details>
       </div>
     </div>
@@ -856,7 +948,7 @@
         </a>
         <a class="btn btn-ghost" href="https://github.com/LunarWerxs/SageThumbs-2k" target="_blank" rel="noopener">View source</a>
       </div>
-      <p class="meta"><span class="js-app-version">v1.3.1</span> &nbsp;·&nbsp; 64-bit &nbsp;·&nbsp; Windows 11 and 10</p>
+      <p class="meta"><span class="js-app-version">v1.6.0</span> &nbsp;·&nbsp; 64-bit &nbsp;·&nbsp; Windows 11 and 10</p>
     </div>
   </div>
 </section>
@@ -890,32 +982,40 @@
     </div>
     <div class="foot-bottom">
       <span>© 2026 LunarWerx. Licensed <a href="https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md" target="_blank" rel="noopener">PolyForm Noncommercial 1.0.0</a>.</span>
-      <span>SageThumbs 2K · <span class="js-app-version">v1.3.1</span> · Windows 11 and 10</span>
+      <span>SageThumbs 2K · <span class="js-app-version">v1.6.0</span> · Windows 11 and 10</span>
     </div>
   </div>
 </footer>
 
 <script>
-  document.documentElement.classList.add('js');
   (function(){
-    // reveal on scroll, with stagger inside each group; no scroll listener
-    var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, {rootMargin:'0px 0px -8% 0px', threshold:.06}) : null;
-
-    function group(nodes){
-      nodes.forEach(function(el,i){
-        el.style.transitionDelay = Math.min(i,8)*55 + 'ms';
-        if(io) io.observe(el); else el.classList.add('in');
-      });
+    // Theme toggle. The stored choice is applied in <head> so there is no flash;
+    // this half only keeps the button label and the address-bar colour in sync.
+    // The entrance animation is pure CSS (scroll-driven) — there is deliberately
+    // no IntersectionObserver any more, so nothing can strand a section hidden.
+    var root = document.documentElement, KEY = 'st2k-theme';
+    var mq = window.matchMedia('(prefers-color-scheme: light)');
+    function current(){
+      return root.getAttribute('data-theme') || (mq.matches ? 'light' : 'dark');
     }
-    // hero wall staggers together as the signature entrance
-    group(Array.prototype.slice.call(document.querySelectorAll('.wall .reveal')));
-    // every other reveal, grouped by nearest section so stagger resets per section
-    document.querySelectorAll('section, footer').forEach(function(sec){
-      var r = Array.prototype.slice.call(sec.querySelectorAll('.reveal')).filter(function(n){return !n.closest('.wall')});
-      group(r);
+    function paint(){
+      var t = current(), meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', t === 'light' ? '#fcfcfd' : '#0b0e13');
+      var b = document.querySelector('.theme-toggle');
+      if (b) b.setAttribute('aria-label', 'Switch to ' + (t === 'light' ? 'dark' : 'light') + ' theme');
+    }
+    paint();
+    document.addEventListener('click', function(e){
+      var b = e.target.closest && e.target.closest('.theme-toggle');
+      if (!b) return;
+      var next = current() === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem(KEY, next); } catch (err) {}
+      paint();
     });
+    mq.addEventListener('change', paint);
+  })();
+  (function(){
 
     // copy button on the code block
     var btn = document.querySelector('#codeblock .copy');
@@ -1001,7 +1101,7 @@
       .then(function(r){ return r.ok ? r.json() : null; })
       .then(function(rel){
         if (!rel || !rel.tag_name) return;
-        var bare = String(rel.tag_name).trim().replace(/^v/, '');   // "v1.3.1" -> "1.3.1"
+        var bare = String(rel.tag_name).trim().replace(/^v/, '');   // "v1.6.0" -> "1.3.1"
         if (!/^\d+\.\d+\.\d+/.test(bare)) return;                    // sanity check
         var pill = 'v' + bare;
         document.querySelectorAll('.js-app-version').forEach(function(el){ el.textContent = pill; });
