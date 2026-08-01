@@ -15,7 +15,7 @@ SageThumbs 2K is a modern, clean-room rebuild of the classic SageThumbs by Nikol
 - Runs on Windows 11 and Windows 10, 64-bit. Single-file Windows installer.
 
 ## Links
-- Home: https://sagethumbs2k.github.io/
+- Home: https://sagethumbs.lunarwerx.com/
 - Source code: https://github.com/LunarWerxs/SageThumbs-2k
 - Download: https://github.com/LunarWerxs/SageThumbs-2k/releases/latest
 - License: https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md
