@@ -1,4 +1,4 @@
-# SageThumbs 2K - https://sagethumbs2k.github.io/
+# SageThumbs 2K - https://sagethumbs.lunarwerx.com/
 
 # Answer / search assistants (cite us, drive traffic)
 User-agent: OAI-SearchBot
@@ -26,4 +26,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://sagethumbs2k.github.io/sitemap.xml
+Sitemap: https://sagethumbs.lunarwerx.com/sitemap.xml
