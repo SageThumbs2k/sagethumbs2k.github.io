@@ -1,17 +1,17 @@
 # SageThumbs 2K
 
-> A free, crash-isolated Windows 11 shell extension that adds File Explorer thumbnails for 326 file types Windows can't preview on its own, including camera RAW, Photoshop PSD, HEIC, video, ebooks, comics and archives. Written in Rust, source-available, with a right-click image toolkit and a command-line / MCP tool.
+> A free, crash-isolated Windows 11 shell extension that adds File Explorer thumbnails for 331 file types Windows can't preview on its own, including camera RAW, Photoshop PSD, HEIC, video, ebooks, comics and archives. Written in Rust, source-available, with a right-click image toolkit and a command-line / MCP tool.
 
 SageThumbs 2K is a modern, clean-room rebuild of the classic SageThumbs by Nikolay Raspopov. It renders thumbnails directly in Windows File Explorer for formats Windows leaves as blank icons, and adds a right-click toolkit plus a console / AI tool. It runs inside explorer.exe but is sandboxed at every boundary with a panic guard on each COM call, so a malformed or hostile file cannot crash Explorer.
 
 ## Key facts
-- 326 supported formats across 7 categories: Image (194), Document (43), Camera RAW (34), Video (22), Audio (18), Ebook and comics (12), Archive (3).
-- Marquee formats: camera RAW (CR2, NEF, ARW, RAF and more), Photoshop PSD and PSB, HEIC, AVIF, JPEG XL, OpenEXR / HDR, DICOM, SVG, video frames (MP4, MKV, MOV, WebM), ebook and comic covers (EPUB, MOBI, CBZ), and audio album art and waveforms.
+- 331 supported formats across 7 categories: Image (199), Document (43), Camera RAW (34), Video (22), Audio (18), Ebook and comics (12), Archive (3).
+- Marquee formats: camera RAW (CR2, NEF, ARW, RAF and more), Photoshop PSD and PSB, HEIC, AVIF, JPEG XL, OpenEXR / HDR, DICOM, SVG, video frames (MP4, MKV, MOV, WebM), ebook and comic covers (EPUB, MOBI, CBZ), Android app packages (APK, showing the app's real launcher icon), and audio album art and waveforms. Flash video and 10-bit and 12-bit HDR VP9 are decoded by SageThumbs itself, because Windows has no codec for either.
 - Free for personal use, source-available under the PolyForm Noncommercial 1.0.0 license. Written in memory-safe Rust.
 - Thumbnailing is read-only. A right-click toolkit can convert, resize, rotate, combine to PDF or CBZ, run OCR, pick a colour off the screen, and set wallpaper.
 - Screen OCR: drag a region of the screen and the text on it is copied to the clipboard, using Windows' own in-box recognizer (no bundled model). Reachable from the screenshot editor, the Quick preview toolbar, the tray menu, or a global hotkey.
 - Press Space in Explorer for a full-size Quick Look preview: video and audio play, code is syntax-highlighted, Markdown renders, PDFs page, archives list their contents, and SQLite databases (.db, .sqlite) open as browsable tables with their schema, strictly read-only.
-- Ships an `st2k` command-line tool that also speaks MCP, so an AI agent can view any of the 326 formats as a real image.
+- Ships an `st2k` command-line tool that also speaks MCP, so an AI agent can view any of the 331 formats as a real image.
 - Runs on Windows 11 and Windows 10, 64-bit. Single-file Windows installer.
 
 ## Links
