@@ -10,7 +10,7 @@ SageThumbs 2K is a modern, clean-room rebuild of the classic SageThumbs by Nikol
 - Free for personal use, source-available under the PolyForm Noncommercial 1.0.0 license. Written in memory-safe Rust.
 - Thumbnailing is read-only. A right-click toolkit can convert, resize, rotate, combine to PDF or CBZ, run OCR, pick a colour off the screen, and set wallpaper.
 - Screen OCR: drag a region of the screen and the text on it is copied to the clipboard, using Windows' own in-box recognizer (no bundled model). Reachable from the screenshot editor, the Quick preview toolbar, the tray menu, or a global hotkey.
-- Press Space in Explorer for a full-size Quick Look preview: video and audio play, code is syntax-highlighted, Markdown renders, PDFs page, archives list their contents, and SQLite databases (.db, .sqlite) open as browsable tables with their schema, strictly read-only.
+- Press Space in Explorer for a full-size Quick Look preview: video and audio play, code is syntax-highlighted, Markdown renders, PDFs scroll continuously with page thumbnails, zoom and Ctrl+F text search, archives list their contents, and SQLite databases (.db, .sqlite) open as browsable tables with their schema, strictly read-only.
 - Ships an `st2k` command-line tool that also speaks MCP, so an AI agent can view any of the 331 formats as a real image.
 - Runs on Windows 11 and Windows 10, 64-bit. Single-file Windows installer.
 
