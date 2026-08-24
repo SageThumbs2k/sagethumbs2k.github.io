@@ -1,0 +1,119 @@
+# SageThumbs 2K
+
+> A free, crash-isolated Windows 11 (and Windows 10) shell extension that adds File
+> Explorer thumbnails for 331 file types Windows can't preview on its own: camera RAW,
+> Photoshop PSD/PSB, HEIC/AVIF, video, ebooks, comics and archives, plus a right-click
+> image toolkit, a spacebar Quick Look preview, and a command-line / MCP tool for
+> scripts and AI agents.
+
+Last updated: 2026-08-23. Current version: 2.3.0. Publisher: LunarWerx Studios.
+Homepage: https://sagethumbs.lunarwerx.com/
+
+## What it is
+
+SageThumbs 2K is a modern, clean-room rebuild of the classic SageThumbs by Nikolay
+Raspopov (GPL-2.0, discontinued since 2019). It runs inside explorer.exe but is
+sandboxed at every COM boundary with a panic guard on each call, so a malformed or
+hostile file cannot crash Explorer. Written in memory-safe Rust.
+
+## Who it's for
+
+Photographers and designers with RAW/PSD folders, anyone with HEIC photos from a
+phone, video editors who want frame thumbnails without opening a player, ebook/comic
+collectors, and developers or AI agents that need a CLI or MCP tool to view formats
+they otherwise can't open.
+
+## Key facts
+
+- 331 supported formats across 7 categories: Image (195), Document (43), Camera RAW
+  (34), Video (22), Audio (18), Ebook and comics (12), Archive (3).
+- Marquee formats: camera RAW (CR2, NEF, ARW, RAF and more), Photoshop PSD/PSB, HEIC,
+  AVIF, JPEG XL, OpenEXR/HDR, DICOM, SVG, video frames (MP4, MKV, MOV, WebM), ebook and
+  comic covers (EPUB, MOBI, CBZ), Android APKs, audio album art and waveforms. Flash
+  video and 10/12-bit HDR VP9 are decoded by SageThumbs itself, since Windows ships no
+  codec for either.
+- Windows 11 and Windows 10, 64-bit only. Single-file installer. Both the modern and
+  classic Explorer right-click menus are supported.
+- Free for personal and non-commercial use, source-available under the PolyForm
+  Noncommercial 1.0.0 license. Commercial deployment needs a separate license.
+
+## Features
+
+- Explorer thumbnails, on demand and cached by Windows; fast paths are pure Rust,
+  heavy decodes run out of process; max file/thumbnail size capped in Settings.
+- Spacebar Quick Look: full-size preview. Video/audio play with a seek bar; code is
+  syntax-highlighted; Markdown renders GitHub-style; PDFs scroll with thumbnails,
+  zoom and Ctrl+F search; archives list contents; SQLite opens as read-only tables.
+- Right-click toolkit: Convert (~29 formats incl. AVIF, JPEG XL, PSD, DDS, EXR,
+  batched across every core), Resize (never upscales), lossless JPEG rotate/flip,
+  Combine to PDF or CBZ, EXIF/GPS/audio tags as sortable Explorer columns.
+- Screen OCR: drag a region, text lands on the clipboard, using Windows' own in-box
+  recognizer, no bundled model, no network call.
+- System-wide eyedropper with a 10x loupe; Space copies #RRGGBB from anywhere.
+- Metadata stripping (EXIF/IPTC/XMP/GPS + Content Credentials/C2PA), losslessly,
+  across JPEG, PNG, WebP, SVG, HEIC and AVIF.
+- HDR screen capture, tone-mapped per monitor. Region screenshot with annotation
+  editor. Upload and copy a share link to a keyless host, no account.
+- `st2k` CLI: batch thumbnail/convert whole folders, OCR, PDF tools. Speaks MCP
+  (`st2k --mcp`), so an AI agent can view any of the 331 formats as a real image.
+- Thumbnailing is read-only by default; the toolkit writes only when asked, creating
+  new files rather than overwriting originals. Everything runs locally except the
+  optional link-upload tool, which needs internet.
+
+## How it compares
+
+- Classic SageThumbs (Raspopov, GPL-2.0): free, image-formats-only via the GFL
+  library, discontinued since 2019. SageThumbs 2K is its Rust-rewritten, actively
+  maintained successor with 331 formats plus the toolkit.
+- MysticThumbs: paid (14-day trial, then a license); covers RAW, PSD, HEIC/AVIF, audio
+  waveforms and ebook covers, but no video thumbnails. It has a Space-bar QuickView
+  that can convert files; it does not offer resize or OCR.
+- Microsoft PowerToys: free, open source, useful but separate utilities (Image
+  Resizer, Color Picker, Text Extractor, Peek preview). Its Explorer thumbnails cover
+  SVG, PDF, Markdown and code; RAW/PSD/HEIC are open feature requests, not built in.
+- QuickLook (QL-Win): free, open source (GPL-3.0) spacebar preview tool. Does not
+  generate Explorer thumbnails at all.
+
+## Install
+
+Download the installer from GitHub Releases and run it; the Full installer bundles
+the approved ImageMagick runtime. The installer is unsigned (signing needs a paid
+certificate), so SmartScreen shows its default new-publisher warning: click
+"More info" then "Run anyway", or build from source.
+
+- Download: https://github.com/LunarWerxs/SageThumbs-2k/releases/latest
+- Source: https://github.com/LunarWerxs/SageThumbs-2k
+
+## Pricing
+
+Free for personal and non-commercial use. See /pricing.md for the machine-readable
+breakdown. No subscription, no account, no bundled API costs: Screen OCR uses
+Windows' own in-box recognizer, not a cloud service.
+
+## FAQ
+
+Full Q&A is on the homepage (#faq) and mirrored in its FAQPage schema. Short version:
+free for personal/non-commercial use (PolyForm Noncommercial 1.0.0); safe to run
+(memory-safe Rust, crash-isolated, bomb guards); doesn't slow Explorer (on-demand,
+cached, out-of-process decodes); works fully offline; SmartScreen warns only because
+the installer is unsigned; needs Windows 11 or 10, 64-bit; run `st2k formats` for the
+live format list; replaces a thumbnailer, converter, resizer, colour picker,
+screenshot tool, OCR utility, EXIF viewer, metadata stripper, uploader, CLI and MCP
+server.
+
+## Limitations
+
+Windows only, 64-bit only, no macOS or Linux build. The installer is unsigned, so
+SmartScreen warns on first run. Some exotic formats lean on Windows' own WIC codecs or
+the bundled ImageMagick engine rather than a pure-Rust decoder. Commercial/business
+deployment needs a separate license from LunarWerx.
+
+## Links
+
+- Home: https://sagethumbs.lunarwerx.com/
+- Source: https://github.com/LunarWerxs/SageThumbs-2k
+- Download: https://github.com/LunarWerxs/SageThumbs-2k/releases/latest
+- License: https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md
+- Pricing (machine-readable): https://sagethumbs.lunarwerx.com/pricing.md
+- Short brief: https://sagethumbs.lunarwerx.com/llms.txt
+- Publisher: https://lunarwerx.com/

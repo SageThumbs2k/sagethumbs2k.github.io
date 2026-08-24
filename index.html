@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="CtrxYGRAu0kR219D9MHtBV3yyWb729kDbfQP6hnK7zg">
 <title>SageThumbs 2K: Explorer thumbnails for hundreds of file types Windows can't read</title>
-<meta name="description" content="File Explorer thumbnails for hundreds of file types Windows can't read (camera RAW, PSD, HEIC, video, ebooks, comics), plus press Space for a full-size Quick Look preview, and right-click convert, resize, OCR, colour-pick and screenshot. One installer that replaces a dozen separate tools. Free and source-available.">
+<meta name="description" content="File Explorer thumbnails for 331 file types Windows can't read: RAW, PSD, HEIC, video, ebooks, comics. Plus Quick Look, convert, resize, OCR. Free.">
 <link rel="canonical" href="https://sagethumbs.lunarwerx.com/">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="icon" type="image/png" href="favicon.png">
@@ -106,6 +106,24 @@
       }
     },
     {
+      "@type": "BreadcrumbList",
+      "@id": "https://sagethumbs.lunarwerx.com/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "LunarWerx Studios",
+          "item": "https://lunarwerx.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "SageThumbs 2K",
+          "item": "https://sagethumbs.lunarwerx.com/"
+        }
+      ]
+    },
+    {
       "@type": "FAQPage",
       "@id": "https://sagethumbs.lunarwerx.com/#faq",
       "mainEntity": [
@@ -131,6 +149,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "No. Thumbnails are generated on demand and cached by Windows, the fast paths are pure Rust, and heavy decodes run out of process. You can also cap the maximum file and thumbnail size in Settings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does SageThumbs 2K work offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Thumbnails, the right-click toolkit, Quick Look preview, screen OCR and format conversion all run locally, using Windows' own OCR engine and bundled Rust decoders. Nothing is uploaded and no account is needed, except the optional link-upload tool, which needs an internet connection to share a file."
           }
         },
         {
@@ -162,7 +188,7 @@
           "name": "What other tools does it replace?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "One installer covers what you would otherwise get from a separate thumbnailer, image converter, resizer, colour picker, screenshot and annotation tool, OCR utility, EXIF viewer, metadata stripper and image uploader, plus a command line and MCP server for scripts and AI agents. The Full installer includes the approved ImageMagick runtime, so it does not need to be installed separately."
+            "text": "One installer covers a separate thumbnailer, image converter, resizer, colour picker, screenshot and annotation tool, OCR utility, EXIF viewer, metadata stripper and image uploader, plus a command line and MCP server for scripts and AI agents. See what it replaces for the full list."
           }
         }
       ]
@@ -548,6 +574,28 @@
   details .ans{padding:0 0 20px;font-size:.96rem;color:var(--ink-2);line-height:1.6;max-width:60ch}
   details .ans code{font-family:"Geist Mono",monospace;font-size:.85em;color:var(--accent-2);background:color-mix(in srgb,var(--accent) 12%,transparent);padding:.1em .4em;border-radius:5px}
   @media(max-width:760px){.faq{grid-template-columns:1fr;gap:0}}
+  /* The question text is wrapped in an <h3> for AI/agent extraction (real
+     heading-shaped questions), but it must look identical to the plain-text
+     summary it replaces. display:contents drops the h3's own box (and with
+     it the h1-h4 heading rule's color/weight/letter-spacing), so the text
+     inherits straight from <summary> as if the tag weren't there. */
+  details summary h3{display:contents}
+
+  /* visually-hidden but still readable by AI agents / screen readers */
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+  /* ---------------- COMPARE ---------------- */
+  .cmp-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--s1)}
+  .cmp-table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:760px}
+  .cmp-table th,.cmp-table td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45}
+  .cmp-table thead th{font-family:"Geist Mono",monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600;background:var(--s2)}
+  .cmp-table tbody th{color:var(--ink);font-weight:600;white-space:nowrap}
+  .cmp-table td{color:var(--ink-2)}
+  .cmp-table tr:last-child th,.cmp-table tr:last-child td{border-bottom:none}
+  .cmp-table tr.us th,.cmp-table tr.us td{background:color-mix(in srgb,var(--accent) 7%,transparent)}
+  .cmp-table tr.us th{color:var(--accent-2)}
+  .cmp-note{margin-top:16px;font-size:.85rem;color:var(--ink-3);max-width:76ch;line-height:1.6}
+  @media(max-width:620px){.cmp-table{font-size:.87rem}.cmp-table th,.cmp-table td{padding:11px 13px}}
 
   /* ---------------- DOWNLOAD CTA ---------------- */
   /* A panel, not a glow. One accent hairline along the top edge does the job the
@@ -580,7 +628,7 @@
 
   /* ---------------- FOOTER ---------------- */
   footer{border-top:1px solid var(--line);padding:48px 0 40px;margin-top:8px}
-  .foot{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:32px}
+  .foot{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px}
   .foot .brand{margin-bottom:14px}
   .foot .note{font-size:.92rem;color:var(--ink-3);line-height:1.6;max-width:42ch}
   .foot h4{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:13px;font-family:"Geist Mono",monospace}
@@ -736,6 +784,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
       <a href="#quick-preview">Preview</a>
       <a href="#replaces">Replaces</a>
       <a href="#cli">CLI</a>
+      <a href="#compare">Compare</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-cta">
@@ -754,6 +803,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
 </header>
 <a id="top"></a>
 
+<main>
 <!-- ============ HERO ============ -->
 <section class="hero" id="previews">
   <div class="wrap">
@@ -1055,6 +1105,75 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
   </div>
 </section>
 
+<!-- ============ COMPARE ============ -->
+<section class="sec compare" id="compare" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">how it compares</span>
+      <h2>Where SageThumbs 2K fits.</h2>
+      <p>Explorer thumbnails and a spacebar preview are not new ideas. Here is how SageThumbs 2K stacks up, honestly, against the tools people usually weigh it against.</p>
+    </div>
+    <div class="cmp-wrap reveal">
+      <table class="cmp-table">
+        <caption class="sr-only">Comparison of SageThumbs 2K against the classic SageThumbs, MysticThumbs, Microsoft PowerToys and QuickLook</caption>
+        <thead>
+          <tr>
+            <th scope="col">Tool</th>
+            <th scope="col">Price</th>
+            <th scope="col">RAW / PSD / HEIC thumbnails</th>
+            <th scope="col">Space-bar full preview</th>
+            <th scope="col">Convert / resize / OCR toolkit</th>
+            <th scope="col">Maintained</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="us">
+            <th scope="row">SageThumbs 2K</th>
+            <td>Free (PolyForm Noncommercial)</td>
+            <td>Yes, 331 formats</td>
+            <td>Yes, video and audio play, code, PDFs and SQLite render</td>
+            <td>Yes, built in</td>
+            <td>Yes, active (v2.3.0)</td>
+          </tr>
+          <tr>
+            <th scope="row">Classic SageThumbs</th>
+            <td>Free (GPL-2.0)</td>
+            <td>Image formats only, via the bundled GFL library</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No, discontinued since 2019</td>
+          </tr>
+          <tr>
+            <th scope="row">MysticThumbs</th>
+            <td>Paid (14-day trial, then a license)</td>
+            <td>RAW, PSD, HEIC/AVIF, audio waveforms and ebook covers; no video</td>
+            <td>Yes, QuickView (Space bar)</td>
+            <td>Convert via QuickView; no resize or OCR</td>
+            <td>Yes, commercial</td>
+          </tr>
+          <tr>
+            <th scope="row">Microsoft PowerToys</th>
+            <td>Free, open source</td>
+            <td>No, thumbnails cover SVG, PDF, Markdown and code; RAW/PSD/HEIC are open feature requests</td>
+            <td>Yes (Peek)</td>
+            <td>Some, as separate utilities: Image Resizer, Color Picker, Text Extractor</td>
+            <td>Yes, active (Microsoft)</td>
+          </tr>
+          <tr>
+            <th scope="row">QuickLook (QL-Win)</th>
+            <td>Free, open source (GPL-3.0)</td>
+            <td>No, it previews on Space, but doesn't touch Explorer's thumbnails</td>
+            <td>Yes, its whole purpose</td>
+            <td>No</td>
+            <td>Yes, active</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cmp-note reveal">Competitor details reflect each project's own public pages as of August 2026 (PowerToys and QuickLook on GitHub, MysticThumbs on mysticcoder.net); check their sites for current specifics. SageThumbs 2K is a clean-room rebuild that credits Nikolay Raspopov's original SageThumbs as its namesake and inspiration.</p>
+  </div>
+</section>
+
 <!-- ============ FAQ ============ -->
 <section class="sec" id="faq" style="background:var(--bg-2);border-top:1px solid var(--line)">
   <div class="wrap">
@@ -1062,33 +1181,37 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     <div class="faq">
       <div>
         <details class="reveal" open>
-          <summary>Is it really free?<span class="pm" aria-hidden="true"></span></summary>
+          <summary><h3>Is it really free?</h3><span class="pm" aria-hidden="true"></span></summary>
           <div class="ans">Yes, free for personal and non-commercial use, with full source available. It is licensed PolyForm Noncommercial 1.0.0; only commercial deployment needs a separate license.</div>
         </details>
         <details class="reveal">
-          <summary>Is it safe to run?<span class="pm" aria-hidden="true"></span></summary>
+          <summary><h3>Is it safe to run?</h3><span class="pm" aria-hidden="true"></span></summary>
           <div class="ans">The code is public, written in memory-safe Rust, and every file is decoded inside crash-isolated boundaries with bomb guards. A malformed file cannot take down Explorer or the rest of your system.</div>
         </details>
         <details class="reveal">
-          <summary>Will it slow down Explorer?<span class="pm" aria-hidden="true"></span></summary>
+          <summary><h3>Will it slow down Explorer?</h3><span class="pm" aria-hidden="true"></span></summary>
           <div class="ans">No. Thumbnails are generated on demand and cached by Windows, the fast paths are pure Rust, and heavy decodes run out of process. You can also cap the maximum file and thumbnail size in <code>Settings</code>.</div>
+        </details>
+        <details class="reveal">
+          <summary><h3>Does SageThumbs 2K work offline?</h3><span class="pm" aria-hidden="true"></span></summary>
+          <div class="ans">Yes. Thumbnails, the right-click toolkit, Quick Look preview, screen OCR and format conversion all run locally, using Windows' own OCR engine and bundled Rust decoders. Nothing is uploaded and no account is needed, except the optional link-upload tool, which needs an internet connection to share a file.</div>
         </details>
       </div>
       <div>
         <details class="reveal">
-          <summary>Why does Windows SmartScreen warn me?<span class="pm" aria-hidden="true"></span></summary>
+          <summary><h3>Why does Windows SmartScreen warn me?</h3><span class="pm" aria-hidden="true"></span></summary>
           <div class="ans">The installer is not code-signed, since signing means a paid certificate, so Windows shows its default warning for any new publisher. Click <code>More info</code> then <code>Run anyway</code>. You can also build from source.</div>
         </details>
         <details class="reveal">
-          <summary>Which versions of Windows?<span class="pm" aria-hidden="true"></span></summary>
+          <summary><h3>Which versions of Windows?</h3><span class="pm" aria-hidden="true"></span></summary>
           <div class="ans">Windows 11 and Windows 10, 64-bit. The modern right-click menu and the classic menu are both supported.</div>
         </details>
         <details class="reveal">
-          <summary>Which formats are supported?<span class="pm" aria-hidden="true"></span></summary>
+          <summary><h3>Which formats are supported?</h3><span class="pm" aria-hidden="true"></span></summary>
           <div class="ans">Hundreds across Image, Camera RAW, Document, Video, Audio and Ebook or comics. Run <code>st2k formats</code> for the exact, live list.</div>
         </details>
         <details class="reveal">
-          <summary>What other tools does it replace?<span class="pm" aria-hidden="true"></span></summary>
+          <summary><h3>What other tools does it replace?</h3><span class="pm" aria-hidden="true"></span></summary>
           <div class="ans">One installer covers a separate thumbnailer, image converter, resizer, colour picker, screenshot and annotation tool, OCR utility, EXIF viewer, metadata stripper and image uploader, plus a command line and MCP server for scripts and AI agents. See <a href="#replaces">what it replaces</a> for the full list.</div>
         </details>
       </div>
@@ -1123,6 +1246,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     </div>
   </div>
 </section>
+</main>
 
 <!-- ============ FOOTER ============ -->
 <footer>
@@ -1148,12 +1272,23 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
         <a class="link" href="#explorer">In Explorer</a>
         <a class="link" href="#replaces">What it replaces</a>
         <a class="link" href="#cli">CLI and MCP</a>
+        <a class="link" href="#compare">Compare</a>
         <a class="link" href="#faq">FAQ</a>
+      </div>
+      <div>
+        <h4>LunarWerx apps</h4>
+        <a class="link" href="https://repoyeti.com/" target="_blank" rel="noopener">RepoYeti</a>
+        <a class="link" href="https://agenthydra.lunarwerx.com/" target="_blank" rel="noopener">AgentHydra</a>
+        <a class="link" href="https://redesign.lunarwerx.com/" target="_blank" rel="noopener">ReDesign</a>
+        <a class="link" href="https://quickdictate.lunarwerx.com/" target="_blank" rel="noopener">QuickDictate</a>
+        <a class="link" href="https://rolodexter.lunarwerx.com/" target="_blank" rel="noopener">RoloDexter</a>
+        <a class="link" href="https://ytsort.lunarwerx.com/" target="_blank" rel="noopener">YTSort</a>
       </div>
     </div>
     <div class="foot-bottom">
       <span>© 2026 LunarWerx. Licensed <a href="https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md" target="_blank" rel="noopener">PolyForm Noncommercial 1.0.0</a>.</span>
       <span>SageThumbs 2K · <span class="js-app-version">v2.3.2</span> · Windows 11 and 10</span>
+      <span>Last updated: <time datetime="2026-08-23">2026-08-23</time></span>
     </div>
   </div>
 </footer>
