@@ -35,7 +35,8 @@ or AI agents that need a CLI or MCP tool to view formats they otherwise can't op
 - Windows 11 and Windows 10, 64-bit only. Single-file installer. Both the modern and
   classic Explorer right-click menus are supported.
 - Free for personal and non-commercial use, source-available under the PolyForm
-  Noncommercial 1.0.0 license. Commercial deployment needs a separate license.
+  Noncommercial 1.0.0 license. Commercial deployment needs a commercial licence: US$49 per Windows installation,
+  perpetual, with 12 months of updates, bought at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
 
 ## Features
 
@@ -94,9 +95,13 @@ certificate), so SmartScreen shows its default new-publisher warning: click
 
 ## Pricing
 
-Free for personal and non-commercial use. See /pricing.md for the machine-readable
-breakdown. No subscription, no account, no bundled API costs: Screen OCR uses
-Windows' own in-box recognizer, not a cloud service.
+Free for personal and non-commercial use. Business and commercial use: US$49 per
+installation (one Windows machine), one-time, perpetual, including 12 months of updates.
+Buy at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
+(card payment via Stripe; one redemption key per installation is emailed on payment).
+Redeem under Settings > Licence. Volume, site licences, purchase orders or bank transfer:
+request a quote at https://github.com/LunarWerxs/SageThumbs-2k/issues/new?title=Commercial%20licence%20quote&labels=licensing
+See /pricing.md for the machine-readable version.
 
 ## FAQ
 
@@ -125,5 +130,6 @@ from LunarWerx.
 - Download: https://github.com/LunarWerxs/SageThumbs-2k/releases/latest
 - License: https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md
 - Pricing (machine-readable): https://sagethumbs.lunarwerx.com/pricing.md
+- Buy a commercial licence: https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
 - Short brief: https://sagethumbs.lunarwerx.com/llms.txt
 - Publisher: https://lunarwerx.com/

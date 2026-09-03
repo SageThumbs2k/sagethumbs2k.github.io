@@ -77,11 +77,23 @@
         "Replaces a dozen tools: converter, resizer, colour picker, screenshot, OCR and uploader",
         "Crash-isolated, memory-safe Rust"
       ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Personal and non-commercial use",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Commercial licence, per installation (perpetual, 12 months of updates)",
+          "price": "49",
+          "priceCurrency": "USD",
+          "url": "https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs",
+          "availability": "https://schema.org/InStock"
+        }
+      ],
       "license": "https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md",
       "author": {
         "@id": "https://lunarwerx.com/#org"
@@ -136,7 +148,15 @@
           "name": "Is it really free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, free for personal and non-commercial use, with full source available. It is licensed PolyForm Noncommercial 1.0.0; only commercial deployment needs a separate license."
+            "text": "Yes, free for personal and non-commercial use, with full source available, under PolyForm Noncommercial 1.0.0. Business and commercial use needs a commercial licence: US$49 per Windows installation, perpetual, with 12 months of updates, bought online and redeemed in the app under Settings > Licence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I buy a business licence?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Buy it online at checkout.connections.icu (card payment through Stripe) for US$49 per installation; set the quantity to the number of PCs. You receive one redemption key per installation by email the moment payment completes. In SageThumbs 2K open Settings > Licence, paste the key, and you are done. The licence is perpetual and includes 12 months of updates. For more than about 25 PCs, purchase orders or bank transfer, request a quote on GitHub."
           }
         },
         {
@@ -789,6 +809,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
       <a href="#replaces">Replaces</a>
       <a href="#cli">CLI</a>
       <a href="#compare">Compare</a>
+      <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-cta">
@@ -1137,7 +1158,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
         <tbody>
           <tr class="us">
             <th scope="row">SageThumbs 2K</th>
-            <td>Free (PolyForm Noncommercial)</td>
+            <td>Free for personal use; US$49 per PC for business</td>
             <td>Yes, 331 formats</td>
             <td>Yes, video and audio play, code, PDFs and SQLite render</td>
             <td>Yes, built in</td>
@@ -1182,6 +1203,38 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
   </div>
 </section>
 
+<!-- ============ PRICING ============ -->
+<section class="sec" id="pricing" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">pricing</span>
+      <h2>Free at home. One licence per PC at work.</h2>
+      <p>SageThumbs 2K is free for personal and non-commercial use under the PolyForm Noncommercial licence. Business and commercial use needs a commercial licence for each Windows installation: buy it below, then redeem it inside the app.</p>
+    </div>
+    <div class="assure">
+      <div class="a reveal">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
+        <h3>Personal: free</h3>
+        <p>Every format, the Quick preview, screen OCR and the whole right-click toolkit. No account, no trial, no feature gate, and the source is on GitHub.</p>
+        <p><a class="btn btn-ghost btn-sm" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" target="_blank" rel="noopener">Download</a></p>
+      </div>
+      <div class="a reveal">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></div>
+        <h3>Commercial: US$49 per installation</h3>
+        <p>Perpetual licence with 12 months of updates. One key per PC, emailed the moment you pay, redeemed under Settings &gt; Licence. Card checkout through Stripe.</p>
+        <p><a class="btn btn-primary btn-sm" href="https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs" target="_blank" rel="noopener">Buy a licence</a></p>
+      </div>
+      <div class="a reveal">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="18" rx="1"/><rect x="13" y="9" width="8" height="12" rx="1"/><path d="M6 7h2M6 11h2M6 15h2M16 13h2M16 17h2"/></svg></div>
+        <h3>Volume and site licences</h3>
+        <p>More than about 25 PCs, a purchase order, or payment by bank transfer? Tell us the seat count and we will come back with a quote and a single contract covering every machine.</p>
+        <p><a class="btn btn-ghost btn-sm" href="https://github.com/LunarWerxs/SageThumbs-2k/issues/new?title=Commercial%20licence%20quote&labels=licensing" target="_blank" rel="noopener">Request a quote</a></p>
+      </div>
+    </div>
+    <p class="cmp-note reveal">How it works: install SageThumbs 2K and answer "Business" when the installer asks. The app runs fully featured and simply reminds you to add a key. Buy a key, paste it under Settings &gt; Licence, done. Each licence is bound to one machine and can be moved to a replacement PC. Prices are in USD; tax is added at checkout where it applies.</p>
+  </div>
+</section>
+
 <!-- ============ FAQ ============ -->
 <section class="sec" id="faq" style="background:var(--bg-2);border-top:1px solid var(--line)">
   <div class="wrap">
@@ -1190,7 +1243,11 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
       <div>
         <details class="reveal" open>
           <summary><h3>Is it really free?</h3><span class="pm" aria-hidden="true"></span></summary>
-          <div class="ans">Yes, free for personal and non-commercial use, with full source available. It is licensed PolyForm Noncommercial 1.0.0; only commercial deployment needs a separate license.</div>
+          <div class="ans">Yes, free for personal and non-commercial use, with full source available, under PolyForm Noncommercial 1.0.0. Business and commercial use needs a commercial licence: US$49 per Windows installation, perpetual, with 12 months of updates, bought online and redeemed in the app under Settings > Licence.</div>
+        </details>
+        <details class="reveal">
+          <summary><h3>How do I buy a business licence?</h3><span class="pm" aria-hidden="true"></span></summary>
+          <div class="ans">Buy it online at <a href="https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs" target="_blank" rel="noopener">checkout.connections.icu</a> (card payment through Stripe) for US$49 per installation; set the quantity to the number of PCs. You receive one redemption key per installation by email the moment payment completes. In SageThumbs 2K open Settings > Licence, paste the key, and you are done. The licence is perpetual and includes 12 months of updates. For more than about 25 PCs, purchase orders or bank transfer, <a href="https://github.com/LunarWerxs/SageThumbs-2k/issues/new?title=Commercial%20licence%20quote&labels=licensing" target="_blank" rel="noopener">request a quote on GitHub</a>.</div>
         </details>
         <details class="reveal">
           <summary><h3>Is it safe to run?</h3><span class="pm" aria-hidden="true"></span></summary>
@@ -1537,5 +1594,8 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
 })();
 </script>
 <!-- /LunarWerx Discord badge -->
+<script>
+(function(){if(!/[?&]licence=purchased(&|$)/.test(location.search))return;var b=document.createElement("div");b.setAttribute("role","status");b.style.cssText="position:sticky;top:0;z-index:1000;padding:14px 20px;text-align:center;background:var(--bg-2);border-bottom:1px solid var(--line);font-size:15px";b.textContent="Thank you for your purchase. Your licence key is on its way by email; open SageThumbs 2K, go to Settings > Licence and paste it in.";document.body.insertBefore(b,document.body.firstChild);history.replaceState(null,"",location.pathname+location.hash);})();
+</script>
 </body>
 </html>

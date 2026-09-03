@@ -1,6 +1,6 @@
 # Pricing: SageThumbs 2K
 
-Last updated: 2026-08-24. Machine-readable pricing for agentic buyers and comparison
+Last updated: 2026-09-03. Machine-readable pricing for agentic buyers and comparison
 tools. Human-readable page: https://sagethumbs.lunarwerx.com/
 
 ## Personal / non-commercial
@@ -15,10 +15,14 @@ tools. Human-readable page: https://sagethumbs.lunarwerx.com/
 
 ## Commercial / business use
 
-- Price: not published. PolyForm Noncommercial 1.0.0 does not permit commercial
-  deployment; a separate license from LunarWerx is required.
-- How to get one: contact LunarWerx via the links on https://lunarwerx.com/ or open an
-  issue on the GitHub repository.
+- Price: US$49 per installation (one Windows machine), one-time. Perpetual licence with
+  12 months of updates and new builds included. Tax is added at checkout where it applies.
+- Licence unit: installation. Buy one per PC; set the quantity at checkout.
+- How to buy: https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
+  (card payment via Stripe). One redemption key (`esk_...`) per installation is emailed on
+  payment. Redeem under Settings > Licence.
+- Volume, site licences, purchase orders or bank transfer (roughly 25+ PCs): request a
+  quote at https://github.com/LunarWerxs/SageThumbs-2k/issues/new?title=Commercial%20licence%20quote&labels=licensing
 
 ## Ongoing costs the user actually bears
 
@@ -40,7 +44,8 @@ tools. Human-readable page: https://sagethumbs.lunarwerx.com/
 ```
 product: SageThumbs 2K
 price_personal_use: 0 USD
-price_commercial_use: contact (license required, price not published)
+price_commercial_use: 49 USD per installation, one-time (perpetual + 12 months updates)
+buy_url_commercial: https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
 billing_model: one-time, source-available, free for personal/non-commercial use
 license: PolyForm-Noncommercial-1.0.0
 trial_required: false
