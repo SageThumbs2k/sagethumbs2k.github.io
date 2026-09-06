@@ -20,7 +20,8 @@ tools. Human-readable page: https://sagethumbs.lunarwerx.com/
 - Licence unit: installation. Buy one per PC; set the quantity at checkout.
 - How to buy: https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
   (card payment via Stripe). One redemption key (`esk_...`) per installation is emailed on
-  payment. Redeem under Settings > Licence.
+  payment. Redeem under Settings > Licence; that screen arrives in version 3.0,
+  released shortly, and a key bought now stays valid until then.
 - Volume, site licences, purchase orders or bank transfer (roughly 25+ PCs): request a
   quote at https://github.com/LunarWerxs/SageThumbs-2k/issues/new?title=Commercial%20licence%20quote&labels=licensing
 

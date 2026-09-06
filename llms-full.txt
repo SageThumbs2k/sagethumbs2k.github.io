@@ -99,7 +99,7 @@ Free for personal and non-commercial use. Business and commercial use: US$49 per
 installation (one Windows machine), one-time, perpetual, including 12 months of updates.
 Buy at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
 (card payment via Stripe; one redemption key per installation is emailed on payment).
-Redeem under Settings > Licence. Volume, site licences, purchase orders or bank transfer:
+Redeem under Settings > Licence; that screen arrives in version 3.0, released shortly, and a key bought now stays valid until then. Volume, site licences, purchase orders or bank transfer:
 request a quote at https://github.com/LunarWerxs/SageThumbs-2k/issues/new?title=Commercial%20licence%20quote&labels=licensing
 See /pricing.md for the machine-readable version.
 
