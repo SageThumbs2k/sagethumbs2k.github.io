@@ -464,6 +464,16 @@
       background:color-mix(in srgb,var(--c) 7%,transparent);
       transition:color .18s var(--ease),border-color .18s var(--ease),background .18s var(--ease),transform .18s var(--ease)}
   @media(hover:hover) and (pointer:fine){.fc:hover{color:#fff;border-color:color-mix(in srgb,var(--c) 55%,transparent);background:color-mix(in srgb,var(--c) 18%,transparent);transform:translateY(-1px);cursor:help}}
+  /* keyboard/touch-reachable format descriptions: one focusable toggle per category (not
+     one per chip - 334 chips would mean 334 tab stops) that reveals a plain-text list. */
+  .fgtoggle{margin-top:12px;font-family:inherit;font-size:.76rem;font-weight:500;color:var(--ink-3);
+      background:transparent;border:1px solid var(--line-2);border-radius:7px;padding:5px 10px;cursor:pointer;
+      transition:color .15s var(--ease),border-color .15s var(--ease)}
+  .fgtoggle:hover,.fgtoggle[aria-expanded="true"]{color:var(--ink);border-color:var(--line)}
+  .fgdesc{margin-top:10px}
+  .fgdesc ul{list-style:none;margin:0;padding:0;display:grid;gap:4px 20px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+  .fgdesc li{font-size:.78rem;color:var(--ink-2);line-height:1.4}
+  .fgdesc code{font-family:"Geist Mono",monospace;color:var(--ink);margin-right:6px}
   /* rich hover tooltip for format chips (replaces the slow native title) */
   .fmttip{position:fixed;left:0;top:0;z-index:80;max-width:300px;pointer-events:none;
     background:var(--tip-bg);border:1px solid color-mix(in srgb,var(--ftc,#4d9cff) 45%,var(--line-3));border-radius:11px;padding:11px 13px;
@@ -870,7 +880,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
 <section class="sec coverage" id="formats">
   <div class="wrap">
     <div class="head reveal">
-      <span class="eyebrow">hundreds of formats, 6 categories</span>
+      <span class="eyebrow">hundreds of formats, 7 categories</span>
       <h2>The long tail of formats, all in one extension.</h2>
       <p>Windows ships codecs for a handful of common types. Every other extension is content-sniffed and routed to a pure-Rust decoder, the Windows codecs, or an isolated converter. First match wins.</p>
     </div>
@@ -888,30 +898,399 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
       <div class="fmtgroup reveal" data-cat="img">
         <h3 class="fgh"><span class="sw"></span>Image <span class="cnt">202</span></h3>
         <div class="fgchips"><span class="fc" title="Rhino 3D model">.3dm</span> <span class="fc" title="3D Manufacturing Format">.3mf</span> <span class="fc" title="Affinity document">.af</span> <span class="fc" title="Affinity Designer document">.afdesign</span> <span class="fc" title="Affinity Photo document">.afphoto</span> <span class="fc" title="Affinity Publisher document">.afpub</span> <span class="fc" title="Affinity template document">.aftemplate</span> <span class="fc" title="Adobe Illustrator (PDF-compatible)">.ai</span> <span class="fc" title="Android application package">.apk</span> <span class="fc" title="Android split-APK bundle (APKM)">.apkm</span> <span class="fc" title="Android split-APK bundle">.apks</span> <span class="fc" title="Animated Portable Network Graphics">.apng</span> <span class="fc" title="AVC Image File Format">.avci</span> <span class="fc" title="AV1 Image File Format">.avif</span> <span class="fc" title="Blender scene">.blend</span> <span class="fc" title="Blender auto-save backup">.blend1</span> <span class="fc" title="Blender auto-save backup">.blend10</span> <span class="fc" title="Blender auto-save backup">.blend11</span> <span class="fc" title="Blender auto-save backup">.blend12</span> <span class="fc" title="Blender auto-save backup">.blend13</span> <span class="fc" title="Blender auto-save backup">.blend14</span> <span class="fc" title="Blender auto-save backup">.blend15</span> <span class="fc" title="Blender auto-save backup">.blend16</span> <span class="fc" title="Blender auto-save backup">.blend17</span> <span class="fc" title="Blender auto-save backup">.blend18</span> <span class="fc" title="Blender auto-save backup">.blend19</span> <span class="fc" title="Blender auto-save backup">.blend2</span> <span class="fc" title="Blender auto-save backup">.blend20</span> <span class="fc" title="Blender auto-save backup">.blend21</span> <span class="fc" title="Blender auto-save backup">.blend22</span> <span class="fc" title="Blender auto-save backup">.blend23</span> <span class="fc" title="Blender auto-save backup">.blend24</span> <span class="fc" title="Blender auto-save backup">.blend25</span> <span class="fc" title="Blender auto-save backup">.blend26</span> <span class="fc" title="Blender auto-save backup">.blend27</span> <span class="fc" title="Blender auto-save backup">.blend28</span> <span class="fc" title="Blender auto-save backup">.blend29</span> <span class="fc" title="Blender auto-save backup">.blend3</span> <span class="fc" title="Blender auto-save backup">.blend30</span> <span class="fc" title="Blender auto-save backup">.blend31</span> <span class="fc" title="Blender auto-save backup">.blend32</span> <span class="fc" title="Blender auto-save backup">.blend4</span> <span class="fc" title="Blender auto-save backup">.blend5</span> <span class="fc" title="Blender auto-save backup">.blend6</span> <span class="fc" title="Blender auto-save backup">.blend7</span> <span class="fc" title="Blender auto-save backup">.blend8</span> <span class="fc" title="Blender auto-save backup">.blend9</span> <span class="fc" title="Microsoft Windows bitmap image">.bmp</span> <span class="fc" title="Silicon Graphics (B&amp;W)">.bw</span> <span class="fc" title="Cinema 4D scene">.c4d</span> <span class="fc" title="Continuous Acquisition and Life-cycle Support">.cal</span> <span class="fc" title="Continuous Acquisition and Life-cycle Support">.cals</span> <span class="fc" title="CorelDRAW drawing">.cdr</span> <span class="fc" title="CorelDRAW template">.cdt</span> <span class="fc" title="Cineon Image File">.cin</span> <span class="fc" title="Clip Studio Paint document">.clip</span> <span class="fc" title="Corel Presentation Exchange">.cmx</span> <span class="fc" title="Microsoft icon">.cur</span> <span class="fc" title="DR Halo">.cut</span> <span class="fc" title="OpenEXR image">.cxr</span> <span class="fc" title="DICOM medical image">.dcm</span> <span class="fc" title="ZSoft IBM PC multi-page Paintbrush">.dcx</span> <span class="fc" title="Microsoft DirectDraw Surface">.dds</span> <span class="fc" title="Windows DIB">.dib</span> <span class="fc" title="DICOM medical image">.dicom</span> <span class="fc" title="SMPTE 268M-2003">.dpx</span> <span class="fc" title="AutoCAD drawing">.dwg</span> <span class="fc" title="Microsoft DirectDraw Surface">.dxt1</span> <span class="fc" title="Microsoft DirectDraw Surface">.dxt5</span> <span class="fc" title="Windows Enhanced Metafile">.emf</span> <span class="fc" title="Windows Enhanced Metafile">.emg</span> <span class="fc" title="Compressed Windows Enhanced Metafile">.emz</span> <span class="fc" title="Encapsulated PostScript (embedded preview)">.eps</span> <span class="fc" title="High Dynamic-range (OpenEXR)">.exr</span> <span class="fc" title="Autodesk Fusion 360 archive">.f3d</span> <span class="fc" title="Farbfeld">.farbfeld</span> <span class="fc" title="FreeCAD document">.fcstd</span> <span class="fc" title="Farbfeld">.ff</span> <span class="fc" title="Flexible Image Transport System">.fits</span> <span class="fc" title="FilmLight">.fl32</span> <span class="fc" title="Flexible Image Transport System">.fts</span> <span class="fc" title="3D-printer G-code (sliced)">.gco</span> <span class="fc" title="3D-printer G-code (sliced)">.gcode</span> <span class="fc" title="CompuServe graphics interchange format">.gif</span> <span class="fc" title="HD Photo (JPEG XR)">.hdp</span> <span class="fc" title="Radiance RGBE image format">.hdr</span> <span class="fc" title="Radiance HDR image format">.hdri</span> <span class="fc" title="High Efficiency Image Format">.heic</span> <span class="fc" title="HEIF image sequence">.heics</span> <span class="fc" title="High Efficiency Image Format">.heif</span> <span class="fc" title="HEIF image sequence">.heifs</span> <span class="fc" title="High Efficiency Image Format">.hif</span> <span class="fc" title="Truevision Targa image">.icb</span> <span class="fc" title="Apple Icon Image">.icns</span> <span class="fc" title="Microsoft icon">.ico</span> <span class="fc" title="Microsoft icon">.icon</span> <span class="fc" title="Amiga IFF ILBM image">.iff</span> <span class="fc" title="Amiga IFF ILBM image">.ilbm</span> <span class="fc" title="JPEG-2000 Code Stream Syntax">.j2c</span> <span class="fc" title="JPEG-2000 Code Stream Syntax">.j2k</span> <span class="fc" title="JPEG/JFIF">.jfif</span> <span class="fc" title="JPEG Network Graphics">.jng</span> <span class="fc" title="Garmin tile format">.jnx</span> <span class="fc" title="JPEG-2000 File Format Syntax">.jp2</span> <span class="fc" title="JPEG-2000 Code Stream Syntax">.jpc</span> <span class="fc" title="JPEG (JFIF)">.jpe</span> <span class="fc" title="JPEG (JFIF)">.jpeg</span> <span class="fc" title="JPEG-2000 File Format Syntax">.jpf</span> <span class="fc" title="JPEG (JFIF)">.jpg</span> <span class="fc" title="JPEG-2000 File Format Syntax">.jpm</span> <span class="fc" title="Stereo JPEG">.jps</span> <span class="fc" title="JPEG-2000 Part-2 (extended)">.jpx</span> <span class="fc" title="JPEG XL (ISO/IEC 18181)">.jxl</span> <span class="fc" title="JPEG XR (ISO/IEC 29199-2)">.jxr</span> <span class="fc" title="Krita document">.kra</span> <span class="fc" title="Deluxe Paint ILBM image">.lbm</span> <span class="fc" title="Apple Live Photo">.livp</span> <span class="fc" title="MacPaint">.mac</span> <span class="fc" title="MATLAB level 5 image format">.mat</span> <span class="fc" title="Autodesk 3ds Max scene">.max</span> <span class="fc" title="Magick Image File Format">.miff</span> <span class="fc" title="Multiple-image Network Graphics">.mng</span> <span class="fc" title="Multi-Picture (3D) JPEG">.mpo</span> <span class="fc" title="Wavefront 3D model">.obj</span> <span class="fc" title="OpenRaster format">.ora</span> <span class="fc" title="Portable Arbitrary Map">.pam</span> <span class="fc" title="Portable bitmap format">.pbm</span> <span class="fc" title="Photo CD">.pcd</span> <span class="fc" title="ZSoft IBM PC Paintbrush">.pcx</span> <span class="fc" title="Palm Database ImageViewer Format">.pdb</span> <span class="fc" title="Adobe Photoshop bitmap">.pdd</span> <span class="fc" title="Paint.NET image">.pdn</span> <span class="fc" title="Embird Embroidery Format">.pes</span> <span class="fc" title="Portable float format">.pfm</span> <span class="fc" title="Portable graymap format">.pgm</span> <span class="fc" title="JPEG 2000 uncompressed format">.pgx</span> <span class="fc" title="Photo CD">.ph</span> <span class="fc" title="Portable half float format">.phm</span> <span class="fc" title="Alias/Wavefront RLE image format">.pix</span> <span class="fc" title="Polygon File Format 3D model">.ply</span> <span class="fc" title="Portable Network Graphics">.png</span> <span class="fc" title="Portable anymap">.pnm</span> <span class="fc" title="Portable pixmap format">.ppm</span> <span class="fc" title="Procreate document">.procreate</span> <span class="fc" title="Adobe Large Document Format">.psb</span> <span class="fc" title="Adobe Photoshop bitmap">.psd</span> <span class="fc" title="Adobe Photoshop template">.psdt</span> <span class="fc" title="Paint Shop Pro image">.psp</span> <span class="fc" title="Paint Shop Pro brush">.pspbrush</span> <span class="fc" title="Paint Shop Pro picture frame">.pspframe</span> <span class="fc" title="Paint Shop Pro image">.pspimage</span> <span class="fc" title="Paint Shop Pro mask">.pspmask</span> <span class="fc" title="Paint Shop Pro selection">.pspselection</span> <span class="fc" title="Paint Shop Pro preset shape">.pspshape</span> <span class="fc" title="Paint Shop Pro picture tube">.psptube</span> <span class="fc" title="Pyramid encoded TIFF">.ptif</span> <span class="fc" title="Seattle Film Works">.pwp</span> <span class="fc" title="Quite OK image format">.qoi</span> <span class="fc" title="SUN Rasterfile">.ras</span> <span class="fc" title="Radiance RGBE image format">.rgbe</span> <span class="fc" title="Alias/Wavefront image">.rla</span> <span class="fc" title="Utah Run length encoded image">.rle</span> <span class="fc" title="Raw Media Format">.rmf</span> <span class="fc" title="ZX-Spectrum SCREEN$">.scr</span> <span class="fc" title="Scitex HandShake">.sct</span> <span class="fc" title="Simple File Format Family Images">.sf3</span> <span class="fc" title="Seattle Film Works">.sfw</span> <span class="fc" title="Silicon Graphics RGB">.sgi</span> <span class="fc" title="SketchUp backup model">.skb</span> <span class="fc" title="Sketch design document">.sketch</span> <span class="fc" title="SketchUp model">.skp</span> <span class="fc" title="Sinar CaptureShop Raw Format">.sti</span> <span class="fc" title="Stereolithography 3D model">.stl</span> <span class="fc" title="SUN Rasterfile">.sun</span> <span class="fc" title="Scalable Vector Graphics">.svg</span> <span class="fc" title="Compressed Scalable Vector Graphics">.svgz</span> <span class="fc" title="Truevision Targa image">.tga</span> <span class="fc" title="Tagged Image File Format">.tif</span> <span class="fc" title="Tagged Image File Format">.tiff</span> <span class="fc" title="Tagged Image File Format (64-bit)">.tiff64</span> <span class="fc" title="PSX TIM">.tim</span> <span class="fc" title="PS2 TIM2">.tm2</span> <span class="fc" title="Truevision Targa image">.tpic</span> <span class="fc" title="Paint Shop Pro picture tube (legacy)">.tub</span> <span class="fc" title="Truevision Targa image">.vda</span> <span class="fc" title="Video Image Communication And Retrieval">.vicar</span> <span class="fc" title="Khoros Visualization image">.viff</span> <span class="fc" title="VIPS image">.vips</span> <span class="fc" title="Truevision Targa image">.vst</span> <span class="fc" title="HD Photo / Windows Media Photo (JPEG XR)">.wdp</span> <span class="fc" title="Google WebP">.webp</span> <span class="fc" title="Windows Metafile">.wmf</span> <span class="fc" title="HD Photo / Windows Media Photo (JPEG XR)">.wmp</span> <span class="fc" title="Compressed Windows Metafile">.wmz</span> <span class="fc" title="Word Perfect Graphics">.wpg</span> <span class="fc" title="Android split-APK bundle (XAPK)">.xapk</span> <span class="fc" title="X Windows system bitmap">.xbm</span> <span class="fc" title="GIMP image">.xcf</span> <span class="fc" title="Adobe XD design">.xd</span> <span class="fc" title="X Windows system pixmap">.xpm</span> <span class="fc" title="Khoros Visualization image">.xv</span> <span class="fc" title="Radiance XYZE image format">.xyze</span></div>
+        <button type="button" class="fgtoggle" aria-expanded="false" aria-controls="fgdesc-img">Show Image format descriptions</button>
+        <div class="fgdesc" id="fgdesc-img" hidden>
+          <ul>
+            <li><code>.3dm</code> Rhino 3D model</li>
+            <li><code>.3mf</code> 3D Manufacturing Format</li>
+            <li><code>.af</code> Affinity document</li>
+            <li><code>.afdesign</code> Affinity Designer document</li>
+            <li><code>.afphoto</code> Affinity Photo document</li>
+            <li><code>.afpub</code> Affinity Publisher document</li>
+            <li><code>.aftemplate</code> Affinity template document</li>
+            <li><code>.ai</code> Adobe Illustrator (PDF-compatible)</li>
+            <li><code>.apk</code> Android application package</li>
+            <li><code>.apkm</code> Android split-APK bundle (APKM)</li>
+            <li><code>.apks</code> Android split-APK bundle</li>
+            <li><code>.apng</code> Animated Portable Network Graphics</li>
+            <li><code>.avci</code> AVC Image File Format</li>
+            <li><code>.avif</code> AV1 Image File Format</li>
+            <li><code>.blend</code> Blender scene</li>
+            <li><code>.blend1</code> Blender auto-save backup</li>
+            <li><code>.blend10</code> Blender auto-save backup</li>
+            <li><code>.blend11</code> Blender auto-save backup</li>
+            <li><code>.blend12</code> Blender auto-save backup</li>
+            <li><code>.blend13</code> Blender auto-save backup</li>
+            <li><code>.blend14</code> Blender auto-save backup</li>
+            <li><code>.blend15</code> Blender auto-save backup</li>
+            <li><code>.blend16</code> Blender auto-save backup</li>
+            <li><code>.blend17</code> Blender auto-save backup</li>
+            <li><code>.blend18</code> Blender auto-save backup</li>
+            <li><code>.blend19</code> Blender auto-save backup</li>
+            <li><code>.blend2</code> Blender auto-save backup</li>
+            <li><code>.blend20</code> Blender auto-save backup</li>
+            <li><code>.blend21</code> Blender auto-save backup</li>
+            <li><code>.blend22</code> Blender auto-save backup</li>
+            <li><code>.blend23</code> Blender auto-save backup</li>
+            <li><code>.blend24</code> Blender auto-save backup</li>
+            <li><code>.blend25</code> Blender auto-save backup</li>
+            <li><code>.blend26</code> Blender auto-save backup</li>
+            <li><code>.blend27</code> Blender auto-save backup</li>
+            <li><code>.blend28</code> Blender auto-save backup</li>
+            <li><code>.blend29</code> Blender auto-save backup</li>
+            <li><code>.blend3</code> Blender auto-save backup</li>
+            <li><code>.blend30</code> Blender auto-save backup</li>
+            <li><code>.blend31</code> Blender auto-save backup</li>
+            <li><code>.blend32</code> Blender auto-save backup</li>
+            <li><code>.blend4</code> Blender auto-save backup</li>
+            <li><code>.blend5</code> Blender auto-save backup</li>
+            <li><code>.blend6</code> Blender auto-save backup</li>
+            <li><code>.blend7</code> Blender auto-save backup</li>
+            <li><code>.blend8</code> Blender auto-save backup</li>
+            <li><code>.blend9</code> Blender auto-save backup</li>
+            <li><code>.bmp</code> Microsoft Windows bitmap image</li>
+            <li><code>.bw</code> Silicon Graphics (B&amp;W)</li>
+            <li><code>.c4d</code> Cinema 4D scene</li>
+            <li><code>.cal</code> Continuous Acquisition and Life-cycle Support</li>
+            <li><code>.cals</code> Continuous Acquisition and Life-cycle Support</li>
+            <li><code>.cdr</code> CorelDRAW drawing</li>
+            <li><code>.cdt</code> CorelDRAW template</li>
+            <li><code>.cin</code> Cineon Image File</li>
+            <li><code>.clip</code> Clip Studio Paint document</li>
+            <li><code>.cmx</code> Corel Presentation Exchange</li>
+            <li><code>.cur</code> Microsoft icon</li>
+            <li><code>.cut</code> DR Halo</li>
+            <li><code>.cxr</code> OpenEXR image</li>
+            <li><code>.dcm</code> DICOM medical image</li>
+            <li><code>.dcx</code> ZSoft IBM PC multi-page Paintbrush</li>
+            <li><code>.dds</code> Microsoft DirectDraw Surface</li>
+            <li><code>.dib</code> Windows DIB</li>
+            <li><code>.dicom</code> DICOM medical image</li>
+            <li><code>.dpx</code> SMPTE 268M-2003</li>
+            <li><code>.dwg</code> AutoCAD drawing</li>
+            <li><code>.dxt1</code> Microsoft DirectDraw Surface</li>
+            <li><code>.dxt5</code> Microsoft DirectDraw Surface</li>
+            <li><code>.emf</code> Windows Enhanced Metafile</li>
+            <li><code>.emg</code> Windows Enhanced Metafile</li>
+            <li><code>.emz</code> Compressed Windows Enhanced Metafile</li>
+            <li><code>.eps</code> Encapsulated PostScript (embedded preview)</li>
+            <li><code>.exr</code> High Dynamic-range (OpenEXR)</li>
+            <li><code>.f3d</code> Autodesk Fusion 360 archive</li>
+            <li><code>.farbfeld</code> Farbfeld</li>
+            <li><code>.fcstd</code> FreeCAD document</li>
+            <li><code>.ff</code> Farbfeld</li>
+            <li><code>.fits</code> Flexible Image Transport System</li>
+            <li><code>.fl32</code> FilmLight</li>
+            <li><code>.fts</code> Flexible Image Transport System</li>
+            <li><code>.gco</code> 3D-printer G-code (sliced)</li>
+            <li><code>.gcode</code> 3D-printer G-code (sliced)</li>
+            <li><code>.gif</code> CompuServe graphics interchange format</li>
+            <li><code>.hdp</code> HD Photo (JPEG XR)</li>
+            <li><code>.hdr</code> Radiance RGBE image format</li>
+            <li><code>.hdri</code> Radiance HDR image format</li>
+            <li><code>.heic</code> High Efficiency Image Format</li>
+            <li><code>.heics</code> HEIF image sequence</li>
+            <li><code>.heif</code> High Efficiency Image Format</li>
+            <li><code>.heifs</code> HEIF image sequence</li>
+            <li><code>.hif</code> High Efficiency Image Format</li>
+            <li><code>.icb</code> Truevision Targa image</li>
+            <li><code>.icns</code> Apple Icon Image</li>
+            <li><code>.ico</code> Microsoft icon</li>
+            <li><code>.icon</code> Microsoft icon</li>
+            <li><code>.iff</code> Amiga IFF ILBM image</li>
+            <li><code>.ilbm</code> Amiga IFF ILBM image</li>
+            <li><code>.j2c</code> JPEG-2000 Code Stream Syntax</li>
+            <li><code>.j2k</code> JPEG-2000 Code Stream Syntax</li>
+            <li><code>.jfif</code> JPEG/JFIF</li>
+            <li><code>.jng</code> JPEG Network Graphics</li>
+            <li><code>.jnx</code> Garmin tile format</li>
+            <li><code>.jp2</code> JPEG-2000 File Format Syntax</li>
+            <li><code>.jpc</code> JPEG-2000 Code Stream Syntax</li>
+            <li><code>.jpe</code> JPEG (JFIF)</li>
+            <li><code>.jpeg</code> JPEG (JFIF)</li>
+            <li><code>.jpf</code> JPEG-2000 File Format Syntax</li>
+            <li><code>.jpg</code> JPEG (JFIF)</li>
+            <li><code>.jpm</code> JPEG-2000 File Format Syntax</li>
+            <li><code>.jps</code> Stereo JPEG</li>
+            <li><code>.jpx</code> JPEG-2000 Part-2 (extended)</li>
+            <li><code>.jxl</code> JPEG XL (ISO/IEC 18181)</li>
+            <li><code>.jxr</code> JPEG XR (ISO/IEC 29199-2)</li>
+            <li><code>.kra</code> Krita document</li>
+            <li><code>.lbm</code> Deluxe Paint ILBM image</li>
+            <li><code>.livp</code> Apple Live Photo</li>
+            <li><code>.mac</code> MacPaint</li>
+            <li><code>.mat</code> MATLAB level 5 image format</li>
+            <li><code>.max</code> Autodesk 3ds Max scene</li>
+            <li><code>.miff</code> Magick Image File Format</li>
+            <li><code>.mng</code> Multiple-image Network Graphics</li>
+            <li><code>.mpo</code> Multi-Picture (3D) JPEG</li>
+            <li><code>.obj</code> Wavefront 3D model</li>
+            <li><code>.ora</code> OpenRaster format</li>
+            <li><code>.pam</code> Portable Arbitrary Map</li>
+            <li><code>.pbm</code> Portable bitmap format</li>
+            <li><code>.pcd</code> Photo CD</li>
+            <li><code>.pcx</code> ZSoft IBM PC Paintbrush</li>
+            <li><code>.pdb</code> Palm Database ImageViewer Format</li>
+            <li><code>.pdd</code> Adobe Photoshop bitmap</li>
+            <li><code>.pdn</code> Paint.NET image</li>
+            <li><code>.pes</code> Embird Embroidery Format</li>
+            <li><code>.pfm</code> Portable float format</li>
+            <li><code>.pgm</code> Portable graymap format</li>
+            <li><code>.pgx</code> JPEG 2000 uncompressed format</li>
+            <li><code>.ph</code> Photo CD</li>
+            <li><code>.phm</code> Portable half float format</li>
+            <li><code>.pix</code> Alias/Wavefront RLE image format</li>
+            <li><code>.ply</code> Polygon File Format 3D model</li>
+            <li><code>.png</code> Portable Network Graphics</li>
+            <li><code>.pnm</code> Portable anymap</li>
+            <li><code>.ppm</code> Portable pixmap format</li>
+            <li><code>.procreate</code> Procreate document</li>
+            <li><code>.psb</code> Adobe Large Document Format</li>
+            <li><code>.psd</code> Adobe Photoshop bitmap</li>
+            <li><code>.psdt</code> Adobe Photoshop template</li>
+            <li><code>.psp</code> Paint Shop Pro image</li>
+            <li><code>.pspbrush</code> Paint Shop Pro brush</li>
+            <li><code>.pspframe</code> Paint Shop Pro picture frame</li>
+            <li><code>.pspimage</code> Paint Shop Pro image</li>
+            <li><code>.pspmask</code> Paint Shop Pro mask</li>
+            <li><code>.pspselection</code> Paint Shop Pro selection</li>
+            <li><code>.pspshape</code> Paint Shop Pro preset shape</li>
+            <li><code>.psptube</code> Paint Shop Pro picture tube</li>
+            <li><code>.ptif</code> Pyramid encoded TIFF</li>
+            <li><code>.pwp</code> Seattle Film Works</li>
+            <li><code>.qoi</code> Quite OK image format</li>
+            <li><code>.ras</code> SUN Rasterfile</li>
+            <li><code>.rgbe</code> Radiance RGBE image format</li>
+            <li><code>.rla</code> Alias/Wavefront image</li>
+            <li><code>.rle</code> Utah Run length encoded image</li>
+            <li><code>.rmf</code> Raw Media Format</li>
+            <li><code>.scr</code> ZX-Spectrum SCREEN$</li>
+            <li><code>.sct</code> Scitex HandShake</li>
+            <li><code>.sf3</code> Simple File Format Family Images</li>
+            <li><code>.sfw</code> Seattle Film Works</li>
+            <li><code>.sgi</code> Silicon Graphics RGB</li>
+            <li><code>.skb</code> SketchUp backup model</li>
+            <li><code>.sketch</code> Sketch design document</li>
+            <li><code>.skp</code> SketchUp model</li>
+            <li><code>.sti</code> Sinar CaptureShop Raw Format</li>
+            <li><code>.stl</code> Stereolithography 3D model</li>
+            <li><code>.sun</code> SUN Rasterfile</li>
+            <li><code>.svg</code> Scalable Vector Graphics</li>
+            <li><code>.svgz</code> Compressed Scalable Vector Graphics</li>
+            <li><code>.tga</code> Truevision Targa image</li>
+            <li><code>.tif</code> Tagged Image File Format</li>
+            <li><code>.tiff</code> Tagged Image File Format</li>
+            <li><code>.tiff64</code> Tagged Image File Format (64-bit)</li>
+            <li><code>.tim</code> PSX TIM</li>
+            <li><code>.tm2</code> PS2 TIM2</li>
+            <li><code>.tpic</code> Truevision Targa image</li>
+            <li><code>.tub</code> Paint Shop Pro picture tube (legacy)</li>
+            <li><code>.vda</code> Truevision Targa image</li>
+            <li><code>.vicar</code> Video Image Communication And Retrieval</li>
+            <li><code>.viff</code> Khoros Visualization image</li>
+            <li><code>.vips</code> VIPS image</li>
+            <li><code>.vst</code> Truevision Targa image</li>
+            <li><code>.wdp</code> HD Photo / Windows Media Photo (JPEG XR)</li>
+            <li><code>.webp</code> Google WebP</li>
+            <li><code>.wmf</code> Windows Metafile</li>
+            <li><code>.wmp</code> HD Photo / Windows Media Photo (JPEG XR)</li>
+            <li><code>.wmz</code> Compressed Windows Metafile</li>
+            <li><code>.wpg</code> Word Perfect Graphics</li>
+            <li><code>.xapk</code> Android split-APK bundle (XAPK)</li>
+            <li><code>.xbm</code> X Windows system bitmap</li>
+            <li><code>.xcf</code> GIMP image</li>
+            <li><code>.xd</code> Adobe XD design</li>
+            <li><code>.xpm</code> X Windows system pixmap</li>
+            <li><code>.xv</code> Khoros Visualization image</li>
+            <li><code>.xyze</code> Radiance XYZE image format</li>
+          </ul>
+        </div>
       </div>
       <div class="fmtgroup reveal" data-cat="doc">
         <h3 class="fgh"><span class="sw"></span>Document <span class="cnt">43</span></h3>
         <div class="fgchips"><span class="fc" title="DjVu document">.djv</span> <span class="fc" title="DjVu document">.djvu</span> <span class="fc" title="Word 97-2003 document">.doc</span> <span class="fc" title="Word macro-enabled document">.docm</span> <span class="fc" title="Word document">.docx</span> <span class="fc" title="Word 97-2003 template">.dot</span> <span class="fc" title="Word macro-enabled template">.dotm</span> <span class="fc" title="Word template">.dotx</span> <span class="fc" title="GeoGebra worksheet">.ggb</span> <span class="fc" title="Adobe InDesign document">.indd</span> <span class="fc" title="Adobe InDesign template">.indt</span> <span class="fc" title="Apple Keynote presentation">.key</span> <span class="fc" title="Apple Numbers spreadsheet">.numbers</span> <span class="fc" title="OpenDocument Formula">.odf</span> <span class="fc" title="OpenDocument Graphics">.odg</span> <span class="fc" title="OpenDocument Presentation">.odp</span> <span class="fc" title="OpenDocument Spreadsheet">.ods</span> <span class="fc" title="OpenDocument Text">.odt</span> <span class="fc" title="OpenDocument Presentation Template">.otp</span> <span class="fc" title="OpenDocument Spreadsheet Template">.ots</span> <span class="fc" title="OpenDocument Text Template">.ott</span> <span class="fc" title="Apple Pages document">.pages</span> <span class="fc" title="Portable Document Format (page 1)">.pdf</span> <span class="fc" title="PowerPoint 97-2003 template">.pot</span> <span class="fc" title="PowerPoint macro-enabled template">.potm</span> <span class="fc" title="PowerPoint template">.potx</span> <span class="fc" title="PowerPoint 97-2003 slideshow">.pps</span> <span class="fc" title="PowerPoint macro-enabled slideshow">.ppsm</span> <span class="fc" title="PowerPoint slideshow">.ppsx</span> <span class="fc" title="PowerPoint 97-2003 presentation">.ppt</span> <span class="fc" title="PowerPoint macro-enabled presentation">.pptm</span> <span class="fc" title="PowerPoint presentation">.pptx</span> <span class="fc" title="Microsoft Publisher document">.pub</span> <span class="fc" title="Visio drawing (legacy)">.vsd</span> <span class="fc" title="Visio macro-enabled drawing">.vsdm</span> <span class="fc" title="Visio drawing">.vsdx</span> <span class="fc" title="Excel 97-2003 workbook">.xls</span> <span class="fc" title="Excel binary workbook">.xlsb</span> <span class="fc" title="Excel macro-enabled workbook">.xlsm</span> <span class="fc" title="Excel workbook">.xlsx</span> <span class="fc" title="Excel 97-2003 template">.xlt</span> <span class="fc" title="Excel macro-enabled template">.xltm</span> <span class="fc" title="Excel template">.xltx</span></div>
+        <button type="button" class="fgtoggle" aria-expanded="false" aria-controls="fgdesc-doc">Show Document format descriptions</button>
+        <div class="fgdesc" id="fgdesc-doc" hidden>
+          <ul>
+            <li><code>.djv</code> DjVu document</li>
+            <li><code>.djvu</code> DjVu document</li>
+            <li><code>.doc</code> Word 97-2003 document</li>
+            <li><code>.docm</code> Word macro-enabled document</li>
+            <li><code>.docx</code> Word document</li>
+            <li><code>.dot</code> Word 97-2003 template</li>
+            <li><code>.dotm</code> Word macro-enabled template</li>
+            <li><code>.dotx</code> Word template</li>
+            <li><code>.ggb</code> GeoGebra worksheet</li>
+            <li><code>.indd</code> Adobe InDesign document</li>
+            <li><code>.indt</code> Adobe InDesign template</li>
+            <li><code>.key</code> Apple Keynote presentation</li>
+            <li><code>.numbers</code> Apple Numbers spreadsheet</li>
+            <li><code>.odf</code> OpenDocument Formula</li>
+            <li><code>.odg</code> OpenDocument Graphics</li>
+            <li><code>.odp</code> OpenDocument Presentation</li>
+            <li><code>.ods</code> OpenDocument Spreadsheet</li>
+            <li><code>.odt</code> OpenDocument Text</li>
+            <li><code>.otp</code> OpenDocument Presentation Template</li>
+            <li><code>.ots</code> OpenDocument Spreadsheet Template</li>
+            <li><code>.ott</code> OpenDocument Text Template</li>
+            <li><code>.pages</code> Apple Pages document</li>
+            <li><code>.pdf</code> Portable Document Format (page 1)</li>
+            <li><code>.pot</code> PowerPoint 97-2003 template</li>
+            <li><code>.potm</code> PowerPoint macro-enabled template</li>
+            <li><code>.potx</code> PowerPoint template</li>
+            <li><code>.pps</code> PowerPoint 97-2003 slideshow</li>
+            <li><code>.ppsm</code> PowerPoint macro-enabled slideshow</li>
+            <li><code>.ppsx</code> PowerPoint slideshow</li>
+            <li><code>.ppt</code> PowerPoint 97-2003 presentation</li>
+            <li><code>.pptm</code> PowerPoint macro-enabled presentation</li>
+            <li><code>.pptx</code> PowerPoint presentation</li>
+            <li><code>.pub</code> Microsoft Publisher document</li>
+            <li><code>.vsd</code> Visio drawing (legacy)</li>
+            <li><code>.vsdm</code> Visio macro-enabled drawing</li>
+            <li><code>.vsdx</code> Visio drawing</li>
+            <li><code>.xls</code> Excel 97-2003 workbook</li>
+            <li><code>.xlsb</code> Excel binary workbook</li>
+            <li><code>.xlsm</code> Excel macro-enabled workbook</li>
+            <li><code>.xlsx</code> Excel workbook</li>
+            <li><code>.xlt</code> Excel 97-2003 template</li>
+            <li><code>.xltm</code> Excel macro-enabled template</li>
+            <li><code>.xltx</code> Excel template</li>
+          </ul>
+        </div>
       </div>
       <div class="fmtgroup reveal" data-cat="raw">
         <h3 class="fgh"><span class="sw"></span>Camera RAW <span class="cnt">34</span></h3>
         <div class="fgchips"><span class="fc" title="Hasselblad CFV/H3D39II Raw Format">.3fr</span> <span class="fc" title="Sony Alpha Raw Format">.arw</span> <span class="fc" title="Casio / Phase One Raw Format">.bay</span> <span class="fc" title="Phase One Raw Format">.cap</span> <span class="fc" title="Canon Digital Camera Raw Format">.cr2</span> <span class="fc" title="Canon Digital Camera Raw Format">.cr3</span> <span class="fc" title="Canon Digital Camera Raw Format">.crw</span> <span class="fc" title="Kodak Digital Camera Raw Format">.dcr</span> <span class="fc" title="Kodak DCS Raw Format">.dcs</span> <span class="fc" title="Digital Negative Raw Format">.dng</span> <span class="fc" title="Kodak Raw Format">.drf</span> <span class="fc" title="Epson Raw Format">.erf</span> <span class="fc" title="Hasselblad CFV/H3D39II Raw Format">.fff</span> <span class="fc" title="Phase One Raw Format">.iiq</span> <span class="fc" title="Kodak Digital Camera Raw Format">.k25</span> <span class="fc" title="Kodak Digital Camera Raw Format">.kdc</span> <span class="fc" title="Minolta Digital Camera Raw Format">.mdc</span> <span class="fc" title="Mamiya Raw Format">.mef</span> <span class="fc" title="Aptus Leaf Raw Format">.mos</span> <span class="fc" title="Sony (Minolta) Raw Format">.mrw</span> <span class="fc" title="Nikon Digital SLR Camera Raw Format">.nef</span> <span class="fc" title="Nikon Digital SLR Camera Raw Format">.nrw</span> <span class="fc" title="Olympus Digital Camera Raw Format">.orf</span> <span class="fc" title="Olympus Raw Format">.ori</span> <span class="fc" title="Pentax Electronic Raw Format">.pef</span> <span class="fc" title="Pentax Raw Format">.ptx</span> <span class="fc" title="Logitech Fotoman Raw Format">.pxn</span> <span class="fc" title="Fuji CCD-RAW Graphic Raw Format">.raf</span> <span class="fc" title="Panasonic Lumix Raw Format">.rw2</span> <span class="fc" title="Leica Raw Format">.rwl</span> <span class="fc" title="Sony Raw Format 2">.sr2</span> <span class="fc" title="Sony Raw Format">.srf</span> <span class="fc" title="Samsung Raw Format">.srw</span> <span class="fc" title="Sigma Camera RAW Format">.x3f</span></div>
+        <button type="button" class="fgtoggle" aria-expanded="false" aria-controls="fgdesc-raw">Show Camera RAW format descriptions</button>
+        <div class="fgdesc" id="fgdesc-raw" hidden>
+          <ul>
+            <li><code>.3fr</code> Hasselblad CFV/H3D39II Raw Format</li>
+            <li><code>.arw</code> Sony Alpha Raw Format</li>
+            <li><code>.bay</code> Casio / Phase One Raw Format</li>
+            <li><code>.cap</code> Phase One Raw Format</li>
+            <li><code>.cr2</code> Canon Digital Camera Raw Format</li>
+            <li><code>.cr3</code> Canon Digital Camera Raw Format</li>
+            <li><code>.crw</code> Canon Digital Camera Raw Format</li>
+            <li><code>.dcr</code> Kodak Digital Camera Raw Format</li>
+            <li><code>.dcs</code> Kodak DCS Raw Format</li>
+            <li><code>.dng</code> Digital Negative Raw Format</li>
+            <li><code>.drf</code> Kodak Raw Format</li>
+            <li><code>.erf</code> Epson Raw Format</li>
+            <li><code>.fff</code> Hasselblad CFV/H3D39II Raw Format</li>
+            <li><code>.iiq</code> Phase One Raw Format</li>
+            <li><code>.k25</code> Kodak Digital Camera Raw Format</li>
+            <li><code>.kdc</code> Kodak Digital Camera Raw Format</li>
+            <li><code>.mdc</code> Minolta Digital Camera Raw Format</li>
+            <li><code>.mef</code> Mamiya Raw Format</li>
+            <li><code>.mos</code> Aptus Leaf Raw Format</li>
+            <li><code>.mrw</code> Sony (Minolta) Raw Format</li>
+            <li><code>.nef</code> Nikon Digital SLR Camera Raw Format</li>
+            <li><code>.nrw</code> Nikon Digital SLR Camera Raw Format</li>
+            <li><code>.orf</code> Olympus Digital Camera Raw Format</li>
+            <li><code>.ori</code> Olympus Raw Format</li>
+            <li><code>.pef</code> Pentax Electronic Raw Format</li>
+            <li><code>.ptx</code> Pentax Raw Format</li>
+            <li><code>.pxn</code> Logitech Fotoman Raw Format</li>
+            <li><code>.raf</code> Fuji CCD-RAW Graphic Raw Format</li>
+            <li><code>.rw2</code> Panasonic Lumix Raw Format</li>
+            <li><code>.rwl</code> Leica Raw Format</li>
+            <li><code>.sr2</code> Sony Raw Format 2</li>
+            <li><code>.srf</code> Sony Raw Format</li>
+            <li><code>.srw</code> Samsung Raw Format</li>
+            <li><code>.x3f</code> Sigma Camera RAW Format</li>
+          </ul>
+        </div>
       </div>
       <div class="fmtgroup reveal" data-cat="vid">
         <h3 class="fgh"><span class="sw"></span>Video <span class="cnt">22</span></h3>
         <div class="fgchips"><span class="fc" title="3GPP2 Video">.3g2</span> <span class="fc" title="3GPP Video">.3gp</span> <span class="fc" title="Advanced Systems Format Video">.asf</span> <span class="fc" title="Audio Video Interleave">.avi</span> <span class="fc" title="DivX Video">.divx</span> <span class="fc" title="Flash MP4 Video">.f4v</span> <span class="fc" title="Flash Video">.flv</span> <span class="fc" title="Blu-ray BDAV Video">.m2ts</span> <span class="fc" title="MPEG-2 Video">.m2v</span> <span class="fc" title="MPEG-4 Video (iTunes)">.m4v</span> <span class="fc" title="Matroska Video">.mkv</span> <span class="fc" title="QuickTime Movie">.mov</span> <span class="fc" title="MPEG-4 Video">.mp4</span> <span class="fc" title="MPEG Video">.mpeg</span> <span class="fc" title="MPEG Video">.mpg</span> <span class="fc" title="AVCHD Video">.mts</span> <span class="fc" title="Ogg Video">.ogv</span> <span class="fc" title="QuickTime Movie">.qt</span> <span class="fc" title="MPEG Transport Stream">.ts</span> <span class="fc" title="DVD Video Object">.vob</span> <span class="fc" title="WebM Video">.webm</span> <span class="fc" title="Windows Media Video">.wmv</span></div>
+        <button type="button" class="fgtoggle" aria-expanded="false" aria-controls="fgdesc-vid">Show Video format descriptions</button>
+        <div class="fgdesc" id="fgdesc-vid" hidden>
+          <ul>
+            <li><code>.3g2</code> 3GPP2 Video</li>
+            <li><code>.3gp</code> 3GPP Video</li>
+            <li><code>.asf</code> Advanced Systems Format Video</li>
+            <li><code>.avi</code> Audio Video Interleave</li>
+            <li><code>.divx</code> DivX Video</li>
+            <li><code>.f4v</code> Flash MP4 Video</li>
+            <li><code>.flv</code> Flash Video</li>
+            <li><code>.m2ts</code> Blu-ray BDAV Video</li>
+            <li><code>.m2v</code> MPEG-2 Video</li>
+            <li><code>.m4v</code> MPEG-4 Video (iTunes)</li>
+            <li><code>.mkv</code> Matroska Video</li>
+            <li><code>.mov</code> QuickTime Movie</li>
+            <li><code>.mp4</code> MPEG-4 Video</li>
+            <li><code>.mpeg</code> MPEG Video</li>
+            <li><code>.mpg</code> MPEG Video</li>
+            <li><code>.mts</code> AVCHD Video</li>
+            <li><code>.ogv</code> Ogg Video</li>
+            <li><code>.qt</code> QuickTime Movie</li>
+            <li><code>.ts</code> MPEG Transport Stream</li>
+            <li><code>.vob</code> DVD Video Object</li>
+            <li><code>.webm</code> WebM Video</li>
+            <li><code>.wmv</code> Windows Media Video</li>
+          </ul>
+        </div>
       </div>
       <div class="fmtgroup reveal" data-cat="aud">
         <h3 class="fgh"><span class="sw"></span>Audio <span class="cnt">18</span></h3>
         <div class="fgchips"><span class="fc" title="AAC audio (album art)">.aac</span> <span class="fc" title="AIFF audio (waveform / album art)">.aif</span> <span class="fc" title="AIFF-C audio (waveform / album art)">.aifc</span> <span class="fc" title="AIFF audio (waveform / album art)">.aiff</span> <span class="fc" title="Monkey's Audio (album art)">.ape</span> <span class="fc" title="DSD audio (album art)">.dsf</span> <span class="fc" title="FLAC audio (album art)">.flac</span> <span class="fc" title="MPEG-4 audio (album art)">.m4a</span> <span class="fc" title="MPEG-4 audiobook (album art)">.m4b</span> <span class="fc" title="MP3 audio (album art)">.mp3</span> <span class="fc" title="Musepack audio (album art)">.mpc</span> <span class="fc" title="Ogg audio (album art)">.oga</span> <span class="fc" title="Ogg Vorbis audio (album art)">.ogg</span> <span class="fc" title="Opus audio (album art)">.opus</span> <span class="fc" title="Speex audio (album art)">.spx</span> <span class="fc" title="WAV audio (waveform / album art)">.wav</span> <span class="fc" title="Windows Media Audio (album art)">.wma</span> <span class="fc" title="WavPack audio (album art)">.wv</span></div>
+        <button type="button" class="fgtoggle" aria-expanded="false" aria-controls="fgdesc-aud">Show Audio format descriptions</button>
+        <div class="fgdesc" id="fgdesc-aud" hidden>
+          <ul>
+            <li><code>.aac</code> AAC audio (album art)</li>
+            <li><code>.aif</code> AIFF audio (waveform / album art)</li>
+            <li><code>.aifc</code> AIFF-C audio (waveform / album art)</li>
+            <li><code>.aiff</code> AIFF audio (waveform / album art)</li>
+            <li><code>.ape</code> Monkey's Audio (album art)</li>
+            <li><code>.dsf</code> DSD audio (album art)</li>
+            <li><code>.flac</code> FLAC audio (album art)</li>
+            <li><code>.m4a</code> MPEG-4 audio (album art)</li>
+            <li><code>.m4b</code> MPEG-4 audiobook (album art)</li>
+            <li><code>.mp3</code> MP3 audio (album art)</li>
+            <li><code>.mpc</code> Musepack audio (album art)</li>
+            <li><code>.oga</code> Ogg audio (album art)</li>
+            <li><code>.ogg</code> Ogg Vorbis audio (album art)</li>
+            <li><code>.opus</code> Opus audio (album art)</li>
+            <li><code>.spx</code> Speex audio (album art)</li>
+            <li><code>.wav</code> WAV audio (waveform / album art)</li>
+            <li><code>.wma</code> Windows Media Audio (album art)</li>
+            <li><code>.wv</code> WavPack audio (album art)</li>
+          </ul>
+        </div>
       </div>
       <div class="fmtgroup reveal" data-cat="ebk">
         <h3 class="fgh"><span class="sw"></span>Ebook &amp; comics <span class="cnt">12</span></h3>
         <div class="fgchips"><span class="fc" title="Amazon Kindle ebook">.azw</span> <span class="fc" title="Amazon Kindle ebook (KF8)">.azw3</span> <span class="fc" title="Comic book archive (7-Zip)">.cb7</span> <span class="fc" title="Comic book archive (RAR)">.cbr</span> <span class="fc" title="Comic book archive (TAR)">.cbt</span> <span class="fc" title="Comic book archive (ZIP)">.cbz</span> <span class="fc" title="EPUB ebook">.epub</span> <span class="fc" title="FictionBook 2 ebook">.fb2</span> <span class="fc" title="FictionBook 2 ebook (zipped)">.fbz</span> <span class="fc" title="Mobipocket / Kindle ebook">.mobi</span> <span class="fc" title="Comic / image archive (ZIP)">.phz</span> <span class="fc" title="Mobipocket / Palm ebook">.prc</span></div>
+        <button type="button" class="fgtoggle" aria-expanded="false" aria-controls="fgdesc-ebk">Show Ebook &amp; comics format descriptions</button>
+        <div class="fgdesc" id="fgdesc-ebk" hidden>
+          <ul>
+            <li><code>.azw</code> Amazon Kindle ebook</li>
+            <li><code>.azw3</code> Amazon Kindle ebook (KF8)</li>
+            <li><code>.cb7</code> Comic book archive (7-Zip)</li>
+            <li><code>.cbr</code> Comic book archive (RAR)</li>
+            <li><code>.cbt</code> Comic book archive (TAR)</li>
+            <li><code>.cbz</code> Comic book archive (ZIP)</li>
+            <li><code>.epub</code> EPUB ebook</li>
+            <li><code>.fb2</code> FictionBook 2 ebook</li>
+            <li><code>.fbz</code> FictionBook 2 ebook (zipped)</li>
+            <li><code>.mobi</code> Mobipocket / Kindle ebook</li>
+            <li><code>.phz</code> Comic / image archive (ZIP)</li>
+            <li><code>.prc</code> Mobipocket / Palm ebook</li>
+          </ul>
+        </div>
       </div>
       <div class="fmtgroup reveal" data-cat="arc">
         <h3 class="fgh"><span class="sw"></span>Archive <span class="cnt">3</span></h3>
         <div class="fgchips"><span class="fc" title="7-Zip archive">.7z</span> <span class="fc" title="RAR archive">.rar</span> <span class="fc" title="ZIP archive">.zip</span></div>
+        <button type="button" class="fgtoggle" aria-expanded="false" aria-controls="fgdesc-arc">Show Archive format descriptions</button>
+        <div class="fgdesc" id="fgdesc-arc" hidden>
+          <ul>
+            <li><code>.7z</code> 7-Zip archive</li>
+            <li><code>.rar</code> RAR archive</li>
+            <li><code>.zip</code> ZIP archive</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -1393,9 +1772,13 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     if(btn){
       btn.addEventListener('click', function(){
         var text = 'st2k thumbnail photo.cr2 out.png --size 512\nst2k batch thumbnail .\\raw\\ --size 512\nst2k convert render.psd out.png\nst2k --mcp';
-        navigator.clipboard && navigator.clipboard.writeText(text).then(function(){
-          var old = btn.textContent; btn.textContent = 'Copied'; setTimeout(function(){ btn.textContent = old; }, 1400);
-        });
+        var old = btn.textContent;
+        function flash(msg){ btn.textContent = msg; setTimeout(function(){ btn.textContent = old; }, 1400); }
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(text).then(function(){ flash('Copied'); }, function(){ flash('Copy failed'); });
+        } else {
+          flash('Copy failed');
+        }
       });
     }
   })();
@@ -1428,10 +1811,13 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     if(!wall) return;
     if(!matchMedia('(hover:hover) and (pointer:fine)').matches) return;   // desktop pointers only
     var CAT = { img:['#4d9cff','Image'], doc:['#ef8b5a','Document'], raw:['#b48bff','Camera RAW'],
-                vid:['#f06ab0','Video'], aud:['#38d39f','Audio'], ebk:['#f2c14e','Ebook & comics'] };
-    // move native titles into data-d so only the rich tooltip shows
+                vid:['#f06ab0','Video'], aud:['#38d39f','Audio'], ebk:['#f2c14e','Ebook & comics'],
+                arc:['#7d8ca3','Archive'] };
+    // copy native titles into data-d for the rich tooltip; KEEP the title attribute itself
+    // (a no-cost fallback for touch and assistive tech - this used to removeAttribute it,
+    // which left keyboard/touch users with no way to read a chip's description at all).
     Array.prototype.slice.call(wall.querySelectorAll('.fc[title]')).forEach(function(ch){
-      ch.setAttribute('data-d', ch.getAttribute('title')); ch.removeAttribute('title');
+      ch.setAttribute('data-d', ch.getAttribute('title'));
     });
     var tip = document.createElement('div');
     tip.className = 'fmttip';
@@ -1458,6 +1844,23 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     wall.addEventListener('pointerover', function(e){ var ch = e.target.closest('.fc'); if(ch && wall.contains(ch) && ch!==current) show(ch); });
     wall.addEventListener('pointerout', function(e){ var ch = e.target.closest('.fc'); if(ch){ var to=e.relatedTarget; if(!to || !to.closest || !to.closest('.fc')) hide(); } });
     window.addEventListener('scroll', function(){ if(current) hide(); }, {passive:true});
+  })();
+
+  // per-category "show descriptions" toggle: keyboard- and touch-reachable regardless of
+  // pointer type (a plain <button>, no hover/pointer-fine gate), so every format's
+  // description is reachable without adding a tab stop per chip (334 of them).
+  (function(){
+    var wall = document.querySelector('.fmtwall');
+    if(!wall) return;
+    wall.addEventListener('click', function(e){
+      var btn = e.target.closest('.fgtoggle');
+      if(!btn || !wall.contains(btn)) return;
+      var panel = document.getElementById(btn.getAttribute('aria-controls'));
+      if(!panel) return;
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      panel.hidden = open;
+    });
   })();
 </script>
 <script>

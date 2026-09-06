@@ -53,5 +53,5 @@ account_required: false
 byo_api_key_required: false
 recurring_cost_to_user: 0 USD
 platform: Windows 11, Windows 10 (64-bit)
-current_version: 2.4.1
+current_version: 2.5.0
 ```

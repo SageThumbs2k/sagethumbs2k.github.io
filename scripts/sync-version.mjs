@@ -18,6 +18,17 @@
 //
 //   node scripts/sync-version.mjs           # rewrite if stale
 //   node scripts/sync-version.mjs --check   # exit 1 if stale, write nothing
+//
+// AUDIT F24 (P3): rewrite() used to replace-and-return without ever checking whether either
+// regex matched anything, so a template edit that renamed or removed a marker (js-app-version
+// class, softwareVersion key) made `before === after` for the WRONG reason -- indistinguishable
+// from "already current" -- and this script would report success while quietly no longer
+// tracking the version at all. It now counts matches before replacing and throws (a real
+// failure, both in --check and in write mode) when a marker it expects is not found.
+// Also validates the "N categories" eyebrow against the number of .fmtgroup blocks the page
+// actually has, since that pair drifted silently once already (index.html said 6, the wall
+// itself had 7) with nothing here or in the wall's own generator (gen-site.mjs, app repo)
+// catching it.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -28,6 +39,31 @@ const PAGE = path.join(ROOT, 'index.html');
 const RELEASES = 'https://api.github.com/repos/LunarWerxs/SageThumbs-2k/releases/latest';
 
 const check = process.argv.includes('--check');
+
+function countMatches(html, re) {
+  const g = new RegExp(re.source, re.flags.includes('g') ? re.flags : re.flags + 'g');
+  return (html.match(g) || []).length;
+}
+
+/** Cross-checks the coverage section's "hundreds of formats, N categories" prose against the
+ *  number of .fmtgroup blocks actually present in the format wall below it. The two are
+ *  independent pieces of markup (one hand-written prose string, one generated block) and
+ *  nothing enforced they agree -- which is exactly how the page shipped claiming 6 categories
+ *  while the wall itself had 7. Throws rather than warns: a drifted count is wrong content on
+ *  a public page, not a style nit. */
+function validateCategoryCount(html) {
+  const eyebrow = html.match(/hundreds of formats, (\d+) categories/);
+  if (!eyebrow) throw new Error('sync-version: could not find the "N categories" eyebrow marker to validate');
+  const claimed = Number(eyebrow[1]);
+  const groups = html.match(/<div class="fmtgroup\b[^"]*"[^>]*data-cat="[a-z]+"/g) || [];
+  const present = new Set(groups.map((g) => (g.match(/data-cat="([a-z]+)"/) || [])[1])).size;
+  if (present !== claimed) {
+    throw new Error(
+      `sync-version: eyebrow claims ${claimed} categories but the page has ${present} distinct ` +
+      `.fmtgroup data-cat blocks -- the prose and the format wall have drifted. Re-run the app ` +
+      `repo's scripts/gen-site.mjs against this file, or fix the eyebrow text by hand.`);
+  }
+}
 
 /** The tag, as a bare `2.3.0`. Refuses anything that is not a version, because
  *  writing a draft name or an empty string into the page would be worse than
@@ -55,16 +91,24 @@ async function latestVersion() {
  * correction can never disagree about WHERE the version lives.
  */
 function rewrite(html, version) {
-  let out = html.replace(
-    /(<[^>]*class="[^"]*\bjs-app-version\b[^"]*"[^>]*>)v?\d+\.\d+\.\d+[^<]*(<\/)/g,
-    `$1v${version}$2`,
-  );
-  out = out.replace(/("softwareVersion"\s*:\s*")\d+\.\d+\.\d+[^"]*(")/g, `$1${version}$2`);
+  const pillRe = /(<[^>]*class="[^"]*\bjs-app-version\b[^"]*"[^>]*>)v?\d+\.\d+\.\d+[^<]*(<\/)/g;
+  const schemaRe = /("softwareVersion"\s*:\s*")\d+\.\d+\.\d+[^"]*(")/g;
+  const pillCount = countMatches(html, pillRe);
+  const schemaCount = countMatches(html, schemaRe);
+  if (pillCount === 0 || schemaCount === 0) {
+    throw new Error(
+      `sync-version: expected version markers not found (js-app-version pills: ${pillCount}, ` +
+      `softwareVersion: ${schemaCount}). Refusing to treat a missing marker as "already ` +
+      `current" -- the template likely changed shape. Fix the regex or the markup.`);
+  }
+  let out = html.replace(pillRe, `$1v${version}$2`);
+  out = out.replace(schemaRe, `$1${version}$2`);
   return out;
 }
 
 const version = await latestVersion();
 const before = fs.readFileSync(PAGE, 'utf8');
+validateCategoryCount(before);
 const after = rewrite(before, version);
 
 // NOTHING here calls `process.exit()`, and that is deliberate rather than

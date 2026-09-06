@@ -6,7 +6,7 @@
 > plus a right-click image toolkit, a spacebar Quick Look preview, and a
 > command-line / MCP tool for scripts and AI agents.
 
-Last updated: 2026-08-24. Current version: 2.4.0. Publisher: LunarWerx Studios.
+Last updated: 2026-08-24. Current version: 2.5.0. Publisher: LunarWerx Studios.
 Homepage: https://sagethumbs.lunarwerx.com/
 
 ## What it is
