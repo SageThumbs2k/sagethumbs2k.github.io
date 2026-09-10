@@ -1,6 +1,6 @@
 # Pricing: SageThumbs 2K
 
-Last updated: 2026-09-09. Machine-readable pricing for agentic buyers and comparison
+Last updated: 2026-09-10. Machine-readable pricing for agentic buyers and comparison
 tools. Human-readable page: https://sagethumbs.lunarwerx.com/
 
 ## Personal / non-commercial
@@ -16,11 +16,17 @@ tools. Human-readable page: https://sagethumbs.lunarwerx.com/
 ## Commercial / business use
 
 - Price: US$49 per installation (one Windows machine), one-time. Perpetual licence with
-  12 months of updates and new builds included. Tax is added at checkout where it applies.
+  12 months of updates. Afterwards the app keeps working as it is; another 12 months of
+  updates is US$29, bought with your key. Security fixes are delivered to every licensed
+  installation regardless. Tax is added at checkout where it applies.
 - Licence unit: installation. Buy one per PC; set the quantity at checkout.
 - How to buy: https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
   (card payment via Stripe). One redemption key (`esk_...`) per installation is emailed on
   payment. Redeem under Settings > Licence (version 3.0 and later).
+- Renewal: US$29 per installation for another 12 months of updates, bought with the same
+  key at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98/renew
+  Optional. A licence that is never renewed keeps working; it simply stops being offered
+  builds published after its window ended, security releases excepted.
 
 - Volume, site licences, purchase orders or bank transfer (roughly 25+ PCs): request a
   quote with the form at https://sagethumbs.lunarwerx.com/#pricing (Request a quote)
@@ -46,6 +52,7 @@ tools. Human-readable page: https://sagethumbs.lunarwerx.com/
 product: SageThumbs 2K
 price_personal_use: 0 USD
 price_commercial_use: 49 USD per installation, one-time (perpetual + 12 months updates)
+price_commercial_renewal: 29 USD per installation for another 12 months of updates (optional)
 buy_url_commercial: https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
 billing_model: one-time, source-available, free for personal/non-commercial use
 license: PolyForm-Noncommercial-1.0.0
