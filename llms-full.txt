@@ -6,7 +6,7 @@
 > plus a right-click image toolkit, a spacebar Quick Look preview, and a
 > command-line / MCP tool for scripts and AI agents.
 
-Last updated: 2026-08-24. Current version: 2.5.0. Publisher: LunarWerx Studios.
+Last updated: 2026-09-09. Current version: 3.0.0. Publisher: LunarWerx Studios.
 Homepage: https://sagethumbs.lunarwerx.com/
 
 ## What it is
@@ -85,10 +85,10 @@ or AI agents that need a CLI or MCP tool to view formats they otherwise can't op
 
 ## Install
 
-Download the installer from GitHub Releases and run it; the Full installer bundles
-the approved ImageMagick runtime. The installer is unsigned (signing needs a paid
-certificate), so SmartScreen shows its default new-publisher warning: click
-"More info" then "Run anyway", or build from source.
+the approved ImageMagick runtime. Since 3.0 the installer and every program in it are
+code-signed by LUNARWERX LLC (Azure Artifact Signing). SmartScreen may still show its
+new-publisher warning while that reputation builds: click "More info" then "Run anyway",
+or build from source.
 
 - Download: https://github.com/LunarWerxs/SageThumbs-2k/releases/latest
 - Source: https://github.com/LunarWerxs/SageThumbs-2k
@@ -99,7 +99,7 @@ Free for personal and non-commercial use. Business and commercial use: US$49 per
 installation (one Windows machine), one-time, perpetual, including 12 months of updates.
 Buy at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
 (card payment via Stripe; one redemption key per installation is emailed on payment).
-Redeem under Settings > Licence; that screen arrives in version 3.0, released shortly, and a key bought now stays valid until then. Volume, site licences, purchase orders or bank transfer:
+Redeem under Settings > Licence (version 3.0 and later). Volume, site licences, purchase orders or bank transfer:
 request a quote at https://github.com/LunarWerxs/SageThumbs-2k/issues/new?title=Commercial%20licence%20quote&labels=licensing
 See /pricing.md for the machine-readable version.
 
@@ -109,15 +109,15 @@ Full Q&A is on the homepage (#faq) and mirrored in its FAQPage schema. Short ver
 free for personal/non-commercial use (PolyForm Noncommercial 1.0.0); safe to run
 (memory-safe Rust, crash-isolated, bomb guards); doesn't slow Explorer (on-demand,
 cached, out-of-process decodes); works fully offline; SmartScreen warns only because
-the installer is unsigned; needs Windows 11 or 10, 64-bit; run `st2k formats` for the
+SmartScreen may still warn while the signed publisher's reputation builds; needs Windows 11 or 10, 64-bit; run `st2k formats` for the
 live format list; replaces a thumbnailer, converter, resizer, colour picker,
 screenshot tool, OCR utility, EXIF viewer, metadata stripper, uploader, file
 previewer, email viewer, 3D-model viewer, CLI and MCP server.
 
 ## Limitations
 
-Windows only, 64-bit only, no macOS or Linux build. The installer is unsigned, so
-SmartScreen warns on first run. Some exotic formats lean on Windows' own WIC codecs or
+Windows only, 64-bit only, no macOS or Linux build. The installer is code-signed since 3.0;
+SmartScreen may still warn on first run until the publisher has download history. Some exotic formats lean on Windows' own WIC codecs or
 the bundled ImageMagick engine rather than a pure-Rust decoder. Email preview reads
 the message and lists attachments; it does not extract or open them, and it is a
 viewer, not a mail client. Commercial/business deployment needs a separate license
