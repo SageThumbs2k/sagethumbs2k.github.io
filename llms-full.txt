@@ -100,7 +100,7 @@ installation (one Windows machine), one-time, perpetual, including 12 months of 
 Buy at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
 (card payment via Stripe; one redemption key per installation is emailed on payment).
 Redeem under Settings > Licence (version 3.0 and later). Volume, site licences, purchase orders or bank transfer:
-request a quote with the form at https://sagethumbs.lunarwerx.com/#pricing (Request a quote) or email contact@lunarwerx.com
+request a quote with the form at https://sagethumbs.lunarwerx.com/#pricing (Request a quote)
 See /pricing.md for the machine-readable version.
 
 ## FAQ

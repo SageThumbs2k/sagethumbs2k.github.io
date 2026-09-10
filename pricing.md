@@ -23,7 +23,7 @@ tools. Human-readable page: https://sagethumbs.lunarwerx.com/
   payment. Redeem under Settings > Licence (version 3.0 and later).
 
 - Volume, site licences, purchase orders or bank transfer (roughly 25+ PCs): request a
-  quote with the form at https://sagethumbs.lunarwerx.com/#pricing (Request a quote) or email contact@lunarwerx.com
+  quote with the form at https://sagethumbs.lunarwerx.com/#pricing (Request a quote)
 
 ## Ongoing costs the user actually bears
 
