@@ -239,7 +239,16 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Loaded WITHOUT blocking the first paint. A plain `rel="stylesheet"` to Google Fonts sits on
+     the critical path: the browser will not paint a single pixel of this page until that request
+     resolves, which on a slow connection is the whole above-the-fold delay. Fetching it as a
+     preload and promoting it to a stylesheet on load keeps the same fonts and the same FOUT
+     behaviour (`display=swap` already governs that), without the block.
+     ⛔ NO <noscript> FALLBACK, on purpose: that copy is a plain stylesheet link, so it blocks
+     the paint for exactly the visitors who cannot run the promotion. The font stacks below name
+     Segoe UI and Consolas right after Geist, so a no-JS visitor gets native system type on the
+     Windows desktop this page is written for - nothing is lost but the webfont. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 
 <style>
   /* Dual-theme token system. Every surface colour resolves through light-dark(),
