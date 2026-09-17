@@ -842,18 +842,6 @@
     .replaces .swap{grid-template-columns:1fr;gap:13px;padding:15px 17px}
     .replaces .swap .new{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:13px}
   }
-
-  /* Progressive disclosure for the specialist half of the page: the heading and its one
-     line stay visible, the body is one click away. Nothing is removed from the DOM. */
-  details.more{margin-top:18px}
-  details.more>summary{display:inline-flex;align-items:center;gap:8px;cursor:pointer;
-    list-style:none;font:inherit;font-size:.92rem;font-weight:600;opacity:.75;
-    padding:7px 13px;border:1px solid currentColor;border-radius:999px;width:auto}
-  details.more>summary::-webkit-details-marker{display:none}
-  details.more>summary::after{content:"+";font-weight:700;line-height:1}
-  details.more[open]>summary::after{content:"\2013"}
-  details.more>summary:hover{opacity:1}
-  details.more[open]>summary{margin-bottom:18px}
 </style>
 <style>
 /* Back to the parent studio: a bare arrow at the top left of the page.
@@ -1441,8 +1429,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
       <p>Thumbnails appear as files land. Right-click any supported file for the toolkit; Settings decides what gets hooked.</p>
     </div>
     <div class="exp-bento">
-      <details class="more"><summary>See what it adds to Explorer</summary>
-<article class="ecard wide reveal">
+      <article class="ecard wide reveal">
         <div class="ebody">
           <div class="ehead">
             <span class="eico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 9h18M9 9v12"/></svg></span>
@@ -1494,7 +1481,6 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
         </div>
         <div class="evisual"><img src="img/convert.png" width="486" height="267" alt="The SageThumbs 2K Convert dialog: output format, resize, per-format quality and output-folder options"></div>
       </article>
-</details>
     </div>
   </div>
 </section>
@@ -1508,8 +1494,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
       <p>Select a file, press <b>Space</b>: an instant full-size preview. The Quick Look Windows never had.</p>
     </div>
     <div class="exp-bento">
-      <details class="more"><summary>How the preview works</summary>
-<article class="ecard wide reveal">
+      <article class="ecard wide reveal">
         <div class="ebody">
           <div class="ehead">
             <span class="eico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span>
@@ -1540,7 +1525,6 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
         </div>
         <div class="evisual"><img src="img/preview-quicklook.png" width="1000" height="647" alt="The SageThumbs 2K Quick preview showing a Rust source file with syntax highlighting, line numbers and the caption toolbar"></div>
       </article>
-</details>
     </div>
   </div>
 </section>
@@ -1554,8 +1538,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
       <p>A dozen little utilities people reinstall on every Windows box, done by one shell extension and one <span class="mono" style="color:var(--accent-2)">st2k.exe</span>.</p>
     </div>
 
-    <details class="more"><summary>See the stack it replaces</summary>
-<div class="rstats reveal">
+    <div class="rstats reveal">
       <div class="rstat"><b>a dozen+</b><span>separate tools' jobs, folded in</span></div>
       <div class="rstat"><b>one</b><span>installer, no separate dependencies</span></div>
       <div class="rstat"><b>0</b><span>tray icons or background services</span></div>
@@ -1580,7 +1563,6 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     </div>
 
     <p class="rnote reveal">Exotic formats lean on Windows' codecs or the bundled ImageMagick. The point is not running a dozen tools.</p>
-</details>
   </div>
 </section>
 
@@ -1593,11 +1575,9 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
         <h2 style="font-size:clamp(1.85rem,3.4vw,2.6rem);letter-spacing:-.03em;margin:12px 0 14px">A command line and an MCP server, in the box.</h2>
         <p class="lead">Everything the menu does, <span class="mono">st2k.exe</span> does from a terminal. It speaks MCP, so agents see RAW and PSD as images.</p>
         <ul class="featlist">
-          <details class="more"><summary>The CLI and MCP server</summary>
-<li><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><div><b>Scriptable batch</b><span>Thumbnail or convert whole folders in parallel.</span></div></li>
+          <li><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><div><b>Scriptable batch</b><span>Thumbnail or convert whole folders in parallel.</span></div></li>
           <li><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><div><b>OCR and PDF tools</b><span>Text out of images; many pages into one PDF.</span></div></li>
           <li><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><div><b>An agent-ready view tool</b><span>A model sees a RAW, PSD or HEIC it could not open.</span></div></li>
-</details>
         </ul>
       </div>
       <div class="code reveal" id="codeblock">
@@ -1632,8 +1612,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
       <p>It runs inside explorer.exe, so the bar is high.</p>
     </div>
     <div class="assure">
-      <details class="more"><summary>How the sandboxing works</summary>
-<div class="a reveal">
+      <div class="a reveal">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg></div>
         <h3>Memory-safe Rust</h3>
         <p>Rust, sandboxed at every Explorer boundary. A hostile file cannot crash Explorer or reach your system.</p>
@@ -1648,7 +1627,6 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
         <h3>Free and source-available</h3>
         <p>Free for personal use under PolyForm Noncommercial, full source on GitHub.</p>
       </div>
-</details>
     </div>
   </div>
 </section>
