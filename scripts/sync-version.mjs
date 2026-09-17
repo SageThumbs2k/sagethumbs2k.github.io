@@ -16,6 +16,15 @@
 // schedule and on demand, rewrites both places the version appears, and commits
 // only when something actually changed.
 //
+// 2026-09-16: it now owns the DOWNLOAD LINKS as well, and for the same reason.
+// Every "Download" button on the page used to point at /releases/latest -- a
+// GitHub page with an asset list to read and a platform to guess. The buttons now
+// link straight at the file, which means a version-pinned URL, which means
+// something has to keep four of them current or the site ships 404s the day after
+// a release. That something is this script, and it refuses to write a URL whose
+// asset the release does not actually carry -- a renamed asset fails the job
+// loudly here instead of failing silently in a visitor's browser.
+//
 //   node scripts/sync-version.mjs           # rewrite if stale
 //   node scripts/sync-version.mjs --check   # exit 1 if stale, write nothing
 //
@@ -39,6 +48,22 @@ const PAGE = path.join(ROOT, 'index.html');
 const RELEASES = 'https://api.github.com/repos/LunarWerxs/SageThumbs-2k/releases/latest';
 
 const check = process.argv.includes('--check');
+
+/** Every user-facing asset a release carries, keyed by the `data-dl` value the page's
+ *  download links use. `-amd64.exe` is deliberately absent: it is a byte-identical
+ *  copy of the plain `.exe` that only exists from 3.0.3 on, so linking the plain name
+ *  keeps the same four links working back through 2.3.0. The `.sig` files are not
+ *  user-facing. Adding a platform means adding a line here AND a tile in index.html;
+ *  either one alone is a hard error below, which is the point. */
+const DL_ASSETS = {
+  'setup-x64':   (v) => `SageThumbs2K-Setup-${v}.exe`,
+  'setup-arm64': (v) => `SageThumbs2K-Setup-${v}-arm64.exe`,
+  'zip-x64':     (v) => `SageThumbs2K-Portable-${v}.zip`,
+  'zip-arm64':   (v) => `SageThumbs2K-Portable-${v}-arm64.zip`,
+};
+/** The one the page offers first, and the one schema.org's downloadUrl names. */
+const PRIMARY_DL = 'setup-x64';
+const DL_BASE = 'https://github.com/LunarWerxs/SageThumbs-2k/releases/download';
 
 function countMatches(html, re) {
   const g = new RegExp(re.source, re.flags.includes('g') ? re.flags : re.flags + 'g');
@@ -65,10 +90,12 @@ function validateCategoryCount(html) {
   }
 }
 
-/** The tag, as a bare `2.3.0`. Refuses anything that is not a version, because
- *  writing a draft name or an empty string into the page would be worse than
- *  leaving yesterday's number there. */
-async function latestVersion() {
+/** The tag, as a bare `2.3.0`, plus the names of every asset the release actually
+ *  published. Refuses anything that is not a version, because writing a draft name
+ *  or an empty string into the page would be worse than leaving yesterday's number
+ *  there. The asset names are what lets rewriteDownloads() prove a link before it
+ *  writes it rather than trusting a filename convention to have held. */
+async function latestRelease() {
   const headers = { Accept: 'application/vnd.github+json', 'User-Agent': 'sagethumbs-site-sync' };
   // GITHUB_TOKEN in Actions lifts the 60/hour anonymous limit; absent locally,
   // which is fine for a once-a-day job.
@@ -76,9 +103,11 @@ async function latestVersion() {
 
   const res = await fetch(RELEASES, { headers });
   if (!res.ok) throw new Error(`releases/latest -> HTTP ${res.status}`);
-  const tag = String((await res.json()).tag_name ?? '').trim().replace(/^v/, '');
+  const body = await res.json();
+  const tag = String(body.tag_name ?? '').trim().replace(/^v/, '');
   if (!/^\d+\.\d+\.\d+/.test(tag)) throw new Error(`tag_name is not a version: ${tag || '(empty)'}`);
-  return tag;
+  const assets = new Set((body.assets ?? []).map((a) => String(a.name ?? '')));
+  return { version: tag, assets };
 }
 
 /**
@@ -106,10 +135,66 @@ function rewrite(html, version) {
   return out;
 }
 
-const version = await latestVersion();
+/**
+ * Repoint every download link, and schema.org's downloadUrl, at the files in this
+ * release.
+ *
+ * Matches the whole `<a ... data-dl="key" ...>` tag and rewrites the href inside it,
+ * so it does not care what order the attributes are written in -- a cheap property to
+ * have, given the next person to touch that markup will not have read this file.
+ *
+ * Three ways this throws, all of them deliberate:
+ *   - the page has a `data-dl` key this script does not know  -> new platform, no URL rule
+ *   - this script has a key the page no longer has a link for -> tile deleted, link silently lost
+ *   - the release does not contain the file a key resolves to -> the link would 404
+ * The third is the one that matters: a download button that 404s looks exactly like a
+ * working site until someone clicks it.
+ */
+function rewriteDownloads(html, version, assets) {
+  const seen = new Set();
+  const out = html.replace(/<a\b[^>]*\sdata-dl="([a-z0-9-]+)"[^>]*>/gi, (tag, key) => {
+    const name = DL_ASSETS[key];
+    if (!name) {
+      throw new Error(
+        `sync-version: index.html has data-dl="${key}", which is not a known release ` +
+        `asset. Add it to DL_ASSETS (with the filename that release publishes) or fix the markup.`);
+    }
+    const file = name(version);
+    if (assets.size && !assets.has(file)) {
+      throw new Error(
+        `sync-version: release v${version} does not contain "${file}", the asset behind ` +
+        `data-dl="${key}". Refusing to write a download button that 404s -- either the release ` +
+        `job renamed that asset (update DL_ASSETS) or this release did not publish that platform ` +
+        `(remove its tile from index.html). Published: ${[...assets].join(', ') || '(none)'}`);
+    }
+    if (!/\shref="/.test(tag)) throw new Error(`sync-version: the data-dl="${key}" link has no href to rewrite`);
+    seen.add(key);
+    return tag.replace(/(\shref=")[^"]*(")/, (_m, a, b) => `${a}${DL_BASE}/v${version}/${file}${b}`);
+  });
+
+  const missing = Object.keys(DL_ASSETS).filter((k) => !seen.has(k));
+  if (missing.length) {
+    throw new Error(
+      `sync-version: index.html has no download link for ${missing.join(', ')}. Every asset in ` +
+      `DL_ASSETS is supposed to be offered on the page; a platform that quietly stops being ` +
+      `linked is a platform nobody can download. Restore the tile, or drop the key here.`);
+  }
+
+  // schema.org downloadUrl: what crawlers and the AI answer engines this page carries
+  // markup for actually follow. It pointed at the releases page for the same reason the
+  // buttons did, and is worth no less than they are.
+  const ldRe = /("downloadUrl"\s*:\s*")[^"]*(")/g;
+  if (countMatches(html, ldRe) === 0) {
+    throw new Error('sync-version: JSON-LD "downloadUrl" not found. Refusing to treat a missing marker as already current.');
+  }
+  const primary = `${DL_BASE}/v${version}/${DL_ASSETS[PRIMARY_DL](version)}`;
+  return out.replace(ldRe, (_m, a, b) => `${a}${primary}${b}`);
+}
+
+const { version, assets } = await latestRelease();
 const before = fs.readFileSync(PAGE, 'utf8');
 validateCategoryCount(before);
-const after = rewrite(before, version);
+const after = rewriteDownloads(rewrite(before, version), version, assets);
 
 // NOTHING here calls `process.exit()`, and that is deliberate rather than
 // stylistic. Calling it from inside a top-level await tears the event loop down
@@ -118,7 +203,7 @@ const after = rewrite(before, version);
 // report success with a 0, both came back as a crash. Setting `exitCode` and
 // letting the process end on its own gives the codes the script promises.
 if (before === after) {
-  console.log(`site version already ${version}; nothing to do`);
+  console.log(`site version and download links already ${version}; nothing to do`);
 } else {
   // Say what moved. A silent "updated" tells nobody whether the regex still
   // matches what the page looks like today.
