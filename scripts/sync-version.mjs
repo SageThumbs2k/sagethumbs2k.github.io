@@ -25,6 +25,15 @@
 // asset the release does not actually carry -- a renamed asset fails the job
 // loudly here instead of failing silently in a visitor's browser.
 //
+// 2026-09-17: and the FORMAT COUNT, same story a third time. The format wall is
+// generated (the app repo's scripts/gen-site.mjs, from `st2k formats --json`), but
+// the number was typed by hand into the meta description, the compare table,
+// llms.txt, llms-full.txt and docs/ABOUT.md, so it drifted exactly like the
+// version did: on 2026-09-16 the prose said 346 while the wall on the same page
+// held 334. The count is now READ OFF THE WALL (one chip per format in the groups
+// gen-site numbers) and every prose mention is rewritten from it, under the same
+// "a marker that vanished is a hard error" rule as the version.
+//
 //   node scripts/sync-version.mjs           # rewrite if stale
 //   node scripts/sync-version.mjs --check   # exit 1 if stale, write nothing
 //
@@ -87,6 +96,130 @@ function validateCategoryCount(html) {
       `sync-version: eyebrow claims ${claimed} categories but the page has ${present} distinct ` +
       `.fmtgroup data-cat blocks -- the prose and the format wall have drifted. Re-run the app ` +
       `repo's scripts/gen-site.mjs against this file, or fix the eyebrow text by hand.`);
+  }
+}
+
+/**
+ * The format wall's numbers, read off the markup gen-site.mjs writes: one `.fc` chip per
+ * format inside each `.fmtgroup`, under a heading that carries the group's own
+ * `<span class="cnt">N</span>`. Only groups with a NUMERIC heading count are formats: the
+ * hand-authored "Preview only" group (the Space-bar document kinds, whose `cnt` reads "Space")
+ * is carried through gen-site verbatim and is not a thumbnail format, so it is left out.
+ *
+ * Throws when a numbered group's chips disagree with its own heading (the wall is then
+ * inconsistent with itself, which no rewrite here should paper over) or when there is no wall
+ * to read at all -- a page with no wall has no count, and "0 formats" must never be written.
+ */
+function wallCounts(html) {
+  const groupRe =
+    /<div class="fmtgroup\b[^"]*"[^>]*data-cat="([a-z]+)"[^>]*>\s*<h3 class="fgh">([\s\S]*?)<\/h3>([\s\S]*?)(?=<div class="fmtgroup\b|<\/section>)/g;
+  const groups = [];
+  for (const [, cat, heading, body] of html.matchAll(groupRe)) {
+    const cnt = heading.match(/<span class="cnt">(\d+)<\/span>/);
+    if (!cnt) continue;
+    // The heading minus its count span and tags; "Ebook &amp; comics" on the page is
+    // "Ebook and comics" in the text files.
+    const name = heading.replace(cnt[0], '').replace(/<[^>]+>/g, '').replace(/&amp;/g, 'and').trim();
+    const chips = (body.match(/<span class="fc"[^>]*>/g) || []).length;
+    if (chips !== Number(cnt[1])) {
+      throw new Error(
+        `sync-version: the "${name}" group heading says ${cnt[1]} formats but the group holds ` +
+        `${chips} chips -- the wall disagrees with itself. Re-run the app repo's ` +
+        `scripts/gen-site.mjs against this file rather than editing either number.`);
+    }
+    groups.push({ cat, name, count: chips });
+  }
+  if (!groups.length) {
+    throw new Error('sync-version: no numbered .fmtgroup blocks found -- is the format wall still in index.html?');
+  }
+  return { total: groups.reduce((n, g) => n + g.count, 0), groups };
+}
+
+/** Greedy word wrap for the hand-wrapped text files: continuation lines indented two spaces. */
+function wrapLine(line, width, eol) {
+  const out = [];
+  let cur = '';
+  for (const word of line.split(' ')) {
+    const next = cur ? `${cur} ${word}` : word;
+    if (cur && next.length > width) {
+      out.push(cur);
+      cur = `  ${word}`;
+    } else {
+      cur = next;
+    }
+  }
+  if (cur) out.push(cur);
+  return out.join(eol);
+}
+
+/**
+ * One prose mention of the format count per rule: `re` finds it with the number in the
+ * middle, `render` writes it back from the wall. `between` keeps whatever surrounds the number
+ * and swaps the number; `keyFacts` regenerates the whole "N supported formats across K
+ * categories: ..." sentence, per-category counts included, because that sentence IS the wall
+ * in prose and every number in it comes from the same place.
+ */
+const between = (re) => ({ re, render: (wall, _eol, _m, a, b) => `${a}${wall.total}${b}` });
+const keyFacts = (wrap) => ({
+  re: /- \d+ supported formats across \d+ categories:[\s\S]*?\.(?=\r?\n)/,
+  render: (wall, eol) => {
+    const line =
+      `- ${wall.total} supported formats across ${wall.groups.length} categories: ` +
+      wall.groups.map((g) => `${g.name} (${g.count})`).join(', ') + '.';
+    return wrap ? wrapLine(line, 88, eol) : line;
+  },
+});
+
+/** Every file that states the count, and every sentence in it that does. A sentence missing
+ *  from here is caught by assertNoStrayCounts below; a rule whose sentence vanished is caught
+ *  by rewriteCounts. Between them, a count can be neither hand-typed nor silently orphaned. */
+const COUNT_RULES = {
+  'index.html': [
+    between(/(<meta name="description" content="File Explorer thumbnails for )\d+( file types)/),
+    between(/(<td>Yes, )\d+( formats<\/td>)/),
+  ],
+  'llms.txt': [
+    between(/(thumbnails for )\d+( file types Windows can't preview)/),
+    keyFacts(false),
+    between(/(view any of the )\d+( formats as a real image)/),
+  ],
+  'llms-full.txt': [
+    between(/(Explorer thumbnails for )\d+( file types Windows can't preview)/),
+    keyFacts(true),
+    between(/(view any of the )\d+( formats as a real image)/),
+    between(/(maintained successor with )\d+( formats plus the toolkit)/),
+  ],
+  'docs/ABOUT.md': [
+    between(/(thumbnail extension for )\d+( file formats)/),
+  ],
+};
+
+function rewriteCounts(text, rules, wall, file) {
+  const eol = text.includes('\r\n') ? '\r\n' : '\n';
+  let out = text;
+  for (const rule of rules) {
+    if (countMatches(out, rule.re) === 0) {
+      throw new Error(
+        `sync-version: ${file}: the format-count sentence ${rule.re} was not found. Refusing to ` +
+        `treat a missing marker as "already current" -- the copy changed shape; fix the rule ` +
+        `in COUNT_RULES or the text.`);
+    }
+    out = out.replace(new RegExp(rule.re.source, 'g'), (...m) => rule.render(wall, eol, ...m));
+  }
+  return out;
+}
+
+/** After the rules ran, no three-digit "N formats" / "N file types" may still disagree with
+ *  the wall: a new hand-typed count that no rule owns is precisely the drift this script exists
+ *  to end, so it fails here rather than shipping. */
+function assertNoStrayCounts(text, total, file) {
+  const stray = [...text.matchAll(/\b(\d{3})\+?\s+(?:file types|file formats|supported formats|formats)\b/g)]
+    .map((m) => Number(m[1]))
+    .filter((n) => n !== total);
+  if (stray.length) {
+    throw new Error(
+      `sync-version: ${file} still says ${[...new Set(stray)].join(', ')} formats where the wall ` +
+      `has ${total}. Add that sentence to COUNT_RULES, or take the number out of it.`);
   }
 }
 
@@ -191,30 +324,54 @@ function rewriteDownloads(html, version, assets) {
   return out.replace(ldRe, (_m, a, b) => `${a}${primary}${b}`);
 }
 
-const { version, assets } = await latestRelease();
-const before = fs.readFileSync(PAGE, 'utf8');
-validateCategoryCount(before);
-const after = rewriteDownloads(rewrite(before, version), version, assets);
+async function main() {
+  const { version, assets } = await latestRelease();
+  const page = fs.readFileSync(PAGE, 'utf8');
+  validateCategoryCount(page);
+  const wall = wallCounts(page);
 
-// NOTHING here calls `process.exit()`, and that is deliberate rather than
-// stylistic. Calling it from inside a top-level await tears the event loop down
-// mid-flight, and on Windows Node aborts with a libuv assertion and exit code
-// 127 -- so a gate meant to report "stale" with a 1, and a happy path meant to
-// report success with a 0, both came back as a crash. Setting `exitCode` and
-// letting the process end on its own gives the codes the script promises.
-if (before === after) {
-  console.log(`site version and download links already ${version}; nothing to do`);
-} else {
-  // Say what moved. A silent "updated" tells nobody whether the regex still
-  // matches what the page looks like today.
-  const was = [...before.matchAll(/"softwareVersion"\s*:\s*"([^"]+)"/g)].map((m) => m[1]);
-  console.log(`site version ${[...new Set(was)].join(', ') || '(unknown)'} -> ${version}`);
+  // Every file the count lives in, index.html first (it also carries the version and the
+  // download links). A file is written only when something in it actually moved.
+  const changed = [];
+  for (const [rel, rules] of Object.entries(COUNT_RULES)) {
+    const file = path.join(ROOT, rel);
+    const before = fs.readFileSync(file, 'utf8');
+    let after = rel === 'index.html' ? rewriteDownloads(rewrite(before, version), version, assets) : before;
+    after = rewriteCounts(after, rules, wall, rel);
+    assertNoStrayCounts(after, wall.total, rel);
+    if (before === after) continue;
+    // Say what moved. A silent "updated" tells nobody whether the rules still match what the
+    // files look like today.
+    const versionsWere = [...before.matchAll(/"softwareVersion"\s*:\s*"([^"]+)"/g)].map((m) => m[1]);
+    const countsWere = [...before.matchAll(/\b(\d{3})\s+(?:file types|file formats|supported formats|formats)\b/g)].map((m) => m[1]);
+    const notes = [];
+    if (versionsWere.length) notes.push(`version ${[...new Set(versionsWere)].join(', ')} -> ${version}`);
+    if (countsWere.length) notes.push(`format count ${[...new Set(countsWere)].join(', ')} -> ${wall.total}`);
+    console.log(`${rel}: ${notes.join('; ') || 'download links'}`);
+    changed.push(rel);
+    if (!check) fs.writeFileSync(file, after);
+  }
 
-  if (check) {
-    console.error('STALE: run `node scripts/sync-version.mjs` to fix');
+  if (!changed.length) {
+    console.log(`site version ${version}, download links and format count ${wall.total} already current; nothing to do`);
+  } else if (check) {
+    console.error(`STALE (${changed.join(', ')}): run \`node scripts/sync-version.mjs\` to fix`);
     process.exitCode = 1;
   } else {
-    fs.writeFileSync(PAGE, after);
-    console.log('index.html updated');
+    console.log(`${changed.join(', ')} updated`);
   }
+}
+
+// NOTHING here calls `process.exit()`, and no error escapes the top-level await either;
+// both are deliberate rather than stylistic. Calling exit() from inside a top-level await
+// tears the event loop down mid-flight, and on Windows Node aborts with a libuv assertion
+// and exit code 127 -- so a gate meant to report "stale" with a 1, and a happy path meant
+// to report success with a 0, both came back as a crash. A throw that reaches the top level
+// after the fetch does the same (`!(handle->flags & UV_HANDLE_CLOSING)`, seen 2026-09-17), so
+// every failure is caught here, printed as one line, and reported through `exitCode`.
+try {
+  await main();
+} catch (err) {
+  console.error(err instanceof Error ? err.message : String(err));
+  process.exitCode = 1;
 }
