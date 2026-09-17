@@ -50,7 +50,7 @@
       "applicationCategory": "UtilitiesApplication",
       "softwareVersion": "3.0.5",
       "url": "https://sagethumbs.lunarwerx.com/",
-      "downloadUrl": "https://github.com/LunarWerxs/SageThumbs-2k/releases/latest",
+      "downloadUrl": "https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Setup-3.0.5.exe",
       "softwareHelp": "https://github.com/LunarWerxs/SageThumbs-2k",
       "image": "https://sagethumbs.lunarwerx.com/og.png",
       "screenshot": "https://sagethumbs.lunarwerx.com/img/explorer.webp",
@@ -84,6 +84,26 @@
           "price": "0",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Commercial licence, per installation (monthly subscription)",
+          "price": "2.99",
+          "priceCurrency": "USD",
+          "url": "https://st2k.lunarwerx.com/subscribe",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "2.99",
+            "priceCurrency": "USD",
+            "billingIncrement": 1,
+            "unitCode": "MON",
+            "referenceQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitCode": "MON"
+            }
+          }
         },
         {
           "@type": "Offer",
@@ -156,7 +176,7 @@
           "name": "Is it really free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, free for personal and non-commercial use, with full source available, under PolyForm Noncommercial 1.0.0. Business and commercial use needs a commercial licence: US$49 per Windows installation, one-time. It is a perpetual licence with 12 months of updates. Afterwards the app keeps working as it is; another 12 months of updates is US$29, bought with your key. Security fixes are delivered to every licensed installation regardless."
+            "text": "Yes, free for personal and non-commercial use, with full source available, under PolyForm Noncommercial 1.0.0. Business and commercial use needs a commercial licence per Windows installation, and you choose how to pay: US$2.99 per month, cancelled whenever you like, or US$49 once for a perpetual licence with 12 months of updates. On the one-time plan the app keeps working as it is after that window; another 12 months of updates is US$29, bought with your key. Security fixes are delivered to every licensed installation regardless."
           }
         },
         {
@@ -164,7 +184,7 @@
           "name": "How do I buy a business licence?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Buy it online at checkout.connections.icu (card payment through Stripe) for US$49 per installation; set the quantity to the number of PCs. You receive one redemption key per installation by email the moment payment completes. In SageThumbs 2K open Settings > Licence, paste the key, and you are done. The licence is perpetual and includes 12 months of updates; afterwards the app keeps working as it is, and another 12 months of updates is US$29, bought with your key from Settings > Licence. Security fixes are delivered to every licensed installation regardless. For more than about 25 PCs, purchase orders or bank transfer, request a quote from the Pricing section of sagethumbs.lunarwerx.com."
+            "text": "Buy it online at checkout.connections.icu (card payment through Stripe); set the quantity to the number of PCs. Two plans unlock the same app: US$2.99 per installation per month, or US$49 per installation once. You receive one redemption key per installation by email the moment payment completes. In SageThumbs 2K open Settings > Licence, paste the key, and you are done. The monthly plan is cancelled whenever you like at checkout.connections.icu/manage, signing in with the email you paid with, and runs to the end of the month you already paid for. The one-time licence is perpetual and includes 12 months of updates; afterwards the app keeps working as it is, and another 12 months of updates is US$29, bought with your key from Settings > Licence. Security fixes are delivered to every licensed installation regardless. For more than about 25 PCs, purchase orders or bank transfer, request a quote from the Pricing section of sagethumbs.lunarwerx.com."
           }
         },
         {
@@ -634,12 +654,18 @@
 
   /* ---------------- ASSURANCES ---------------- */
   .assure{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  /* Pricing carries FOUR doors since the monthly subscription (2026-09-16): free, the two ways to
+     pay for the same commercial licence, and volume. Two-up rather than four-up - four columns at
+     this width squeeze the longest card down to about three words a line. Scoped to #pricing so the
+     other .assure grids on the page keep their three columns, and the mobile override has to be
+     re-stated at the same specificity or the id rule would win on a phone. */
+  #pricing .assure{grid-template-columns:repeat(2,1fr)}
   .assure .a{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:var(--s1)}
   .assure .ic{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;color:var(--accent);
               background:color-mix(in srgb,var(--accent) 12%,transparent);border:1px solid color-mix(in srgb,var(--accent) 24%,transparent);margin-bottom:15px}
   .assure h3{font-size:1.08rem;letter-spacing:-.01em}
   .assure p{font-size:.94rem;color:var(--ink-2);margin-top:8px;line-height:1.55}
-  @media(max-width:760px){.assure{grid-template-columns:1fr}}
+  @media(max-width:760px){.assure,#pricing .assure{grid-template-columns:1fr}}
 
   /* ---------------- FAQ ---------------- */
   .faq{display:grid;grid-template-columns:1fr 1fr;gap:12px 40px}
@@ -706,6 +732,32 @@
   .download p{font-size:1.06rem;color:var(--ink-2);max-width:42ch;margin:14px auto 26px}
   .download .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
   .download .meta{margin-top:18px;font-size:.88rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+  /* ---------------- PER-PLATFORM DOWNLOADS ---------------- */
+  /* One tile per build we actually ship, each href pointing at the FILE in the
+     release rather than at the release page. Clicking one starts the download and
+     leaves the visitor on this page -- nobody should have to read a GitHub asset
+     list to install a thumbnailer (owner, 2026-09-16).
+     scripts/sync-version.mjs rewrites these four hrefs on every release and refuses
+     to write one whose asset the release does not actually carry, so they cannot rot
+     into 404s the way a hand-maintained pinned URL would. */
+  .dl-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:26px;text-align:left}
+  .dl-opt{display:flex;flex-direction:column;gap:4px;padding:13px 14px;border:1px solid var(--line-2);
+          border-radius:var(--r);background:var(--elev-1);
+          transition:background .18s var(--ease),border-color .18s var(--ease),transform .12s var(--ease)}
+  .dl-opt:hover{background:var(--elev-2);border-color:var(--line-3);transform:translateY(-1px)}
+  .dl-opt:active{transform:scale(.99)}
+  .dl-opt .n{display:flex;align-items:center;gap:7px;font-size:.9rem;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+  .dl-opt .n svg{flex:0 0 auto;opacity:.7}
+  .dl-opt .k{font-size:.75rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+  /* Marked by the runtime script once it knows the visitor's architecture. When it
+     cannot tell, nothing is marked and all four stay equally clickable: a highlight
+     that guesses wrong is worse than no highlight. */
+  .dl-opt.is-you{border-color:color-mix(in srgb,var(--accent) 55%,var(--line-2));
+                 background:color-mix(in srgb,var(--accent) 7%,var(--elev-1))}
+  .dl-opt.is-you .k::after{content:" · your PC";color:var(--accent-2)}
+  @media(max-width:860px){.dl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:430px){.dl-grid{grid-template-columns:minmax(0,1fr)}}
 
   /* ---------------- FOOTER ---------------- */
   footer{border-top:1px solid var(--line);padding:48px 0 40px;margin-top:8px}
@@ -873,7 +925,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
       <a class="btn btn-ghost btn-sm btn-icon" href="https://github.com/LunarWerxs/SageThumbs-2k" target="_blank" rel="noopener" aria-label="GitHub repository, opens in a new tab" title="GitHub">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
       </a>
-      <a class="btn btn-primary btn-sm" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" target="_blank" rel="noopener">
+      <a class="btn btn-primary btn-sm js-dl-primary" data-dl="setup-x64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Setup-3.0.5.exe" download>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>
         Download
       </a>
@@ -891,9 +943,9 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
         <h1 class="reveal">Thumbnails for hundreds of formats Windows can't read.</h1>
         <p class="lead reveal">SageThumbs 2K is a fast, crash-isolated shell extension that renders camera RAW, PSD, HEIC, video, ebooks and comics directly in File Explorer.</p>
         <div class="cta reveal">
-          <a class="btn btn-primary btn-win" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" target="_blank" rel="noopener" aria-label="Download for Windows 11 and 10, 64-bit">
+          <a class="btn btn-primary btn-win js-dl-primary" data-dl="setup-x64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Setup-3.0.5.exe" download aria-label="Download SageThumbs 2K for Windows 11 and 10, 64-bit">
             <svg class="wlogo" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.07 10.34 4.06v7.18H3zM10.34 12.41v7.2L3 18.6v-6.19zM11.49 3.9 21 2.5v8.74h-9.51zM21 12.41v8.74l-9.51-1.36v-7.38z"/></svg>
-            <span class="wl"><span class="t">Download</span><span class="s">Windows 11 &amp; 10 · 64-bit</span></span>
+            <span class="wl"><span class="t">Download</span><span class="s js-dl-arch">Windows 11 &amp; 10 · 64-bit</span></span>
           </a>
           <a class="btn btn-ghost" href="https://github.com/LunarWerxs/SageThumbs-2k" target="_blank" rel="noopener">View source</a>
         </div>
@@ -1596,7 +1648,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
         <tbody>
           <tr class="us">
             <th scope="row">SageThumbs 2K</th>
-            <td>Free for personal use; US$49 per PC for business</td>
+            <td>Free for personal use; for business US$2.99 per PC monthly or US$49 per PC once</td>
             <td>Yes, 334 formats</td>
             <td>Yes, video and audio play, code, PDFs and SQLite render</td>
             <td>Yes, built in</td>
@@ -1647,19 +1699,25 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     <div class="head reveal">
       <span class="eyebrow">pricing</span>
       <h2>Free at home. One licence per PC at work.</h2>
-      <p>SageThumbs 2K is free for personal and non-commercial use under the PolyForm Noncommercial licence. Business and commercial use needs a commercial licence for each Windows installation: buy it below, then redeem it inside the app.</p>
+      <p>SageThumbs 2K is free for personal and non-commercial use under the PolyForm Noncommercial licence. Business and commercial use needs a commercial licence for each Windows installation, and there are two ways to pay for it: US$2.99 a month, or US$49 once and it is yours. Buy either below, then redeem it inside the app.</p>
     </div>
     <div class="assure">
       <div class="a reveal">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
         <h3>Personal: free</h3>
         <p>Every format, the Quick preview, screen OCR and the whole right-click toolkit. No account, no trial, no feature gate, and the source is on GitHub.</p>
-        <p><a class="btn btn-ghost btn-sm" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" target="_blank" rel="noopener">Download</a></p>
+        <p><a class="btn btn-ghost btn-sm js-dl-primary" data-dl="setup-x64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Setup-3.0.5.exe" download>Download</a></p>
+      </div>
+      <div class="a reveal">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg></div>
+        <h3>Commercial, monthly: US$2.99 per installation</h3>
+        <p>Per PC, per month, for people who would rather not pay a year up front. Every update while you subscribe, and the same full app &mdash; a monthly licence is not a smaller one. Cancel whenever you like at <a href="https://checkout.connections.icu/manage" target="_blank" rel="noopener">checkout.connections.icu/manage</a> (sign in with the email you paid with); it runs to the end of the month you already paid for, then stops. One key per PC, emailed the moment you pay.</p>
+        <p><a class="btn btn-primary btn-sm" href="https://st2k.lunarwerx.com/subscribe" target="_blank" rel="noopener">Subscribe monthly</a></p>
       </div>
       <div class="a reveal">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></div>
-        <h3>Commercial: US$49 per installation</h3>
-        <p>One-time. Perpetual licence with 12 months of updates. Afterwards the app keeps working as it is; another 12 months of updates is US$29, bought with your key. Security fixes are delivered to every licensed installation regardless. One key per PC, emailed the moment you pay. Card checkout through Stripe. Redeem it under Settings &gt; Licence (version 3.0 and later).</p>
+        <h3>Commercial, one-time: US$49 per installation</h3>
+        <p>Pay once and the licence is yours permanently, with 12 months of updates. Afterwards the app keeps working as it is; another 12 months of updates is US$29, bought with your key. Security fixes are delivered to every licensed installation regardless. Cheaper than the monthly plan from about sixteen months on. One key per PC, emailed the moment you pay. Card checkout through Stripe. Redeem it under Settings &gt; Licence (version 3.0 and later).</p>
         <p><a class="btn btn-primary btn-sm" href="https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs" target="_blank" rel="noopener">Buy a licence</a></p>
       </div>
       <div class="a reveal">
@@ -1670,7 +1728,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
 
       </div>
     </div>
-    <p class="cmp-note reveal">How it works: install SageThumbs 2K and answer "Business" when the installer asks. The app runs fully featured while you evaluate it, then asks for a key. Buy a key, paste it under Settings &gt; Licence, done. Both the installer's question and that Licence screen are in version 3.0 and later. Each licence is bound to one machine and can be moved to a replacement PC. Prices are in USD; tax is added at checkout where it applies.</p>
+    <p class="cmp-note reveal">How it works: install SageThumbs 2K and answer "Business" when the installer asks. The app runs fully featured while you evaluate it, then asks for a key. Buy a key, paste it under Settings &gt; Licence, done. Both the installer's question and that Licence screen are in version 3.0 and later. Each licence is bound to one machine and can be moved to a replacement PC. The monthly and one-time plans unlock exactly the same app; the only difference is how you pay and whether it keeps working when you stop. Prices are in USD; tax is added at checkout where it applies.</p>
   </div>
 </section>
 
@@ -1682,11 +1740,11 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
       <div>
         <details class="reveal" open>
           <summary><h3>Is it really free?</h3><span class="pm" aria-hidden="true"></span></summary>
-          <div class="ans">Yes, free for personal and non-commercial use, with full source available, under PolyForm Noncommercial 1.0.0. Business and commercial use needs a commercial licence: US$49 per Windows installation, one-time. It is a perpetual licence with 12 months of updates. Afterwards the app keeps working as it is; another 12 months of updates is US$29, bought with your key. Security fixes are delivered to every licensed installation regardless.</div>
+          <div class="ans">Yes, free for personal and non-commercial use, with full source available, under PolyForm Noncommercial 1.0.0. Business and commercial use needs a commercial licence per Windows installation, and you choose how to pay: US$2.99 per month, cancelled whenever you like, or US$49 once for a perpetual licence with 12 months of updates. On the one-time plan the app keeps working as it is after that window; another 12 months of updates is US$29, bought with your key. Security fixes are delivered to every licensed installation regardless.</div>
         </details>
         <details class="reveal">
           <summary><h3>How do I buy a business licence?</h3><span class="pm" aria-hidden="true"></span></summary>
-          <div class="ans">Buy it online at <a href="https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs" target="_blank" rel="noopener">checkout.connections.icu</a> (card payment through Stripe) for US$49 per installation; set the quantity to the number of PCs. You receive one redemption key per installation by email the moment payment completes. In SageThumbs 2K open Settings > Licence, paste the key, and you are done. The licence is perpetual and includes 12 months of updates; afterwards the app keeps working as it is, and another 12 months of updates is US$29, bought with your key from Settings &gt; Licence. Security fixes are delivered to every licensed installation regardless. For more than about 25 PCs, purchase orders or bank transfer, <a href="#pricing">request a quote</a> from the Pricing section.</div>
+          <div class="ans">Buy it online at <a href="https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs" target="_blank" rel="noopener">checkout.connections.icu</a> (card payment through Stripe); set the quantity to the number of PCs. Two plans unlock exactly the same app: <a href="https://st2k.lunarwerx.com/subscribe" target="_blank" rel="noopener">US$2.99 per installation per month</a>, or US$49 per installation once. You receive one redemption key per installation by email the moment payment completes. In SageThumbs 2K open Settings &gt; Licence, paste the key, and you are done. The monthly plan is cancelled whenever you like at <a href="https://checkout.connections.icu/manage" target="_blank" rel="noopener">checkout.connections.icu/manage</a>, signing in with the email you paid with, and runs to the end of the month you already paid for. The one-time licence is perpetual and includes 12 months of updates; afterwards the app keeps working as it is, and another 12 months of updates is US$29, bought with your key from Settings &gt; Licence. Security fixes are delivered to every licensed installation regardless. For more than about 25 PCs, purchase orders or bank transfer, <a href="#pricing">request a quote</a> from the Pricing section.</div>
         </details>
         <details class="reveal">
           <summary><h3>Is it safe to run?</h3><span class="pm" aria-hidden="true"></span></summary>
@@ -1744,13 +1802,31 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
       <h2>Stop staring at blank icons.</h2>
       <p>Install once. Every RAW, PSD, HEIC, video and comic in your folders just shows up.</p>
       <div class="cta">
-        <a class="btn btn-primary btn-win" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" target="_blank" rel="noopener" aria-label="Download for Windows 11 and 10, 64-bit">
+        <a class="btn btn-primary btn-win js-dl-primary" data-dl="setup-x64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Setup-3.0.5.exe" download aria-label="Download SageThumbs 2K for Windows 11 and 10, 64-bit">
           <svg class="wlogo" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.07 10.34 4.06v7.18H3zM10.34 12.41v7.2L3 18.6v-6.19zM11.49 3.9 21 2.5v8.74h-9.51zM21 12.41v8.74l-9.51-1.36v-7.38z"/></svg>
-          <span class="wl"><span class="t">Download</span><span class="s">Windows 11 &amp; 10 · 64-bit</span></span>
+          <span class="wl"><span class="t">Download</span><span class="s js-dl-arch">Windows 11 &amp; 10 · 64-bit</span></span>
         </a>
         <a class="btn btn-ghost" href="https://github.com/LunarWerxs/SageThumbs-2k" target="_blank" rel="noopener">View source</a>
       </div>
-      <p class="meta"><span class="js-app-version">v3.0.5</span> &nbsp;·&nbsp; 64-bit &nbsp;·&nbsp; Windows 11 and 10</p>
+      <div class="dl-grid">
+          <a class="dl-opt" data-dl="setup-x64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Setup-3.0.5.exe" download aria-label="Download the 64-bit installer for Intel and AMD PCs">
+            <span class="n"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.07 10.34 4.06v7.18H3zM10.34 12.41v7.2L3 18.6v-6.19zM11.49 3.9 21 2.5v8.74h-9.51zM21 12.41v8.74l-9.51-1.36v-7.38z"/></svg>Windows 64-bit</span>
+            <span class="k">Installer · .exe</span>
+          </a>
+          <a class="dl-opt" data-dl="setup-arm64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Setup-3.0.5-arm64.exe" download aria-label="Download the ARM64 installer for Snapdragon and other ARM PCs">
+            <span class="n"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.07 10.34 4.06v7.18H3zM10.34 12.41v7.2L3 18.6v-6.19zM11.49 3.9 21 2.5v8.74h-9.51zM21 12.41v8.74l-9.51-1.36v-7.38z"/></svg>Windows ARM64</span>
+            <span class="k">Installer · .exe</span>
+          </a>
+          <a class="dl-opt" data-dl="zip-x64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Portable-3.0.5.zip" download aria-label="Download the portable 64-bit zip, no installer and no admin rights">
+            <span class="n"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8v8a2 2 0 0 1-1.1 1.79l-7 3.5a2 2 0 0 1-1.8 0l-7-3.5A2 2 0 0 1 3 16V8a2 2 0 0 1 1.1-1.79l7-3.5a2 2 0 0 1 1.8 0l7 3.5A2 2 0 0 1 21 8Z"/><path d="m3.3 7 8.7 4.35L20.7 7"/><path d="M12 21.5v-10"/></svg>Portable 64-bit</span>
+            <span class="k">No install · .zip</span>
+          </a>
+          <a class="dl-opt" data-dl="zip-arm64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Portable-3.0.5-arm64.zip" download aria-label="Download the portable ARM64 zip, no installer and no admin rights">
+            <span class="n"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8v8a2 2 0 0 1-1.1 1.79l-7 3.5a2 2 0 0 1-1.8 0l-7-3.5A2 2 0 0 1 3 16V8a2 2 0 0 1 1.1-1.79l7-3.5a2 2 0 0 1 1.8 0l7 3.5A2 2 0 0 1 21 8Z"/><path d="m3.3 7 8.7 4.35L20.7 7"/><path d="M12 21.5v-10"/></svg>Portable ARM64</span>
+            <span class="k">No install · .zip</span>
+          </a>
+      </div>
+      <p class="meta"><span class="js-app-version">v3.0.5</span> &nbsp;·&nbsp; 64-bit and ARM64 &nbsp;·&nbsp; Windows 11 and 10</p>
     </div>
   </div>
 </section>
@@ -1928,25 +2004,128 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
   })();
 </script>
 <script>
-/* Self-updating version label: pull the latest GitHub release tag at load and
-   stamp it onto every .js-app-version pill + the JSON-LD softwareVersion, so a
-   new release needs NO site redeploy for the version to update. The build-time
-   value stays as a silent fallback if the API is unreachable or rate-limited.
-   (The download buttons already point at /releases/latest, so they need nothing.) */
+/* Self-updating version label AND self-updating download links. One release
+   lookup, three jobs:
+
+   1. Stamp the latest release tag onto every .js-app-version pill and the
+      JSON-LD softwareVersion, so a new release needs NO site redeploy.
+
+   2. Point every [data-dl] link at the actual FILE in that release. The page
+      used to send every "Download" click to /releases/latest, i.e. to a GitHub
+      page with an asset list to read and a platform to guess -- which is exactly
+      the thing people bounce off (owner, 2026-09-16). The hrefs in the static
+      HTML are already direct file URLs, written by scripts/sync-version.mjs on
+      every release, so this is the self-heal for the window between a release
+      and that job running. With JS off, or on GitHub's anonymous API limit, the
+      baked-in URLs still download the right file.
+
+   3. On a Windows-on-ARM machine the big buttons switch to the ARM64 build and
+      say so. When architecture cannot be determined, x64 stands: that build also
+      runs on ARM under emulation, so an undetected ARM visitor gets something
+      slower, never something broken. */
 (function(){
+  var REPO = "https://github.com/LunarWerxs/SageThumbs-2k";
+
+  /* The complete set of user-facing assets a release carries, keyed by the
+     data-dl value the markup uses. Names have been stable since 2.3.0, and
+     sync-version.mjs asserts each one exists in the release it stamps, so a
+     rename breaks that job loudly instead of quietly producing 404 buttons. */
+  var FILES = {
+    "setup-x64"  : function(v){ return "SageThumbs2K-Setup-"    + v + ".exe";       },
+    "setup-arm64": function(v){ return "SageThumbs2K-Setup-"    + v + "-arm64.exe"; },
+    "zip-x64"    : function(v){ return "SageThumbs2K-Portable-" + v + ".zip";       },
+    "zip-arm64"  : function(v){ return "SageThumbs2K-Portable-" + v + "-arm64.zip"; }
+  };
+  /* Used to claim an asset off the API response by name, so a renamed file is
+     still found rather than reconstructed into a 404. Deliberately excludes the
+     -amd64.exe alias (a byte-identical copy of the plain .exe) and the .sig files. */
+  var MATCH = {
+    "setup-x64"  : /^SageThumbs2K-Setup-[\d.]+\.exe$/i,
+    "setup-arm64": /^SageThumbs2K-Setup-[\d.]+-arm64\.exe$/i,
+    "zip-x64"    : /^SageThumbs2K-Portable-[\d.]+\.zip$/i,
+    "zip-arm64"  : /^SageThumbs2K-Portable-[\d.]+-arm64\.zip$/i
+  };
+
+  /* `detected` stays false until something actually told us the architecture;
+     it gates the "your PC" marker so the page never asserts a guess. */
+  var state = { version: null, arm: false, detected: false, urls: {} };
+
+  /* The version already on the page, read off a download href rather than a
+     separate data attribute: the href is the thing that has to be right, so
+     nothing else can silently disagree with it. */
+  (function(){
+    var a = document.querySelector("a[data-dl]");
+    var m = a && (a.getAttribute("href") || "").match(/\/download\/v(\d+\.\d+\.\d+[^\/]*)\//);
+    if (m) state.version = m[1];
+  })();
+
+  function urlFor(key){
+    if (state.urls[key]) return state.urls[key];                 // the release said so
+    if (!state.version || !FILES[key]) return null;              // leave the baked-in href alone
+    return REPO + "/releases/download/v" + state.version + "/" + FILES[key](state.version);
+  }
+
+  /* Idempotent: safe to call again as the architecture probe and the release
+     fetch land in whatever order they land. */
+  function render(){
+    var primary = state.arm ? "setup-arm64" : "setup-x64";
+    var label   = state.arm ? "Windows 11 & 10 · ARM64" : "Windows 11 & 10 · 64-bit";
+    document.querySelectorAll("a.js-dl-primary").forEach(function(a){
+      a.setAttribute("data-dl", primary);
+      if (a.hasAttribute("aria-label")) {
+        a.setAttribute("aria-label", "Download SageThumbs 2K for Windows 11 and 10, " + (state.arm ? "ARM64" : "64-bit"));
+      }
+    });
+    document.querySelectorAll("a[data-dl]").forEach(function(a){
+      var href = urlFor(a.getAttribute("data-dl"));
+      if (href) a.setAttribute("href", href);
+    });
+    document.querySelectorAll(".js-dl-arch").forEach(function(el){ el.textContent = label; });
+    document.querySelectorAll(".dl-grid a[data-dl]").forEach(function(a){
+      a.classList.toggle("is-you", state.detected === true && a.getAttribute("data-dl") === primary);
+    });
+  }
+
+  /* Windows on ARM is deliberately hard to detect: Chromium reports x86_64 in the
+     UA string for compatibility and tells the truth only through client hints,
+     while Firefox has no client hints and puts ARM64 in the UA string. Ask both. */
+  function probeArch(){
+    if (/\b(?:ARM64|aarch64)\b/i.test(navigator.userAgent || "")) { state.arm = true; state.detected = true; }
+    var uad = navigator.userAgentData;
+    if (uad && typeof uad.getHighEntropyValues === "function") {
+      uad.getHighEntropyValues(["architecture"]).then(function(h){
+        state.arm = /arm/i.test((h && h.architecture) || "");
+        state.detected = true;
+        render();
+      }).catch(function(){});
+    }
+  }
+
   try {
-    fetch('https://api.github.com/repos/LunarWerxs/SageThumbs-2k/releases/latest', { headers: { 'Accept': 'application/vnd.github+json' } })
+    probeArch();
+    render();
+    fetch("https://api.github.com/repos/LunarWerxs/SageThumbs-2k/releases/latest", { headers: { "Accept": "application/vnd.github+json" } })
       .then(function(r){ return r.ok ? r.json() : null; })
       .then(function(rel){
         if (!rel || !rel.tag_name) return;
-        var bare = String(rel.tag_name).trim().replace(/^v/, '');   // "v1.2.3" -> "1.2.3"
-        if (!/^\d+\.\d+\.\d+/.test(bare)) return;                    // sanity check
-        var pill = 'v' + bare;
-        document.querySelectorAll('.js-app-version').forEach(function(el){ el.textContent = pill; });
+        var bare = String(rel.tag_name).trim().replace(/^v/, "");   // "v1.2.3" -> "1.2.3"
+        if (!/^\d+\.\d+\.\d+/.test(bare)) return;                  // sanity check
+        state.version = bare;
+        (rel.assets || []).forEach(function(asset){
+          Object.keys(MATCH).forEach(function(key){
+            if (MATCH[key].test(asset.name || "") && asset.browser_download_url) state.urls[key] = asset.browser_download_url;
+          });
+        });
+        render();
+        var pill = "v" + bare;
+        document.querySelectorAll(".js-app-version").forEach(function(el){ el.textContent = pill; });
         document.querySelectorAll('script[type="application/ld+json"]').forEach(function(s){
           try {
             var data = JSON.parse(s.textContent), changed = false;
-            (function walk(o){ if (o && typeof o === 'object') { Object.keys(o).forEach(function(k){ if (k === 'softwareVersion') { o[k] = bare; changed = true; } else { walk(o[k]); } }); } })(data);
+            (function walk(o){ if (o && typeof o === "object") { Object.keys(o).forEach(function(k){
+              if (k === "softwareVersion") { o[k] = bare; changed = true; }
+              else if (k === "downloadUrl" && state.urls["setup-x64"]) { o[k] = state.urls["setup-x64"]; changed = true; }
+              else { walk(o[k]); } }); } })(data);
             if (changed) s.textContent = JSON.stringify(data);
           } catch (e) {}
         });

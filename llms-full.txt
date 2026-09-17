@@ -35,10 +35,12 @@ or AI agents that need a CLI or MCP tool to view formats they otherwise can't op
 - Windows 11 and Windows 10, 64-bit only. Single-file installer. Both the modern and
   classic Explorer right-click menus are supported.
 - Free for personal and non-commercial use, source-available under the PolyForm
-  Noncommercial 1.0.0 license. Commercial deployment needs a commercial licence: US$49 per Windows installation,
-  one-time. Perpetual licence with 12 months of updates. Afterwards the app keeps working as it is; another
-  12 months of updates is US$29, bought with your key. Security fixes are delivered to every licensed
-  installation regardless. Bought at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
+  Noncommercial 1.0.0 license. Commercial deployment needs a commercial licence per Windows installation, sold two ways:
+  US$2.99 per month, or US$49 one-time for a perpetual licence with 12 months of updates. On the one-time
+  plan the app keeps working as it is afterwards; another 12 months of updates is US$29, bought with your
+  key. A monthly licence stops entitling the machine when the subscription ends. Security fixes are
+  delivered to every licensed installation regardless. Monthly bought at https://st2k.lunarwerx.com/subscribe and cancelled at https://checkout.connections.icu/manage;
+  one-time bought at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
 
 ## Features
 
@@ -97,9 +99,15 @@ or build from source.
 
 ## Pricing
 
-Free for personal and non-commercial use. Business and commercial use: US$49 per
-installation (one Windows machine), one-time. Perpetual licence with 12 months of updates.
-Afterwards the app keeps working as it is; another 12 months of updates is US$29, bought
+Free for personal and non-commercial use. Business and commercial use is priced per
+installation (one Windows machine) and sold two ways, both unlocking exactly the same app.
+
+Monthly: US$2.99 per installation per month. Cancel whenever you like at https://checkout.connections.icu/manage
+(sign in with the email you paid with); it runs to the end of the month already paid for, then
+the machine stops being entitled. Buy at https://st2k.lunarwerx.com/subscribe
+
+One-time: US$49 per installation. Perpetual licence with 12 months of updates. Afterwards the
+app keeps working as it is; another 12 months of updates is US$29, bought
 with your key at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98/renew
 Security fixes are delivered to every licensed installation regardless.
 Buy at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
