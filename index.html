@@ -673,26 +673,16 @@
   .pr-linkbtn{appearance:none;border:0;background:none;padding:0;margin:0;font:inherit;color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-decoration-color:color-mix(in srgb,var(--accent) 45%,transparent)}
   .pr-linkbtn:hover{color:var(--accent-2);text-decoration-color:currentColor}
 
-  .pr-free .ic,.pr-biz-head .ic{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent);border:1px solid color-mix(in srgb,var(--accent) 24%,transparent);flex:0 0 auto}
-  .pr-free{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;border:1px solid var(--line);border-radius:var(--r);padding:18px 24px;background:var(--s1);margin-bottom:18px}
-  .pr-free .ic{margin:0}
-  .pr-free h3{font-size:1.08rem;letter-spacing:-.01em}
-  .pr-free p{font-size:.94rem;color:var(--ink-2);margin-top:3px}
-  .pr-biz{border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line));border-radius:var(--r);background:var(--s1);padding:24px 24px 8px}
-  .pr-biz-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
-  .pr-biz-head .ic{margin:0}
-  .pr-biz-head h3{font-size:1.08rem;letter-spacing:-.01em}
-  .pr-biz-head p{font-size:.94rem;color:var(--ink-2);margin-top:3px}
-  .pr-cols{display:grid;grid-template-columns:1fr 1fr}
-  .pr-col{padding:18px 28px 18px 0}
-  .pr-col + .pr-col{border-left:1px solid var(--line);padding-left:28px;padding-right:0}
-  .pr-col .pr-price{margin-top:8px}
-  .pr-volume{margin-top:16px;font-size:.94rem;color:var(--ink-2)}
-  @media(max-width:760px){
-    .pr-cols{grid-template-columns:1fr}
-    .pr-col + .pr-col{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:22px}
-    .pr-free{grid-template-columns:auto 1fr}.pr-free .btn{grid-column:2}
-  }
+  #pricing .pr-tiers{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:760px){#pricing .pr-tiers{grid-template-columns:1fr}}
+  .pr-tiers .a{display:flex;flex-direction:column}
+  .pr-tiers .pr-toggle{align-self:flex-start}
+  .pr-tiers .a > p:last-child{margin-top:auto}
+  .pr-featured{border-color:color-mix(in srgb,var(--accent) 45%,var(--line));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--accent) 22%,transparent)}
+  .pr-toggle{display:inline-flex;padding:3px;border:1px solid var(--line-2);border-radius:9px;background:var(--elev-1);margin:10px 0 2px}
+  .pr-toggle button{appearance:none;border:0;background:transparent;color:var(--ink-2);font:inherit;font-size:.84rem;font-weight:500;padding:6px 13px;border-radius:7px;cursor:pointer}
+  .pr-toggle button[aria-selected="true"]{background:var(--s1);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.28)}
+  .pr-plan[hidden]{display:none}
 
   /* ---------------- FAQ ---------------- */
   .faq{display:grid;grid-template-columns:1fr 1fr;gap:12px 40px}
@@ -1728,41 +1718,70 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
       <h2>Free at home. One licence per PC at work.</h2>
       <p>Personal use is free. Business use needs a licence for each PC: pay monthly, or once.</p>
     </div>
-    <div class="pr-free reveal">
-      <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
-      <div><h3>Personal use is free</h3><p>Every format, every tool. No account, no trial, no feature gate. Source on GitHub.</p></div>
-      <a class="btn btn-ghost btn-sm js-dl-primary" data-dl="setup-x64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Setup-3.0.5.exe" download>Download</a>
-    </div>
-    <div class="pr-biz reveal">
-      <div class="pr-biz-head">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></div>
-        <div><h3>Business use: one licence per PC</h3><p>Two ways to pay for the same full app.</p></div>
+    <div class="assure pr-tiers">
+      <div class="a reveal">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
+        <h3>Personal</h3>
+        <div class="pr-price"><b>Free</b></div>
+        <p class="pr-sub">Home, hobby, anything non-commercial.</p>
+        <ul class="pr-list">
+          <li>Every format, every tool</li>
+          <li>No account, no trial, no feature gate</li>
+          <li>Source on GitHub</li>
+        </ul>
+        <p><a class="btn btn-ghost btn-sm js-dl-primary" data-dl="setup-x64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Setup-3.0.5.exe" download>Download</a></p>
       </div>
-      <div class="pr-cols">
-        <div class="pr-col">
-          <span class="pr-tag">Monthly</span>
+      <div class="a reveal pr-featured">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></div>
+        <h3>Business</h3>
+        <div class="pr-toggle" role="tablist" aria-label="How to pay">
+          <button type="button" role="tab" aria-selected="true" data-plan="monthly">Monthly</button>
+          <button type="button" role="tab" aria-selected="false" data-plan="once">One-time</button>
+        </div>
+        <div class="pr-plan" data-plan="monthly">
           <div class="pr-price"><b>US$2.99</b><span>per PC, per month</span></div>
+          <p class="pr-sub">Cancel any time.</p>
           <ul class="pr-list">
             <li>Every update while you subscribe</li>
-            <li>Cancel any time</li>
+            <li>Same full app as the one-time licence</li>
           </ul>
-          <a class="btn btn-primary btn-sm" href="https://st2k.lunarwerx.com/subscribe" target="_blank" rel="noopener">Subscribe monthly</a>
+          <p><a class="btn btn-primary btn-sm" href="https://st2k.lunarwerx.com/subscribe" target="_blank" rel="noopener">Subscribe</a></p>
         </div>
-        <div class="pr-col">
-          <span class="pr-tag">One-time</span>
+        <div class="pr-plan" data-plan="once" hidden>
           <div class="pr-price"><b>US$49</b><span>per PC, once</span></div>
+          <p class="pr-sub">Yours permanently.</p>
           <ul class="pr-list">
-            <li>Yours permanently</li>
             <li>12 months of updates, then US$29 for 12 more</li>
+            <li>Security fixes always</li>
           </ul>
-          <a class="btn btn-primary btn-sm" href="https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs" target="_blank" rel="noopener">Buy a licence</a>
+          <p><a class="btn btn-primary btn-sm" href="https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs" target="_blank" rel="noopener">Buy a licence</a></p>
         </div>
       </div>
+      <div class="a reveal">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="18" rx="1"/><rect x="13" y="9" width="8" height="12" rx="1"/><path d="M6 7h2M6 11h2M6 15h2M16 13h2M16 17h2"/></svg></div>
+        <h3>Volume</h3>
+        <div class="pr-price"><b>Quote</b></div>
+        <p class="pr-sub">About 25 PCs or more.</p>
+        <ul class="pr-list">
+          <li>One contract for every machine</li>
+          <li>Purchase order or bank transfer</li>
+        </ul>
+        <p><button type="button" class="btn btn-ghost btn-sm" id="quote-open" aria-haspopup="dialog" aria-controls="quote">Request a quote</button></p>
+      </div>
     </div>
-    <p class="pr-volume reveal">About 25 PCs or more, a purchase order, or bank transfer? <button type="button" class="pr-linkbtn" id="quote-open" aria-haspopup="dialog" aria-controls="quote">Request a quote</button> and get one contract for every machine.</p>
     <p class="cmp-note reveal">One key per PC, emailed the moment you pay; redeem it under Settings &gt; Licence. Prices in USD, tax added at checkout.</p>
   </div>
 </section>
+<script>
+  // The Business card's monthly / one-time switch. Pure show/hide; both plans are in the markup.
+  document.querySelectorAll('.pr-toggle button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var plan=b.dataset.plan, card=b.closest('.a');
+      card.querySelectorAll('.pr-toggle button').forEach(function(x){x.setAttribute('aria-selected',String(x===b));});
+      card.querySelectorAll('.pr-plan').forEach(function(p){p.hidden=p.dataset.plan!==plan;});
+    });
+  });
+</script>
 
 <!-- ============ FAQ ============ -->
 <section class="sec tint" id="faq">
