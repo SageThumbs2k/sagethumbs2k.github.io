@@ -1,7 +1,7 @@
 # SageThumbs 2K
 
 > A free, crash-isolated Windows 11 (and Windows 10) shell extension that adds File
-> Explorer thumbnails for 334 file types Windows can't preview on its own: camera RAW,
+> Explorer thumbnails for 346 file types Windows can't preview on its own: camera RAW,
 > Photoshop PSD/PSB, HEIC/AVIF, video, ebooks, comics, 3D-print models and archives,
 > plus a right-click image toolkit, a spacebar Quick Look preview, and a
 > command-line / MCP tool for scripts and AI agents.
@@ -25,7 +25,7 @@ or AI agents that need a CLI or MCP tool to view formats they otherwise can't op
 
 ## Key facts
 
-- 334 supported formats across 7 categories: Image (202), Document (43), Camera RAW
+- 346 supported formats across 7 categories: Image (202), Document (43), Camera RAW
   (34), Video (22), Audio (18), Ebook and comics (12), Archive (3).
 - Marquee formats: camera RAW (CR2, NEF, ARW, RAF and more), Photoshop PSD/PSB, HEIC,
   AVIF, JPEG XL, OpenEXR/HDR, DICOM, SVG, video frames (MP4, MKV, MOV, WebM), ebook and
@@ -35,12 +35,10 @@ or AI agents that need a CLI or MCP tool to view formats they otherwise can't op
 - Windows 11 and Windows 10, 64-bit only. Single-file installer. Both the modern and
   classic Explorer right-click menus are supported.
 - Free for personal and non-commercial use, source-available under the PolyForm
-  Noncommercial 1.0.0 license. Commercial deployment needs a commercial licence per Windows installation, sold two ways:
-  US$2.99 per month, or US$49 one-time for a perpetual licence with 12 months of updates. On the one-time
-  plan the app keeps working as it is afterwards; another 12 months of updates is US$29, bought with your
-  key. A monthly licence stops entitling the machine when the subscription ends. Security fixes are
-  delivered to every licensed installation regardless. Monthly bought at https://st2k.lunarwerx.com/subscribe and cancelled at https://checkout.connections.icu/manage;
-  one-time bought at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
+  Noncommercial 1.0.0 license. Commercial deployment needs a commercial licence: US$49 per Windows installation,
+  one-time. Perpetual licence with 12 months of updates. Afterwards the app keeps working as it
+  is; another 12 months of updates is US$29, bought with your key. Security fixes are delivered
+  to every licensed installation regardless. Bought at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
 
 ## Features
 
@@ -67,7 +65,7 @@ or AI agents that need a CLI or MCP tool to view formats they otherwise can't op
   per monitor. Annotation editor included. Upload and copy a share link to a keyless
   host, no account.
 - `st2k` CLI: batch thumbnail/convert whole folders, OCR, PDF tools. Speaks MCP
-  (`st2k --mcp`), so an AI agent can view any of the 334 formats as a real image.
+  (`st2k --mcp`), so an AI agent can view any of the 346 formats as a real image.
 - Thumbnailing is read-only by default; the toolkit writes only when asked, creating
   new files rather than overwriting originals. Email attachments are listed only,
   never opened, extracted or written out. Everything runs locally except the optional
@@ -77,7 +75,7 @@ or AI agents that need a CLI or MCP tool to view formats they otherwise can't op
 
 - Classic SageThumbs (Raspopov, GPL-2.0): free, image-formats-only via the GFL
   library, discontinued since 2019. SageThumbs 2K is its Rust-rewritten, actively
-  maintained successor with 334 formats plus the toolkit.
+  maintained successor with 346 formats plus the toolkit.
 - MysticThumbs: paid (14-day trial, then a license); covers RAW, PSD, HEIC/AVIF, audio
   waveforms and ebook covers, but no video thumbnails. It has a Space-bar QuickView
   that can convert files; it does not offer resize or OCR.
@@ -99,15 +97,9 @@ or build from source.
 
 ## Pricing
 
-Free for personal and non-commercial use. Business and commercial use is priced per
-installation (one Windows machine) and sold two ways, both unlocking exactly the same app.
-
-Monthly: US$2.99 per installation per month. Cancel whenever you like at https://checkout.connections.icu/manage
-(sign in with the email you paid with); it runs to the end of the month already paid for, then
-the machine stops being entitled. Buy at https://st2k.lunarwerx.com/subscribe
-
-One-time: US$49 per installation. Perpetual licence with 12 months of updates. Afterwards the
-app keeps working as it is; another 12 months of updates is US$29, bought
+Free for personal and non-commercial use. Business and commercial use: US$49 per
+installation (one Windows machine), one-time. Perpetual licence with 12 months of updates.
+Afterwards the app keeps working as it is; another 12 months of updates is US$29, bought
 with your key at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98/renew
 Security fixes are delivered to every licensed installation regardless.
 Buy at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs

@@ -8,30 +8,19 @@ tools. Human-readable page: https://sagethumbs.lunarwerx.com/
 - Price: $0. No subscription, no trial period, no feature gate, no account required.
 - License: [PolyForm Noncommercial 1.0.0](https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md)
 - Source: source-available on GitHub, https://github.com/LunarWerxs/SageThumbs-2k
-- Limits: none. All 334 supported formats, the full right-click toolkit, Quick Look
+- Limits: none. All 346 supported formats, the full right-click toolkit, Quick Look
   preview (including email files and 3D-print models), screen OCR, screen capture, and
   the `st2k` CLI/MCP server are included at this tier.
 - Platform: Windows 11 or Windows 10, 64-bit only.
 
 ## Commercial / business use
 
-Two plans, same price unit and the same fully-featured app. The only differences are how
-often you pay and what happens when you stop. Tax is added at checkout where it applies.
+One plan today: buy it once, per installation. Tax is added at checkout where it applies.
+(A US$2.99/month subscription is built and will be listed here once it is live.)
 
-- Licence unit (both plans): installation. Buy one per PC; set the quantity at checkout.
+- Licence unit: installation. Buy one per PC; set the quantity at checkout.
   One redemption key (`esk_...`) per installation is emailed on payment. Redeem under
   Settings > Licence (version 3.0 and later). Card payment via Stripe.
-
-### Monthly subscription
-
-- Price: US$2.99 per installation per month.
-- How to buy: https://st2k.lunarwerx.com/subscribe
-- Cancellation: any time, self-serve, at https://checkout.connections.icu/manage - sign in
-  with the email used to pay. The licence runs to the end of the period already paid for
-  and then stops entitling the machine; nothing is pro-rated and nothing is clawed back.
-- Updates: every release published while the subscription is live.
-- Ends: when you stop paying. This is a rental, not a perpetual grant - the software stops
-  serving business use on that machine once the subscription lapses.
 
 ### One-time purchase
 
@@ -44,7 +33,6 @@ often you pay and what happens when you stop. Tax is added at checkout where it 
   key at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98/renew
   Optional. A licence that is never renewed keeps working; it simply stops being offered
   builds published after its window ended, security releases excepted.
-- Break-even against the monthly plan: about 16 months.
 
 ### Volume
 
@@ -53,9 +41,7 @@ often you pay and what happens when you stop. Tax is added at checkout where it 
 
 ## Ongoing costs the user actually bears
 
-- $0 beyond the licence itself. On the one-time plan that is $0 outright; on the monthly
-  plan the US$2.99 per installation IS the whole recurring cost, and nothing else recurs.
-  There is no bundled or required third-party API. Screen OCR uses Windows' own
+- $0. There is no bundled or required third-party API. Screen OCR uses Windows' own
   in-box recognizer, not a cloud OCR service or an API key. Thumbnailing, conversion,
   and the toolkit are 100% local processing: no data leaves the machine and no
   per-use cost is incurred.
@@ -73,18 +59,15 @@ often you pay and what happens when you stop. Tax is added at checkout where it 
 ```
 product: SageThumbs 2K
 price_personal_use: 0 USD
-price_commercial_monthly: 2.99 USD per installation per month (subscription; ends when cancelled)
 price_commercial_use: 49 USD per installation, one-time (perpetual + 12 months updates)
-price_commercial_renewal: 29 USD per installation for another 12 months of updates (optional, one-time plan only)
-buy_url_commercial_monthly: https://st2k.lunarwerx.com/subscribe
+price_commercial_renewal: 29 USD per installation for another 12 months of updates (optional)
 buy_url_commercial: https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
-cancel_url_commercial_monthly: https://checkout.connections.icu/manage
-billing_model: choice of monthly subscription or one-time perpetual, source-available, free for personal/non-commercial use
+billing_model: one-time, source-available, free for personal/non-commercial use
 license: PolyForm-Noncommercial-1.0.0
 trial_required: false
 account_required: false
 byo_api_key_required: false
-recurring_cost_to_user: 0 USD on the one-time plan; 2.99 USD per installation per month on the monthly plan
+recurring_cost_to_user: 0 USD
 platform: Windows 11, Windows 10 (64-bit)
 current_version: 3.0.5
 ```
