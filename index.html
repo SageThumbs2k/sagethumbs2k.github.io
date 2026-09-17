@@ -87,6 +87,26 @@
         },
         {
           "@type": "Offer",
+          "name": "Commercial licence, per installation (monthly subscription)",
+          "price": "2.99",
+          "priceCurrency": "USD",
+          "url": "https://checkout.connections.icu/licence/c16cca94-53a4-4e7a-b434-0737fdfc21bb?slug=sagethumbs",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "2.99",
+            "priceCurrency": "USD",
+            "billingIncrement": 1,
+            "unitCode": "MON",
+            "referenceQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitCode": "MON"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
           "name": "Commercial licence, per installation (perpetual, includes 12 months of updates)",
           "price": "49",
           "priceCurrency": "USD",
@@ -156,7 +176,7 @@
           "name": "Is it really free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, for personal use, with full source under PolyForm Noncommercial 1.0.0. Business use needs a licence per PC: US$49 once, with 12 months of updates (US$29 for 12 more)."
+            "text": "Yes, for personal use, with full source under PolyForm Noncommercial 1.0.0. Business use needs a licence per PC: US$2.99 a month, or US$49 once with 12 months of updates (US$29 for 12 more)."
           }
         },
         {
@@ -164,7 +184,7 @@
           "name": "How do I buy a business licence?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Online, by card: US$49 per PC, once; set the quantity to your PC count. One key per PC arrives by email; paste it under Settings > Licence. 25 PCs or more, or a purchase order: request a quote."
+            "text": "Online, by card: US$2.99 per PC per month, or US$49 per PC once; set the quantity to your PC count. One key per PC arrives by email; paste it under Settings > Licence. Cancel the monthly plan any time at checkout.connections.icu/manage. 25 PCs or more, or a purchase order: request a quote."
           }
         },
         {
@@ -1635,7 +1655,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
         <tbody>
           <tr class="us">
             <th scope="row">SageThumbs 2K</th>
-            <td>Free at home; US$49 per PC at work</td>
+            <td>Free at home; at work US$2.99 per PC monthly or US$49 once</td>
             <td>Yes, 334 formats</td>
             <td>Yes: video, audio, code, PDFs, SQLite</td>
             <td>Yes, built in</td>
@@ -1686,7 +1706,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     <div class="head reveal">
       <span class="eyebrow">pricing</span>
       <h2>Free at home. One licence per PC at work.</h2>
-      <p>Personal use is free. Business use needs a licence for each PC.</p>
+      <p>Personal use is free. Business use needs a licence for each PC: pay monthly, or once.</p>
     </div>
     <div class="assure pr-tiers">
       <div class="a reveal">
@@ -1704,27 +1724,26 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
       <div class="a reveal pr-featured">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></div>
         <h3>Business</h3>
-        <!-- ⛔ THE MONTHLY PLAN IS BUILT BUT NOT SELLABLE YET, so it is hidden rather than
-             deleted (2026-09-17). st2k.lunarwerx.com/subscribe has no route on the relay, and the
-             relay's catch-all answers 200 with the sponsor manifest - so a customer clicking
-             Subscribe got a page of raw JSON. TO SWITCH IT BACK ON, once the Connections payments
-             plane is deployed, the US$2.99 catalog product exists and the relay serves /subscribe:
-             drop the `hidden` here and on the monthly panel, put `hidden` back on the one-time
-             panel, and flip the two aria-selected values. Nothing else changes. -->
-        <div class="pr-toggle" role="tablist" aria-label="How to pay" hidden>
-          <button type="button" role="tab" aria-selected="false" data-plan="monthly">Monthly</button>
-          <button type="button" role="tab" aria-selected="true" data-plan="once">One-time</button>
+        <!-- Both plans link STRAIGHT at their hosted checkout page, the same shape the one-time
+             button below already used. The monthly button briefly pointed at a redirect on our
+             own domain instead; that route never existed, the catch-all answered it 200 with
+             JSON, and a customer clicking Subscribe got a page of raw JSON (parked 2026-09-17,
+             restored the same day once the product existed). One link shape, no redirect to
+             keep in step with the catalog. -->
+        <div class="pr-toggle" role="tablist" aria-label="How to pay">
+          <button type="button" role="tab" aria-selected="true" data-plan="monthly">Monthly</button>
+          <button type="button" role="tab" aria-selected="false" data-plan="once">One-time</button>
         </div>
-        <div class="pr-plan" data-plan="monthly" hidden>
+        <div class="pr-plan" data-plan="monthly">
           <div class="pr-price"><b>US$2.99</b><span>per PC, per month</span></div>
           <p class="pr-sub">Cancel any time.</p>
           <ul class="pr-list">
             <li>Every update while you subscribe</li>
             <li>Same full app as the one-time licence</li>
           </ul>
-          <p><a class="btn btn-primary btn-sm" data-href="https://st2k.lunarwerx.com/subscribe" target="_blank" rel="noopener">Subscribe</a></p>
+          <p><a class="btn btn-primary btn-sm" href="https://checkout.connections.icu/licence/c16cca94-53a4-4e7a-b434-0737fdfc21bb?slug=sagethumbs" target="_blank" rel="noopener">Subscribe</a></p>
         </div>
-        <div class="pr-plan" data-plan="once">
+        <div class="pr-plan" data-plan="once" hidden>
           <div class="pr-price"><b>US$49</b><span>per PC, once</span></div>
           <p class="pr-sub">Yours permanently.</p>
           <ul class="pr-list">
@@ -1768,11 +1787,11 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
       <div>
         <details class="reveal">
           <summary><h3>Is it really free?</h3><span class="pm" aria-hidden="true"></span></summary>
-          <div class="ans">Yes, for personal use, with full source under PolyForm Noncommercial 1.0.0. Business use needs a licence per PC: US$49 once, with 12 months of updates (US$29 for 12 more).</div>
+          <div class="ans">Yes, for personal use, with full source under PolyForm Noncommercial 1.0.0. Business use needs a licence per PC: US$2.99 a month, or US$49 once with 12 months of updates (US$29 for 12 more).</div>
         </details>
         <details class="reveal">
           <summary><h3>How do I buy a business licence?</h3><span class="pm" aria-hidden="true"></span></summary>
-          <div class="ans">Online, by card: <a href="https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs" target="_blank" rel="noopener">US$49 per PC, once</a>; set the quantity to your PC count. One key per PC arrives by email; paste it under Settings &gt; Licence. 25 PCs or more, or a purchase order: <a href="#pricing">request a quote</a>.</div>
+          <div class="ans">Online, by card: <a href="https://checkout.connections.icu/licence/c16cca94-53a4-4e7a-b434-0737fdfc21bb?slug=sagethumbs" target="_blank" rel="noopener">US$2.99 per PC per month</a>, or <a href="https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs" target="_blank" rel="noopener">US$49 per PC once</a>; set the quantity to your PC count. One key per PC arrives by email; paste it under Settings &gt; Licence. Cancel the monthly plan any time at <a href="https://checkout.connections.icu/manage" target="_blank" rel="noopener">checkout.connections.icu/manage</a>. 25 PCs or more, or a purchase order: <a href="#pricing">request a quote</a>.</div>
         </details>
         <details class="reveal">
           <summary><h3>Is it safe to run?</h3><span class="pm" aria-hidden="true"></span></summary>
