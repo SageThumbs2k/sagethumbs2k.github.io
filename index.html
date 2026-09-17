@@ -742,31 +742,35 @@
   .download .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
   .download .meta{margin-top:18px;font-size:.88rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
 
-  /* ---------------- PER-PLATFORM DOWNLOADS ---------------- */
-  /* One tile per build we actually ship, each href pointing at the FILE in the
-     release rather than at the release page. Clicking one starts the download and
-     leaves the visitor on this page -- nobody should have to read a GitHub asset
-     list to install a thumbnailer (owner, 2026-09-16).
-     scripts/sync-version.mjs rewrites these four hrefs on every release and refuses
-     to write one whose asset the release does not actually carry, so they cannot rot
-     into 404s the way a hand-maintained pinned URL would. */
-  .dl-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:26px;text-align:left}
-  .dl-opt{display:flex;flex-direction:column;gap:4px;padding:13px 14px;border:1px solid var(--line-2);
-          border-radius:var(--r);background:var(--elev-1);
-          transition:background .18s var(--ease),border-color .18s var(--ease),transform .12s var(--ease)}
-  .dl-opt:hover{background:var(--elev-2);border-color:var(--line-3);transform:translateY(-1px)}
-  .dl-opt:active{transform:scale(.99)}
-  .dl-opt .n{display:flex;align-items:center;gap:7px;font-size:.9rem;font-weight:600;color:var(--ink);letter-spacing:-.01em}
-  .dl-opt .n svg{flex:0 0 auto;opacity:.7}
-  .dl-opt .k{font-size:.75rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
-  /* Marked by the runtime script once it knows the visitor's architecture. When it
-     cannot tell, nothing is marked and all four stay equally clickable: a highlight
-     that guesses wrong is worse than no highlight. */
-  .dl-opt.is-you{border-color:color-mix(in srgb,var(--accent) 55%,var(--line-2));
-                 background:color-mix(in srgb,var(--accent) 7%,var(--elev-1))}
-  .dl-opt.is-you .k::after{content:" · your PC";color:var(--accent-2)}
-  @media(max-width:860px){.dl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-  @media(max-width:430px){.dl-grid{grid-template-columns:minmax(0,1fr)}}
+  /* ── Downloads: platform strip under the hero button, one tile per OS in the
+     install section, the visitor's own marked by the runtime script (owner, 2026-09-16:
+     every platform visible at a glance, no OS named twice, no paragraphs). ── */
+  .dl-platforms{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin-top:14px;font-size:.86rem;color:var(--ink-3)}
+  .dl-platforms .lead{color:var(--ink-3)}
+  .dl-platforms a{display:inline-flex;align-items:center;gap:6px;color:var(--ink-3);text-decoration:none;padding:2px 0;border-bottom:1px solid transparent;transition:color .15s,border-color .15s}
+  .dl-platforms a:hover{color:var(--ink)}
+  .dl-platforms a.is-you{color:var(--ink);border-bottom-color:var(--accent)}
+  .dl-platforms svg{width:13px;height:13px;flex:none;opacity:.85}
+  .os-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:20px;text-align:left}
+  @media(max-width:720px){.os-tiles{grid-template-columns:1fr}}
+  .os-tile{display:flex;flex-direction:column;border:1px solid var(--line-2);border-radius:var(--r);background:var(--elev-1);transition:border-color .15s,background .15s}
+  .os-tile:hover{border-color:var(--line-3);background:var(--elev-2)}
+  .os-tile.is-you{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 7%,var(--elev-1))}
+  .os-main{display:flex;flex-direction:column;gap:4px;padding:13px 15px 9px;color:var(--ink);text-decoration:none}
+  .os-h{display:flex;align-items:center;gap:8px;font-size:.95rem;font-weight:600;color:var(--ink)}
+  .os-h svg{width:15px;height:15px;flex:none;opacity:.85}
+  .os-p{font-size:.8rem;color:var(--ink-3)}
+  .os-tile.is-you .os-p::after{content:" · your machine";color:var(--accent)}
+  .os-alts{display:flex;flex-wrap:wrap;gap:4px 10px;padding:0 15px 12px;font-size:.76rem;color:var(--ink-3)}
+  .os-alts a{color:var(--ink-3);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-3)}
+  .os-alts a:hover{color:var(--ink);text-decoration-color:var(--ink)}
+  .os-foot{margin-top:12px;font-size:.8rem;color:var(--ink-3)}
+  .os-foot a{color:var(--ink-3);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-3)}
+  .os-foot a:hover{color:var(--ink)}
+  .hero .dl-platforms{margin-top:18px;font-size:.9rem}
+  .download .dl-platforms{justify-content:center;margin-top:16px}
+  .download .os-tiles{max-width:560px;margin-left:auto;margin-right:auto}
+
 
   /* ---------------- FOOTER ---------------- */
   footer{border-top:1px solid var(--line);padding:48px 0 40px;margin-top:8px}
@@ -958,7 +962,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
           </a>
           <a class="btn btn-ghost" href="https://github.com/LunarWerxs/SageThumbs-2k" target="_blank" rel="noopener">View source</a>
         </div>
-        <p class="meta reveal"><span>Free and source-available</span><span class="d"></span><span>64-bit</span></p>
+        <p class="dl-platforms reveal"><span class="lead">Free and source-available · <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.07 10.34 4.06v7.18H3zM10.34 12.41v7.2L3 18.6v-6.19zM11.49 3.9 21 2.5v8.74h-9.51zM21 12.41v8.74l-9.51-1.36v-7.38z"/></svg>Windows 11 &amp; 10</span> <a data-tile="x64" data-dl="setup-x64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Setup-3.0.5.exe" download>64-bit</a> <a data-tile="arm64" data-dl="setup-arm64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Setup-3.0.5-arm64.exe" download>ARM64</a></p>
       </div>
 
       <div class="wall" aria-label="A wall of real thumbnails SageThumbs 2K rendered from formats Windows leaves blank">
@@ -1839,25 +1843,23 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
         </a>
         <a class="btn btn-ghost" href="https://github.com/LunarWerxs/SageThumbs-2k" target="_blank" rel="noopener">View source</a>
       </div>
-      <div class="dl-grid">
-          <a class="dl-opt" data-dl="setup-x64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Setup-3.0.5.exe" download aria-label="Download the 64-bit installer for Intel and AMD PCs">
-            <span class="n"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.07 10.34 4.06v7.18H3zM10.34 12.41v7.2L3 18.6v-6.19zM11.49 3.9 21 2.5v8.74h-9.51zM21 12.41v8.74l-9.51-1.36v-7.38z"/></svg>Windows 64-bit</span>
-            <span class="k">Installer · .exe</span>
+      <div class="os-tiles">
+        <div class="os-tile" data-tile="x64">
+          <a class="os-main" data-dl="setup-x64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Setup-3.0.5.exe" download aria-label="Download the 64-bit installer for Intel and AMD PCs">
+            <span class="os-h"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.07 10.34 4.06v7.18H3zM10.34 12.41v7.2L3 18.6v-6.19zM11.49 3.9 21 2.5v8.74h-9.51zM21 12.41v8.74l-9.51-1.36v-7.38z"/></svg>Windows 64-bit</span>
+            <span class="os-p">Installer · .exe</span>
           </a>
-          <a class="dl-opt" data-dl="setup-arm64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Setup-3.0.5-arm64.exe" download aria-label="Download the ARM64 installer for Snapdragon and other ARM PCs">
-            <span class="n"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.07 10.34 4.06v7.18H3zM10.34 12.41v7.2L3 18.6v-6.19zM11.49 3.9 21 2.5v8.74h-9.51zM21 12.41v8.74l-9.51-1.36v-7.38z"/></svg>Windows ARM64</span>
-            <span class="k">Installer · .exe</span>
+          <span class="os-alts">also <a data-dl="zip-x64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Portable-3.0.5.zip" download>portable .zip</a></span>
+        </div>
+        <div class="os-tile" data-tile="arm64">
+          <a class="os-main" data-dl="setup-arm64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Setup-3.0.5-arm64.exe" download aria-label="Download the ARM64 installer for Snapdragon and other ARM PCs">
+            <span class="os-h"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.07 10.34 4.06v7.18H3zM10.34 12.41v7.2L3 18.6v-6.19zM11.49 3.9 21 2.5v8.74h-9.51zM21 12.41v8.74l-9.51-1.36v-7.38z"/></svg>Windows ARM64</span>
+            <span class="os-p">Installer · .exe</span>
           </a>
-          <a class="dl-opt" data-dl="zip-x64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Portable-3.0.5.zip" download aria-label="Download the portable 64-bit zip, no installer and no admin rights">
-            <span class="n"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.07 10.34 4.06v7.18H3zM10.34 12.41v7.2L3 18.6v-6.19zM11.49 3.9 21 2.5v8.74h-9.51zM21 12.41v8.74l-9.51-1.36v-7.38z"/></svg>Portable 64-bit</span>
-            <span class="k">No install · .zip</span>
-          </a>
-          <a class="dl-opt" data-dl="zip-arm64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Portable-3.0.5-arm64.zip" download aria-label="Download the portable ARM64 zip, no installer and no admin rights">
-            <span class="n"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.07 10.34 4.06v7.18H3zM10.34 12.41v7.2L3 18.6v-6.19zM11.49 3.9 21 2.5v8.74h-9.51zM21 12.41v8.74l-9.51-1.36v-7.38z"/></svg>Portable ARM64</span>
-            <span class="k">No install · .zip</span>
-          </a>
+          <span class="os-alts">also <a data-dl="zip-arm64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Portable-3.0.5-arm64.zip" download>portable .zip</a></span>
+        </div>
       </div>
-      <p class="meta"><span class="js-app-version">v3.0.5</span> &nbsp;·&nbsp; 64-bit and ARM64 &nbsp;·&nbsp; Windows 11 and 10</p>
+      <p class="os-foot"><span class="js-app-version">v3.0.5</span> · <a href="https://github.com/LunarWerxs/SageThumbs-2k/releases" target="_blank" rel="noopener">all releases</a></p>
     </div>
   </div>
 </section>
@@ -2035,127 +2037,113 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
   })();
 </script>
 <script>
-/* Self-updating version label AND self-updating download links. One release
-   lookup, three jobs:
-
-   1. Stamp the latest release tag onto every .js-app-version pill and the
-      JSON-LD softwareVersion, so a new release needs NO site redeploy.
-
-   2. Point every [data-dl] link at the actual FILE in that release. The page
-      used to send every "Download" click to /releases/latest, i.e. to a GitHub
-      page with an asset list to read and a platform to guess -- which is exactly
-      the thing people bounce off (owner, 2026-09-16). The hrefs in the static
-      HTML are already direct file URLs, written by scripts/sync-version.mjs on
-      every release, so this is the self-heal for the window between a release
-      and that job running. With JS off, or on GitHub's anonymous API limit, the
-      baked-in URLs still download the right file.
-
-   3. On a Windows-on-ARM machine the big buttons switch to the ARM64 build and
-      say so. When architecture cannot be determined, x64 stands: that build also
-      runs on ARM under emulation, so an undetected ARM visitor gets something
-      slower, never something broken. */
+/* Download links, version label and JSON-LD, kept current without a redeploy; the
+   big buttons follow the visitor's machine; the platform strip and the install tiles
+   mark it. The static hrefs are already direct file URLs (scripts/sync-version.mjs
+   rewrites them on every release and refuses to write one the release does not
+   carry); this repairs the gap between a release and that job. With JS off the
+   baked-in URLs still download a real build. */
 (function(){
   var REPO = "https://github.com/LunarWerxs/SageThumbs-2k";
-
-  /* The complete set of user-facing assets a release carries, keyed by the
-     data-dl value the markup uses. Names have been stable since 2.3.0, and
-     sync-version.mjs asserts each one exists in the release it stamps, so a
-     rename breaks that job loudly instead of quietly producing 404 buttons. */
-  var FILES = {
-    "setup-x64"  : function(v){ return "SageThumbs2K-Setup-"    + v + ".exe";       },
-    "setup-arm64": function(v){ return "SageThumbs2K-Setup-"    + v + "-arm64.exe"; },
-    "zip-x64"    : function(v){ return "SageThumbs2K-Portable-" + v + ".zip";       },
-    "zip-arm64"  : function(v){ return "SageThumbs2K-Portable-" + v + "-arm64.zip"; }
+  var DEFAULT_KEY = "setup-x64";
+  var MODE = "winarch";   // "os": Windows/macOS/Linux; "winarch": one OS, x64 vs ARM64
+  function files(v){ return {
+      "setup-x64": "SageThumbs2K-Setup-" + v + ".exe",
+      "setup-arm64": "SageThumbs2K-Setup-" + v + "-arm64.exe",
+      "zip-x64": "SageThumbs2K-Portable-" + v + ".zip",
+      "zip-arm64": "SageThumbs2K-Portable-" + v + "-arm64.zip"
+  }; }
+  var LABEL = {
+      "setup-x64": { text: "Download", mark: "win", sub: "Windows 11 & 10 · 64-bit", aria: "Windows 11 and 10, 64-bit" },
+      "setup-arm64": { text: "Download", mark: "win", sub: "Windows 11 & 10 · ARM64", aria: "Windows 11 and 10, ARM64" }
   };
-  /* Used to claim an asset off the API response by name, so a renamed file is
-     still found rather than reconstructed into a 404. Deliberately excludes the
-     -amd64.exe alias (a byte-identical copy of the plain .exe) and the .sig files. */
-  var MATCH = {
-    "setup-x64"  : /^SageThumbs2K-Setup-[\d.]+\.exe$/i,
-    "setup-arm64": /^SageThumbs2K-Setup-[\d.]+-arm64\.exe$/i,
-    "zip-x64"    : /^SageThumbs2K-Portable-[\d.]+\.zip$/i,
-    "zip-arm64"  : /^SageThumbs2K-Portable-[\d.]+-arm64\.zip$/i
+  /* tile -> which asset key to hand over; arm/x86 refine it where a build exists. */
+  var PICK = {
+      "x64": { def: "setup-x64" },
+      "arm64": { def: "setup-arm64" }
   };
 
-  /* `detected` stays false until something actually told us the architecture;
-     it gates the "your PC" marker so the page never asserts a guess. */
-  var state = { version: null, arm: false, detected: false, urls: {} };
-
-  /* The version already on the page, read off a download href rather than a
-     separate data attribute: the href is the thing that has to be right, so
-     nothing else can silently disagree with it. */
-  (function(){
+  var state = { version: null, tile: null, key: null, urls: {} };
+  (function(){   // the version already on the page, read off a download href
     var a = document.querySelector("a[data-dl]");
     var m = a && (a.getAttribute("href") || "").match(/\/download\/v(\d+\.\d+\.\d+[^\/]*)\//);
     if (m) state.version = m[1];
   })();
 
+  /* Android says Linux and iPadOS says Mac, and there is no build for either, so
+     both leave the tile null and the default stands; ChromeOS too. */
+  function detectTile(){
+    var ua = navigator.userAgent || "";
+    var p  = (navigator.userAgentData && navigator.userAgentData.platform) || "";
+    if (/Android|iPhone|iPad|iPod|CrOS/i.test(ua)) return null;
+    var win = /win/i.test(p) || /Windows/i.test(ua);
+    if (MODE === "winarch") return win ? (/\b(?:ARM64|aarch64)\b/i.test(ua) ? "arm64" : "x64") : null;
+    if (/mac/i.test(p)   || /Mac OS X|Macintosh/i.test(ua)) return "mac";
+    if (/linux/i.test(p) || /Linux/i.test(ua))              return "linux";
+    return win ? "win" : null;
+  }
+  function pick(tile, arm){
+    var p = PICK[tile]; if (!p) return null;
+    if (arm === true  && p.arm) return p.arm;
+    if (arm === false && p.x86) return p.x86;
+    return p.def;
+  }
   function urlFor(key){
-    if (state.urls[key]) return state.urls[key];                 // the release said so
-    if (!state.version || !FILES[key]) return null;              // leave the baked-in href alone
-    return REPO + "/releases/download/v" + state.version + "/" + FILES[key](state.version);
+    if (state.urls[key]) return state.urls[key];              // the release said so
+    if (!state.version) return null;                          // leave the baked-in href alone
+    var f = files(state.version)[key];
+    return f ? REPO + "/releases/download/v" + state.version + "/" + f : null;
   }
+  function all(sel){ return Array.prototype.slice.call(document.querySelectorAll(sel)); }
 
-  /* Idempotent: safe to call again as the architecture probe and the release
-     fetch land in whatever order they land. */
+  /* Idempotent: runs on load, again when client hints answer, again when the API does. */
   function render(){
-    var primary = state.arm ? "setup-arm64" : "setup-x64";
-    var label   = state.arm ? "Windows 11 & 10 · ARM64" : "Windows 11 & 10 · 64-bit";
-    document.querySelectorAll("a.js-dl-primary").forEach(function(a){
-      a.setAttribute("data-dl", primary);
-      if (a.hasAttribute("aria-label")) {
-        a.setAttribute("aria-label", "Download SageThumbs 2K for Windows 11 and 10, " + (state.arm ? "ARM64" : "64-bit"));
-      }
+    var key = state.key || DEFAULT_KEY, L = LABEL[key] || LABEL[DEFAULT_KEY];
+    all("a.js-dl-primary").forEach(function(a){
+      a.setAttribute("data-dl", key);
+      a.setAttribute("aria-label", "Download SageThumbs 2K for " + L.aria);
     });
-    document.querySelectorAll("a[data-dl]").forEach(function(a){
-      var href = urlFor(a.getAttribute("data-dl"));
-      if (href) a.setAttribute("href", href);
+    all(".js-dl-label").forEach(function(el){ el.textContent = L.text; });
+    all(".js-dl-arch").forEach(function(el){ if (L.sub) el.textContent = L.sub; });
+    all(".js-dl-mark use").forEach(function(u){ u.setAttribute("href", "#os-" + L.mark); });
+    all("a[data-dl]").forEach(function(a){ var h = urlFor(a.getAttribute("data-dl")); if (h) a.setAttribute("href", h); });
+    all("[data-tile]").forEach(function(el){
+      el.classList.toggle("is-you", state.tile !== null && el.getAttribute("data-tile") === state.tile);
     });
-    document.querySelectorAll(".js-dl-arch").forEach(function(el){ el.textContent = label; });
-    document.querySelectorAll(".dl-grid a[data-dl]").forEach(function(a){
-      a.classList.toggle("is-you", state.detected === true && a.getAttribute("data-dl") === primary);
-    });
-  }
-
-  /* Windows on ARM is deliberately hard to detect: Chromium reports x86_64 in the
-     UA string for compatibility and tells the truth only through client hints,
-     while Firefox has no client hints and puts ARM64 in the UA string. Ask both. */
-  function probeArch(){
-    if (/\b(?:ARM64|aarch64)\b/i.test(navigator.userAgent || "")) { state.arm = true; state.detected = true; }
-    var uad = navigator.userAgentData;
-    if (uad && typeof uad.getHighEntropyValues === "function") {
-      uad.getHighEntropyValues(["architecture"]).then(function(h){
-        state.arm = /arm/i.test((h && h.architecture) || "");
-        state.detected = true;
-        render();
-      }).catch(function(){});
-    }
   }
 
   try {
-    probeArch();
+    state.tile = detectTile();
+    state.key  = pick(state.tile, null);
     render();
+    var uad = navigator.userAgentData;
+    if (state.tile && uad && typeof uad.getHighEntropyValues === "function") {
+      uad.getHighEntropyValues(["architecture"]).then(function(h){
+        var arm = /arm/i.test((h && h.architecture) || "");
+        if (MODE === "winarch") { state.tile = arm ? "arm64" : "x64"; }
+        state.key = pick(state.tile, arm);
+        render();
+      }).catch(function(){});
+    }
     fetch("https://api.github.com/repos/LunarWerxs/SageThumbs-2k/releases/latest", { headers: { "Accept": "application/vnd.github+json" } })
       .then(function(r){ return r.ok ? r.json() : null; })
       .then(function(rel){
         if (!rel || !rel.tag_name) return;
-        var bare = String(rel.tag_name).trim().replace(/^v/, "");   // "v1.2.3" -> "1.2.3"
-        if (!/^\d+\.\d+\.\d+/.test(bare)) return;                  // sanity check
+        var bare = String(rel.tag_name).trim().replace(/^v/, "");
+        if (!/^\d+\.\d+\.\d+/.test(bare)) return;   // never write a draft name into the page
         state.version = bare;
+        var want = files(bare);   // prefer the URL the release reports over a rebuilt filename
         (rel.assets || []).forEach(function(asset){
-          Object.keys(MATCH).forEach(function(key){
-            if (MATCH[key].test(asset.name || "") && asset.browser_download_url) state.urls[key] = asset.browser_download_url;
-          });
+          Object.keys(want).forEach(function(k){ if (want[k] === asset.name && asset.browser_download_url) state.urls[k] = asset.browser_download_url; });
         });
         render();
-        var pill = "v" + bare;
-        document.querySelectorAll(".js-app-version").forEach(function(el){ el.textContent = pill; });
-        document.querySelectorAll('script[type="application/ld+json"]').forEach(function(s){
+        all(".js-app-version").forEach(function(el){ el.textContent = "v" + bare; });
+        all('script[type="application/ld+json"]').forEach(function(s){
           try {
             var data = JSON.parse(s.textContent), changed = false;
             (function walk(o){ if (o && typeof o === "object") { Object.keys(o).forEach(function(k){
               if (k === "softwareVersion") { o[k] = bare; changed = true; }
-              else if (k === "downloadUrl" && state.urls["setup-x64"]) { o[k] = state.urls["setup-x64"]; changed = true; }
+              else if (k === "downloadUrl" && urlFor(DEFAULT_KEY)) { o[k] = urlFor(DEFAULT_KEY); changed = true; }
               else { walk(o[k]); } }); } })(data);
             if (changed) s.textContent = JSON.stringify(data);
           } catch (e) {}
