@@ -654,18 +654,45 @@
 
   /* ---------------- ASSURANCES ---------------- */
   .assure{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  /* Pricing carries FOUR doors since the monthly subscription (2026-09-16): free, the two ways to
-     pay for the same commercial licence, and volume. Two-up rather than four-up - four columns at
-     this width squeeze the longest card down to about three words a line. Scoped to #pricing so the
-     other .assure grids on the page keep their three columns, and the mobile override has to be
-     re-stated at the same specificity or the id rule would win on a phone. */
-  #pricing .assure{grid-template-columns:repeat(2,1fr)}
   .assure .a{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:var(--s1)}
   .assure .ic{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;color:var(--accent);
               background:color-mix(in srgb,var(--accent) 12%,transparent);border:1px solid color-mix(in srgb,var(--accent) 24%,transparent);margin-bottom:15px}
   .assure h3{font-size:1.08rem;letter-spacing:-.01em}
   .assure p{font-size:.94rem;color:var(--ink-2);margin-top:8px;line-height:1.55}
-  @media(max-width:760px){.assure,#pricing .assure{grid-template-columns:1fr}}
+  @media(max-width:760px){.assure{grid-template-columns:1fr}}
+
+  /* ---------------- PRICING ---------------- */
+  .pr-price{display:flex;align-items:baseline;gap:8px;margin:14px 0 4px}
+  .pr-price b{font-size:2.15rem;font-weight:600;letter-spacing:-.035em;color:var(--ink);line-height:1}
+  .pr-price span{font-size:.9rem;color:var(--ink-3)}
+  .pr-sub{font-size:.9rem;color:var(--ink-3);margin:0 0 14px}
+  .pr-list{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:8px}
+  .pr-list li{font-size:.94rem;color:var(--ink-2);padding-left:22px;position:relative;line-height:1.45}
+  .pr-list li::before{content:"\2713";position:absolute;left:0;top:0;color:var(--accent);font-weight:700;font-size:.9em}
+  .pr-tag{display:inline-block;font-family:"Geist Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+  .pr-linkbtn{appearance:none;border:0;background:none;padding:0;margin:0;font:inherit;color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-decoration-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+  .pr-linkbtn:hover{color:var(--accent-2);text-decoration-color:currentColor}
+
+  .pr-free .ic,.pr-biz-head .ic{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent);border:1px solid color-mix(in srgb,var(--accent) 24%,transparent);flex:0 0 auto}
+  .pr-free{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;border:1px solid var(--line);border-radius:var(--r);padding:18px 24px;background:var(--s1);margin-bottom:18px}
+  .pr-free .ic{margin:0}
+  .pr-free h3{font-size:1.08rem;letter-spacing:-.01em}
+  .pr-free p{font-size:.94rem;color:var(--ink-2);margin-top:3px}
+  .pr-biz{border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line));border-radius:var(--r);background:var(--s1);padding:24px 24px 8px}
+  .pr-biz-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+  .pr-biz-head .ic{margin:0}
+  .pr-biz-head h3{font-size:1.08rem;letter-spacing:-.01em}
+  .pr-biz-head p{font-size:.94rem;color:var(--ink-2);margin-top:3px}
+  .pr-cols{display:grid;grid-template-columns:1fr 1fr}
+  .pr-col{padding:18px 28px 18px 0}
+  .pr-col + .pr-col{border-left:1px solid var(--line);padding-left:28px;padding-right:0}
+  .pr-col .pr-price{margin-top:8px}
+  .pr-volume{margin-top:16px;font-size:.94rem;color:var(--ink-2)}
+  @media(max-width:760px){
+    .pr-cols{grid-template-columns:1fr}
+    .pr-col + .pr-col{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:22px}
+    .pr-free{grid-template-columns:auto 1fr}.pr-free .btn{grid-column:2}
+  }
 
   /* ---------------- FAQ ---------------- */
   .faq{display:grid;grid-template-columns:1fr 1fr;gap:12px 40px}
@@ -1699,36 +1726,41 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     <div class="head reveal">
       <span class="eyebrow">pricing</span>
       <h2>Free at home. One licence per PC at work.</h2>
-      <p>SageThumbs 2K is free for personal and non-commercial use under the PolyForm Noncommercial licence. Business and commercial use needs a commercial licence for each Windows installation, and there are two ways to pay for it: US$2.99 a month, or US$49 once and it is yours. Buy either below, then redeem it inside the app.</p>
+      <p>Personal use is free. Business use needs a licence for each PC: pay monthly, or once.</p>
     </div>
-    <div class="assure">
-      <div class="a reveal">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
-        <h3>Personal: free</h3>
-        <p>Every format, the Quick preview, screen OCR and the whole right-click toolkit. No account, no trial, no feature gate, and the source is on GitHub.</p>
-        <p><a class="btn btn-ghost btn-sm js-dl-primary" data-dl="setup-x64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Setup-3.0.5.exe" download><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.07 10.34 4.06v7.18H3zM10.34 12.41v7.2L3 18.6v-6.19zM11.49 3.9 21 2.5v8.74h-9.51zM21 12.41v8.74l-9.51-1.36v-7.38z"/></svg>Download</a></p>
-      </div>
-      <div class="a reveal">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg></div>
-        <h3>Commercial, monthly: US$2.99 per installation</h3>
-        <p>Per PC, per month, for people who would rather not pay a year up front. Every update while you subscribe, and the same full app &mdash; a monthly licence is not a smaller one. Cancel whenever you like at <a href="https://checkout.connections.icu/manage" target="_blank" rel="noopener">checkout.connections.icu/manage</a> (sign in with the email you paid with); it runs to the end of the month you already paid for, then stops. One key per PC, emailed the moment you pay.</p>
-        <p><a class="btn btn-primary btn-sm" href="https://st2k.lunarwerx.com/subscribe" target="_blank" rel="noopener">Subscribe monthly</a></p>
-      </div>
-      <div class="a reveal">
+    <div class="pr-free reveal">
+      <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
+      <div><h3>Personal use is free</h3><p>Every format, every tool. No account, no trial, no feature gate. Source on GitHub.</p></div>
+      <a class="btn btn-ghost btn-sm js-dl-primary" data-dl="setup-x64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Setup-3.0.5.exe" download>Download</a>
+    </div>
+    <div class="pr-biz reveal">
+      <div class="pr-biz-head">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></div>
-        <h3>Commercial, one-time: US$49 per installation</h3>
-        <p>Pay once and the licence is yours permanently, with 12 months of updates. Afterwards the app keeps working as it is; another 12 months of updates is US$29, bought with your key. Security fixes are delivered to every licensed installation regardless. Cheaper than the monthly plan from about sixteen months on. One key per PC, emailed the moment you pay. Card checkout through Stripe. Redeem it under Settings &gt; Licence (version 3.0 and later).</p>
-        <p><a class="btn btn-primary btn-sm" href="https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs" target="_blank" rel="noopener">Buy a licence</a></p>
+        <div><h3>Business use: one licence per PC</h3><p>Two ways to pay for the same full app.</p></div>
       </div>
-      <div class="a reveal">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="18" rx="1"/><rect x="13" y="9" width="8" height="12" rx="1"/><path d="M6 7h2M6 11h2M6 15h2M16 13h2M16 17h2"/></svg></div>
-        <h3>Volume and site licences</h3>
-        <p>More than about 25 PCs, a purchase order, or payment by bank transfer? Tell us the seat count and we will come back with a quote and a single contract covering every machine.</p>
-        <p><button type="button" class="btn btn-ghost btn-sm" id="quote-open" aria-haspopup="dialog" aria-controls="quote">Request a quote</button></p>
-
+      <div class="pr-cols">
+        <div class="pr-col">
+          <span class="pr-tag">Monthly</span>
+          <div class="pr-price"><b>US$2.99</b><span>per PC, per month</span></div>
+          <ul class="pr-list">
+            <li>Every update while you subscribe</li>
+            <li>Cancel any time</li>
+          </ul>
+          <a class="btn btn-primary btn-sm" href="https://st2k.lunarwerx.com/subscribe" target="_blank" rel="noopener">Subscribe monthly</a>
+        </div>
+        <div class="pr-col">
+          <span class="pr-tag">One-time</span>
+          <div class="pr-price"><b>US$49</b><span>per PC, once</span></div>
+          <ul class="pr-list">
+            <li>Yours permanently</li>
+            <li>12 months of updates, then US$29 for 12 more</li>
+          </ul>
+          <a class="btn btn-primary btn-sm" href="https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs" target="_blank" rel="noopener">Buy a licence</a>
+        </div>
       </div>
     </div>
-    <p class="cmp-note reveal">How it works: install SageThumbs 2K and answer "Business" when the installer asks. The app runs fully featured while you evaluate it, then asks for a key. Buy a key, paste it under Settings &gt; Licence, done. Both the installer's question and that Licence screen are in version 3.0 and later. Each licence is bound to one machine and can be moved to a replacement PC. The monthly and one-time plans unlock exactly the same app; the only difference is how you pay and whether it keeps working when you stop. Prices are in USD; tax is added at checkout where it applies.</p>
+    <p class="pr-volume reveal">About 25 PCs or more, a purchase order, or bank transfer? <button type="button" class="pr-linkbtn" id="quote-open" aria-haspopup="dialog" aria-controls="quote">Request a quote</button> and get one contract for every machine.</p>
+    <p class="cmp-note reveal">One key per PC, emailed the moment you pay; redeem it under Settings &gt; Licence. Prices in USD, tax added at checkout.</p>
   </div>
 </section>
 
