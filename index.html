@@ -176,7 +176,7 @@
           "name": "Is it really free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, free for personal and non-commercial use, with full source available, under PolyForm Noncommercial 1.0.0. Business and commercial use needs a commercial licence per Windows installation, and you choose how to pay: US$2.99 per month, cancelled whenever you like, or US$49 once for a perpetual licence with 12 months of updates. On the one-time plan the app keeps working as it is after that window; another 12 months of updates is US$29, bought with your key. Security fixes are delivered to every licensed installation regardless."
+            "text": "Yes, for personal use, with full source under PolyForm Noncommercial 1.0.0. Business use needs a licence per PC: US$2.99 a month, or US$49 once with 12 months of updates (US$29 for 12 more)."
           }
         },
         {
@@ -184,7 +184,7 @@
           "name": "How do I buy a business licence?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Buy it online at checkout.connections.icu (card payment through Stripe); set the quantity to the number of PCs. Two plans unlock the same app: US$2.99 per installation per month, or US$49 per installation once. You receive one redemption key per installation by email the moment payment completes. In SageThumbs 2K open Settings > Licence, paste the key, and you are done. The monthly plan is cancelled whenever you like at checkout.connections.icu/manage, signing in with the email you paid with, and runs to the end of the month you already paid for. The one-time licence is perpetual and includes 12 months of updates; afterwards the app keeps working as it is, and another 12 months of updates is US$29, bought with your key from Settings > Licence. Security fixes are delivered to every licensed installation regardless. For more than about 25 PCs, purchase orders or bank transfer, request a quote from the Pricing section of sagethumbs.lunarwerx.com."
+            "text": "Online, by card: US$2.99 per PC per month, or US$49 per PC once; set the quantity to your PC count. One key per PC arrives by email; paste it under Settings > Licence. Cancel the monthly plan any time at checkout.connections.icu/manage. 25 PCs or more, or a purchase order: request a quote."
           }
         },
         {
@@ -192,7 +192,7 @@
           "name": "Is it safe to run?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The code is public, written in memory-safe Rust, and every file is decoded inside crash-isolated boundaries with bomb guards. A malformed file cannot take down Explorer or the rest of your system."
+            "text": "Public code, memory-safe Rust, every decode crash-isolated. A bad file can't take down Explorer."
           }
         },
         {
@@ -200,7 +200,7 @@
           "name": "Will it slow down Explorer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Thumbnails are generated on demand and cached by Windows, the fast paths are pure Rust, and heavy decodes run out of process. You can also cap the maximum file and thumbnail size in Settings."
+            "text": "No. Thumbnails are cached by Windows, the fast paths are pure Rust, heavy decodes run out of process, and you can cap sizes in Settings."
           }
         },
         {
@@ -208,7 +208,7 @@
           "name": "Does SageThumbs 2K work offline?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Thumbnails, the right-click toolkit, Quick Look preview, screen OCR and format conversion all run locally, using Windows' own OCR engine and bundled Rust decoders. Nothing is uploaded and no account is needed, except the optional link-upload tool, which needs an internet connection to share a file."
+            "text": "Yes. Everything runs locally; nothing is uploaded and no account is needed. Only the optional link-upload tool touches the network."
           }
         },
         {
@@ -216,7 +216,7 @@
           "name": "Why does Windows SmartScreen warn me?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "3.0 and later are code-signed by LUNARWERX LLC through Azure Artifact Signing. SmartScreen can still show its new-publisher warning for a while, because reputation is earned per publisher over downloads; if it does, click More info then Run anyway. You can also build from source."
+            "text": "3.0 and later are code-signed by LUNARWERX LLC. SmartScreen can still warn while a new publisher earns reputation: click More info, then Run anyway."
           }
         },
         {
@@ -224,7 +224,7 @@
           "name": "Which versions of Windows?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Windows 11 and Windows 10, 64-bit. The modern right-click menu and the classic menu are both supported."
+            "text": "Windows 11 and 10, 64-bit. Both right-click menus."
           }
         },
         {
@@ -232,7 +232,7 @@
           "name": "Is there a version that does not need installing?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Every release also ships a portable zip: unzip it anywhere and run it, no installer and no admin rights. Thumbnails and the classic right-click menu register per user from the Settings window; the preview pane, details pane and the Windows 11 modern menu need the installer."
+            "text": "Yes, every release ships a portable zip: unzip and run, no admin rights. The preview pane, details pane and the Windows 11 modern menu need the installer."
           }
         },
         {
@@ -240,15 +240,7 @@
           "name": "Which formats are supported?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Hundreds across Image, Camera RAW, Document, Video, Audio and Ebook or comics. Run st2k formats for the exact, live list."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What other tools does it replace?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "One installer covers a separate thumbnailer, image converter, resizer, colour picker, screenshot and annotation tool, OCR utility, EXIF viewer, metadata stripper, image uploader, file previewer, email viewer and 3D-model viewer, plus a command line and MCP server for scripts and AI agents. See what it replaces for the full list."
+            "text": "Hundreds; see the wall above, or run st2k formats for the live list."
           }
         }
       ]
@@ -958,7 +950,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     <div class="hero-grid">
       <div>
         <h1 class="reveal">Thumbnails for hundreds of formats Windows can't read.</h1>
-        <p class="lead reveal">SageThumbs 2K is a fast, crash-isolated shell extension that renders camera RAW, PSD, HEIC, video, ebooks and comics directly in File Explorer.</p>
+        <p class="lead reveal">A fast, crash-isolated shell extension that renders camera RAW, PSD, HEIC, video, ebooks and comics right in File Explorer.</p>
         <div class="cta reveal">
           <a class="btn btn-primary btn-win js-dl-primary" data-dl="setup-x64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.0.5/SageThumbs2K-Setup-3.0.5.exe" download aria-label="Download SageThumbs 2K for Windows 11 and 10, 64-bit">
             <svg class="wlogo" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.07 10.34 4.06v7.18H3zM10.34 12.41v7.2L3 18.6v-6.19zM11.49 3.9 21 2.5v8.74h-9.51zM21 12.41v8.74l-9.51-1.36v-7.38z"/></svg>
@@ -1427,7 +1419,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     <div class="head reveal">
       <span class="eyebrow">No app to open</span>
       <h2>It lives inside File Explorer.</h2>
-      <p>Thumbnails appear the moment a file lands in a folder. Right-click any supported file for a built-in image toolkit. Open Settings to choose exactly which formats get hooked, and cap size and quality.</p>
+      <p>Thumbnails appear the moment a file lands in a folder. Right-click any supported file for the image toolkit. Settings decides what gets hooked, and how big.</p>
     </div>
     <div class="exp-bento">
       <article class="ecard wide reveal">
@@ -1436,7 +1428,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
             <span class="eico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 9h18M9 9v12"/></svg></span>
             <h3>Folders that show their contents</h3>
           </div>
-          <p>RAW shoots, renders, icons and documents preview right in the grid, instead of a wall of identical blank icons.</p>
+          <p>RAW shoots, renders, icons and documents preview in the grid instead of a wall of blank icons.</p>
           <ul class="caplist">
             <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Generated on demand, the moment a file appears</li>
             <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Cached by Windows, so the second look is instant</li>
@@ -1451,7 +1443,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
             <span class="eico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span>
             <h3>A right-click toolkit</h3>
           </div>
-          <p>Convert, resize, rotate, watermark, combine to PDF or CBZ, run OCR, pick a colour off the screen, rename a selection by pattern, copy an image as a data URI, or set any image as wallpaper or lock screen. In bulk, in parallel, and nothing leaves your machine.</p>
+          <p>Convert, resize, rotate, watermark, combine to PDF or CBZ, OCR, pick a colour, rename by pattern, set as wallpaper. In bulk, in parallel, and nothing leaves your machine.</p>
           <div class="toolbits">
             <span class="tb">Convert</span><span class="tb">Resize</span><span class="tb">Rotate</span><span class="tb">Watermark</span><span class="tb">Combine to PDF</span><span class="tb">Rename by pattern</span><span class="tb">OCR</span><span class="tb">Eyedropper</span>
           </div>
@@ -1464,7 +1456,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
             <span class="eico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M4 12h16M4 18h7"/><circle cx="17" cy="6" r="2"/><circle cx="14" cy="18" r="2"/></svg></span>
             <h3>You decide what hooks</h3>
           </div>
-          <p>A dark Settings panel matching Windows: toggle any type, cap size and quality, prefer embedded previews, drag the right-click menu into the order you want, and read it all in any of 36 languages.</p>
+          <p>A dark Settings panel: toggle any type, cap size and quality, reorder the right-click menu. In 36 languages.</p>
         </div>
         <div class="evisual"><img src="img/settings.gif" width="756" height="580" alt="The SageThumbs 2K Settings window cycling its category tabs: a Win11-style nav rail, toggle switches, and system-following dark mode"></div>
       </article>
@@ -1474,11 +1466,10 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
             <span class="eico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg></span>
             <h3>Convert anything, in bulk</h3>
           </div>
-          <p>Right-click a selection and <b>Convert…</b> to JPG, PNG, WebP, TIFF and more; set the size, quality and output folder. Whole batches run in parallel, and your originals are never touched.</p>
+          <p>Right-click, <b>Convert…</b> to JPG, PNG, WebP, TIFF and more. Batches run in parallel; originals are never touched.</p>
           <ul class="caplist">
             <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Resize by fit, percentage or exact pixels</li>
             <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Per-format quality: JPEG, WebP lossless, PNG level</li>
-            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Parallel batches, output beside each file or in a chosen folder</li>
           </ul>
         </div>
         <div class="evisual"><img src="img/convert.png" width="486" height="267" alt="The SageThumbs 2K Convert dialog: output format, resize, per-format quality and output-folder options"></div>
@@ -1493,7 +1484,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     <div class="head reveal">
       <span class="eyebrow">Press Space</span>
       <h2>Tap Space. See anything.</h2>
-      <p>Select a file in Explorer and press <b>Space</b> for an instant, full-size preview. The macOS-style Quick Look Windows never had, for all the formats it can't open on its own.</p>
+      <p>Select a file, press <b>Space</b>: an instant full-size preview. The Quick Look Windows never had.</p>
     </div>
     <div class="exp-bento">
       <article class="ecard wide reveal">
@@ -1502,18 +1493,14 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
             <span class="eico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span>
             <h3>A real preview, not just a thumbnail</h3>
           </div>
-          <p>It shows any format SageThumbs can decode, and does the things a still image can't:</p>
+          <p>Anything SageThumbs can decode, plus what a still image can't do:</p>
           <ul class="caplist">
-            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Videos and audio play, with a seek bar, play/pause and volume</li>
-            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Code is syntax-highlighted with line numbers; Markdown renders GitHub-style, with an outline</li>
-            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A file nothing can render still shows you something: a hex view of its bytes, and a folder shows its real size, contents counted</li>
-            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Print what you are looking at, and keep any extension out of the preview with a per-type blocklist</li>
-            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Multi-page PDFs scroll like a document, with page thumbnails, sharp zoom and Ctrl+F search; fonts show a specimen sheet</li>
-            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Archives (zip, 7z, rar) list their contents without extracting</li>
-            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>SQLite databases (.db, .sqlite) open as tables: columns, rows and schema, read-only</li>
-            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Email files open as mail: <b>.eml</b> and Outlook <b>.msg</b> show the headers, the message and the attachment list, with nothing fetched from the web and no attachment opened</li>
-            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><b>3D-print models</b> (STL, OBJ, PLY) are rendered and shaded, so you can tell your prints apart without opening a slicer</li>
-            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>One click copies the text out of the picture you're looking at (OCR), and a table in a scan comes back as a table rather than one jumbled line</li>
+            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Video and audio play, with a seek bar</li>
+            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Code highlighted with line numbers; Markdown rendered, with an outline</li>
+            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>PDFs scroll like a document, with page thumbnails and search</li>
+            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Archives list their contents; SQLite databases open as tables</li>
+            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Email (.eml, Outlook .msg) opens as mail: nothing fetched, nothing extracted</li>
+            <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3D-print models render shaded; one click copies the text out of any picture</li>
           </ul>
           <div class="toolbits">
             <span class="tb">Space to open or close</span><span class="tb">&larr; &rarr; flip through the folder</span><span class="tb">F11 full-screen</span><span class="tb">Light or dark, per window</span><span class="tb">Never steals focus</span>
@@ -1527,7 +1514,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
             <span class="eico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h9M3 6h.01M3 12h.01M3 18h.01"/></svg></span>
             <h3>Code and text, actually readable</h3>
           </div>
-          <p>Source files open syntax-highlighted with line numbers, in the language they're written in. Text in Chinese, Japanese, Korean and Thai reads correctly too: the encoding is detected rather than assumed, and lines wrap without spaces to break on.</p>
+          <p>Source opens highlighted, in its own language. Chinese, Japanese, Korean and Thai read correctly: the encoding is detected, not assumed.</p>
         </div>
         <div class="evisual"><img src="img/preview-quicklook.png" width="1000" height="647" alt="The SageThumbs 2K Quick preview showing a Rust source file with syntax highlighting, line numbers and the caption toolbar"></div>
       </article>
@@ -1541,7 +1528,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     <div class="head reveal">
       <span class="eyebrow">One install, not a dozen</span>
       <h2>The whole stack it lets you delete.</h2>
-      <p>There's a checklist of little utilities people reinstall on every Windows box: a thumbnail pack, a converter, a color picker, a screenshot tool, an EXIF viewer. SageThumbs 2K is one shell extension (plus a single <span class="mono" style="color:var(--accent-2)">st2k.exe</span>) that quietly does all of their jobs.</p>
+      <p>A dozen little utilities people reinstall on every Windows box, done by one shell extension and one <span class="mono" style="color:var(--accent-2)">st2k.exe</span>.</p>
     </div>
 
     <div class="rstats reveal">
@@ -1552,27 +1539,23 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     </div>
 
     <div class="swaps reveal">
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>MysticThumbs</span><span>FastPictureViewer</span><span>Icaros</span></div></div><div class="new"><span class="nl">You get</span><p><b>Thumbnails</b> for the formats Windows ignores (RAW, PSD, HEIC, video, ebooks), crash-isolated so a corrupt file can't hang Explorer.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>a preview-pane add-on</span></div></div><div class="new"><span class="nl">You get</span><p>A built-in large <b>preview handler</b> for 300+ formats, in the reading pane and Open dialogs.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>QuickLook</span><span>Seer</span><span>WinQuickLook</span></div></div><div class="new"><span class="nl">You get</span><p><b>Tap Space on any file</b> for an instant full-size preview, macOS-style Quick Look.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>a free .msg viewer</span><span>opening Outlook to read one file</span></div></div><div class="new"><span class="nl">You get</span><p>Press Space on an <b>.eml or Outlook .msg</b> and read it: sender, subject, date, the message itself and a list of what is attached. Nothing is fetched from the web, and no attachment is ever opened or written out.<span style="display:inline-block;margin-left:8px;font-family:'Geist Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 45%,transparent);border-radius:6px;padding:2px 6px;vertical-align:middle">New</span></p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>Windows 3D Viewer</span><span>loading a slicer just to look</span></div></div><div class="new"><span class="nl">You get</span><p><b>STL, OBJ and PLY models</b> get a real shaded thumbnail in Explorer and a full-size preview, so a folder of prints stops being a wall of identical icons.<span style="display:inline-block;margin-left:8px;font-family:'Geist Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 45%,transparent);border-radius:6px;padding:2px 6px;vertical-align:middle">New</span></p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ExifToolGUI</span><span>Opanda IExif</span></div></div><div class="new"><span class="nl">You get</span><p>EXIF, GPS, dimensions and audio tags as <b>sortable Explorer columns</b> and details.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>XnConvert</span><span>IrfanView</span><span>ImageMagick</span></div></div><div class="new"><span class="nl">You get</span><p>Right-click <b>Convert</b> to ~29 formats (AVIF, JPEG XL, PSD, DDS, EXR), batched across every core.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>PowerToys Image Resizer</span></div></div><div class="new"><span class="nl">You get</span><p>Right-click <b>Resize</b> presets and <b>Shrink for email</b>, never upscales, keeps your original.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>jpegtran</span><span>IrfanView lossless plugin</span></div></div><div class="new"><span class="nl">You get</span><p><b>Lossless JPEG rotate and flip</b>, DCT rearrangement with zero re-encode.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>PowerToys Color Picker</span><span>Just Color Picker</span><span>Instant Eyedropper</span></div></div><div class="new"><span class="nl">You get</span><p>A <b>system-wide eyedropper</b> with a 10x loupe; Space copies <span class="mono">#RRGGBB</span> from anywhere on screen.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>Capture2Text</span><span>PowerToys Text Extractor</span></div></div><div class="new"><span class="nl">You get</span><p><b>Copy text off your screen</b>: drag a region and the words land on your clipboard, in an editable window so a misread character is fixable before you paste.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ExifCleaner</span><span>BatchPurifier</span></div></div><div class="new"><span class="nl">You get</span><p>Right-click <b>Strip metadata</b> (EXIF/IPTC/XMP/GPS), losslessly, keeping your ICC profile. Also clears <b>Content Credentials (C2PA)</b>, the provenance record ordinary cleaners leave behind, across JPEG, PNG, WebP, SVG, HEIC and AVIF.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>a washed-out HDR screenshot</span></div></div><div class="new"><span class="nl">You get</span><p><b>Screen capture that matches an HDR display</b>, tone-mapped from the real high-range image instead of the pale, blown-out copy Windows hands out. Per-monitor, so a mixed setup comes out right.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ShareX</span><span>Greenshot</span><span>Snagit</span></div></div><div class="new"><span class="nl">You get</span><p>Built-in <b>region capture</b> with an annotation editor, quick-save, and a live pixel readout — or point at a window and grab just that window, and set a delay when you need to open a menu first.<span style="display:inline-block;margin-left:8px;font-family:'Geist Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 45%,transparent);border-radius:6px;padding:2px 6px;vertical-align:middle">New</span></p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>Capture2Text</span></div></div><div class="new"><span class="nl">You get</span><p>Right-click <b>Copy text (OCR)</b>, straight to the clipboard, on Windows' own OCR engine.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ShareX uploader</span><span>Imgur apps</span></div></div><div class="new"><span class="nl">You get</span><p><b>Upload and copy a share link</b> to a keyless host, batch multi-select, no account.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>PDF24</span><span>manual 7-Zip into CBZ</span></div></div><div class="new"><span class="nl">You get</span><p><b>Combine into PDF</b> or <b>CBZ</b>, natural-sorted, from a folder of scans or pages.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ImageMagick for scripts / agents</span></div></div><div class="new"><span class="nl">You get</span><p><span class="mono">st2k.exe</span>: a full <b>CLI plus an MCP server</b>, so scripts and AI agents get an image toolbox with zero extra installs.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>MysticThumbs</span><span>FastPictureViewer</span><span>Icaros</span></div></div><div class="new"><span class="nl">You get</span><p><b>Thumbnails</b> for the formats Windows ignores, crash-isolated so a bad file can't hang Explorer.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>a preview-pane add-on</span></div></div><div class="new"><span class="nl">You get</span><p>A large <b>preview handler</b> in the reading pane and Open dialogs.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>QuickLook</span><span>Seer</span><span>WinQuickLook</span></div></div><div class="new"><span class="nl">You get</span><p><b>Tap Space on any file</b> for an instant full-size preview.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>a free .msg viewer</span><span>opening Outlook to read one file</span></div></div><div class="new"><span class="nl">You get</span><p>Space on an <b>.eml or Outlook .msg</b> reads the mail. Nothing fetched, nothing opened.<span style="display:inline-block;margin-left:8px;font-family:'Geist Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 45%,transparent);border-radius:6px;padding:2px 6px;vertical-align:middle">New</span></p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>Windows 3D Viewer</span><span>loading a slicer just to look</span></div></div><div class="new"><span class="nl">You get</span><p><b>STL, OBJ and PLY models</b> get a real shaded thumbnail and preview.<span style="display:inline-block;margin-left:8px;font-family:'Geist Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 45%,transparent);border-radius:6px;padding:2px 6px;vertical-align:middle">New</span></p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ExifToolGUI</span><span>Opanda IExif</span></div></div><div class="new"><span class="nl">You get</span><p>EXIF, GPS, dimensions and audio tags as <b>Explorer columns</b>.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>XnConvert</span><span>IrfanView</span><span>ImageMagick</span></div></div><div class="new"><span class="nl">You get</span><p>Right-click <b>Convert</b> to ~29 formats, batched across every core.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>PowerToys Image Resizer</span></div></div><div class="new"><span class="nl">You get</span><p>Right-click <b>Resize</b> presets and <b>Shrink for email</b>; never upscales.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>PowerToys Color Picker</span><span>Just Color Picker</span><span>Instant Eyedropper</span></div></div><div class="new"><span class="nl">You get</span><p>A <b>system-wide eyedropper</b> with a 10x loupe.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>Capture2Text</span><span>PowerToys Text Extractor</span></div></div><div class="new"><span class="nl">You get</span><p><b>Copy text off your screen</b>: drag a region, the words land on your clipboard.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ExifCleaner</span><span>BatchPurifier</span></div></div><div class="new"><span class="nl">You get</span><p><b>Strip metadata</b> losslessly, including <b>Content Credentials (C2PA)</b>.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>a washed-out HDR screenshot</span></div></div><div class="new"><span class="nl">You get</span><p><b>Screen capture that matches an HDR display</b>, per monitor.</p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ShareX</span><span>Greenshot</span><span>Snagit</span></div></div><div class="new"><span class="nl">You get</span><p><b>Region or window capture</b> with annotations, quick-save and a delay.<span style="display:inline-block;margin-left:8px;font-family:'Geist Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 45%,transparent);border-radius:6px;padding:2px 6px;vertical-align:middle">New</span></p></div></div>
+      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ImageMagick for scripts / agents</span></div></div><div class="new"><span class="nl">You get</span><p><span class="mono">st2k.exe</span>: a <b>CLI plus an MCP server</b>, zero extra installs.</p></div></div>
     </div>
 
-    <p class="rnote reveal">A few honest notes: some exotic formats lean on codecs already in Windows (WIC) or the bundled ImageMagick engine rather than pure Rust, and SageThumbs 2K is what wires all of it into Explorer. Several tools above (<b>PowerToys, Snipping Tool, ShareX</b>) are free too: the point isn't cost, it's not having to assemble and run a dozen of them side by side.</p>
+    <p class="rnote reveal">Some exotic formats lean on Windows' own codecs or the bundled ImageMagick; SageThumbs 2K wires it all into Explorer. Several of the tools above are free too. The point is not running a dozen of them.</p>
   </div>
 </section>
 
@@ -1583,11 +1566,11 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
       <div class="reveal">
         <span class="eyebrow">For power users and AI agents</span>
         <h2 style="font-size:clamp(1.85rem,3.4vw,2.6rem);letter-spacing:-.03em;margin:12px 0 14px">A command line and an MCP server, in the box.</h2>
-        <p class="lead">Everything the menu does, <span class="mono" style="color:var(--accent-2)">st2k.exe</span> does from the terminal. It also speaks MCP, so an AI agent can view any supported format as a real image and act on it.</p>
+        <p class="lead">Everything the menu does, <span class="mono">st2k.exe</span> does from a terminal. It speaks MCP too, so an AI agent can look at a RAW or PSD as a real image.</p>
         <ul class="featlist">
-          <li><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><div><b>Scriptable batch</b><span>Thumbnail or convert whole folders in parallel, in one process.</span></div></li>
-          <li><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><div><b>OCR and PDF tools</b><span>Pull text out of images, stitch many pages into one file.</span></div></li>
-          <li><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><div><b>An agent-ready view tool</b><span>Let a model see a RAW, PSD or HEIC it otherwise could not open.</span></div></li>
+          <li><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><div><b>Scriptable batch</b><span>Thumbnail or convert whole folders in parallel.</span></div></li>
+          <li><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><div><b>OCR and PDF tools</b><span>Text out of images; many pages into one PDF.</span></div></li>
+          <li><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><div><b>An agent-ready view tool</b><span>A model sees a RAW, PSD or HEIC it could not open.</span></div></li>
         </ul>
       </div>
       <div class="code reveal" id="codeblock">
@@ -1619,23 +1602,23 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     <div class="head reveal">
       <span class="eyebrow">safety</span>
       <h2>Safe by construction, not by promise.</h2>
-      <p>It runs inside explorer.exe, so the bar for trust is high. SageThumbs 2K is built to clear it.</p>
+      <p>It runs inside explorer.exe, so the bar is high.</p>
     </div>
     <div class="assure">
       <div class="a reveal">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg></div>
         <h3>Memory-safe Rust</h3>
-        <p>Written in Rust and sandboxed at every Explorer boundary, with a panic guard on each COM call. A broken or hostile file cannot crash File Explorer or reach your system.</p>
+        <p>Rust, sandboxed at every Explorer boundary, a panic guard on each COM call. A hostile file can't crash Explorer or reach your system.</p>
       </div>
       <div class="a reveal">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
         <h3>Read-only by default</h3>
-        <p>Thumbnailing never writes to your files. The toolkit only writes when you ask it to, and it creates new files rather than overwriting the original.</p>
+        <p>Thumbnailing never writes to your files. The toolkit creates new files; it never overwrites the original.</p>
       </div>
       <div class="a reveal">
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></div>
         <h3>Free and source-available</h3>
-        <p>Free for personal use under the PolyForm Noncommercial license, with the full source on GitHub. Read it, audit it, or build it yourself.</p>
+        <p>Free for personal use under PolyForm Noncommercial, full source on GitHub.</p>
       </div>
     </div>
   </div>
@@ -1647,7 +1630,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     <div class="head reveal">
       <span class="eyebrow">how it compares</span>
       <h2>Where SageThumbs 2K fits.</h2>
-      <p>Explorer thumbnails and a spacebar preview are not new ideas. Here is how SageThumbs 2K stacks up, honestly, against the tools people usually weigh it against.</p>
+      <p>How SageThumbs 2K stacks up, honestly, against the usual suspects.</p>
     </div>
     <div class="cmp-wrap reveal">
       <table class="cmp-table">
@@ -1665,40 +1648,40 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
         <tbody>
           <tr class="us">
             <th scope="row">SageThumbs 2K</th>
-            <td>Free for personal use; for business US$2.99 per PC monthly or US$49 per PC once</td>
+            <td>Free at home; at work US$2.99 per PC monthly or US$49 once</td>
             <td>Yes, 334 formats</td>
-            <td>Yes, video and audio play, code, PDFs and SQLite render</td>
+            <td>Yes: video, audio, code, PDFs, SQLite</td>
             <td>Yes, built in</td>
             <td>Yes, actively developed</td>
           </tr>
           <tr>
             <th scope="row">Classic SageThumbs</th>
             <td>Free (GPL-2.0)</td>
-            <td>Image formats only, via the bundled GFL library</td>
+            <td>Images only (bundled GFL)</td>
             <td>No</td>
             <td>No</td>
-            <td>No, discontinued since 2019</td>
+            <td>No, discontinued 2019</td>
           </tr>
           <tr>
             <th scope="row">MysticThumbs</th>
-            <td>Paid (14-day trial, then a license)</td>
-            <td>RAW, PSD, HEIC/AVIF, audio waveforms and ebook covers; no video</td>
-            <td>Yes, QuickView (Space bar)</td>
-            <td>Convert via QuickView; no resize or OCR</td>
+            <td>Paid (14-day trial)</td>
+            <td>RAW, PSD, HEIC/AVIF, audio, ebooks; no video</td>
+            <td>Yes (QuickView)</td>
+            <td>Convert only</td>
             <td>Yes, commercial</td>
           </tr>
           <tr>
             <th scope="row">Microsoft PowerToys</th>
             <td>Free, open source</td>
-            <td>No, thumbnails cover SVG, PDF, Markdown and code; RAW/PSD/HEIC are open feature requests</td>
+            <td>No: SVG, PDF, Markdown and code only</td>
             <td>Yes (Peek)</td>
-            <td>Some, as separate utilities: Image Resizer, Color Picker, Text Extractor</td>
+            <td>Some, as separate utilities</td>
             <td>Yes, active (Microsoft)</td>
           </tr>
           <tr>
             <th scope="row">QuickLook (QL-Win)</th>
-            <td>Free, open source (GPL-3.0)</td>
-            <td>No, it previews on Space, but doesn't touch Explorer's thumbnails</td>
+            <td>Free, open source</td>
+            <td>No, preview only</td>
             <td>Yes, its whole purpose</td>
             <td>No</td>
             <td>Yes, active</td>
@@ -1706,7 +1689,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
         </tbody>
       </table>
     </div>
-    <p class="cmp-note reveal">Competitor details reflect each project's own public pages as of August 2026 (PowerToys and QuickLook on GitHub, MysticThumbs on mysticcoder.net); check their sites for current specifics. SageThumbs 2K is a clean-room rebuild that credits Nikolay Raspopov's original SageThumbs as its namesake and inspiration.</p>
+    <p class="cmp-note reveal">Competitor details from each project's own pages, August 2026. SageThumbs 2K is a clean-room rebuild that credits Nikolay Raspopov's original.</p>
   </div>
 </section>
 
@@ -1791,46 +1774,43 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
       <div>
         <details class="reveal" open>
           <summary><h3>Is it really free?</h3><span class="pm" aria-hidden="true"></span></summary>
-          <div class="ans">Yes, free for personal and non-commercial use, with full source available, under PolyForm Noncommercial 1.0.0. Business and commercial use needs a commercial licence per Windows installation, and you choose how to pay: US$2.99 per month, cancelled whenever you like, or US$49 once for a perpetual licence with 12 months of updates. On the one-time plan the app keeps working as it is after that window; another 12 months of updates is US$29, bought with your key. Security fixes are delivered to every licensed installation regardless.</div>
+          <div class="ans">Yes, for personal use, with full source under PolyForm Noncommercial 1.0.0. Business use needs a licence per PC: US$2.99 a month, or US$49 once with 12 months of updates (US$29 for 12 more).</div>
         </details>
         <details class="reveal">
           <summary><h3>How do I buy a business licence?</h3><span class="pm" aria-hidden="true"></span></summary>
-          <div class="ans">Buy it online at <a href="https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs" target="_blank" rel="noopener">checkout.connections.icu</a> (card payment through Stripe); set the quantity to the number of PCs. Two plans unlock exactly the same app: <a href="https://st2k.lunarwerx.com/subscribe" target="_blank" rel="noopener">US$2.99 per installation per month</a>, or US$49 per installation once. You receive one redemption key per installation by email the moment payment completes. In SageThumbs 2K open Settings &gt; Licence, paste the key, and you are done. The monthly plan is cancelled whenever you like at <a href="https://checkout.connections.icu/manage" target="_blank" rel="noopener">checkout.connections.icu/manage</a>, signing in with the email you paid with, and runs to the end of the month you already paid for. The one-time licence is perpetual and includes 12 months of updates; afterwards the app keeps working as it is, and another 12 months of updates is US$29, bought with your key from Settings &gt; Licence. Security fixes are delivered to every licensed installation regardless. For more than about 25 PCs, purchase orders or bank transfer, <a href="#pricing">request a quote</a> from the Pricing section.</div>
+          <div class="ans">Online, by card: <a href="https://st2k.lunarwerx.com/subscribe" target="_blank" rel="noopener">US$2.99 per PC per month</a>, or <a href="https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs" target="_blank" rel="noopener">US$49 per PC once</a>; set the quantity to your PC count. One key per PC arrives by email; paste it under Settings &gt; Licence. Cancel the monthly plan any time at <a href="https://checkout.connections.icu/manage" target="_blank" rel="noopener">checkout.connections.icu/manage</a>. 25 PCs or more, or a purchase order: <a href="#pricing">request a quote</a>.</div>
         </details>
         <details class="reveal">
           <summary><h3>Is it safe to run?</h3><span class="pm" aria-hidden="true"></span></summary>
-          <div class="ans">The code is public, written in memory-safe Rust, and every file is decoded inside crash-isolated boundaries with bomb guards. A malformed file cannot take down Explorer or the rest of your system.</div>
+          <div class="ans">Public code, memory-safe Rust, every decode crash-isolated. A bad file can't take down Explorer.</div>
         </details>
         <details class="reveal">
           <summary><h3>Will it slow down Explorer?</h3><span class="pm" aria-hidden="true"></span></summary>
-          <div class="ans">No. Thumbnails are generated on demand and cached by Windows, the fast paths are pure Rust, and heavy decodes run out of process. You can also cap the maximum file and thumbnail size in <code>Settings</code>.</div>
+          <div class="ans">No. Thumbnails are cached by Windows, the fast paths are pure Rust, heavy decodes run out of process, and you can cap sizes in <code>Settings</code>.</div>
         </details>
         <details class="reveal">
           <summary><h3>Does SageThumbs 2K work offline?</h3><span class="pm" aria-hidden="true"></span></summary>
-          <div class="ans">Yes. Thumbnails, the right-click toolkit, Quick Look preview, screen OCR and format conversion all run locally, using Windows' own OCR engine and bundled Rust decoders. Nothing is uploaded and no account is needed, except the optional link-upload tool, which needs an internet connection to share a file.</div>
+          <div class="ans">Yes. Everything runs locally; nothing is uploaded and no account is needed. Only the optional link-upload tool touches the network.</div>
         </details>
       </div>
       <div>
         <details class="reveal">
           <summary><h3>Why does Windows SmartScreen warn me?</h3><span class="pm" aria-hidden="true"></span></summary>
-          <div class="ans">3.0 and later are code-signed by LUNARWERX LLC through Azure Artifact Signing. SmartScreen can still show its new-publisher warning for a while, because reputation is earned per publisher over downloads; if it does, click <code>More info</code> then <code>Run anyway</code>. You can also build from source.</div>
+          <div class="ans">3.0 and later are code-signed by LUNARWERX LLC. SmartScreen can still warn while a new publisher earns reputation: click <code>More info</code>, then <code>Run anyway</code>.</div>
         </details>
         <details class="reveal">
           <summary><h3>Which versions of Windows?</h3><span class="pm" aria-hidden="true"></span></summary>
-          <div class="ans">Windows 11 and Windows 10, 64-bit. The modern right-click menu and the classic menu are both supported.</div>
+          <div class="ans">Windows 11 and 10, 64-bit. Both right-click menus.</div>
         </details>
         <details class="reveal">
           <summary><h3>Is there a version that does not need installing?</h3><span class="pm" aria-hidden="true"></span></summary>
-          <div class="ans">Yes. Every release also ships a portable zip: unzip it anywhere and run it, no installer and no admin rights. Thumbnails and the classic right-click menu register per user from the Settings window; the preview pane, details pane and the Windows 11 modern menu need the installer.</div>
+          <div class="ans">Yes, every release ships a portable zip: unzip and run, no admin rights. The preview pane, details pane and the Windows 11 modern menu need the installer.</div>
         </details>
         <details class="reveal">
           <summary><h3>Which formats are supported?</h3><span class="pm" aria-hidden="true"></span></summary>
-          <div class="ans">Hundreds across Image, Camera RAW, Document, Video, Audio and Ebook or comics. Run <code>st2k formats</code> for the exact, live list.</div>
+          <div class="ans">Hundreds; see the wall above, or run <code>st2k formats</code> for the live list.</div>
         </details>
-        <details class="reveal">
-          <summary><h3>What other tools does it replace?</h3><span class="pm" aria-hidden="true"></span></summary>
-          <div class="ans">One installer covers a separate thumbnailer, image converter, resizer, colour picker, screenshot and annotation tool, OCR utility, EXIF viewer, metadata stripper, image uploader, file previewer, email viewer and 3D-model viewer, plus a command line and MCP server for scripts and AI agents. See <a href="#replaces">what it replaces</a> for the full list.</div>
-        </details>
+        
       </div>
     </div>
   </div>
@@ -1889,7 +1869,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     <div class="foot">
       <div class="brand-col">
         <a class="brand" href="#top"><img src="img/logo.png" width="27" height="27" alt=""> SageThumbs<span class="k">2K</span></a>
-        <p class="note" style="margin-top:14px">A clean-room modern rebuild of the classic SageThumbs by Nikolay Raspopov. Full credit to the original, whose name and idea this carries forward. Built in Rust by LunarWerx.</p>
+        <p class="note" style="margin-top:14px">A clean-room rebuild of Nikolay Raspopov's SageThumbs, whose name and idea it carries forward. Built in Rust by LunarWerx.</p>
         <a class="sponsor" href="https://lunarwerx.com/" target="_blank" rel="noopener" aria-label="Sponsored by LunarWerx, opens in a new tab">
           <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           <span class="st"><span class="l">Sponsored by</span><span class="n">LunarWerx</span></span>
