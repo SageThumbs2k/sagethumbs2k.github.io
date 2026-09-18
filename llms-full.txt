@@ -1,7 +1,7 @@
 # SageThumbs 2K
 
 > A free, crash-isolated Windows 11 (and Windows 10) shell extension that adds File
-> Explorer thumbnails for 334 file types Windows can't preview on its own: camera RAW,
+> Explorer thumbnails for 349 file types Windows can't preview on its own: camera RAW,
 > Photoshop PSD/PSB, HEIC/AVIF, video, ebooks, comics, 3D-print models and archives,
 > plus a right-click image toolkit, a spacebar Quick Look preview, and a
 > command-line / MCP tool for scripts and AI agents.
@@ -25,8 +25,8 @@ or AI agents that need a CLI or MCP tool to view formats they otherwise can't op
 
 ## Key facts
 
-- 334 supported formats across 7 categories: Image (202), Document (43), Camera RAW
-  (34), Video (22), Audio (18), Ebook and comics (12), Archive (3).
+- 349 supported formats across 7 categories: Image (213), Document (43), Camera RAW
+  (34), Video (26), Audio (18), Ebook and comics (12), Archive (3).
 - Marquee formats: camera RAW (CR2, NEF, ARW, RAF and more), Photoshop PSD/PSB, HEIC,
   AVIF, JPEG XL, OpenEXR/HDR, DICOM, SVG, video frames (MP4, MKV, MOV, WebM), ebook and
   comic covers (EPUB, MOBI, CBZ), 3D-print models (STL, OBJ, PLY), Android APKs, audio
@@ -67,7 +67,7 @@ or AI agents that need a CLI or MCP tool to view formats they otherwise can't op
   per monitor. Annotation editor included. Upload and copy a share link to a keyless
   host, no account.
 - `st2k` CLI: batch thumbnail/convert whole folders, OCR, PDF tools. Speaks MCP
-  (`st2k --mcp`), so an AI agent can view any of the 334 formats as a real image.
+  (`st2k --mcp`), so an AI agent can view any of the 349 formats as a real image.
 - Thumbnailing is read-only by default; the toolkit writes only when asked, creating
   new files rather than overwriting originals. Email attachments are listed only,
   never opened, extracted or written out. Everything runs locally except the optional
@@ -77,7 +77,7 @@ or AI agents that need a CLI or MCP tool to view formats they otherwise can't op
 
 - Classic SageThumbs (Raspopov, GPL-2.0): free, image-formats-only via the GFL
   library, discontinued since 2019. SageThumbs 2K is its Rust-rewritten, actively
-  maintained successor with 334 formats plus the toolkit.
+  maintained successor with 349 formats plus the toolkit.
 - MysticThumbs: paid (14-day trial, then a license); covers RAW, PSD, HEIC/AVIF, audio
   waveforms and ebook covers, but no video thumbnails. It has a Space-bar QuickView
   that can convert files; it does not offer resize or OCR.
