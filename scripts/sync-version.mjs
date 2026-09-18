@@ -192,7 +192,44 @@ const COUNT_RULES = {
   'docs/ABOUT.md': [
     between(/(thumbnail extension for )\d+( file formats)/),
   ],
+  // pricing.md said "346 supported formats" from 2026-09-16 until 2026-09-18 while the wall
+  // held 349: it was the one counted file outside this table.
+  'pricing.md': [
+    between(/(All )\d+( supported formats)/),
+  ],
 };
+
+/**
+ * The version and "last updated" lines outside index.html. RELEASE-SECURITY.md used to say to
+ * bump these by hand on release day, and on 2026-09-18 they were found three releases stale
+ * (llms-full said 3.0.0, pricing said 3.0.5, the published release was 3.1.1). They ride the
+ * same pass as the counts now. `date` is the release's publish date (UTC), which is when the
+ * content these files describe last changed.
+ */
+const VERSION_RULES = {
+  'llms-full.txt': [
+    { re: /(Last updated: )\d{4}-\d{2}-\d{2}(\. Current version: )\d+\.\d+\.\d+/,
+      render: (v, d, _m, a, b) => `${a}${d}${b}${v}` },
+  ],
+  'pricing.md': [
+    { re: /(Last updated: )\d{4}-\d{2}-\d{2}/, render: (_v, d, _m, a) => `${a}${d}` },
+    { re: /(current_version: )\d+\.\d+\.\d+/, render: (v, _d, _m, a) => `${a}${v}` },
+  ],
+};
+
+function rewriteVersions(text, rules, version, date, file) {
+  let out = text;
+  for (const rule of rules || []) {
+    if (countMatches(out, rule.re) === 0) {
+      throw new Error(
+        `sync-version: ${file}: the version marker ${rule.re} was not found. Refusing to treat a ` +
+        `missing marker as "already current" -- the copy changed shape; fix the rule in ` +
+        `VERSION_RULES or the text.`);
+    }
+    out = out.replace(new RegExp(rule.re.source, 'g'), (...m) => rule.render(version, date, ...m));
+  }
+  return out;
+}
 
 function rewriteCounts(text, rules, wall, file) {
   const eol = text.includes('\r\n') ? '\r\n' : '\n';
@@ -240,7 +277,11 @@ async function latestRelease() {
   const tag = String(body.tag_name ?? '').trim().replace(/^v/, '');
   if (!/^\d+\.\d+\.\d+/.test(tag)) throw new Error(`tag_name is not a version: ${tag || '(empty)'}`);
   const assets = new Set((body.assets ?? []).map((a) => String(a.name ?? '')));
-  return { version: tag, assets };
+  // The publish date, for the "Last updated" lines VERSION_RULES owns. Refused when it is
+  // not a date for the same reason the tag is: a blank in the page is worse than last time's.
+  const date = String(body.published_at ?? '').slice(0, 10);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new Error(`published_at is not a date: ${date || '(empty)'}`);
+  return { version: tag, assets, date };
 }
 
 /**
@@ -325,7 +366,7 @@ function rewriteDownloads(html, version, assets) {
 }
 
 async function main() {
-  const { version, assets } = await latestRelease();
+  const { version, assets, date } = await latestRelease();
   const page = fs.readFileSync(PAGE, 'utf8');
   validateCategoryCount(page);
   const wall = wallCounts(page);
@@ -338,11 +379,12 @@ async function main() {
     const before = fs.readFileSync(file, 'utf8');
     let after = rel === 'index.html' ? rewriteDownloads(rewrite(before, version), version, assets) : before;
     after = rewriteCounts(after, rules, wall, rel);
+    after = rewriteVersions(after, VERSION_RULES[rel], version, date, rel);
     assertNoStrayCounts(after, wall.total, rel);
     if (before === after) continue;
     // Say what moved. A silent "updated" tells nobody whether the rules still match what the
     // files look like today.
-    const versionsWere = [...before.matchAll(/"softwareVersion"\s*:\s*"([^"]+)"/g)].map((m) => m[1]);
+    const versionsWere = [...before.matchAll(/(?:"softwareVersion"\s*:\s*"|Current version: |current_version: )(\d+\.\d+\.\d+)/g)].map((m) => m[1]);
     const countsWere = [...before.matchAll(/\b(\d{3})\s+(?:file types|file formats|supported formats|formats)\b/g)].map((m) => m[1]);
     const notes = [];
     if (versionsWere.length) notes.push(`version ${[...new Set(versionsWere)].join(', ')} -> ${version}`);
