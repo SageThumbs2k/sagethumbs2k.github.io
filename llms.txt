@@ -19,7 +19,7 @@ SageThumbs 2K is a modern, clean-room rebuild of the classic SageThumbs by Nikol
 - Home: https://sagethumbs.lunarwerx.com/
 - Full brief: https://sagethumbs.lunarwerx.com/llms-full.txt
 - Pricing (machine-readable): https://sagethumbs.lunarwerx.com/pricing.md
-- Buy a commercial licence: https://st2k.lunarwerx.com/buy
+- Buy a commercial licence: https://go.lunarwerx.com/sagethumbs/buy
 - Source code: https://github.com/LunarWerxs/SageThumbs-2k
 - Download: https://github.com/LunarWerxs/SageThumbs-2k/releases/latest
 - License: https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md
