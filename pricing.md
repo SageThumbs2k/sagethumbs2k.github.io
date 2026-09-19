@@ -25,8 +25,8 @@ often you pay and what happens when you stop. Tax is added at checkout where it 
 ### Monthly subscription
 
 - Price: US$2.99 per installation per month.
-- How to buy: https://checkout.connections.icu/licence/c16cca94-53a4-4e7a-b434-0737fdfc21bb?slug=sagethumbs
-- Cancellation: any time, self-serve, at https://checkout.connections.icu/manage - sign in
+- How to buy: https://st2k.lunarwerx.com/buy/monthly
+- Cancellation: any time, self-serve, at https://st2k.lunarwerx.com/manage - sign in
   with the email used to pay. The licence runs to the end of the period already paid for
   and then stops entitling the machine; nothing is pro-rated and nothing is clawed back.
 - Updates: every release published while the subscription is live.
@@ -39,9 +39,9 @@ often you pay and what happens when you stop. Tax is added at checkout where it 
   12 months of updates. Afterwards the app keeps working as it is; another 12 months of
   updates is US$29, bought with your key. Security fixes are delivered to every licensed
   installation regardless.
-- How to buy: https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
+- How to buy: https://st2k.lunarwerx.com/buy
 - Renewal: US$29 per installation for another 12 months of updates, bought with the same
-  key at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98/renew
+  key at https://st2k.lunarwerx.com/renew
   Optional. A licence that is never renewed keeps working; it simply stops being offered
   builds published after its window ended, security releases excepted.
 - Break-even against the monthly plan: about 16 months.
@@ -76,9 +76,9 @@ price_personal_use: 0 USD
 price_commercial_monthly: 2.99 USD per installation per month (subscription; ends when cancelled)
 price_commercial_use: 49 USD per installation, one-time (perpetual + 12 months updates)
 price_commercial_renewal: 29 USD per installation for another 12 months of updates (optional, one-time plan only)
-buy_url_commercial_monthly: https://checkout.connections.icu/licence/c16cca94-53a4-4e7a-b434-0737fdfc21bb?slug=sagethumbs
-buy_url_commercial: https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
-cancel_url_commercial_monthly: https://checkout.connections.icu/manage
+buy_url_commercial_monthly: https://st2k.lunarwerx.com/buy/monthly
+buy_url_commercial: https://st2k.lunarwerx.com/buy
+cancel_url_commercial_monthly: https://st2k.lunarwerx.com/manage
 billing_model: choice of monthly subscription or one-time perpetual, source-available, free for personal/non-commercial use
 license: PolyForm-Noncommercial-1.0.0
 trial_required: false

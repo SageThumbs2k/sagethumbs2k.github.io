@@ -39,8 +39,8 @@ or AI agents that need a CLI or MCP tool to view formats they otherwise can't op
   US$2.99 per month, or US$49 one-time for a perpetual licence with 12 months of updates. On the one-time
   plan the app keeps working as it is afterwards; another 12 months of updates is US$29, bought with your
   key. A monthly licence stops entitling the machine when the subscription ends. Security fixes are
-  delivered to every licensed installation regardless. Monthly bought at https://checkout.connections.icu/licence/c16cca94-53a4-4e7a-b434-0737fdfc21bb?slug=sagethumbs and cancelled at https://checkout.connections.icu/manage;
-  one-time bought at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
+  delivered to every licensed installation regardless. Monthly bought at https://st2k.lunarwerx.com/buy/monthly and cancelled at https://st2k.lunarwerx.com/manage;
+  one-time bought at https://st2k.lunarwerx.com/buy
 
 ## Features
 
@@ -102,15 +102,15 @@ or build from source.
 Free for personal and non-commercial use. Business and commercial use is priced per
 installation (one Windows machine) and sold two ways, both unlocking exactly the same app.
 
-Monthly: US$2.99 per installation per month. Cancel whenever you like at https://checkout.connections.icu/manage
+Monthly: US$2.99 per installation per month. Cancel whenever you like at https://st2k.lunarwerx.com/manage
 (sign in with the email you paid with); it runs to the end of the month already paid for, then
-the machine stops being entitled. Buy at https://checkout.connections.icu/licence/c16cca94-53a4-4e7a-b434-0737fdfc21bb?slug=sagethumbs
+the machine stops being entitled. Buy at https://st2k.lunarwerx.com/buy/monthly
 
 One-time: US$49 per installation. Perpetual licence with 12 months of updates. Afterwards the
 app keeps working as it is; another 12 months of updates is US$29, bought
-with your key at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98/renew
+with your key at https://st2k.lunarwerx.com/renew
 Security fixes are delivered to every licensed installation regardless.
-Buy at https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
+Buy at https://st2k.lunarwerx.com/buy
 (card payment via Stripe; one redemption key per installation is emailed on payment).
 Redeem under Settings > Licence (version 3.0 and later). Volume, site licences, purchase orders or bank transfer:
 request a quote with the form at https://sagethumbs.lunarwerx.com/#pricing (Request a quote)
@@ -143,6 +143,6 @@ from LunarWerx.
 - Download: https://github.com/LunarWerxs/SageThumbs-2k/releases/latest
 - License: https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md
 - Pricing (machine-readable): https://sagethumbs.lunarwerx.com/pricing.md
-- Buy a commercial licence: https://checkout.connections.icu/licence/24544461-9530-4edb-84e5-4f3471876d98?slug=sagethumbs
+- Buy a commercial licence: https://st2k.lunarwerx.com/buy
 - Short brief: https://sagethumbs.lunarwerx.com/llms.txt
 - Publisher: https://lunarwerx.com/
