@@ -197,6 +197,11 @@ const COUNT_RULES = {
   'pricing.md': [
     between(/(All )\d+( supported formats)/),
   ],
+  // The install manifest's description said 316 from the day it was written until 2026-09-19:
+  // nothing counted it (audit F24).
+  'site.webmanifest': [
+    between(/(thumbnails for )\d+( file types Windows can't read)/),
+  ],
 };
 
 /**
