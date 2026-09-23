@@ -8,7 +8,7 @@ tools. Human-readable page: https://sagethumbs.lunarwerx.com/
 - Price: $0. No subscription, no trial period, no feature gate, no account required.
 - License: [PolyForm Noncommercial 1.0.0](https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md)
 - Source: source-available on GitHub, https://github.com/LunarWerxs/SageThumbs-2k
-- Limits: none. All 349 supported formats, the full right-click toolkit, Quick Look
+- Limits: none. All 361 supported formats, the full right-click toolkit, Quick Look
   preview (including email files and 3D-print models), screen OCR, screen capture, and
   the `st2k` CLI/MCP server are included at this tier.
 - Platform: Windows 11 or Windows 10, 64-bit only.

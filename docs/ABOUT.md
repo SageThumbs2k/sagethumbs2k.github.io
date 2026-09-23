@@ -1,6 +1,6 @@
 # SageThumbs 2K site
 
-> Marketing and download site for SageThumbs 2K, a Windows Explorer thumbnail extension for 349 file formats.
+> Marketing and download site for SageThumbs 2K, a Windows Explorer thumbnail extension for 361 file formats.
 
 <!-- odin:about HAND-OWNED above the GENERATED marker. Edit freely; `odin codex about --ingest` carries it back into Odin's Codex. -->
 
