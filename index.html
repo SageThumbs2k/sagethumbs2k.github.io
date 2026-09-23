@@ -839,6 +839,7 @@
   .replaces .swap .chips{display:flex;flex-wrap:wrap;gap:6px}
   .replaces .swap .chips span{font-size:.79rem;color:var(--ink-3);padding:3px 9px;border-radius:7px;border:1px solid var(--line-2);
         background:var(--elev-1);text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--ink-3) 70%,transparent)}
+  .replaces .swap.one{grid-template-columns:1fr}
   .replaces .swap .new{border-left:1px solid var(--line);padding-left:20px}
   .replaces .swap .new p{font-size:.95rem;color:var(--ink);line-height:1.5}
   .replaces .swap .new b{color:var(--ink);font-weight:600}
@@ -963,8 +964,8 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <h1 class="reveal">Thumbnails for hundreds of formats Windows can't read.</h1>
-        <p class="lead reveal">A fast, crash-isolated shell extension that renders camera RAW, PSD, HEIC, video, ebooks and comics right in File Explorer.</p>
+        <h1 class="reveal">Real thumbnails where Windows shows a blank icon.</h1>
+        <p class="lead reveal">Camera RAW, PSD, HEIC, video, ebooks and comics, drawn right in File Explorer. A bad file can't hang it.</p>
         <div class="cta reveal">
           <a class="btn btn-primary btn-win js-dl-primary" data-dl="setup-x64" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/download/v3.2.0/SageThumbs2K-Setup-3.2.0.exe" download aria-label="Download SageThumbs 2K for Windows 11 and 10, 64-bit">
             <svg class="wlogo" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.07 10.34 4.06v7.18H3zM10.34 12.41v7.2L3 18.6v-6.19zM11.49 3.9 21 2.5v8.74h-9.51zM21 12.41v8.74l-9.51-1.36v-7.38z"/></svg>
@@ -1559,7 +1560,7 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     <div class="head reveal">
       <span class="eyebrow">One install, not a dozen</span>
       <h2>The whole stack it lets you delete.</h2>
-      <p>A dozen little utilities people reinstall on every Windows box, done by one shell extension and one <span class="mono" style="color:var(--accent-2)">st2k.exe</span>.</p>
+      <p>Thumbnails, a Space-bar preview, Explorer metadata columns, convert, resize, metadata stripping, a colour picker, screen OCR and screenshots, all from one shell extension and one <span class="mono" style="color:var(--accent-2)">st2k.exe</span>.</p>
     </div>
 
     <div class="rstats reveal">
@@ -1570,23 +1571,10 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
     </div>
 
     <div class="swaps reveal">
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>MysticThumbs</span><span>FastPictureViewer</span><span>Icaros</span></div></div><div class="new"><span class="nl">You get</span><p><b>Thumbnails</b> for the formats Windows ignores, crash-isolated so a bad file can't hang Explorer.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>a preview-pane add-on</span></div></div><div class="new"><span class="nl">You get</span><p>A large <b>preview handler</b> in the reading pane and Open dialogs.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>QuickLook</span><span>Seer</span><span>WinQuickLook</span></div></div><div class="new"><span class="nl">You get</span><p><b>Tap Space on any file</b> for an instant full-size preview.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>a free .msg viewer</span><span>opening Outlook to read one file</span></div></div><div class="new"><span class="nl">You get</span><p>Space on an <b>.eml or Outlook .msg</b> reads the mail. Nothing fetched, nothing opened.<span style="display:inline-block;margin-left:8px;font-family:'Geist Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 45%,transparent);border-radius:6px;padding:2px 6px;vertical-align:middle">New</span></p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>Windows 3D Viewer</span><span>loading a slicer just to look</span></div></div><div class="new"><span class="nl">You get</span><p><b>STL, OBJ and PLY models</b> get a real shaded thumbnail and preview.<span style="display:inline-block;margin-left:8px;font-family:'Geist Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 45%,transparent);border-radius:6px;padding:2px 6px;vertical-align:middle">New</span></p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ExifToolGUI</span><span>Opanda IExif</span></div></div><div class="new"><span class="nl">You get</span><p>EXIF, GPS, dimensions and audio tags as <b>Explorer columns</b>.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>XnConvert</span><span>IrfanView</span><span>ImageMagick</span></div></div><div class="new"><span class="nl">You get</span><p>Right-click <b>Convert</b> to ~29 formats, batched across every core.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>PowerToys Image Resizer</span></div></div><div class="new"><span class="nl">You get</span><p>Right-click <b>Resize</b> presets and <b>Shrink for email</b>; never upscales.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>PowerToys Color Picker</span><span>Just Color Picker</span><span>Instant Eyedropper</span></div></div><div class="new"><span class="nl">You get</span><p>A <b>system-wide eyedropper</b> with a 10x loupe.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>Capture2Text</span><span>PowerToys Text Extractor</span></div></div><div class="new"><span class="nl">You get</span><p><b>Copy text off your screen</b>: drag a region, the words land on your clipboard.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ExifCleaner</span><span>BatchPurifier</span></div></div><div class="new"><span class="nl">You get</span><p><b>Strip metadata</b> losslessly, including <b>Content Credentials (C2PA)</b>.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>a washed-out HDR screenshot</span></div></div><div class="new"><span class="nl">You get</span><p><b>Screen capture that matches an HDR display</b>, per monitor.</p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ShareX</span><span>Greenshot</span><span>Snagit</span></div></div><div class="new"><span class="nl">You get</span><p><b>Region or window capture</b> with annotations, quick-save and a delay.<span style="display:inline-block;margin-left:8px;font-family:'Geist Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);border:1px solid color-mix(in srgb,var(--teal) 45%,transparent);border-radius:6px;padding:2px 6px;vertical-align:middle">New</span></p></div></div>
-      <div class="swap"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>ImageMagick for scripts / agents</span></div></div><div class="new"><span class="nl">You get</span><p><span class="mono">st2k.exe</span>: a <b>CLI plus an MCP server</b>, zero extra installs.</p></div></div>
+      <div class="swap one"><div class="old"><span class="ol">Instead of</span><div class="chips"><span>MysticThumbs</span><span>Icaros</span><span>FastPictureViewer</span><span>QuickLook</span><span>Seer</span><span>ExifToolGUI</span><span>XnConvert</span><span>IrfanView</span><span>PowerToys Image Resizer</span><span>PowerToys Color Picker</span><span>Capture2Text</span><span>ExifCleaner</span><span>ShareX</span><span>Greenshot</span><span>Snagit</span></div></div></div>
     </div>
 
-    <p class="rnote reveal">Exotic formats lean on Windows' codecs or the bundled ImageMagick. The point is not running a dozen tools.</p>
+    <p class="rnote reveal">Exotic formats lean on Windows' codecs or the bundled ImageMagick.</p>
   </div>
 </section>
 

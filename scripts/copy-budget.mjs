@@ -2,9 +2,10 @@
 /**
  * Landing-page copy gate.
  *
- * Two owner rules, enforced rather than remembered:
+ * Two owner rules, enforced rather than remembered, plus one leak check:
  *   1. No em-dashes in anything visitor-facing. This is absolute.
  *   2. A landing page is a couple hundred words a first-time visitor actually reads.
+ *   3. No file path from a build machine anywhere in the HTML.
  *
  * The paragraph limit is 40, not the tighter 30 first tried. 30 flagged a single
  * 35-word paragraph whose only fix was a cosmetic edit that could not be checked by
@@ -84,6 +85,13 @@ for (const m of html.matchAll(/—|&mdash;/g)) {
   if (!codeSpans.some(([a, b]) => m.index >= a && m.index < b)) dashes++;
 }
 
+// A path off a build machine (a generator that echoed where it ran, a pasted log line) must
+// never reach the public page. The install folder under Program Files is public knowledge.
+const localPaths = [
+  ...html.matchAll(/\b[A-Za-z]:[\\/](?!Program Files|Windows[\\/])[^\s"'<>]{2,}/g),
+  ...html.matchAll(/\/(?:home|Users)\/[A-Za-z][^\s"'<>]*/g),
+].map((m) => m[0].slice(0, 60));
+
 if (process.argv.includes('--update')) {
   writeFileSync(BASELINE, JSON.stringify({ words, note: 'visible prose words; lower is better' }, null, 2) + '\n');
   console.log(`copy-budget: baseline recorded at ${words} words.`);
@@ -94,6 +102,7 @@ const base = existsSync(BASELINE) ? JSON.parse(readFileSync(BASELINE, 'utf8')).w
 const ceiling = base === null ? Infinity : Math.round(base * GROWTH_SLACK);
 const fails = [];
 
+if (localPaths.length) fails.push(`${localPaths.length} local file path(s) in the page, e.g. ${localPaths[0]}`);
 if (dashes > 0) fails.push(`${dashes} em-dash(es) in visitor-facing copy. The owner's rule is zero; use a comma, colon, semicolon or period.`);
 if (longParas.length) {
   fails.push(`${longParas.length} paragraph(s) over ${PARA_LIMIT} words:`);
