@@ -32,6 +32,10 @@ or AI agents that need a CLI or MCP tool to view formats they otherwise can't op
   comic covers (EPUB, MOBI, CBZ), 3D-print models (STL, OBJ, PLY), Android APKs, audio
   album art and waveforms. Flash video and 10/12-bit HDR VP9 are decoded by SageThumbs
   itself, since Windows ships no codec for either.
+- Works inside OneDrive, Synology Drive and other synced cloud folders, where Windows
+  otherwise asks only the cloud app for thumbnails: files stored on the PC get the same
+  thumbnails as anywhere else, and online-only files are never downloaded just to draw
+  one (since 3.4.0).
 - Windows 11 and Windows 10, 64-bit only. Single-file installer. Both the modern and
   classic Explorer right-click menus are supported.
 - Free for personal and non-commercial use, source-available under the PolyForm
