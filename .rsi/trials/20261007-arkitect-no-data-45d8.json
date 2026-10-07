@@ -1,5 +1,87 @@
 {
- "closed": null,
+ "closed": {
+  "a": {
+   "commit": "f6f20b905a1fdee2e5d8af9a610d377baa1eb964",
+   "def_hash": "5a64254c5433ebaa",
+   "dirty": false,
+   "id": "m-20261007T120819-f059e0",
+   "load_after": null,
+   "load_before": null,
+   "machine": "MPC-HELL",
+   "metric": "arkitect_no_data",
+   "project": "sagethumbs2k-github-io",
+   "reason": null,
+   "seconds": null,
+   "settings": {
+    "arkitect_checks_total": 1462,
+    "arkitect_commit": "f6f20b905a1fdee2e5d8af9a610d377baa1eb964",
+    "arkitect_tool_version": null,
+    "gate": "exact",
+    "kind": "count",
+    "measure_files": {},
+    "measured_at": "2026-10-07T12:08:14+00:00",
+    "source": "index"
+   },
+   "started": "2026-10-07T12:08:19+00:00",
+   "status": "ok",
+   "value": 194
+  },
+  "applies_if": null,
+  "at": "2026-10-07T12:11:14+00:00",
+  "b": {
+   "commit": "a996bfd2a8aa8cfb9817508403235b8ebfcf9102",
+   "def_hash": "5a64254c5433ebaa",
+   "dirty": false,
+   "id": "m-20261007T121057-59b962",
+   "load_after": null,
+   "load_before": null,
+   "machine": "MPC-HELL",
+   "metric": "arkitect_no_data",
+   "project": "sagethumbs2k-github-io",
+   "reason": null,
+   "seconds": null,
+   "settings": {
+    "arkitect_checks_total": 1462,
+    "arkitect_commit": "a996bfd2a8aa8cfb9817508403235b8ebfcf9102",
+    "arkitect_tool_version": null,
+    "gate": "exact",
+    "kind": "count",
+    "measure_files": {},
+    "measured_at": "2026-10-07T12:10:48+00:00",
+    "source": "index"
+   },
+   "started": "2026-10-07T12:10:57+00:00",
+   "status": "ok",
+   "value": 193
+  },
+  "guards": [
+   {
+    "a": 16,
+    "b": 17,
+    "declared": false,
+    "metric": "arkitect_gating_errors",
+    "state": "worse"
+   },
+   {
+    "a": 43,
+    "b": 43,
+    "declared": false,
+    "metric": "arkitect_warnings",
+    "state": "ok"
+   },
+   {
+    "a": 0,
+    "b": 0,
+    "declared": false,
+    "metric": "deps_total",
+    "state": "ok"
+   }
+  ],
+  "method": "keep refused: guard arkitect_gating_errors got worse (16 -> 17) (was: exact: 194 -> 193)",
+  "note": "baseline file lets ai-writing-slop measure (-1 no-data) but adds one gating error (16 to 17)",
+  "pattern": null,
+  "verdict": "dropped"
+ },
  "def_hash": "5a64254c5433ebaa",
  "id": "20261007-arkitect-no-data-45d8",
  "idea": "Add the ai-writing-slop baseline policy file so that check can measure instead of reporting no-data",
