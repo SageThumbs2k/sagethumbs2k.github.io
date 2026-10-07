@@ -1,0 +1,24 @@
+{
+ "closed": null,
+ "def_hash": "5a64254c5433ebaa",
+ "id": "20261007-arkitect-no-data-45d8",
+ "idea": "Add the ai-writing-slop baseline policy file so that check can measure instead of reporting no-data",
+ "lane": "normal",
+ "metric": "arkitect_no_data",
+ "opened": {
+  "at": "2026-10-07T12:07:26+00:00",
+  "by": "blogi",
+  "commit": "f6f20b905a1fdee2e5d8af9a610d377baa1eb964",
+  "machine": "MPC-HELL"
+ },
+ "pass_line": null,
+ "predict": {
+  "expect": 192.0,
+  "hi": 194.0,
+  "lo": 190.0,
+  "p_keep": 0.5
+ },
+ "probe_minutes": null,
+ "project": "sagethumbs2k-github-io",
+ "schema": "hydra-rsi-trial/1"
+}
