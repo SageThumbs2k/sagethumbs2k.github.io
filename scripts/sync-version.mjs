@@ -175,7 +175,7 @@ const keyFacts = (wrap) => ({
  *  by rewriteCounts. Between them, a count can be neither hand-typed nor silently orphaned. */
 const COUNT_RULES = {
   'index.html': [
-    between(/(<meta name="description" content="File Explorer thumbnails for )\d+( file types)/),
+    between(/(<meta name="description" content="Explorer thumbnails for )\d+( file types)/),
     between(/(<td>Yes, )\d+( formats<\/td>)/),
   ],
   'llms.txt': [
