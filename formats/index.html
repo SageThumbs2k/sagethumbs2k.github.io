@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thumbnail guides by file format | SageThumbs 2K</title>
+<meta name="description" content="What SageThumbs 2K shows in Windows File Explorer for PSD, Blender, STL, EPUB, HEIC, camera RAW, MKV and more, with the limits of each. One guide per format.">
+<link rel="canonical" href="https://sagethumbs.lunarwerx.com/formats/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0b0e13">
+<script>try{var t=localStorage.getItem('st2k-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SageThumbs 2K">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Thumbnail guides by file format | SageThumbs 2K">
+<meta property="og:description" content="What SageThumbs 2K shows in Windows File Explorer for PSD, Blender, STL, EPUB, HEIC, camera RAW, MKV and more, with the limits of each. One guide per format.">
+<meta property="og:url" content="https://sagethumbs.lunarwerx.com/formats/">
+<meta property="og:image" content="https://sagethumbs.lunarwerx.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://sagethumbs.lunarwerx.com/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="/formats/format.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SageThumbs 2K","item":"https://sagethumbs.lunarwerx.com/"},{"@type":"ListItem","position":2,"name":"Format guides","item":"https://sagethumbs.lunarwerx.com/formats/"}]}</script>
+<script>
+        (function (w, d, k) {
+            function warn(msg, err) {
+                try {
+                    if (w.console && typeof w.console.warn === 'function') {
+                        if (err) { w.console.warn(msg, err); } else { w.console.warn(msg); }
+                    }
+                } catch (e0) { }
+            }
+            try {
+                var key = (typeof k === 'string') ? k.replace(/^\s+|\s+$/g, '') : '';
+                if (!key || key === 'ak_YOUR_SITE_KEY') {
+                    warn('[ARGUS] missing or placeholder pixel key; pixel not installed');
+                    return;
+                }
+                if (d.getElementById('argus-pixel')) { return; }
+                var host = w.location.hostname;
+                if (host === 'localhost' || host === '127.0.0.1' || host === '[::1]' || host.endsWith('.local')) { return; }
+                var P = w.ArgusPixel = w.ArgusPixel || {};
+                P.key = key;
+                var j = d.createElement('script');
+                j.async = true;
+                j.id = 'argus-pixel';
+                j.type = 'text/javascript';
+                // ?v= is the cache-bust lever: the pixel is served max-age=3600
+                // from ONE origin shared by every tracked site, so bump this when
+                // a pixel change has to reach existing readers now.
+                j.src = 'https://analytics.connectionsapi.com/pixel.js?v=2';
+                j.onerror = function () { warn('[ARGUS] pixel.js failed to load (check CSP script-src / network / ad-blocker)'); };
+                var mount = d.head || d.getElementsByTagName('head')[0] || d.documentElement || d.body;
+                if (!mount) { warn('[ARGUS] no DOM mount point for pixel; skipping'); return; }
+                mount.appendChild(j);
+            } catch (e) {
+                warn('[ARGUS] pixel install failed', e);
+            }
+        })(window, document, 'ak_edf0ac95c70868048a7a12165aa98a7ed57b');
+    </script>
+</head>
+<body>
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/" aria-label="SageThumbs 2K, home"><img src="/img/logo-81.png" width="27" height="27" alt=""><span class="wm">SageThumbs<span class="k">2K</span></span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/formats/">Format guides</a>
+      <a href="/#formats">All formats</a>
+      <a href="/#pricing">Pricing</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#get">Download</a>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">SageThumbs 2K</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Format guides</span></nav>
+  <h1>Thumbnail guides by file format</h1>
+  <p class="lead">Pick your file type to see what SageThumbs 2K shows for it in Windows File Explorer, how it does it, and where it stops. The home page lists <a href="/#formats">every supported format</a>.</p>
+  <section>
+    <h2>Photos</h2>
+    <ul class="cards"><li><a href="/formats/heic/"><b>HEIC</b><span>iPhone photos, with or without Microsoft's HEIF and HEVC extensions.</span></a></li><li><a href="/formats/avif/"><b>AVIF</b><span>AVIF stills and sequences, decoded without any Store extension.</span></a></li><li><a href="/formats/webp/"><b>WebP</b><span>Still and animated WebP, decoded by SageThumbs itself.</span></a></li><li><a href="/formats/jpeg-2000/"><b>JPEG 2000</b><span>JP2, J2K, JPX and the rest of the JPEG 2000 family.</span></a></li><li><a href="/formats/camera-raw/"><b>Camera RAW</b><span>CR2, CR3, NEF, ARW, DNG, RAF, RW2, ORF and more.</span></a></li></ul>
+  </section>
+  <section>
+    <h2>Design and art files</h2>
+    <ul class="cards"><li><a href="/formats/psd/"><b>PSD</b><span>Photoshop documents, including large PSB files and transparent artwork.</span></a></li><li><a href="/formats/svg/"><b>SVG</b><span>Vector drawings rendered as real thumbnails, SVGZ included.</span></a></li><li><a href="/formats/eps/"><b>EPS</b><span>Encapsulated PostScript, from the preview saved inside the file.</span></a></li><li><a href="/formats/ai/"><b>Illustrator .ai</b><span>Illustrator artwork, without Illustrator installed.</span></a></li><li><a href="/formats/xcf/"><b>GIMP .xcf</b><span>GIMP projects, flattened from their visible layers.</span></a></li><li><a href="/formats/clip/"><b>Clip Studio .clip</b><span>Clip Studio Paint documents, even huge canvases.</span></a></li><li><a href="/formats/affinity/"><b>Affinity</b><span>Affinity Photo, Designer, Publisher and .af documents.</span></a></li><li><a href="/formats/sketch-xd/"><b>Sketch and XD</b><span>Sketch and Adobe XD design files, from their saved preview.</span></a></li></ul>
+  </section>
+  <section>
+    <h2>3D, CAD and 3D printing</h2>
+    <ul class="cards"><li><a href="/formats/blend/"><b>Blender .blend</b><span>Blender scenes and their numbered backup files.</span></a></li><li><a href="/formats/stl/"><b>STL</b><span>3D-print models, rendered as shaded thumbnails.</span></a></li><li><a href="/formats/obj-ply/"><b>OBJ and PLY</b><span>Meshes from 3D apps and 3D scans, rendered shaded.</span></a></li><li><a href="/formats/gcode-3mf/"><b>G-code and 3MF</b><span>Sliced prints and 3MF projects, from the picture the slicer saved.</span></a></li><li><a href="/formats/f3d/"><b>Fusion 360 .f3d</b><span>Fusion 360 archives, from the preview packed inside.</span></a></li><li><a href="/formats/dwg-dxf/"><b>DWG and DXF</b><span>AutoCAD drawings, and DXF files that carry a preview.</span></a></li><li><a href="/formats/skp/"><b>SketchUp .skp</b><span>SketchUp models and their .skb backups.</span></a></li></ul>
+  </section>
+  <section>
+    <h2>Game textures and HDR</h2>
+    <ul class="cards"><li><a href="/formats/dds/"><b>DDS</b><span>Game textures, BC1 to BC7, plus Valve VTF and KTX.</span></a></li><li><a href="/formats/tga/"><b>TGA</b><span>Targa images, including transparent and very large ones.</span></a></li><li><a href="/formats/exr/"><b>OpenEXR</b><span>HDR renders and plates, tone-mapped for the screen.</span></a></li><li><a href="/formats/hdr/"><b>Radiance HDR</b><span>HDRI environment maps and Radiance images, tone-mapped.</span></a></li></ul>
+  </section>
+  <section>
+    <h2>Ebooks, comics and documents</h2>
+    <ul class="cards"><li><a href="/formats/epub/"><b>EPUB</b><span>Ebook covers, read straight out of the book.</span></a></li><li><a href="/formats/mobi/"><b>MOBI and AZW3</b><span>Kindle-format book covers: MOBI, AZW, AZW3 and PRC.</span></a></li><li><a href="/formats/cbz-cbr/"><b>CBZ and CBR comics</b><span>Comic archives show their front cover: CBZ, CBR, CB7 and CBT.</span></a></li><li><a href="/formats/djvu/"><b>DjVu</b><span>Scanned books and documents, shown by their first page.</span></a></li><li><a href="/formats/pdf/"><b>PDF</b><span>Page 1 of every PDF, drawn with Windows' own PDF renderer.</span></a></li></ul>
+  </section>
+  <section>
+    <h2>Video</h2>
+    <ul class="cards"><li><a href="/formats/mkv/"><b>MKV</b><span>A real frame from each Matroska video, 10-bit H.264 included.</span></a></li><li><a href="/formats/webm/"><b>WebM</b><span>WebM frames, including 10-bit and 12-bit HDR VP9.</span></a></li><li><a href="/formats/flv/"><b>FLV</b><span>Flash-era video, with VP6 and Sorenson Spark decoded.</span></a></li><li><a href="/formats/vob-mpg-m2ts/"><b>VOB, MPG and M2TS</b><span>DVD VOB, MPEG-1 and MPEG-2, and TS or M2TS recordings.</span></a></li></ul>
+  </section>
+  <section>
+    <h2>Music and apps</h2>
+    <ul class="cards"><li><a href="/formats/flac-opus-ogg/"><b>FLAC, Opus and Ogg</b><span>Album art for FLAC, Opus, Ogg, APE and more; waveforms for WAV.</span></a></li><li><a href="/formats/apk/"><b>APK</b><span>Android packages show their real launcher icon.</span></a></li></ul>
+  </section>
+  <section class="get" id="get">
+    <h2>Get SageThumbs 2K</h2>
+    <p>Install it with winget:</p>
+    <pre><code>winget install LunarWerxs.SageThumbs2K</code></pre>
+    <p>Or download the installer from GitHub and run it.</p>
+    <p><a class="btn btn-primary" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" rel="noopener">Download the installer</a></p>
+    <p class="note">Windows 11 and 10, 64-bit, on x64 and Arm. The same page has a portable zip that needs no installing.</p>
+    <h3>Free for personal use</h3>
+    <p>Home, hobby and other non-commercial use is free: every format and every tool, no account. A company, a shop or anyone doing paid work needs a business licence for each PC.</p>
+    <p>A business licence is US$49 per PC once, or US$2.99 per PC a month. <a href="/#pricing">See business licence pricing</a></p>
+  </section>
+</main>
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 LunarWerx. Licensed <a href="https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md" rel="noopener">PolyForm Noncommercial 1.0.0</a>: free at home, paid at work.</span>
+    <span><a href="/">Home</a> · <a href="/formats/">Format guides</a> · <a href="https://github.com/LunarWerxs/SageThumbs-2k" rel="noopener">GitHub</a> · <a href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" rel="noopener">Releases</a></span>
+  </div>
+</footer>
+</body>
+</html>

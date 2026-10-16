@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blender .blend thumbnails in Windows Explorer | SageThumbs 2K</title>
+<meta name="description" content="Show Blender .blend files and their .blend1 auto-save backups as thumbnails in Windows File Explorer, from the preview Blender stores in each file.">
+<link rel="canonical" href="https://sagethumbs.lunarwerx.com/formats/blend/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0b0e13">
+<script>try{var t=localStorage.getItem('st2k-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SageThumbs 2K">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Blender .blend thumbnails in Windows Explorer | SageThumbs 2K">
+<meta property="og:description" content="Show Blender .blend files and their .blend1 auto-save backups as thumbnails in Windows File Explorer, from the preview Blender stores in each file.">
+<meta property="og:url" content="https://sagethumbs.lunarwerx.com/formats/blend/">
+<meta property="og:image" content="https://sagethumbs.lunarwerx.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://sagethumbs.lunarwerx.com/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="/formats/format.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SageThumbs 2K","item":"https://sagethumbs.lunarwerx.com/"},{"@type":"ListItem","position":2,"name":"Format guides","item":"https://sagethumbs.lunarwerx.com/formats/"},{"@type":"ListItem","position":3,"name":"Blender .blend","item":"https://sagethumbs.lunarwerx.com/formats/blend/"}]}</script>
+<script>
+        (function (w, d, k) {
+            function warn(msg, err) {
+                try {
+                    if (w.console && typeof w.console.warn === 'function') {
+                        if (err) { w.console.warn(msg, err); } else { w.console.warn(msg); }
+                    }
+                } catch (e0) { }
+            }
+            try {
+                var key = (typeof k === 'string') ? k.replace(/^\s+|\s+$/g, '') : '';
+                if (!key || key === 'ak_YOUR_SITE_KEY') {
+                    warn('[ARGUS] missing or placeholder pixel key; pixel not installed');
+                    return;
+                }
+                if (d.getElementById('argus-pixel')) { return; }
+                var host = w.location.hostname;
+                if (host === 'localhost' || host === '127.0.0.1' || host === '[::1]' || host.endsWith('.local')) { return; }
+                var P = w.ArgusPixel = w.ArgusPixel || {};
+                P.key = key;
+                var j = d.createElement('script');
+                j.async = true;
+                j.id = 'argus-pixel';
+                j.type = 'text/javascript';
+                // ?v= is the cache-bust lever: the pixel is served max-age=3600
+                // from ONE origin shared by every tracked site, so bump this when
+                // a pixel change has to reach existing readers now.
+                j.src = 'https://analytics.connectionsapi.com/pixel.js?v=2';
+                j.onerror = function () { warn('[ARGUS] pixel.js failed to load (check CSP script-src / network / ad-blocker)'); };
+                var mount = d.head || d.getElementsByTagName('head')[0] || d.documentElement || d.body;
+                if (!mount) { warn('[ARGUS] no DOM mount point for pixel; skipping'); return; }
+                mount.appendChild(j);
+            } catch (e) {
+                warn('[ARGUS] pixel install failed', e);
+            }
+        })(window, document, 'ak_edf0ac95c70868048a7a12165aa98a7ed57b');
+    </script>
+</head>
+<body>
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/" aria-label="SageThumbs 2K, home"><img src="/img/logo-81.png" width="27" height="27" alt=""><span class="wm">SageThumbs<span class="k">2K</span></span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/formats/">Format guides</a>
+      <a href="/#formats">All formats</a>
+      <a href="/#pricing">Pricing</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#get">Download</a>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">SageThumbs 2K</a><span class="sep" aria-hidden="true">/</span><a href="/formats/">Format guides</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Blender .blend</span></nav>
+  <h1>Blender .blend thumbnails in Windows Explorer</h1>
+  <p class="lead">SageThumbs 2K shows the preview picture Blender stores in each .blend file, so your scenes appear as thumbnails in File Explorer. Blender's numbered backups, .blend1 to .blend32, get the same treatment.</p>
+  <section>
+    <h2>What you see</h2>
+    <ul>
+      <li>The thumbnail is the preview Blender saved into the file. SageThumbs reads it straight out of the .blend; it does not open or render the scene.</li>
+      <li>Backup copies, .blend1 through .blend32, show their own stored preview, so you can tell versions apart before opening one.</li>
+      <li>Large .blend files are not loaded whole. The preview is pulled out of the file directly, so the preview pane stays quick even for heavy scenes.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Limits</h2>
+    <ul>
+      <li>What you see is the stored preview, not a fresh render: the scene as it was when the file was saved.</li>
+      <li>Online-only files in OneDrive and other synced folders keep their icon: nothing is downloaded just to draw a thumbnail. Files stored on the PC get thumbnails there as anywhere else.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>More you can do</h2>
+    <ul>
+      <li>Press Space on a .blend for a larger look in Quick preview, or use the Explorer preview pane, without starting Blender.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Extensions this covers</h2>
+    <div class="chips"><span class="chip" title="Blender scene">.blend</span> <span class="chip" title="Blender auto-save backup">.blend1</span> <span class="chip" title="Blender auto-save backup">.blend2</span> <span class="chip" title="Blender auto-save backup">.blend3</span> <span class="chip" title="Blender auto-save backup">.blend4</span> <span class="chip" title="Blender auto-save backup">.blend5</span> <span class="chip" title="Blender auto-save backup">.blend6</span> <span class="chip" title="Blender auto-save backup">.blend7</span> <span class="chip" title="Blender auto-save backup">.blend8</span> <span class="chip" title="Blender auto-save backup">.blend9</span> <span class="chip" title="Blender auto-save backup">.blend10</span> <span class="chip" title="Blender auto-save backup">.blend11</span> <span class="chip" title="Blender auto-save backup">.blend12</span> <span class="chip" title="Blender auto-save backup">.blend13</span> <span class="chip" title="Blender auto-save backup">.blend14</span> <span class="chip" title="Blender auto-save backup">.blend15</span> <span class="chip" title="Blender auto-save backup">.blend16</span> <span class="chip" title="Blender auto-save backup">.blend17</span> <span class="chip" title="Blender auto-save backup">.blend18</span> <span class="chip" title="Blender auto-save backup">.blend19</span> <span class="chip" title="Blender auto-save backup">.blend20</span> <span class="chip" title="Blender auto-save backup">.blend21</span> <span class="chip" title="Blender auto-save backup">.blend22</span> <span class="chip" title="Blender auto-save backup">.blend23</span> <span class="chip" title="Blender auto-save backup">.blend24</span> <span class="chip" title="Blender auto-save backup">.blend25</span> <span class="chip" title="Blender auto-save backup">.blend26</span> <span class="chip" title="Blender auto-save backup">.blend27</span> <span class="chip" title="Blender auto-save backup">.blend28</span> <span class="chip" title="Blender auto-save backup">.blend29</span> <span class="chip" title="Blender auto-save backup">.blend30</span> <span class="chip" title="Blender auto-save backup">.blend31</span> <span class="chip" title="Blender auto-save backup">.blend32</span></div>
+    <p class="note"><a href="/#formats">See every format SageThumbs 2K supports</a> or <a href="/formats/">browse all format guides</a>.</p>
+  </section>
+  <section class="get" id="get">
+    <h2>Get SageThumbs 2K</h2>
+    <p>Install it with winget:</p>
+    <pre><code>winget install LunarWerxs.SageThumbs2K</code></pre>
+    <p>Or download the installer from GitHub and run it.</p>
+    <p><a class="btn btn-primary" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" rel="noopener">Download the installer</a></p>
+    <p class="note">Windows 11 and 10, 64-bit, on x64 and Arm. The same page has a portable zip that needs no installing.</p>
+    <h3>Free for personal use</h3>
+    <p>Home, hobby and other non-commercial use is free: every format and every tool, no account. A company, a shop or anyone doing paid work needs a business licence for each PC.</p>
+    <p>A business licence is US$49 per PC once, or US$2.99 per PC a month. <a href="/#pricing">See business licence pricing</a></p>
+  </section>
+  <section>
+    <h2>Thumbnails not showing?</h2>
+    <ul>
+      <li>Windows caches thumbnails, and a file it failed on once stays failed. In SageThumbs, Settings ▸ Advanced ▸ Rebuild thumbnail cache clears the cache and restarts Explorer.</li>
+      <li>Make sure File Explorer's &quot;Always show icons, never thumbnails&quot; option is off, and that the format is ticked in SageThumbs Settings ▸ File types.</li>
+      <li>Run <code>st2k doctor</code> in a terminal. It only reads, checks the whole chain, and prints a fix under anything that is wrong.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Related guides</h2>
+    <ul class="cards"><li><a href="/formats/stl/"><b>STL</b><span>3D-print models, rendered as shaded thumbnails.</span></a></li><li><a href="/formats/obj-ply/"><b>OBJ and PLY</b><span>Meshes from 3D apps and 3D scans, rendered shaded.</span></a></li><li><a href="/formats/f3d/"><b>Fusion 360 .f3d</b><span>Fusion 360 archives, from the preview packed inside.</span></a></li><li><a href="/formats/skp/"><b>SketchUp .skp</b><span>SketchUp models and their .skb backups.</span></a></li></ul>
+  </section>
+</main>
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 LunarWerx. Licensed <a href="https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md" rel="noopener">PolyForm Noncommercial 1.0.0</a>: free at home, paid at work.</span>
+    <span><a href="/">Home</a> · <a href="/formats/">Format guides</a> · <a href="https://github.com/LunarWerxs/SageThumbs-2k" rel="noopener">GitHub</a> · <a href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" rel="noopener">Releases</a></span>
+  </div>
+</footer>
+</body>
+</html>

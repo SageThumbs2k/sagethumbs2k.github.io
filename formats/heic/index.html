@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HEIC thumbnails in Windows Explorer | SageThumbs 2K</title>
+<meta name="description" content="See iPhone HEIC and HEIF photos as thumbnails in Windows 11 and 10 File Explorer, with or without Microsoft's HEIF and HEVC extensions.">
+<link rel="canonical" href="https://sagethumbs.lunarwerx.com/formats/heic/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0b0e13">
+<script>try{var t=localStorage.getItem('st2k-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SageThumbs 2K">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="HEIC thumbnails in Windows Explorer | SageThumbs 2K">
+<meta property="og:description" content="See iPhone HEIC and HEIF photos as thumbnails in Windows 11 and 10 File Explorer, with or without Microsoft's HEIF and HEVC extensions.">
+<meta property="og:url" content="https://sagethumbs.lunarwerx.com/formats/heic/">
+<meta property="og:image" content="https://sagethumbs.lunarwerx.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://sagethumbs.lunarwerx.com/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="/formats/format.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SageThumbs 2K","item":"https://sagethumbs.lunarwerx.com/"},{"@type":"ListItem","position":2,"name":"Format guides","item":"https://sagethumbs.lunarwerx.com/formats/"},{"@type":"ListItem","position":3,"name":"HEIC","item":"https://sagethumbs.lunarwerx.com/formats/heic/"}]}</script>
+<script>
+        (function (w, d, k) {
+            function warn(msg, err) {
+                try {
+                    if (w.console && typeof w.console.warn === 'function') {
+                        if (err) { w.console.warn(msg, err); } else { w.console.warn(msg); }
+                    }
+                } catch (e0) { }
+            }
+            try {
+                var key = (typeof k === 'string') ? k.replace(/^\s+|\s+$/g, '') : '';
+                if (!key || key === 'ak_YOUR_SITE_KEY') {
+                    warn('[ARGUS] missing or placeholder pixel key; pixel not installed');
+                    return;
+                }
+                if (d.getElementById('argus-pixel')) { return; }
+                var host = w.location.hostname;
+                if (host === 'localhost' || host === '127.0.0.1' || host === '[::1]' || host.endsWith('.local')) { return; }
+                var P = w.ArgusPixel = w.ArgusPixel || {};
+                P.key = key;
+                var j = d.createElement('script');
+                j.async = true;
+                j.id = 'argus-pixel';
+                j.type = 'text/javascript';
+                // ?v= is the cache-bust lever: the pixel is served max-age=3600
+                // from ONE origin shared by every tracked site, so bump this when
+                // a pixel change has to reach existing readers now.
+                j.src = 'https://analytics.connectionsapi.com/pixel.js?v=2';
+                j.onerror = function () { warn('[ARGUS] pixel.js failed to load (check CSP script-src / network / ad-blocker)'); };
+                var mount = d.head || d.getElementsByTagName('head')[0] || d.documentElement || d.body;
+                if (!mount) { warn('[ARGUS] no DOM mount point for pixel; skipping'); return; }
+                mount.appendChild(j);
+            } catch (e) {
+                warn('[ARGUS] pixel install failed', e);
+            }
+        })(window, document, 'ak_edf0ac95c70868048a7a12165aa98a7ed57b');
+    </script>
+</head>
+<body>
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/" aria-label="SageThumbs 2K, home"><img src="/img/logo-81.png" width="27" height="27" alt=""><span class="wm">SageThumbs<span class="k">2K</span></span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/formats/">Format guides</a>
+      <a href="/#formats">All formats</a>
+      <a href="/#pricing">Pricing</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#get">Download</a>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">SageThumbs 2K</a><span class="sep" aria-hidden="true">/</span><a href="/formats/">Format guides</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">HEIC</span></nav>
+  <h1>HEIC thumbnails in Windows Explorer</h1>
+  <p class="lead">SageThumbs 2K draws iPhone photos (.heic) and other HEIF images in File Explorer. It uses Microsoft's HEIF and HEVC extensions when they are installed, and its bundled decoder when they are not.</p>
+  <figure class="shot"><img src="/img/gallery/fmt-heic.webp" width="432" height="512" alt="A classic portrait painting decoded from an Apple HEIC file, shown as a thumbnail"></figure>
+  <section>
+    <h2>What you see</h2>
+    <ul>
+      <li>Photos are colour-managed: the Display P3 colour iPhones record is converted to sRGB, so pictures do not look over-saturated next to your other photos.</li>
+      <li>HDR photos that carry a PQ or HLG signal are tone-mapped instead of looking washed out.</li>
+      <li>Image info shows every EXIF tag and whether the photo carries an HDR gain map.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Limits</h2>
+    <ul>
+      <li>Online-only files in OneDrive and other synced folders keep their icon: nothing is downloaded just to draw a thumbnail. Files stored on the PC get thumbnails there as anywhere else.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>More you can do</h2>
+    <ul>
+      <li>Right-click to convert HEIC to JPG, PNG, WebP or AVIF. A new file is written next to the original, which is never overwritten.</li>
+      <li>Strip metadata removes EXIF and GPS from a HEIC without moving a single byte of the picture, and refuses any file layout it does not fully recognise.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Extensions this covers</h2>
+    <div class="chips"><span class="chip" title="High Efficiency Image Format">.heic</span> <span class="chip" title="High Efficiency Image Format">.heif</span> <span class="chip" title="High Efficiency Image Format">.hif</span> <span class="chip" title="HEIF image sequence">.heics</span> <span class="chip" title="HEIF image sequence">.heifs</span></div>
+    <p class="note"><a href="/#formats">See every format SageThumbs 2K supports</a> or <a href="/formats/">browse all format guides</a>.</p>
+  </section>
+  <section class="get" id="get">
+    <h2>Get SageThumbs 2K</h2>
+    <p>Install it with winget:</p>
+    <pre><code>winget install LunarWerxs.SageThumbs2K</code></pre>
+    <p>Or download the installer from GitHub and run it.</p>
+    <p><a class="btn btn-primary" href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" rel="noopener">Download the installer</a></p>
+    <p class="note">Windows 11 and 10, 64-bit, on x64 and Arm. The same page has a portable zip that needs no installing.</p>
+    <h3>Free for personal use</h3>
+    <p>Home, hobby and other non-commercial use is free: every format and every tool, no account. A company, a shop or anyone doing paid work needs a business licence for each PC.</p>
+    <p>A business licence is US$49 per PC once, or US$2.99 per PC a month. <a href="/#pricing">See business licence pricing</a></p>
+  </section>
+  <section>
+    <h2>Thumbnails not showing?</h2>
+    <ul>
+      <li>Windows caches thumbnails, and a file it failed on once stays failed. In SageThumbs, Settings ▸ Advanced ▸ Rebuild thumbnail cache clears the cache and restarts Explorer.</li>
+      <li>Make sure File Explorer's &quot;Always show icons, never thumbnails&quot; option is off, and that the format is ticked in SageThumbs Settings ▸ File types.</li>
+      <li>Run <code>st2k doctor</code> in a terminal. It only reads, checks the whole chain, and prints a fix under anything that is wrong.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Related guides</h2>
+    <ul class="cards"><li><a href="/formats/avif/"><b>AVIF</b><span>AVIF stills and sequences, decoded without any Store extension.</span></a></li><li><a href="/formats/camera-raw/"><b>Camera RAW</b><span>CR2, CR3, NEF, ARW, DNG, RAF, RW2, ORF and more.</span></a></li><li><a href="/formats/webp/"><b>WebP</b><span>Still and animated WebP, decoded by SageThumbs itself.</span></a></li></ul>
+  </section>
+</main>
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 LunarWerx. Licensed <a href="https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md" rel="noopener">PolyForm Noncommercial 1.0.0</a>: free at home, paid at work.</span>
+    <span><a href="/">Home</a> · <a href="/formats/">Format guides</a> · <a href="https://github.com/LunarWerxs/SageThumbs-2k" rel="noopener">GitHub</a> · <a href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" rel="noopener">Releases</a></span>
+  </div>
+</footer>
+</body>
+</html>

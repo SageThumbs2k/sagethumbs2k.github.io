@@ -16,6 +16,45 @@ SageThumbs 2K is a modern, clean-room rebuild of the classic SageThumbs by Nikol
 - Ships an `st2k` command-line tool that also speaks MCP, so an AI agent can view any of the 363 formats as a real image.
 - Runs on Windows 11 and Windows 10, 64-bit. Single-file Windows installer.
 
+## Format guides
+One page per file type: what SageThumbs 2K shows for it in File Explorer, how, and its limits.
+- All guides: https://sagethumbs.lunarwerx.com/formats/
+- PSD: https://sagethumbs.lunarwerx.com/formats/psd/
+- Blender .blend: https://sagethumbs.lunarwerx.com/formats/blend/
+- STL: https://sagethumbs.lunarwerx.com/formats/stl/
+- OBJ and PLY: https://sagethumbs.lunarwerx.com/formats/obj-ply/
+- G-code and 3MF: https://sagethumbs.lunarwerx.com/formats/gcode-3mf/
+- EPUB: https://sagethumbs.lunarwerx.com/formats/epub/
+- MOBI and AZW3: https://sagethumbs.lunarwerx.com/formats/mobi/
+- CBZ and CBR comics: https://sagethumbs.lunarwerx.com/formats/cbz-cbr/
+- DjVu: https://sagethumbs.lunarwerx.com/formats/djvu/
+- PDF: https://sagethumbs.lunarwerx.com/formats/pdf/
+- HEIC: https://sagethumbs.lunarwerx.com/formats/heic/
+- AVIF: https://sagethumbs.lunarwerx.com/formats/avif/
+- WebP: https://sagethumbs.lunarwerx.com/formats/webp/
+- SVG: https://sagethumbs.lunarwerx.com/formats/svg/
+- EPS: https://sagethumbs.lunarwerx.com/formats/eps/
+- Illustrator .ai: https://sagethumbs.lunarwerx.com/formats/ai/
+- DDS: https://sagethumbs.lunarwerx.com/formats/dds/
+- TGA: https://sagethumbs.lunarwerx.com/formats/tga/
+- OpenEXR: https://sagethumbs.lunarwerx.com/formats/exr/
+- Radiance HDR: https://sagethumbs.lunarwerx.com/formats/hdr/
+- JPEG 2000: https://sagethumbs.lunarwerx.com/formats/jpeg-2000/
+- GIMP .xcf: https://sagethumbs.lunarwerx.com/formats/xcf/
+- Clip Studio .clip: https://sagethumbs.lunarwerx.com/formats/clip/
+- Affinity: https://sagethumbs.lunarwerx.com/formats/affinity/
+- Sketch and XD: https://sagethumbs.lunarwerx.com/formats/sketch-xd/
+- Fusion 360 .f3d: https://sagethumbs.lunarwerx.com/formats/f3d/
+- DWG and DXF: https://sagethumbs.lunarwerx.com/formats/dwg-dxf/
+- SketchUp .skp: https://sagethumbs.lunarwerx.com/formats/skp/
+- Camera RAW: https://sagethumbs.lunarwerx.com/formats/camera-raw/
+- MKV: https://sagethumbs.lunarwerx.com/formats/mkv/
+- WebM: https://sagethumbs.lunarwerx.com/formats/webm/
+- FLV: https://sagethumbs.lunarwerx.com/formats/flv/
+- VOB, MPG and M2TS: https://sagethumbs.lunarwerx.com/formats/vob-mpg-m2ts/
+- FLAC, Opus and Ogg: https://sagethumbs.lunarwerx.com/formats/flac-opus-ogg/
+- APK: https://sagethumbs.lunarwerx.com/formats/apk/
+
 ## Links
 - Home: https://sagethumbs.lunarwerx.com/
 - Full brief: https://sagethumbs.lunarwerx.com/llms-full.txt

@@ -5,17 +5,29 @@ name: copy budget
 # cut. The word count is a ratchet against a recorded baseline, not a fixed bar, so it is
 # green today and can only get better.
 
+#
+# The format guides (/formats/) are generated from scripts/format-pages.data.mjs; their check
+# applies the same copy rules to every guide, fails when a generated file is stale, and fails
+# when the homepage wall's chips stop linking their guides (the app repo's gen-site.mjs writes
+# those links from formats/guides.json).
+
 on:
   push:
     branches: [main]
     paths:
       - '**/index.html'
       - 'scripts/copy-budget.*'
+      - 'scripts/format-pages*'
+      - 'formats/**'
+      - 'sitemap.xml'
+      - 'llms.txt'
       - '.github/workflows/copy-budget.yml'
   pull_request:
     paths:
       - '**/index.html'
       - 'scripts/copy-budget.*'
+      - 'scripts/format-pages*'
+      - 'formats/**'
   workflow_dispatch:
 
 concurrency:
@@ -32,3 +44,4 @@ jobs:
         with:
           node-version: '20'
       - run: node scripts/copy-budget.mjs
+      - run: node scripts/format-pages.mjs --check
