@@ -26,7 +26,7 @@ export const GROUPS = [
 
 /** Said on every page, after the page's own limits. */
 export const SHARED_LIMITS = [
-  'Online-only files in OneDrive and other synced folders keep their icon: nothing is downloaded just to draw a thumbnail. Files stored on the PC get thumbnails there as anywhere else.',
+  'In OneDrive and other synced folders, files stored on the PC get thumbnails as anywhere else. Online-only files are left to the cloud app, since nothing is downloaded just to draw a thumbnail.',
 ];
 
 export const PAGES = [
@@ -38,9 +38,9 @@ export const PAGES = [
     h1: 'PSD thumbnails in Windows Explorer',
     description: 'See Photoshop PSD and PSB files as real thumbnails in Windows 11 and 10 File Explorer. SageThumbs 2K reads the file itself; Photoshop need not be installed.',
     blurb: 'Photoshop documents, including large PSB files and transparent artwork.',
-    lead: 'Install SageThumbs 2K and Photoshop documents (.psd, .psb) show their artwork in File Explorer instead of a blank icon. It reads the preview Photoshop saves inside the file, so Photoshop itself does not need to be installed.',
+    lead: 'Install SageThumbs 2K and Photoshop documents (.psd, .psb) show their artwork in File Explorer instead of a plain icon. It reads the preview Photoshop saves inside the file, so Photoshop itself does not need to be installed.',
     shows: [
-      'Icon and tile views use the preview image stored in the document, so a folder of PSDs fills in quickly.',
+      'Ordinary icon views use the small preview stored in the document, which is big enough at that size.',
       'A PSD with transparency, such as a removed background, is drawn from its real layers, so it keeps its see-through areas instead of sitting on white.',
       'The Explorer preview pane and the Space-bar Quick preview render the full-resolution artwork whenever the small stored preview is too small for the view.',
       'Documents drawn from their own pixels go through their colour profile, so CMYK, grayscale and Adobe RGB files show the colours Photoshop shows.',
@@ -116,7 +116,7 @@ export const PAGES = [
     ],
     limits: [
       'The thumbnail shows the shape as plain shaded geometry from one fixed angle.',
-      'Geometry is read defensively: invalid coordinates are dropped and the drawing work is capped, so a damaged file cannot stall Explorer.',
+      'Geometry is read defensively, because the file may come from anyone: non-finite values are dropped, and the drawing work and memory use are capped.',
     ],
     related: ['stl', 'gcode-3mf', 'blend', 'f3d'],
   },
@@ -138,7 +138,7 @@ export const PAGES = [
       'SageThumbs shows the picture the slicer saved. It does not draw the toolpath, so a file saved without an embedded picture has nothing to show.',
     ],
     more: [
-      'For the model files themselves, SageThumbs renders a shaded view: see [STL thumbnails](stl) and [OBJ and PLY thumbnails](obj-ply).',
+      'Plain STL, OBJ and PLY meshes carry no picture, so SageThumbs renders a shaded view: see [STL thumbnails](stl) and [OBJ and PLY thumbnails](obj-ply).',
     ],
     related: ['stl', 'obj-ply', 'f3d'],
   },
@@ -153,7 +153,7 @@ export const PAGES = [
     lead: 'With SageThumbs 2K, each EPUB book shows its cover in File Explorer instead of a generic icon. The cover is read straight out of the EPUB file, so an ebook folder looks like a shelf of books.',
     shows: [
       'The cover is extracted by SageThumbs\' own Rust code; no ebook app or plug-in is involved.',
-      'The Explorer preview pane shows the cover large, and pressing Space opens it in Quick preview.',
+      'The Explorer preview pane shows the cover too, and pressing Space opens it in Quick preview.',
     ],
     more: [
       'Other ebook formats get covers too: [MOBI, AZW and AZW3](mobi), FB2, and [comic archives](cbz-cbr) such as CBZ and CBR.',
@@ -172,7 +172,7 @@ export const PAGES = [
     lead: 'Kindle-format books (.mobi, .azw, .azw3, .prc) can show their covers in File Explorer. SageThumbs 2K reads the cover image inside each book and uses it as the thumbnail.',
     shows: [
       'The MOBI format is parsed by SageThumbs\' own code, so no Kindle app or extra library is needed.',
-      'The cover appears in every Explorer view, in the preview pane, and in Quick preview when you press Space.',
+      'The cover shows as the Explorer thumbnail, in the preview pane, and in Quick preview when you press Space.',
     ],
     more: [
       'EPUB books and comics get the same treatment: see [EPUB covers](epub) and [CBZ and CBR comic covers](cbz-cbr).',
@@ -238,7 +238,7 @@ export const PAGES = [
     ],
     limits: [
       'Thumbnails show page 1 only. Use Quick preview to see the other pages.',
-      'The small preview inside the right-click menu skips PDFs and shows the file name and size instead, so a slow file can never freeze the menu. Folder thumbnails are unaffected.',
+      'The small preview inside the right-click menu skips PDFs and shows the file name and size instead, so a slow file can never freeze the menu. Its thumbnail in Explorer is unaffected.',
     ],
     more: [
       'Right-click a set of images and choose Combine into PDF, or Combine into searchable PDF to add an invisible text layer from Windows\' own OCR.',
@@ -296,14 +296,14 @@ export const PAGES = [
     blurb: 'Still and animated WebP, decoded by SageThumbs itself.',
     lead: 'SageThumbs 2K decodes WebP images itself, so they show thumbnails in File Explorer whether or not Windows\' own WebP support is installed. Animated WebP plays in its Space-bar preview.',
     shows: [
-      'Still and animated WebP files get a thumbnail in every Explorer view and in the preview pane.',
+      'Still and animated WebP files get a thumbnail in File Explorer and the preview pane.',
       'Press Space and an animated WebP plays frame by frame, honouring each frame\'s delay. Ctrl+S saves the frame on screen as a PNG.',
     ],
     limits: [
       'The Explorer thumbnail is a still picture; animation plays in Quick preview.',
     ],
     more: [
-      'Right-click Convert into writes WebP, lossless or lossy with a quality setting, from any supported format.',
+      'Right-click Convert into writes WebP or lossless WebP in one click; the Convert dialog adds a quality setting.',
       'Strip metadata removes EXIF, GPS and other metadata from WebP files without touching the pixels.',
     ],
     related: ['avif', 'heic', 'svg'],
@@ -319,7 +319,7 @@ export const PAGES = [
     lead: 'SageThumbs 2K renders SVG and compressed SVGZ files into real thumbnails in File Explorer, so you see the drawing instead of an app icon. It uses resvg, a renderer written in Rust.',
     shows: [
       'Rendering runs inside SageThumbs with resvg; no browser engine is involved.',
-      'SVGs even appear in the small preview at the top of the right-click menu, which skips most formats that need heavier rendering.',
+      'SVGs even appear in the small preview in the right-click menu, which skips most formats that need heavier rendering.',
       'An archive (.zip, .rar, .7z) full of SVG icons shows a collage of them as its thumbnail.',
     ],
     more: [
@@ -343,7 +343,7 @@ export const PAGES = [
     ],
     limits: [
       'SageThumbs does not render PostScript and never calls Ghostscript. No preview inside the file means no thumbnail.',
-      'Saving the file again from your design app with a TIFF preview gives SageThumbs a picture to show.',
+      'Saving the EPS again with a TIFF preview included gives SageThumbs a picture to show.',
     ],
     more: [
       'Vector art saved as SVG is drawn in full: see [SVG thumbnails](svg).',
@@ -406,7 +406,7 @@ export const PAGES = [
       'In Quick preview, transparent areas sit on a checkerboard instead of vanishing into the background.',
     ],
     more: [
-      'Convert to or from TGA from the right-click menu; TGA is one of the Convert dialog\'s built-in outputs.',
+      'TGA is one of the Convert dialog\'s built-in outputs, and right-click Convert into turns a TGA into PNG, JPG, WebP and more.',
     ],
     related: ['dds', 'psd', 'exr'],
   },
@@ -418,7 +418,7 @@ export const PAGES = [
     h1: 'OpenEXR (.exr) thumbnails in Windows Explorer',
     description: 'Show OpenEXR HDR renders as tone-mapped thumbnails in Windows File Explorer with SageThumbs 2K, including DWAA and DWAB compressed files.',
     blurb: 'HDR renders and plates, tone-mapped for the screen.',
-    lead: 'SageThumbs 2K shows OpenEXR images in File Explorer as tone-mapped thumbnails, so a folder of HDR renders or plates shows pictures instead of blank icons.',
+    lead: 'SageThumbs 2K shows OpenEXR images in File Explorer as tone-mapped thumbnails, so a folder of HDR renders or plates shows pictures instead of plain icons.',
     shows: [
       'Uncompressed, ZIP, PIZ, RLE and B44 EXR files are decoded in pure Rust.',
       'DWAA and DWAB compressed files are decoded through the ImageMagick engine every install includes.',
@@ -440,7 +440,7 @@ export const PAGES = [
     blurb: 'HDRI environment maps and Radiance images, tone-mapped.',
     lead: 'Radiance HDR files (.hdr, .hdri, .rgbe, .xyze), often used for HDRI environment maps, show as tone-mapped thumbnails in File Explorer with SageThumbs 2K.',
     shows: [
-      'Each image is decoded and tone-mapped for an ordinary screen, so a sky or studio light map is recognisable at a glance.',
+      'Each image is decoded and tone-mapped for an ordinary screen.',
       'HDR PNGs that signal PQ or HLG get the same tone mapping, so they no longer look washed out.',
     ],
     more: [
@@ -462,7 +462,7 @@ export const PAGES = [
       'The Explorer preview pane and Quick preview show the image large.',
     ],
     limits: [
-      'The small preview inside the right-click menu skips formats that need ImageMagick and shows the file name and size instead. Folder thumbnails are unaffected.',
+      'The small preview inside the right-click menu skips formats that need ImageMagick and shows the file name and size instead. Their thumbnails in Explorer are unaffected.',
     ],
     more: [
       'The Convert dialog writes JP2, and turns JPEG 2000 files into PNG, JPG or WebP.',
@@ -515,13 +515,13 @@ export const PAGES = [
     h1: 'Affinity Photo, Designer and Publisher thumbnails in Windows Explorer',
     description: 'Show .afphoto, .afdesign, .afpub and .af files as thumbnails in Windows File Explorer, from the preview Affinity saves in each document.',
     blurb: 'Affinity Photo, Designer, Publisher and .af documents.',
-    lead: 'SageThumbs 2K shows Affinity documents in File Explorer: Affinity Photo (.afphoto), Designer (.afdesign), Publisher (.afpub), templates and the newer .af format.',
+    lead: 'SageThumbs 2K shows Affinity documents in File Explorer: Affinity Photo (.afphoto), Designer (.afdesign), Publisher (.afpub), templates (.aftemplate) and .af files.',
     shows: [
       'For documents, the preview Affinity stored in the file is extracted directly. Nothing is rendered and no Affinity app is needed.',
       'Large Affinity documents are not loaded whole; their preview is still found and shown.',
     ],
     more: [
-      'Quick preview (press Space) and the Explorer preview pane show the same picture larger.',
+      'Quick preview (press Space) and the Explorer preview pane show it too, large files included.',
     ],
     related: ['psd', 'clip', 'sketch-xd'],
   },
@@ -580,7 +580,7 @@ export const PAGES = [
     ],
     limits: [
       'Most DXF files written by other programs carry no preview and keep the stock icon.',
-      'SageThumbs does not draw the CAD geometry itself; it shows the stored preview.',
+      'SageThumbs does not draw the CAD geometry itself, so a drawing saved without a preview keeps its icon.',
     ],
     related: ['f3d', 'skp', 'stl'],
   },
@@ -612,7 +612,7 @@ export const PAGES = [
     blurb: 'CR2, CR3, NEF, ARW, DNG, RAF, RW2, ORF and more.',
     lead: 'SageThumbs 2K shows RAW photos from Canon, Nikon, Sony, Fujifilm, Panasonic, Olympus, Pentax, Leica, Hasselblad, Phase One and others, plus Adobe DNG, as thumbnails in File Explorer.',
     shows: [
-      'The thumbnail is the preview image stored in the RAW file, so a card\'s worth of photos fills in quickly.',
+      'The thumbnail is the preview image stored in the RAW file.',
       'It does not depend on Microsoft\'s Raw Image Extension: RAW files the Windows codec cannot read still get a thumbnail.',
       'The Details pane and Properties show dimensions, camera, date taken and GPS location, including the GPS position Windows itself leaves blank for RAW.',
       'Date taken and camera are offered as sortable, groupable columns in Explorer.',
@@ -646,7 +646,7 @@ export const PAGES = [
       'When no frame can be decoded, the file\'s embedded cover art is shown instead, if it has any.',
     ],
     more: [
-      'Press Space to play the video in Quick preview, with seek, volume, speed and repeat. The title bar says when Windows lacks a decoder, for example for DTS audio.',
+      'Press Space to play the video in Quick preview, with seek, volume, speed and repeat. Playback uses Windows\' own codecs, and the title bar says when one is missing, for example for DTS audio.',
       'Save frame as image writes the frame you are paused on as a picture.',
     ],
     image: { src: 'fmt-mkv.webp', alt: 'A frame from an MKV video of a beach, shown as a thumbnail' },
@@ -664,13 +664,13 @@ export const PAGES = [
     shows: [
       'The frame comes from 30% into the video by default, adjustable in Settings ▸ Appearance.',
       'Only the keyframe nearest that point is read, found through the file\'s own index, so large files stay quick.',
-      'HDR VP9 is decoded in pure Rust in a separate, short-lived process, so a bad file cannot affect Explorer.',
+      'HDR VP9 is decoded in pure Rust in a separate, short-lived process, so a bad file cannot take Explorer down.',
     ],
     limits: [
-      'AV1 video needs Microsoft\'s AV1 Video Extension from the Store.',
+      'AV1 video needs Microsoft\'s AV1 add-on from the Microsoft Store; `st2k doctor` names the one to install.',
     ],
     more: [
-      'Press Space to play the video in Quick preview, and use Save frame as image to keep the frame you are paused on.',
+      'Press Space to play the video in Quick preview. Playback uses Windows\' own codecs, and the title bar says when one is missing.',
     ],
     related: ['mkv', 'flv', 'avif'],
   },
@@ -680,15 +680,12 @@ export const PAGES = [
     name: 'FLV',
     exts: ['flv', 'f4v'],
     h1: 'FLV video thumbnails in Windows Explorer',
-    description: 'Show old Flash videos (.flv, .f4v) with a real frame as their thumbnail in Windows File Explorer. SageThumbs 2K decodes VP6 and Sorenson Spark itself.',
+    description: 'Show Flash videos (.flv, .f4v) with a real frame as their thumbnail in Windows File Explorer. SageThumbs 2K decodes VP6 and Sorenson Spark itself.',
     blurb: 'Flash-era video, with VP6 and Sorenson Spark decoded.',
-    lead: 'Windows ships no decoder for VP6 or Sorenson Spark, the video codecs inside many Flash videos. SageThumbs 2K decodes both itself, so old .flv files show a real frame as their thumbnail.',
+    lead: 'Windows ships no decoder for VP6 or Sorenson Spark, the video codecs of older Flash videos. SageThumbs 2K decodes both itself, so old .flv files show a real frame as their thumbnail.',
     shows: [
       'FLV files in H.264 are handed to Windows\' own decoder; VP6 and Sorenson Spark are decoded by SageThumbs in pure Rust, in a separate short-lived process.',
       'F4V files are drawn through Windows\' Media Foundation codecs.',
-    ],
-    more: [
-      'Press Space to play the clip in Quick preview.',
     ],
     related: ['mkv', 'webm', 'vob-mpg-m2ts'],
   },
@@ -700,17 +697,17 @@ export const PAGES = [
     h1: 'VOB, MPG and M2TS video thumbnails in Windows Explorer',
     description: 'Show frames from DVD .vob files, MPEG-1 and MPEG-2 .mpg files and .ts, .m2ts and .mts recordings as thumbnails in Windows File Explorer.',
     blurb: 'DVD VOB, MPEG-1 and MPEG-2, and TS or M2TS recordings.',
-    lead: 'SageThumbs 2K decodes MPEG-1 and MPEG-2 video itself, so DVD files (.vob), VideoCD-era .mpg files and .ts, .m2ts and .mts recordings show a real frame in File Explorer.',
+    lead: 'SageThumbs 2K decodes MPEG-1 and MPEG-2 video itself, so DVD files (.vob) and VideoCD-era .mpg files show a real frame in File Explorer, and so do MPEG-2 .ts, .m2ts and .mts recordings that Windows declines.',
     shows: [
       'Windows cannot open MPEG-1 system streams or bare .m1v and .m2v streams on any edition. SageThumbs draws them.',
-      'DVD .vob files and MPEG-2 recordings otherwise need Microsoft\'s MPEG-2 Video Extension. SageThumbs draws them whenever Windows declines, so that extension is optional.',
+      'DVD .vob files and MPEG-2 recordings otherwise need Microsoft\'s MPEG-2 Video Extension. SageThumbs draws them whenever Windows declines, so that extension is optional for most files.',
       'With the extension installed, Windows draws those frames a little faster.',
     ],
     limits: [
       'Interlaced recordings that store each frame as two half-pictures are left to Windows, which needs the MPEG-2 Video Extension for them.',
     ],
     more: [
-      'Press Space to play a recording in Quick preview, and use Save frame as image to keep a frame.',
+      'Press Space to open a recording in Quick preview. Playback uses Windows\' own codecs, and the title bar says when one is missing.',
     ],
     related: ['mkv', 'flv', 'webm'],
   },
@@ -720,22 +717,22 @@ export const PAGES = [
     name: 'FLAC, Opus and Ogg',
     exts: ['flac', 'opus', 'ogg', 'oga', 'spx', 'ape', 'wv', 'mpc', 'wma', 'dsf', 'wav', 'aiff', 'aif', 'aifc', 'mp3', 'm4a', 'm4b', 'aac'],
     h1: 'FLAC, Opus and Ogg album art thumbnails in Windows Explorer',
-    description: 'Show embedded album art for FLAC, Opus, Ogg, APE, WavPack and WMA files as thumbnails in Windows File Explorer, plus waveforms for WAV and AIFF.',
-    blurb: 'Album art for FLAC, Opus, Ogg, APE and more; waveforms for WAV.',
-    lead: 'SageThumbs 2K shows the album art embedded in your music files as their thumbnails in File Explorer, including Ogg, Opus and APE files whose art Windows does not show. WAV and AIFF without art get a waveform.',
+    description: 'Show embedded album art for FLAC, Opus, Ogg, APE, WavPack and WMA files as thumbnails in Windows File Explorer, plus waveforms for uncompressed WAV and AIFF.',
+    blurb: 'Album art for FLAC, Opus, Ogg, APE and more; waveforms for uncompressed WAV.',
+    lead: 'SageThumbs 2K shows the album art embedded in your music files as their thumbnails in File Explorer, including Ogg, Opus and APE files whose art Windows does not show. Uncompressed WAV and AIFF files without art get a drawn waveform.',
     shows: [
       'Cover art is read from FLAC, MP3, Ogg, Opus, Speex, M4A, AAC, WMA, APE, WavPack, Musepack and DSF files.',
       'WMA covers and tags are read by SageThumbs\' own parser.',
-      'Raw-PCM WAV, AIFF and AIFF-C files with no cover art show a drawn waveform instead of a blank icon.',
+      'Raw-PCM WAV, AIFF and AIFF-C files with no cover art show a drawn waveform.',
       'Long audiobooks are not read whole; the preview pane seeks straight to the embedded art.',
       'For audio formats Windows cannot read, the Details pane fills in length, bitrate, artist, album, title, track, genre and year.',
     ],
     limits: [
-      'A file with no embedded cover shows no artwork, apart from the waveform for WAV and AIFF.',
+      'A file with no embedded cover shows no artwork, apart from the waveform for uncompressed WAV and AIFF.',
     ],
     more: [
       'Press Space to play a track in Quick preview, with its cover as the backdrop.',
-      'Rename by artist and title, or track and title, straight from the tags, and Sort into folders by audio tag to file music into artist and album folders.',
+      'Rename by artist and title, or track and title, straight from the tags, and Sort into folders by audio tag with a folder template such as `$artist - $album`.',
     ],
     image: { src: 'fmt-flac.webp', alt: 'Album art of The Starry Night embedded in a FLAC file, shown as a thumbnail' },
     related: ['mkv', 'webm', 'vob-mpg-m2ts'],

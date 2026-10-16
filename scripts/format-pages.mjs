@@ -151,8 +151,8 @@ const GET = `  <section class="get" id="get">
     <p><a class="btn btn-primary" href="${RELEASES}" rel="noopener">Download the installer</a></p>
     <p class="note">Windows 11 and 10, 64-bit, on x64 and Arm. The same page has a portable zip that needs no installing.</p>
     <h3>Free for personal use</h3>
-    <p>Home, hobby and other non-commercial use is free: every format and every tool, no account. A company, a shop or anyone doing paid work needs a business licence for each PC.</p>
-    <p>A business licence is US$49 per PC once, or US$2.99 per PC a month. <a href="/#pricing">See business licence pricing</a></p>
+    <p>Home, hobby and other non-commercial use is free: every format and every tool. A company, a shop or anyone doing paid work needs a business licence for each PC.</p>
+    <p>A business licence is US$49 per PC once, with 12 months of updates, or US$2.99 per PC a month. <a href="/#pricing">See business licence pricing</a></p>
   </section>`;
 
 const TROUBLE = [
@@ -224,7 +224,7 @@ function hubHtml(pixel) {
   for (const p of PAGES) if (!GROUPS.some(([id]) => id === p.group)) fail(`${p.slug}: unknown group "${p.group}"`);
   return `${head({
     title: 'Thumbnail guides by file format | SageThumbs 2K',
-    description: 'What SageThumbs 2K shows in Windows File Explorer for PSD, Blender, STL, EPUB, HEIC, camera RAW, MKV and more, with the limits of each. One guide per format.',
+    description: 'What SageThumbs 2K shows in Windows File Explorer for PSD, Blender, STL, EPUB, HEIC, camera RAW, MKV and more, with the limits of each.',
     url: `${BASE}/formats/`,
     crumbs: [['SageThumbs 2K', '/'], ['Format guides', '/formats/']],
     pixel,
