@@ -749,7 +749,6 @@ export const PAGES = [
     shows: [
       'The icon is the one the app\'s manifest names, looked up through the package\'s compiled resource table.',
       'Split-APK bundles (.apks, .xapk, .apkm) are covered as well as plain .apk files.',
-      'Press Space for Quick preview: it lists the files inside the package with their sizes, read from the archive\'s directory, without extracting anything.',
     ],
     more: [
       'NuGet (.nupkg) and Visual Studio or VS Code (.vsix) packages show the icon their manifest names, too.',
