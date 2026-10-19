@@ -242,6 +242,22 @@
             "@type": "Answer",
             "text": "Hundreds; see the wall above, or run st2k formats for the live list."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work in OneDrive or Synology Drive folders?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, since 3.4.0. In a synced folder Windows asks only the cloud app for thumbnails, so SageThumbs links itself into that folder's thumbnail slot: files on your PC get the same thumbnails as anywhere else, and online-only files are never downloaded just to draw one."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My Update button fails. What now?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Versions 1.3.3 to 1.10.0 have a broken Update button that wrongly says you need an administrator. Download the latest installer once from the Releases page and run it; one-click updates work from then on."
+          }
         }
       ]
     }
@@ -1873,6 +1889,10 @@ a.lw-parent:hover .lw-tip,a.lw-parent:focus-visible .lw-tip{opacity:1;visibility
         <details class="reveal">
           <summary><h3>Does SageThumbs 2K work offline?</h3><span class="pm" aria-hidden="true"></span></summary>
           <div class="ans">Yes. Everything runs locally; nothing is uploaded and no account is needed. Only the optional link-upload tool touches the network.</div>
+        </details>
+        <details class="reveal">
+          <summary><h3>My Update button fails. What now?</h3><span class="pm" aria-hidden="true"></span></summary>
+          <div class="ans">Versions 1.3.3 to 1.10.0 have a broken Update button that wrongly says you need an administrator. Download the latest installer once from the <a href="https://github.com/LunarWerxs/SageThumbs-2k/releases/latest" target="_blank" rel="noopener">Releases page</a> and run it; one-click updates work from then on.</div>
         </details>
       </div>
       <div>

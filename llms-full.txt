@@ -126,7 +126,9 @@ Full Q&A is on the homepage (#faq) and mirrored in its FAQPage schema. Short ver
 free for personal/non-commercial use (PolyForm Noncommercial 1.0.0); safe to run
 (memory-safe Rust, crash-isolated, bomb guards); doesn't slow Explorer (on-demand,
 cached, out-of-process decodes); works fully offline; SmartScreen warns only because
-SmartScreen may still warn while the signed publisher's reputation builds; needs Windows 11 or 10, 64-bit; run `st2k formats` for the
+SmartScreen may still warn while the signed publisher's reputation builds; needs Windows 11 or 10, 64-bit;
+on 1.3.3 to 1.10.0 the Update button is broken, so download the latest installer once by
+hand and one-click updates work after that; run `st2k formats` for the
 live format list; replaces a thumbnailer, converter, resizer, colour picker,
 screenshot tool, OCR utility, EXIF viewer, metadata stripper, uploader, file
 previewer, email viewer, 3D-model viewer, CLI and MCP server.
