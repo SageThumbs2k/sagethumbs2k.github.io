@@ -5,7 +5,7 @@ tools. Human-readable page: https://sagethumbs.lunarwerx.com/
 
 ## Personal / non-commercial
 
-- Price: $0. No subscription, no trial period, no feature gate, no account required.
+- Price: $0. No subscription, no trial period, no account required.
 - License: [PolyForm Noncommercial 1.0.0](https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md)
 - Source: source-available on GitHub, https://github.com/LunarWerxs/SageThumbs-2k
 - Limits: none. All 364 supported formats, the full right-click toolkit, Quick Look
