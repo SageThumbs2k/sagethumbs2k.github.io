@@ -39,12 +39,11 @@ or AI agents that need a CLI or MCP tool to view formats they otherwise can't op
 - Windows 11 and Windows 10, 64-bit only. Single-file installer. Both the modern and
   classic Explorer right-click menus are supported.
 - Free for personal and non-commercial use, source-available under the PolyForm
-  Noncommercial 1.0.0 license. Commercial deployment needs a commercial licence per Windows installation, sold two ways:
-  US$2.99 per month, or US$49 one-time for a perpetual licence with 12 months of updates. On the one-time
-  plan the app keeps working as it is afterwards; another 12 months of updates is US$29, bought with your
-  key. A monthly licence stops entitling the machine when the subscription ends. Security fixes are
-  delivered to every licensed installation regardless. Monthly bought at https://go.lunarwerx.com/sagethumbs/buy/monthly and cancelled at https://go.lunarwerx.com/sagethumbs/manage;
-  one-time bought at https://go.lunarwerx.com/sagethumbs/buy
+  Noncommercial 1.0.0 license. Commercial deployment needs a commercial licence per Windows installation, a single subscription:
+  US$5 per month or US$50 per year, the same price for home and business. It gives commercial (work) use,
+  priority support and every paid feature added from now on. Free home use keeps working and updating
+  as before. Yearly bought at https://go.lunarwerx.com/sagethumbs/buy, monthly at
+  https://go.lunarwerx.com/sagethumbs/buy/monthly, both managed and cancelled at https://go.lunarwerx.com/sagethumbs/manage
 
 ## Features
 
@@ -104,17 +103,13 @@ or build from source.
 ## Pricing
 
 Free for personal and non-commercial use. Business and commercial use is priced per
-installation (one Windows machine) and sold two ways, both unlocking exactly the same app.
+installation (one Windows machine) and sold as one subscription, the same price for home and business.
 
-Monthly: US$2.99 per installation per month. Cancel whenever you like at https://go.lunarwerx.com/sagethumbs/manage
-(sign in with the email you paid with); it runs to the end of the month already paid for, then
-the machine stops being entitled. Buy at https://go.lunarwerx.com/sagethumbs/buy/monthly
-
-One-time: US$49 per installation. Perpetual licence with 12 months of updates. Afterwards the
-app keeps working as it is; another 12 months of updates is US$29, bought
-with your key at https://go.lunarwerx.com/sagethumbs/renew
-Security fixes are delivered to every licensed installation regardless.
-Buy at https://go.lunarwerx.com/sagethumbs/buy
+Yearly: US$50 per installation per year (two months free). Buy at https://go.lunarwerx.com/sagethumbs/buy
+Monthly: US$5 per installation per month. Buy at https://go.lunarwerx.com/sagethumbs/buy/monthly
+Manage or cancel at https://go.lunarwerx.com/sagethumbs/manage (sign in with the email you paid with).
+The subscription gives commercial (work) use, priority support and every paid feature added from now on.
+Free home use keeps working and updating as before.
 (card payment via Stripe; one redemption key per installation is emailed on payment).
 Redeem under Settings > Licence (version 3.0 and later). Volume, site licences, purchase orders or bank transfer:
 request a quote with the form at https://sagethumbs.lunarwerx.com/#pricing (Request a quote)

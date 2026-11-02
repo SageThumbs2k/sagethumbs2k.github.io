@@ -18,33 +18,19 @@ tools. Human-readable page: https://sagethumbs.lunarwerx.com/
 Two plans, same price unit and the same fully-featured app. The only differences are how
 often you pay and what happens when you stop. Tax is added at checkout where it applies.
 
-- Licence unit (both plans): installation. Buy one per PC; set the quantity at checkout.
+- Licence unit (both billing periods): installation. Buy one per PC; set the quantity at checkout.
   One redemption key (`esk_...`) per installation is emailed on payment. Redeem under
   Settings > Licence (version 3.0 and later). Card payment via Stripe.
 
-### Monthly subscription
+### Subscription (one plan, home and business pay the same)
 
-- Price: US$2.99 per installation per month.
-- How to buy: https://go.lunarwerx.com/sagethumbs/buy/monthly
+- Price: US$50 per installation per year (two months free), or US$5 per installation per month.
+- How to buy: yearly https://go.lunarwerx.com/sagethumbs/buy ; monthly https://go.lunarwerx.com/sagethumbs/buy/monthly
 - Cancellation: any time, self-serve, at https://go.lunarwerx.com/sagethumbs/manage - sign in
   with the email used to pay. The licence runs to the end of the period already paid for
-  and then stops entitling the machine; nothing is pro-rated and nothing is clawed back.
-- Updates: every release published while the subscription is live.
-- Ends: when you stop paying. This is a rental, not a perpetual grant - the software stops
-  serving business use on that machine once the subscription lapses.
-
-### One-time purchase
-
-- Price: US$49 per installation (one Windows machine), one-time. Perpetual licence with
-  12 months of updates. Afterwards the app keeps working as it is; another 12 months of
-  updates is US$29, bought with your key. Security fixes are delivered to every licensed
-  installation regardless.
-- How to buy: https://go.lunarwerx.com/sagethumbs/buy
-- Renewal: US$29 per installation for another 12 months of updates, bought with the same
-  key at https://go.lunarwerx.com/sagethumbs/renew
-  Optional. A licence that is never renewed keeps working; it simply stops being offered
-  builds published after its window ended, security releases excepted.
-- Break-even against the monthly plan: about 16 months.
+  and then stops entitling the machine; nothing is pro-rated.
+- What it gives: commercial (work) use, priority support and every paid feature added from now on.
+- Free home use keeps working and updating as before.
 
 ### Volume
 
@@ -53,12 +39,11 @@ often you pay and what happens when you stop. Tax is added at checkout where it 
 
 ## Ongoing costs the user actually bears
 
-- $0 beyond the licence itself. On the one-time plan that is $0 outright; on the monthly
-  plan the US$2.99 per installation IS the whole recurring cost, and nothing else recurs.
+- $0 beyond the subscription itself. The US$50 a year (or US$5 a month) per installation IS the
+  whole recurring cost, and nothing else recurs.
   There is no bundled or required third-party API. Screen OCR uses Windows' own
   in-box recognizer, not a cloud OCR service or an API key. Thumbnailing, conversion,
-  and the toolkit are 100% local processing: no data leaves the machine and no
-  per-use cost is incurred.
+  and the toolkit are 100% local processing, with no per-use cost.
 - The only feature that touches the network at all is the optional right-click
   "Upload and copy link" tool, which posts to a free, keyless image host chosen by
   SageThumbs 2K; it requires no account and no API key from the user.
@@ -73,18 +58,17 @@ often you pay and what happens when you stop. Tax is added at checkout where it 
 ```
 product: SageThumbs 2K
 price_personal_use: 0 USD
-price_commercial_monthly: 2.99 USD per installation per month (subscription; ends when cancelled)
-price_commercial_use: 49 USD per installation, one-time (perpetual + 12 months updates)
-price_commercial_renewal: 29 USD per installation for another 12 months of updates (optional, one-time plan only)
+price_commercial_yearly: 50 USD per installation per year (subscription)
+price_commercial_monthly: 5 USD per installation per month (subscription)
+buy_url_commercial_yearly: https://go.lunarwerx.com/sagethumbs/buy
 buy_url_commercial_monthly: https://go.lunarwerx.com/sagethumbs/buy/monthly
-buy_url_commercial: https://go.lunarwerx.com/sagethumbs/buy
-cancel_url_commercial_monthly: https://go.lunarwerx.com/sagethumbs/manage
-billing_model: choice of monthly subscription or one-time perpetual, source-available, free for personal/non-commercial use
+cancel_url_commercial: https://go.lunarwerx.com/sagethumbs/manage
+billing_model: single subscription, yearly or monthly, source-available, free for personal/non-commercial use
 license: PolyForm-Noncommercial-1.0.0
 trial_required: false
 account_required: false
 byo_api_key_required: false
-recurring_cost_to_user: 0 USD on the one-time plan; 2.99 USD per installation per month on the monthly plan
+recurring_cost_to_user: 50 USD per installation per year, or 5 USD per month, for commercial use only
 platform: Windows 11, Windows 10 (64-bit)
 current_version: 3.10.0
 ```
