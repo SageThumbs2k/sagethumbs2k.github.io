@@ -52,8 +52,8 @@ often you pay and what happens when you stop. Tax is added at checkout where it 
   There is no bundled or required third-party API. Screen OCR uses Windows' own
   in-box recognizer, not a cloud OCR service or an API key. Thumbnailing, conversion,
   and the toolkit are 100% local processing, with no per-use cost.
-- The only feature that touches the network at all is the optional right-click
-  "Upload and copy link" tool, which posts to a free, keyless image host chosen by
+- The optional right-click
+  "Upload and copy link" tool posts to a free, keyless image host chosen by
   SageThumbs 2K; it requires no account and no API key from the user.
 
 ## What is NOT charged for

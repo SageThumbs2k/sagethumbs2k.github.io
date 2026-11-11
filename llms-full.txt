@@ -75,8 +75,8 @@ or AI agents that need a CLI or MCP tool to view formats they otherwise can't op
   (`st2k --mcp`), so an AI agent can view any of the 366 formats as a real image.
 - Thumbnailing is read-only by default; the toolkit writes only when asked, creating
   new files rather than overwriting originals. Email attachments are listed only,
-  never opened, extracted or written out. Everything runs locally except the optional
-  link-upload tool, which needs internet.
+  never opened, extracted or written out. Files are processed locally; the optional
+  link-upload tool needs internet.
 
 ## How it compares
 
