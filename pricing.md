@@ -6,7 +6,7 @@ tools. Human-readable page: https://sagethumbs.lunarwerx.com/
 ## Personal / non-commercial
 
 - Price: $0. No account required.
-- License: [PolyForm Noncommercial 1.0.0](https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md)
+- License: [PolyForm Noncommercial 1.0.0](https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md) for home use. Work use needs a paid Business subscription under the [Terms of Service](https://terms.connections.icu/public/terms/sagethumbs-2k).
 - Source: source-available on GitHub, https://github.com/LunarWerxs/SageThumbs-2k
 - Thumbnails: All 366 supported formats.
 - Also free: Explorer's preview pane, the right-click menu (convert, resize and the rest)
@@ -23,18 +23,22 @@ tools. Human-readable page: https://sagethumbs.lunarwerx.com/
 
 ## Commercial / business use
 
-Two plans, same price unit, and every feature included (Supporter's five too). The only differences are how
-often you pay and what happens when you stop. Tax is added at checkout where it applies.
+One Business subscription, paid monthly or yearly, with every feature included (Supporter's five too).
+Either way, the installation is licensed only for the period paid. Tax is added at checkout where it applies.
 
 - Licence unit (both billing periods): installation. Buy one per PC; set the quantity at checkout.
   One redemption key (`esk_...`) per installation is emailed on payment. Redeem under
   Settings > Licence (version 3.0 and later). Card payment via Stripe.
 
-### Subscription (Business)
+### Business subscription
 
 - Price: US$50 per installation per year (two months free), or US$5 per installation per month.
 - Term: a subscription licenses the installation for as long as it is paid. Paying for a month covers
-  a month; it is not a one-time purchase and does not buy a permanent licence.
+  a month; it is not a one-time purchase and does not buy a permanent licence. When it ends, that
+  installation is no longer licensed for commercial use, and SageThumbs 2K asks for a key again.
+- Terms of Service: https://terms.connections.icu/public/terms/sagethumbs-2k
+- Earlier licences: licences bought before 1 November 2026 keep the terms they were sold under:
+  they are permanent and do not expire.
 - Evaluation: choose Business when the installer asks how the PC is used. Every feature then works
   for 7 days with no key, account or card; after that it asks for a key for 3 more days, then
   thumbnails and previews stop on that PC until a key is entered.
@@ -42,7 +46,7 @@ often you pay and what happens when you stop. Tax is added at checkout where it 
 - Cancellation: any time, self-serve, at https://go.lunarwerx.com/sagethumbs/manage - sign in
   with the email used to pay. The licence runs to the end of the period already paid for
   and then stops entitling the machine; nothing is pro-rated.
-- What it gives: commercial (work) use, priority support, every Supporter feature and every paid feature added from now on.
+- What it gives: commercial (work) use, priority support, every Supporter feature and every paid feature added later.
 - Free home use keeps updating as before.
 
 ### Volume
@@ -82,8 +86,9 @@ buy_url_commercial_yearly: https://go.lunarwerx.com/sagethumbs/buy
 buy_url_commercial_monthly: https://go.lunarwerx.com/sagethumbs/buy/monthly
 cancel_url_commercial: https://go.lunarwerx.com/sagethumbs/manage
 billing_model: business subscription (yearly or monthly) includes every feature; home use free with an optional Supporter subscription; source-available
-license: PolyForm-Noncommercial-1.0.0
-trial_required: false
+license: PolyForm-Noncommercial-1.0.0 (home use)
+terms_of_service: https://terms.connections.icu/public/terms/sagethumbs-2k
+trial_required: false (home use is free; a business PC gets 7 days, then asks for a key for 3 more days, then thumbnails and previews stop until a key is entered)
 business_evaluation: 7 days with every feature, started by choosing Business in the installer; no key, account or card
 licence_term_commercial: while the subscription is paid; not a one-time purchase
 account_required: false

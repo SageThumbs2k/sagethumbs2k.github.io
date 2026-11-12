@@ -43,8 +43,9 @@ or AI agents that need a CLI or MCP tool to view formats they otherwise can't op
   its OCR items, the command line and every update, with no account. Supporter (home use) is
   US$2 a month or US$20 a year and adds Quick preview, the screenshot tool, OCR, settings sync
   across PCs and the MCP server; each is free for 14 days from first use. Business (any PC used
-  for paid work) needs a licence per Windows installation, US$5 per month or US$50 per year,
-  and includes every feature plus priority support. Yearly bought at https://go.lunarwerx.com/sagethumbs/buy, monthly at
+  for paid work) is a subscription per Windows installation, US$5 a month or US$50 a year,
+  licensed only while it is paid and not a one-time purchase. It includes every feature plus
+  priority support. A 7-day trial starts by choosing Business when the installer asks. Yearly bought at https://go.lunarwerx.com/sagethumbs/buy, monthly at
   https://go.lunarwerx.com/sagethumbs/buy/monthly, both managed and cancelled at https://go.lunarwerx.com/sagethumbs/manage
 
 ## Features
@@ -119,7 +120,7 @@ every feature, Supporter's five included.
 Yearly: US$50 per installation per year (two months free). Buy at https://go.lunarwerx.com/sagethumbs/buy
 Monthly: US$5 per installation per month. Buy at https://go.lunarwerx.com/sagethumbs/buy/monthly
 Manage or cancel at https://go.lunarwerx.com/sagethumbs/manage (sign in with the email you paid with).
-The subscription gives commercial (work) use, priority support, every Supporter feature and every paid feature added from now on.
+The subscription gives commercial (work) use, priority support, every Supporter feature and every paid feature added later.
 Free home use keeps updating as before.
 A subscription licenses the installation for as long as it is paid; it is not a one-time purchase.
 To evaluate before buying, choose Business in the installer: every feature works for 7 days with no key,
@@ -133,7 +134,7 @@ See /pricing.md for the machine-readable version.
 ## FAQ
 
 Full Q&A is on the homepage (#faq) and mirrored in its FAQPage schema. Short version:
-free thumbnails at home, Supporter for five home extras (US$2 a month or US$20 a year), PolyForm Noncommercial 1.0.0; safe to run
+free thumbnails at home, Supporter for five home extras (US$2 a month or US$20 a year), work use a Business subscription per PC (US$5 a month or US$50 a year, licensed while paid, 7-day trial by choosing Business in the installer), PolyForm Noncommercial 1.0.0 for home use; safe to run
 (memory-safe Rust, crash-isolated, bomb guards); doesn't slow Explorer (on-demand,
 cached, out-of-process decodes); works fully offline; SmartScreen warns only because
 SmartScreen may still warn while the signed publisher's reputation builds; needs Windows 11 or 10, 64-bit;
@@ -149,16 +150,18 @@ Windows only, 64-bit only, no macOS or Linux build. The installer is code-signed
 SmartScreen may still warn on first run until the publisher has download history. Some exotic formats lean on Windows' own WIC codecs or
 the bundled ImageMagick engine rather than a pure-Rust decoder. Email preview reads
 the message and lists attachments; it does not extract or open them, and it is a
-viewer, not a mail client. Commercial/business deployment needs a separate license
-from LunarWerx.
+viewer, not a mail client. Commercial/business use needs a Business subscription
+per installation from LunarWerx (see Pricing above).
 
 ## Links
 
 - Home: https://sagethumbs.lunarwerx.com/
 - Source: https://github.com/LunarWerxs/SageThumbs-2k
 - Download: https://github.com/LunarWerxs/SageThumbs-2k/releases/latest
-- License: https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md
+- License (home use): https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md
+- Terms of Service (work use): https://terms.connections.icu/public/terms/sagethumbs-2k
 - Pricing (machine-readable): https://sagethumbs.lunarwerx.com/pricing.md
-- Buy a commercial licence: https://go.lunarwerx.com/sagethumbs/buy
+- Business subscription, yearly: https://go.lunarwerx.com/sagethumbs/buy
+- Business subscription, monthly: https://go.lunarwerx.com/sagethumbs/buy/monthly
 - Short brief: https://sagethumbs.lunarwerx.com/llms.txt
 - Publisher: https://lunarwerx.com/
