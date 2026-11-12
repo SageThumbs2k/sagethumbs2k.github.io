@@ -121,6 +121,10 @@ Monthly: US$5 per installation per month. Buy at https://go.lunarwerx.com/sageth
 Manage or cancel at https://go.lunarwerx.com/sagethumbs/manage (sign in with the email you paid with).
 The subscription gives commercial (work) use, priority support, every Supporter feature and every paid feature added from now on.
 Free home use keeps updating as before.
+A subscription licenses the installation for as long as it is paid; it is not a one-time purchase.
+To evaluate before buying, choose Business in the installer: every feature works for 7 days with no key,
+account or card, then it asks for a key for 3 more days, then thumbnails and previews stop on that PC
+until a key is entered.
 (card payment via Stripe; one redemption key per installation is emailed on payment).
 Redeem under Settings > Licence (version 3.0 and later). Volume, site licences, purchase orders or bank transfer:
 request a quote with the form at https://sagethumbs.lunarwerx.com/#pricing (Request a quote)

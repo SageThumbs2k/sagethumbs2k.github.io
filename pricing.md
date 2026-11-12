@@ -33,6 +33,11 @@ often you pay and what happens when you stop. Tax is added at checkout where it 
 ### Subscription (Business)
 
 - Price: US$50 per installation per year (two months free), or US$5 per installation per month.
+- Term: a subscription licenses the installation for as long as it is paid. Paying for a month covers
+  a month; it is not a one-time purchase and does not buy a permanent licence.
+- Evaluation: choose Business when the installer asks how the PC is used. Every feature then works
+  for 7 days with no key, account or card; after that it asks for a key for 3 more days, then
+  thumbnails and previews stop on that PC until a key is entered.
 - How to buy: yearly https://go.lunarwerx.com/sagethumbs/buy ; monthly https://go.lunarwerx.com/sagethumbs/buy/monthly
 - Cancellation: any time, self-serve, at https://go.lunarwerx.com/sagethumbs/manage - sign in
   with the email used to pay. The licence runs to the end of the period already paid for
@@ -79,6 +84,8 @@ cancel_url_commercial: https://go.lunarwerx.com/sagethumbs/manage
 billing_model: business subscription (yearly or monthly) includes every feature; home use free with an optional Supporter subscription; source-available
 license: PolyForm-Noncommercial-1.0.0
 trial_required: false
+business_evaluation: 7 days with every feature, started by choosing Business in the installer; no key, account or card
+licence_term_commercial: while the subscription is paid; not a one-time purchase
 account_required: false
 byo_api_key_required: false
 recurring_cost_to_user: home 0 USD, or Supporter 2 USD per month or 20 USD per year; commercial 50 USD per installation per year, or 5 USD per month
