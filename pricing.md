@@ -8,7 +8,7 @@ tools. Human-readable page: https://sagethumbs.lunarwerx.com/
 - Price: $0. No account required.
 - License: [PolyForm Noncommercial 1.0.0](https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md) for home use. Work use needs a paid Business subscription under the [Terms of Service](https://terms.connections.icu/public/terms/sagethumbs-2k).
 - Source: source-available on GitHub, https://github.com/LunarWerxs/SageThumbs-2k
-- Thumbnails: All 366 supported formats.
+- Thumbnails: All 369 supported formats.
 - Also free: Explorer's preview pane, the right-click menu (convert, resize and the rest)
   except its OCR items, the command line, and every update.
 - Platform: Windows 11 or Windows 10, 64-bit only.
