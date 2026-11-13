@@ -37,8 +37,6 @@ Either way, the installation is licensed only for the period paid. Tax is added 
   a month; it is not a one-time purchase and does not buy a permanent licence. When it ends, that
   installation is no longer licensed for commercial use, and SageThumbs 2K asks for a key again.
 - Terms of Service: https://terms.connections.icu/public/terms/sagethumbs-2k
-- Earlier licences: licences bought before 1 November 2026 keep the terms they were sold under:
-  they are permanent and do not expire.
 - Evaluation: choose Business when the installer asks how the PC is used. Every feature then works
   for 7 days with no key, account or card; after that it asks for a key for 3 more days, then
   thumbnails and previews stop on that PC until a key is entered.
