@@ -5,7 +5,7 @@ Needs Pillow with WebP support.
 
 Why (measured 2026-09-22, phone on slow 4G): the feature screenshots were full-size PNG/GIF
 masters. The page now references these derived files instead; the masters stay as the source.
-  img/settings.gif          -> img/settings.webp          animated, LOSSLESS (same 11 frames,
+  img/settings.gif          -> img/settings.webp          animated, LOSSLESS (same frames,
                                                            same 1.6 s timing, pixel-identical)
   img/preview-collage.webp  -> img/preview-collage-1240.webp  2074 px wide master shown at most
                                                            620 CSS px: 1240 px covers 2x screens
