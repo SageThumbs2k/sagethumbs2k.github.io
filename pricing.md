@@ -1,6 +1,6 @@
 # Pricing: SageThumbs 2K
 
-Last updated: 2026-11-12. Machine-readable pricing for agentic buyers and comparison
+Last updated: 2026-11-13. Machine-readable pricing for agentic buyers and comparison
 tools. Human-readable page: https://sagethumbs.lunarwerx.com/
 
 ## Personal / non-commercial
@@ -93,5 +93,5 @@ account_required: false
 byo_api_key_required: false
 recurring_cost_to_user: home 0 USD, or Supporter 2 USD per month or 20 USD per year; commercial 50 USD per installation per year, or 5 USD per month
 platform: Windows 11, Windows 10 (64-bit)
-current_version: 4.1.0
+current_version: 4.2.0
 ```
