@@ -45,7 +45,7 @@ or AI agents that need a CLI or MCP tool to view formats they otherwise can't op
   across PCs and the MCP server; each is free for 14 days from first use. Business (any PC used
   for paid work) is a subscription per Windows installation, US$5 a month or US$50 a year,
   licensed only while it is paid and not a one-time purchase. It includes every feature plus
-  priority support. A 7-day trial starts by choosing Business when the installer asks. Yearly bought at https://go.lunarwerx.com/sagethumbs/buy, monthly at
+  priority support. A 7-day trial starts by choosing Business when the installer asks, or, on a copy already installed for home use, under Settings > Licence > Start 7-day business trial. Yearly bought at https://go.lunarwerx.com/sagethumbs/buy, monthly at
   https://go.lunarwerx.com/sagethumbs/buy/monthly, both managed and cancelled at https://go.lunarwerx.com/sagethumbs/manage
 
 ## Features
@@ -123,7 +123,8 @@ Manage or cancel at https://go.lunarwerx.com/sagethumbs/manage (sign in with the
 The subscription gives commercial (work) use, priority support, every Supporter feature and every paid feature added later.
 Free home use keeps updating as before.
 A subscription licenses the installation for as long as it is paid; it is not a one-time purchase.
-To evaluate before buying, choose Business in the installer: every feature works for 7 days with no key,
+To evaluate before buying, choose Business in the installer (a copy already installed for home use: Settings > Licence >
+Start 7-day business trial, no reinstall): every feature works for 7 days with no key,
 account or card, then it asks for a key for 3 more days, then thumbnails and previews stop on that PC
 until a key is entered.
 (card payment via Stripe; one redemption key per installation is emailed on payment).
@@ -134,7 +135,7 @@ See /pricing.md for the machine-readable version.
 ## FAQ
 
 Full Q&A is on the homepage (#faq) and mirrored in its FAQPage schema. Short version:
-free thumbnails at home, Supporter for five home extras (US$2 a month or US$20 a year), work use a Business subscription per PC (US$5 a month or US$50 a year, licensed while paid, 7-day trial by choosing Business in the installer), PolyForm Noncommercial 1.0.0 for home use; safe to run
+free thumbnails at home, Supporter for five home extras (US$2 a month or US$20 a year), work use a Business subscription per PC (US$5 a month or US$50 a year, licensed while paid, 7-day trial by choosing Business in the installer or under Settings > Licence), PolyForm Noncommercial 1.0.0 for home use; safe to run
 (memory-safe Rust, crash-isolated, bomb guards); doesn't slow Explorer (on-demand,
 cached, out-of-process decodes); works fully offline; SmartScreen warns only because
 SmartScreen may still warn while the signed publisher's reputation builds; needs Windows 11 or 10, 64-bit;

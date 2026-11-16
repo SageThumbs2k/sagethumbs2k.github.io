@@ -37,7 +37,8 @@ Either way, the installation is licensed only for the period paid. Tax is added 
   a month; it is not a one-time purchase and does not buy a permanent licence. When it ends, that
   installation is no longer licensed for commercial use, and SageThumbs 2K asks for a key again.
 - Terms of Service: https://terms.connections.icu/public/terms/sagethumbs-2k
-- Evaluation: choose Business when the installer asks how the PC is used. Every feature then works
+- Evaluation: choose Business when the installer asks how the PC is used, or, on a copy already
+  installed for home use, Settings > Licence > Start 7-day business trial (no reinstall). Every feature then works
   for 7 days with no key, account or card; after that it asks for a key for 3 more days, then
   thumbnails and previews stop on that PC until a key is entered.
 - How to buy: yearly https://go.lunarwerx.com/sagethumbs/buy ; monthly https://go.lunarwerx.com/sagethumbs/buy/monthly
@@ -87,7 +88,7 @@ billing_model: business subscription (yearly or monthly) includes every feature;
 license: PolyForm-Noncommercial-1.0.0 (home use)
 terms_of_service: https://terms.connections.icu/public/terms/sagethumbs-2k
 trial_required: false (home use is free; a business PC gets 7 days, then asks for a key for 3 more days, then thumbnails and previews stop until a key is entered)
-business_evaluation: 7 days with every feature, started by choosing Business in the installer; no key, account or card
+business_evaluation: 7 days with every feature, started by choosing Business in the installer or, on a copy installed for home use, by Settings > Licence > Start 7-day business trial; no key, account or card
 licence_term_commercial: while the subscription is paid; not a one-time purchase
 account_required: false
 byo_api_key_required: false
