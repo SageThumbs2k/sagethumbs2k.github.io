@@ -1,6 +1,6 @@
 # Pricing: SageThumbs 2K
 
-Last updated: 2026-11-17. Machine-readable pricing for agentic buyers and comparison
+Last updated: 2026-11-18. Machine-readable pricing for agentic buyers and comparison
 tools. Human-readable page: https://sagethumbs.lunarwerx.com/
 
 ## Personal / non-commercial
@@ -8,7 +8,7 @@ tools. Human-readable page: https://sagethumbs.lunarwerx.com/
 - Price: $0. No account required.
 - License: [PolyForm Noncommercial 1.0.0](https://github.com/LunarWerxs/SageThumbs-2k/blob/main/.github/LICENSE.md) for home use. Work use needs a paid Business subscription under the [Terms of Service](https://terms.connections.icu/public/terms/sagethumbs-2k).
 - Source: source-available on GitHub, https://github.com/LunarWerxs/SageThumbs-2k
-- Thumbnails: All 434 supported formats.
+- Thumbnails: All 435 supported formats.
 - Also free: Explorer's preview pane, the right-click menu (convert, resize and the rest)
   except its OCR items, the command line, and every update.
 - Platform: Windows 11 or Windows 10, 64-bit only.
@@ -94,5 +94,5 @@ account_required: false
 byo_api_key_required: false
 recurring_cost_to_user: home 0 USD, or Supporter 2 USD per month or 20 USD per year; commercial 50 USD per installation per year, or 5 USD per month
 platform: Windows 11, Windows 10 (64-bit)
-current_version: 5.0.1
+current_version: 5.1.0
 ```
