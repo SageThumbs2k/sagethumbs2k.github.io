@@ -27,7 +27,7 @@ One Business subscription, paid monthly or yearly, with every feature included (
 Either way, the installation is licensed only for the period paid. Tax is added at checkout where it applies.
 
 - Licence unit (both billing periods): installation. Buy one per PC; set the quantity at checkout.
-  One redemption key (`esk_...`) per installation is emailed on payment. Redeem under
+  One redemption key (`esk_...`) per installation is emailed to the address used at checkout, usually within a few minutes. Check spam or junk; if it has not arrived, use Send feedback in the app's About box. Redeem under
   Settings > Licence (version 3.0 and later). Card payment via Stripe.
 
 ### Business subscription

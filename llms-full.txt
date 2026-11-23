@@ -127,7 +127,7 @@ To evaluate before buying, choose Business in the installer (a copy already inst
 Start 7-day business trial, no reinstall): every feature works for 7 days with no key,
 account or card, then it asks for a key for 3 more days, then thumbnails and previews stop on that PC
 until a key is entered.
-(card payment via Stripe; one redemption key per installation is emailed on payment).
+(card payment via Stripe; one redemption key per installation is emailed to the address used at checkout, usually within a few minutes; if it has not arrived, check spam or junk, then use Send feedback in the app's About box).
 Redeem under Settings > Licence (version 3.0 and later). Volume, site licences, purchase orders or bank transfer:
 request a quote with the form at https://sagethumbs.lunarwerx.com/#pricing (Request a quote)
 See /pricing.md for the machine-readable version.
